@@ -17,7 +17,7 @@ hide:
 <section class="">
 
 <h1 style="font-weight:bold;margin:0px">Alfabetizzazione Informatica</h1>
-<p>Le dispense per le lezioni di informatica del Prof Robuffo</p>
+<p>Le dispense per le lezioni di informatica del Prof</p>
 
 <br>
 <br>

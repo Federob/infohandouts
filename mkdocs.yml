@@ -1,1 +1,79 @@
-site_name: My Docs
+site_name: Informatics Literacy Course
+site_author: Federico Robuffo
+
+copyright: >
+    Federico Robuffo (c) 2024-2025<br>
+    <a href="#__consent">Change Cookie Settings</a>
+
+# ----------------------------------------------------
+
+theme:
+  name: material
+  palette:
+  # Palette toggle for light mode
+  - scheme: default
+    primary: pink
+    accent: purple
+    toggle:
+      icon: material/brightness-7 
+      name: Switch to dark mode
+  # Palette toggle for dark mode
+  - scheme: slate
+    primary: pink
+    accent: purple
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
+  font: False
+  language: it
+  features:
+    - navigation.footer
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - toc.integrate
+    - content.code.copy
+  plugins:
+    - search:
+        lang: it
+
+extra:
+  consent:
+    title: Consenso all'uso dei Cookie(s)
+    description: >
+      Questo sito memorizza alcuni cookies solo per riconoscere un visitatore 
+      che non è alla sua prima visita e alcune preferenze, come il tema di visualizzazione
+      della pagina selezionato.<br>
+      Se non acconsenti, questa finestra riapparirà ogni volta che riapri il sito.<br>
+      Se vuoi cambiare le tue scelte, in fondo alla pagina trovi un link per modificarle ;)
+    actions:
+     - accept
+     - reject
+
+extra_css:
+- stylesheets/extra.css
+
+# ----------------------------------------------------
+
+markdown_extensions:
+  - admonition: {}
+  - attr_list: {}
+  - toc: {}
+  - def_list: {}
+  - pymdownx.emoji: {}
+  - pymdownx.tasklist: {custom_checkbox: True}
+  - pymdownx.highlight: {anchor_linenums: True}
+  - pymdownx.inlinehilite: {}
+  - pymdownx.snippets: {}
+  - pymdownx.superfences: {}
+
+
+# -----------------------------------------------------------------------------------------------
+ 
+nav:
+  - Home: index.md
+  - Hardware & Software:
+    - Introduzione: hwsw/00_intro.md
+    - Hardware: hwsw/10_hw.md
+    - Software: hwsw/20_sw.md
+ 

@@ -1,13 +1,12 @@
 ---
 created: 2024-09-25T16:17:38 (UTC +02:00)
 tags: []
-#source: https://adjamhub.github.io/infohandouts/hwsw/00_intro/
+source: https://federob.github.io/infohandouts/hwsw/00_intro/
 author: Federico Robuffo
 ---
 
 # Introduzione - Informatics Literacy Course
 
-> ## Excerpt
 > I computer moderni sono dispositivi elettronici che funzionano come sistemi, ovvero come un insieme di parti che interagiscono fra loro per un obiettivo comune.
 
 ---

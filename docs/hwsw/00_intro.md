@@ -7,8 +7,6 @@ author: Federico Robuffo
 
 # Introduzione - Informatics Literacy Course
 
-> I computer moderni sono dispositivi elettronici che funzionano come sistemi, ovvero come un insieme di parti che interagiscono fra loro per un obiettivo comune.
-
 ---
 I computer moderni sono dispositivi elettronici che funzionano come _sistemi_, ovvero come un insieme di parti che interagiscono fra loro per un obiettivo comune.
 

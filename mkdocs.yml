@@ -1,4 +1,4 @@
-site_name: Informatics Literacy Course
+site_name: Corso di Informatica
 site_author: Federico Robuffo
 
 copyright: >
@@ -12,15 +12,15 @@ theme:
   palette:
   # Palette toggle for light mode
   - scheme: default
-    primary: blue
-    accent: lightblue
+    primary: indigo
+    accent: light blue
     toggle:
       icon: material/brightness-7 
       name: Switch to dark mode
   # Palette toggle for dark mode
   - scheme: slate
-    primary: blue
-    accent: lightblue
+    primary: indigo
+    accent: light blue
     toggle:
       icon: material/brightness-4
       name: Switch to light mode

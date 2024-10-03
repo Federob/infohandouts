@@ -76,5 +76,6 @@ nav:
     - Introduzione: hwsw/00_intro.md
     - Hardware: hwsw/10_hw.md
     - Software: hwsw/20_sw.md
+  - La lingua del PC:
     - La codifica delle informazioni: infoCoding/00_intro.md
  

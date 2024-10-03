@@ -150,5 +150,6 @@ Convertire in decimale i seguenti numeri binari:
 10, 100, 1100, 10101010, 11001100, 11110000, 10010010, 10010110
 ```
 
+[Esercitati e gioca online!!](https://learningcontent.cisco.com/games/binary/index.html)
 
 

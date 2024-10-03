@@ -37,6 +37,13 @@ Il software, i sistemi operativi, i programmi applicativi</p>
 <br>
 </div>
 
+<div class="w3-half" style="padding:0 10px">
+<a href="infoCoding/00_intro/" class="md-button md-button--primary" style="width:300px">La lingua del PC</a>
+<p>I fondamenti del linguaggio del PC. Codici binari ed esadecimali, analogico e digitale, immagini</p>
+<br>
+<br>
+</div>
+
 </div>
 
 </section>

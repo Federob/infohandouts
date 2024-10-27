@@ -152,4 +152,7 @@ Convertire in decimale i seguenti numeri binari:
 
 [Esercitati e gioca online!!](https://learningcontent.cisco.com/games/binary/index.html)
 
+## Digitalizzare immagini
+
+....in sviluppo, disponibili il 28/10
 

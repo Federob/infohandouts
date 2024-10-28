@@ -3,11 +3,30 @@
 In questo capitolo vedremo come funziona sommariamente il sistema di numerazione binario e lo utilizzeremo per cercare di rappresentare alcune delle informazioni
 di base più importanti!
 
+## Analogico e Digitale 
+
+Tutti noi abbiamo esperienza di dispositivi analogici e digitali, ad esempio chi non ha mai visto un tachimetro analogico dell'auto? che differenza c'è con uno digitale?
+
+Nei dispositivi analogici i dati variano in modo **continuo** -> In ogni istante abbiamo un'informazione, non ci sono "buchi"
+
+Nei dispositivi digitali i dai variano un modo **discreto** -> Vengono scelti solo alcuni momenti (di più o di meno dipende da quanto vogliamo essere "fedeli" all'originale) e tutto diventa un numero
+
+> **Analogico** : procedimento che rappresenta un fenomeno con continuità <br><br>
+> **Digitale** : procedimento che rappresenta lo stesso fenomeno traducendolo in cifre (dall'inglese *digit*, cifra) e quindi un modo discontinuo
+
+![AD](andig.png)
+
+Ma perché abbiamo bisogno di convertire qualcosa di analogico in qualcosa di digitale?
+
+**Perché il computer per lavorare ha bisogno di numeri**
+
+
+E come sono "fatti" i numeri che sa elaborare il PC?
+
+**Sono i numeri codificati in *binario***
 
 <!--  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 ## Il sistema binario
-
-
 
 Il sistema di numerazione binario è un sistema numerico ***posizionale*** e ***in base 2***, cioè che utilizza solo 2 cifre, solitamente 0 e 1, 
 per la rappresentazione di tutti i numeri.

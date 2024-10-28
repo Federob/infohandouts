@@ -232,16 +232,16 @@ In sintesi:
 
 1. **RGB (Red, Green, Blue)**
 
-* **Dove viene usato**: nei dispositivi che emettono luce, come monitor, televisori, smartphone.
-* **Modalità di colore**: sintesi additiva (i colori si formano aggiungendo luce).
-* **Come funziona**: mescolando i colori rosso, verde e blu alla massima intensità, si ottiene il bianco.
-* **Gamma cromatica**: RGB ha una gamma di colori più ampia (più colori) rispetto a CMYK, rendendo i colori più vivaci su schermo.
-* **Utilizzo**: ideale per immagini digitali, grafica web, video e tutto ciò che si visualizza su schermo.
+      * **Dove viene usato**: nei dispositivi che emettono luce, come monitor, televisori, smartphone.
+      * **Modalità di colore**: sintesi additiva (i colori si formano aggiungendo luce).
+      * **Come funziona**: mescolando i colori rosso, verde e blu alla massima intensità, si ottiene il bianco.
+      * **Gamma cromatica**: RGB ha una gamma di colori più ampia (più colori) rispetto a CMYK, rendendo i colori più vivaci su schermo.
+      * **Utilizzo**: ideale per immagini digitali, grafica web, video e tutto ciò che si visualizza su schermo.
 
 1. **CMYK (Cyan, Magenta, Yellow, Key/Black)**
 
-* **Dove viene usato**: nelle stampanti e nei sistemi di stampa, poiché utilizza pigmenti fisici.
-* **Modalità di colore**: sintesi sottrattiva (i colori si ottengono assorbendo la luce riflessa).
-* **Come funziona**: mescolando i colori ciano, magenta e giallo, si ottiene un colore molto scuro (quasi nero). Il nero viene aggiunto per ottenere neri più intensi e dettagli precisi.
-* **Gamma cromatica**: CMYK ha una gamma cromatica più ridotta rispetto a RGB, quindi alcuni colori appaiono meno vivaci su carta.
-* **Utilizzo**: adatto per stampe fisiche su carta, come libri, poster, e tutto ciò che deve essere stampato.
+      * **Dove viene usato**: nelle stampanti e nei sistemi di stampa, poiché utilizza pigmenti fisici.
+      * **Modalità di colore**: sintesi sottrattiva (i colori si ottengono assorbendo la luce riflessa).
+      * **Come funziona**: mescolando i colori ciano, magenta e giallo, si ottiene un colore molto scuro (quasi nero). Il nero viene aggiunto per ottenere neri più intensi e dettagli precisi.
+      * **Gamma cromatica**: CMYK ha una gamma cromatica più ridotta rispetto a RGB, quindi alcuni colori appaiono meno vivaci su carta.
+      * **Utilizzo**: adatto per stampe fisiche su carta, come libri, poster, e tutto ciò che deve essere stampato.

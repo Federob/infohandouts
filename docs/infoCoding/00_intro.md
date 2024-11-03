@@ -245,3 +245,5 @@ In sintesi:
       * **Come funziona**: mescolando i colori ciano, magenta e giallo, si ottiene un colore molto scuro (quasi nero). Il nero viene aggiunto per ottenere neri più intensi e dettagli precisi.
       * **Gamma cromatica**: CMYK ha una gamma cromatica più ridotta rispetto a RGB, quindi alcuni colori appaiono meno vivaci su carta.
       * **Utilizzo**: adatto per stampe fisiche su carta, come libri, poster, e tutto ciò che deve essere stampato.
+
+[Esercitati e gioca online on l'RGB!!](https://primozz.github.io/colorgame/)

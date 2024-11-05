@@ -186,64 +186,86 @@ Convertire in decimale i seguenti numeri binari:
 
 [Esercitati e gioca online!!](https://learningcontent.cisco.com/games/binary/index.html)
 
-## Digitalizzare immagini
+## La Codifica Esadecimale
 
-Digitalizzare un'immagine significa trasformare la luce che entra nella nostra fotocamera (e che ci permette di vedere forme e colori) in una serie di numeri
+La **codifica esadecimale** è un sistema di numerazione in base 16, molto usato in informatica per rappresentare dati binari in modo più compatto e leggibile rispetto alla base 2 (binario).
 
-Per fare ciò dovete immaginare che l'immagine sia divisa in tante "caselle" uguali tra di loro come una griglia, ognuna di queste caselle si chiama **pixel** ( Ad esempio, la fotocamera del vostro cellulare quanti pixel ha? se ha 60 Mpx significa che ogni volta che scattate una foto l'immagine è dapprima divisa in 60 milioni di pixel )
+### 1. Cos'è il Sistema Esadecimale?
 
-Ogni pixel può assumere un solo colore, quindi ognuno di loro verà tradotto in un numero che rappresenta il colore che più di tutti è presente in quel pixel
+Il sistema esadecimale utilizza 16 simboli:
+- Le cifre da 0 a 9, che hanno lo stesso valore come nel sistema decimale.
+- Le lettere dalla A alla F, che rappresentano i valori dal 10 al 15.
 
-La **qualità** di una foto digitale dipende dalla sua **risoluzione**, cioè dal numero di pixel del sensore della fotocamera.
+| Valore Decimale | Esadecimale |
+|-----------------|-------------|
+| 0               | 0           |
+| 1               | 1           |
+| ...             | ...         |
+| 10              | A           |
+| 11              | B           |
+| 12              | C           |
+| 13              | D           |
+| 14              | E           |
+| 15              | F           |
 
-> Domanda : che differenza c'è quindi tra una foto scattata a 100 px e una a 
-> 60 Mpx? quale delle due sembrerà "quadrettata" e poco simile alla realtà?
+Questa tabella mostra come i primi 16 numeri decimali si mappano in esadecimale.
 
-![Res](imgres.png)
+### 2. Conversione da Decimale a Esadecimale
 
-Come detto in precedenza ad ogni pixel viene associato un colore, attraverso una codifica che si chiama **RGB (Red Green Blue)**.
+Per convertire un numero decimale in esadecimale, si divide il numero per 16, memorizzando il resto. Ad esempio, vediamo come convertire 156 in esadecimale:
 
-Ogni colore può essere rappresentato come una somma di intensità di luce di ognuo dei 3 colori primari della **sintesi additiva**, così chiamata perché la somma delle 3 componenti al massimo da come risultato il BIANCO.
+1. **Divisione**: 156 diviso 16 dà 9 come quoziente e 12 come resto.
+2. **Corrispondenza del resto**: Il resto 12 corrisponde a `C` in esadecimale.
+3. **Risultato**: Partendo dall'alto, scriviamo il quoziente seguito dal resto, ottenendo **9C**.
 
-Quando vediamo una foto nel monitor del pc riproduciamo i colori in ogni pixel aumentando o diminuendo una o tutte le 3 componenti, nel caso del colore bianco le 3 intensità sono tutte la massimo.
+Quindi, 156 in decimale è uguale a **9C** in esadecimale.
 
-Ognuo dei 3 colori è rappresentato da un byte ( 8 bit ), quindi ogni pixel è rappresentato da 3 byte ( 24 bit ) e ogni colore è una combinazione di valori
+### 3. Conversione da Binario a Esadecimale
 
-![RGB](rgb.png)
+Il sistema esadecimale è particolarmente utile per rappresentare i numeri binari perché ogni cifra esadecimale rappresenta esattamente **4 bit**. 
 
-*1111111 è il valore più grande che può assumere ogni byte*
+| Binario | Esadecimale |
+|---------|-------------|
+| 0000    | 0           |
+| 0001    | 1           |
+| 0010    | 2           |
+| 0011    | 3           |
+| 0100    | 4           |
+| 0101    | 5           |
+| 0110    | 6           |
+| 0111    | 7           |
+| 1000    | 8           |
+| 1001    | 9           |
+| 1010    | A           |
+| 1011    | B           |
+| 1100    | C           |
+| 1101    | D           |
+| 1110    | E           |
+| 1111    | F           |
 
+#### Esempio di Conversione Binaria
 
-Ma cosa succede quando vogliamo stampare una foto? Perché le stampanti a cartucce non hanno i colori RGB e invece troviamo le cartucce *Ciano (C, Cyan), Magenta (M) e Giallo (Y, Yellow)*
+Prendiamo in esempio un numero binario: `11010110`.
 
-Quando dobbiamo portare un'immagine su carta non emettiamo più luce (come nel caso del monitor ) ma la luce sarà riflessa su carta.
+1. **Dividiamo il numero in gruppi di 4 bit**: `1101` e `0110`.
+2. **Convertiamo ogni gruppo**:
+   - `1101` diventa `D`
+   - `0110` diventa `6`
 
-In questo caso i colori hanno una resa milgiore se composti utilizzando come basi i colori primari della sintesi sottrattiva, così chiamata perché "ruba luce" e la loro somma fa NERO.
+Il numero `11010110` in binario è **D6** in esadecimale.
 
-Significa che se noi avessimo 3 lampade di quei 3 colori e le accendessimo tutte insieme avremmo il buio!!
+### 4. Vantaggi della Codifica Esadecimale
 
-N.B. : anche se usassimo i colori primari RGB mischiati insieme avremmo un colore scuro (tipo un marroncino) ma in generale i colori sono un pò sbiancati, ed è difficile ottenere colori vivaci, proprio a causa del "furto della luce"
+1. **Compattezza**: Gli esadecimali permettono di scrivere numeri lunghi con meno cifre.
+2. **Facilità di lettura**: Per molti scopi, soprattutto in programmazione e configurazioni, è più facile leggere numeri in esadecimale che in binario.
+3. **Rapporto diretto con il binario**: La conversione tra esadecimale e binario è semplice, dato che ogni cifra esadecimale corrisponde a 4 bit.
 
-Molte volte, quasi sempre in realtà, accanto alle cartucce colorate c'è sempre una cartuccia del *Nero* ( *K* , dal termine inglese *key*, poiché il nero è colore chiave o importante nella stampa di anni fa). Ciò dipende dal fatto che mischiando i 3 colori non si ottengono mai tinte scure precise e in generale aggiungendo nero si ottengono molte più tonalità di colore per rendere la stampa sempre più vicina all'originale in foto
+### Conclusione
 
-![CMYK](cmyk.png)
+La codifica esadecimale è fondamentale in informatica per rappresentare dati in modo compatto e leggibile, soprattutto quando si lavora con il sistema binario. Conoscere l'esadecimale è un'abilità essenziale per gli sviluppatori e gli operatori di sistema.
 
-In sintesi:
+#### Esercizi
 
-1. **RGB (Red, Green, Blue)**
-
-      * **Dove viene usato**: nei dispositivi che emettono luce, come monitor, televisori, smartphone.
-      * **Modalità di colore**: sintesi additiva (i colori si formano aggiungendo luce).
-      * **Come funziona**: mescolando i colori rosso, verde e blu alla massima intensità, si ottiene il bianco.
-      * **Gamma cromatica**: RGB ha una gamma di colori più ampia (più colori) rispetto a CMYK, rendendo i colori più vivaci su schermo.
-      * **Utilizzo**: ideale per immagini digitali, grafica web, video e tutto ciò che si visualizza su schermo.
-
-1. **CMYK (Cyan, Magenta, Yellow, Key/Black)**
-
-      * **Dove viene usato**: nelle stampanti e nei sistemi di stampa, poiché utilizza pigmenti fisici.
-      * **Modalità di colore**: sintesi sottrattiva (i colori si ottengono assorbendo la luce riflessa).
-      * **Come funziona**: mescolando i colori ciano, magenta e giallo, si ottiene un colore molto scuro (quasi nero). Il nero viene aggiunto per ottenere neri più intensi e dettagli precisi.
-      * **Gamma cromatica**: CMYK ha una gamma cromatica più ridotta rispetto a RGB, quindi alcuni colori appaiono meno vivaci su carta.
-      * **Utilizzo**: adatto per stampe fisiche su carta, come libri, poster, e tutto ciò che deve essere stampato.
-
-[Esercitati e gioca online on l'RGB!!](https://primozz.github.io/colorgame/)
+1. Converti i seguenti numeri decimali in esadecimale: 45, 128, 255.
+2. Converti i seguenti numeri esadecimali in decimale: `1A`, `7F`, `2B`.
+3. Usa la tabella di conversione per rappresentare il numero binario `10101010` in esadecimale.

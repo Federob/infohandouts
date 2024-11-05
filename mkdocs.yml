@@ -77,5 +77,9 @@ nav:
     - Hardware: hwsw/10_hw.md
     - Software: hwsw/20_sw.md
   - La lingua del PC:
-    - La codifica delle informazioni: infoCoding/00_intro.md
+    - Analogico e Digitale: infoCoding/00_intro.md
+    - Testo: infoCoding/01_digit_text.md
+    - Immagini: infoCoding/02_digit_img.md
+    - Suoni: infoCoding/03_digit_audio.md
+    - Video: infoCoding/04_digit_video.md
  

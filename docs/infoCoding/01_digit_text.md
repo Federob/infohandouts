@@ -75,3 +75,18 @@ La codifica del testo è fondamentale per la comunicazione globale e per il corr
 2. Qual è il punto di codice Unicode per la lettera `ñ`? (Suggerimento: cerca nella tabella Unicode)
 3. Converti la frase "Hello!" in binario usando la codifica ASCII.
 
+## Mappa concettuale
+
+```mermaid
+graph LR
+    A[Codifica del Testo] --> B[ASCII]
+    A --> C[Unicode]
+    B --> D[7 bit]
+    B --> E[Caratteri Inglesi]
+    C --> F[Espande ASCII]
+    C --> G[Multilingua]
+    C --> H[UTF-8, UTF-16]
+    A --> I[Utilizzo]
+    I --> J[Computer e Internet]
+    I --> K[Compatibilità Internazionale]
+```

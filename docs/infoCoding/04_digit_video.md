@@ -49,20 +49,7 @@ Il **bitrate** indica quanti bit vengono trasmessi ogni secondo nel video. Si mi
 - Un video 1080p con un bitrate di 4 Mbps sarà più nitido rispetto allo stesso video con un bitrate di 2 Mbps.
 - Un video 4K richiede solitamente un bitrate più alto rispetto a un video HD per mantenere la stessa qualità.
 
-## 6. Rappresentazione Grafica dei Concetti Chiave
-
-Ecco alcune immagini online che possono aiutare a capire meglio questi concetti:
-
-- **Campionamento di Fotogrammi**: Un’immagine che mostra la sequenza di fotogrammi che compone un video:
-  - ![Campionamento di Fotogrammi](https://upload.wikimedia.org/wikipedia/commons/2/2c/Frames_per_second.jpg)
-
-- **Risoluzioni Video**: Un’immagine che mostra varie risoluzioni video da 480p fino a 4K:
-  - ![Risoluzioni Video](https://upload.wikimedia.org/wikipedia/commons/6/6a/Video_Resolution_Comparison.jpg)
-
-- **Compressione Video e Codec**: Un diagramma che spiega come funziona la compressione video:
-  - ![Compressione Video](https://upload.wikimedia.org/wikipedia/commons/7/7d/Video_Compression.svg)
-
-## 7. Conclusione
+## 6. Conclusione
 
 La codifica dei video è un processo complesso che bilancia qualità visiva e dimensioni dei file. Attraverso tecniche di campionamento, compressione e regolazione della risoluzione e del bitrate, è possibile ottenere video che siano facili da trasmettere e visualizzare su una varietà di dispositivi.
 
@@ -72,3 +59,22 @@ La codifica dei video è un processo complesso che bilancia qualità visiva e di
 2. Qual è la differenza tra compressione con perdita e senza perdita? Qual è la più comune per i video?
 3. Perché un video con un bitrate di 2 Mbps è di qualità inferiore rispetto a uno con bitrate di 5 Mbps, pur avendo la stessa risoluzione?
 
+## Mappa concettuale
+
+```mermaid
+graph LR
+    A[Codifica dei Video] --> B[Fotogrammi]
+    B --> C[Frequenza Fotogrammi]
+    C --> D[24 fps, 30 fps, 60 fps]
+    A --> E[Risoluzione]
+    E --> F[480p, 720p, 1080p, 4K]
+    A --> G[Profondità del Colore]
+    G --> H[8 bit, 10 bit]
+    A --> I[Compressione Video]
+    I --> J[Compressione Lossless]
+    I --> K[Compressione Lossy]
+    A --> L[Codec Video]
+    L --> M[H.264, H.265, VP9]
+    A --> N[Bitrate]
+    N --> O[Qualità e Dimensione]
+```

@@ -59,3 +59,34 @@ In sintesi:
       * **Utilizzo**: adatto per stampe fisiche su carta, come libri, poster, e tutto ciò che deve essere stampato.
 
 [Esercitati e gioca online on l'RGB!!](https://primozz.github.io/colorgame/)
+
+## Mappa concettuale
+
+```mermaid
+graph LR
+    A[Digitalizzazione delle Immagini] --> B[Pixel]
+    B --> C[Numero di Pixel]
+    C --> D[Qualità]
+    C --> E[Risoluzione]
+
+    A --> F[Codifica RGB]
+    F --> G[Usato per dispositivi luminosi]
+    F --> H[Sintesi Additiva]
+    F --> I[Colori: Rosso, Verde, Blu]
+    F --> J[Somma Massima = Bianco]
+    F --> K[Gamma Cromatica Ampia]
+    F --> L[Utilizzo: Monitor, TV, Smartphone]
+
+    A --> M[Codifica CMYK]
+    M --> N[Usato per la Stampa]
+    M --> O[Sintesi Sottrattiva]
+    M --> P[Colori: Ciano, Magenta, Giallo]
+    M --> Q[Somma = Colore Scuro ,quasi Nero]
+    M --> R[Cartuccia Nero K per neri più intensi]
+    M --> S[Gamma Cromatica Ridotta]
+    M --> T[Utilizzo: Libri, Poster, Stampe]
+
+    A --> U[Conversione Colori]
+    U --> V[RGB -> CMYK per la stampa]
+    U --> W[CMYK per colori più vicini all'originale su carta]
+    ```

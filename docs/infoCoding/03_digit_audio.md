@@ -58,3 +58,19 @@ La qualità dell'audio digitale dipende principalmente dalla frequenza di campio
 1. Quale sarà la qualità dell’audio se registrato a 8.000 Hz con una risoluzione di 8 bit? Per quale tipo di applicazione potrebbe essere adatta questa configurazione?
 2. Spiega come la risoluzione dei campioni influenza la qualità audio.
 
+## Mappa concettuale
+
+```mermaid
+graph LR
+    A[Codifica del Suono] --> B[Campionamento]
+    B --> C[Misura dell’Ampiezza]
+    B --> D[Intervalli Regolari]
+    A --> E[Frequenza di Campionamento]
+    E --> F[Hertz Hz]
+    F --> G[Esempio: 44.1 kHz per CD]
+    A --> H[Bitrate]
+    H --> I[Qualità del Suono]
+    H --> J[Dimensione File]
+    A --> K[Formati Audio]
+    K --> L[MP3, WAV, AAC, FLAC]
+```

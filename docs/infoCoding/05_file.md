@@ -47,10 +47,8 @@ I file video memorizzano immagini in movimento, spesso accompagnate da suoni. Al
 
 ## Mappa Concettuale
 
-Di seguito è riportata una mappa concettuale in **Mermaid** per riassumere i principali tipi di file e le loro estensioni.
-
 ```mermaid
-graph TD
+graph LR
     A[File] --> B[Testo]
     A --> C[Immagine]
     A --> D[Audio]

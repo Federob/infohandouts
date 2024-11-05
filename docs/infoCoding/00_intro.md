@@ -264,6 +264,21 @@ Il numero `11010110` in binario è **D6** in esadecimale.
 
 La codifica esadecimale è fondamentale in informatica per rappresentare dati in modo compatto e leggibile, soprattutto quando si lavora con il sistema binario. Conoscere l'esadecimale è un'abilità essenziale per gli sviluppatori e gli operatori di sistema.
 
+### Mappa concettuale
+
+```mermaid
+graph LR
+    A[Codifica Esadecimale] --> B[Sistema di Numerazione]
+    B --> C[Base 16]
+    C --> D[0-9, A-F]
+    A --> E[Conversione Decimale]
+    E --> F[Decimale -> Esadecimale]
+    E --> G[Esadecimale -> Decimale]
+    A --> H[Vantaggi e Utilizzo]
+    H --> I[Identificatori di Colore]
+    H --> J[Indirizzi di Memoria]
+```
+
 #### Esercizi
 
 1. Converti i seguenti numeri decimali in esadecimale: 45, 128, 255.

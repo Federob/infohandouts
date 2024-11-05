@@ -150,7 +150,8 @@ Alcune definizioni
 
 
 > **Bit** : Ogni cifra di un numero binario <br>
-> **Byte (*B*)** : Insieme di 8 bit
+> **Byte (*B*)** : Insieme di 8 bit <br>
+> **Nibble** : Insieme di 4 bit -> 1 B = 8 bit = 2 nibble
 
 Di seguito un tabella con le grandezze in byte:
 
@@ -190,7 +191,7 @@ Convertire in decimale i seguenti numeri binari:
 
 La **codifica esadecimale** è un sistema di numerazione in base 16, molto usato in informatica per rappresentare dati binari in modo più compatto e leggibile rispetto alla base 2 (binario).
 
-### 1. Cos'è il Sistema Esadecimale?
+### Cos'è il Sistema Esadecimale?
 
 Il sistema esadecimale utilizza 16 simboli:
 - Le cifre da 0 a 9, che hanno lo stesso valore come nel sistema decimale.
@@ -210,7 +211,7 @@ Il sistema esadecimale utilizza 16 simboli:
 
 Questa tabella mostra come i primi 16 numeri decimali si mappano in esadecimale.
 
-### 2. Conversione da Decimale a Esadecimale
+### Conversione da Decimale a Esadecimale
 
 Per convertire un numero decimale in esadecimale, si divide il numero per 16, memorizzando il resto. Ad esempio, vediamo come convertire 156 in esadecimale:
 
@@ -220,9 +221,9 @@ Per convertire un numero decimale in esadecimale, si divide il numero per 16, me
 
 Quindi, 156 in decimale è uguale a **9C** in esadecimale.
 
-### 3. Conversione da Binario a Esadecimale
+### Conversione da Binario a Esadecimale
 
-Il sistema esadecimale è particolarmente utile per rappresentare i numeri binari perché ogni cifra esadecimale rappresenta esattamente **4 bit**. 
+Il sistema esadecimale è particolarmente utile per rappresentare i numeri binari perché ogni cifra esadecimale rappresenta esattamente **4 bit (nibble)**.
 
 | Binario | Esadecimale |
 |---------|-------------|
@@ -254,7 +255,7 @@ Prendiamo in esempio un numero binario: `11010110`.
 
 Il numero `11010110` in binario è **D6** in esadecimale.
 
-### 4. Vantaggi della Codifica Esadecimale
+### Vantaggi della Codifica Esadecimale
 
 1. **Compattezza**: Gli esadecimali permettono di scrivere numeri lunghi con meno cifre.
 2. **Facilità di lettura**: Per molti scopi, soprattutto in programmazione e configurazioni, è più facile leggere numeri in esadecimale che in binario.
@@ -279,7 +280,7 @@ graph LR
     H --> J[Indirizzi di Memoria]
 ```
 
-#### Esercizi
+### Esercizi
 
 1. Converti i seguenti numeri decimali in esadecimale: 45, 128, 255.
 2. Converti i seguenti numeri esadecimali in decimale: `1A`, `7F`, `2B`.

@@ -13,7 +13,7 @@ I file sono fondamentali per:
 
 Ogni file ha un'**estensione** alla fine del nome (ad esempio, `.txt` o `.jpg`), che indica il formato e permette ai programmi di riconoscere come aprirlo.
 
-### 1. File di Testo
+### File di Testo
 
 I file di testo contengono solo caratteri leggibili, come lettere e numeri. Alcune delle estensioni principali includono:
 - **.txt** – Testo semplice, senza formattazione.
@@ -21,7 +21,7 @@ I file di testo contengono solo caratteri leggibili, come lettere e numeri. Alcu
 - **.pdf** – Formato di documento portatile, utilizzato per documenti finalizzati alla condivisione.
 - **.csv** – File di valori separati da virgola, usato per dati strutturati (spesso importati in fogli di calcolo).
 
-### 2. File di Immagine
+### File Immagine
 
 I file di immagine memorizzano dati visivi in vari formati. Alcune delle estensioni principali includono:
 - **.jpg** o **.jpeg** – Formato compresso, molto usato per le foto.
@@ -29,7 +29,7 @@ I file di immagine memorizzano dati visivi in vari formati. Alcune delle estensi
 - **.gif** – Formato per immagini animate, con colori limitati.
 - **.bmp** – Bitmap, un formato non compresso usato per immagini di alta qualità.
 
-### 3. File Audio
+### File Audio
 
 I file audio memorizzano suoni come voce, musica o altri effetti sonori. Alcune delle estensioni principali includono:
 - **.mp3** – Formato compresso, usato per la musica digitale.
@@ -37,7 +37,7 @@ I file audio memorizzano suoni come voce, musica o altri effetti sonori. Alcune 
 - **.aac** – Formato audio avanzato, usato per file compressi.
 - **.flac** – Formato senza perdita di qualità, usato per audio di alta fedeltà.
 
-### 4. File Video
+### File Video
 
 I file video memorizzano immagini in movimento, spesso accompagnate da suoni. Alcune delle estensioni principali includono:
 - **.mp4** – Formato di compressione video popolare, compatibile con molti dispositivi.

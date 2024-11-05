@@ -2,7 +2,7 @@
 
 La **codifica dei suoni** è il processo con cui i suoni vengono digitalizzati, cioè trasformati in segnali che i computer possono memorizzare e processare. Poiché i suoni sono onde continue, è necessario "campionarli" per rappresentarli digitalmente.
 
-## 1. Che cos'è il Campionamento?
+## Che cos'è il Campionamento?
 
 Il **campionamento** è il processo con cui si misura l'ampiezza di un'onda sonora a intervalli regolari di tempo. Ogni misurazione è chiamata **campione**.
 
@@ -12,7 +12,7 @@ Immagina di voler rappresentare un'onda sonora, come quella della tua voce. Inve
 
 Supponiamo di avere un'onda sonora molto semplice. Se prendiamo campioni dell'onda ogni millisecondo (ms), possiamo rappresentare l'onda sonora come una serie di valori numerici che descrivono l'intensità del suono in ogni millisecondo. Più campioni prendiamo, più precisa sarà la rappresentazione del suono.
 
-## 2. La Frequenza di Campionamento
+## La Frequenza di Campionamento
 
 La **frequenza di campionamento** è il numero di campioni prelevati per secondo. Si misura in **Hertz (Hz)**, dove 1 Hz equivale a 1 campione al secondo. Frequenze di campionamento comuni includono:
 - **8.000 Hz** – Usata nelle telefonate, con una qualità del suono ridotta.
@@ -25,7 +25,7 @@ Una frequenza di campionamento più alta significa che vengono presi più campio
 
 Immagina di voler digitalizzare una nota musicale. Se la frequenza di campionamento è **8.000 Hz**, si prendono 8.000 campioni al secondo, mentre a **44.100 Hz**, si prendono 44.100 campioni al secondo. La seconda rappresentazione sarà più fedele al suono originale.
 
-## 3. Risoluzione dei Campioni
+## Risoluzione dei Campioni
 
 Oltre alla frequenza di campionamento, anche la **risoluzione dei campioni** è importante. Essa indica il numero di bit utilizzati per rappresentare l’ampiezza di ciascun campione:
 - **8 bit**: 256 valori possibili per ogni campione.

@@ -2,7 +2,7 @@
 
 La **codifica del testo** è un sistema che associa un insieme di simboli a dei valori numerici, permettendo ai computer di memorizzare e interpretare il testo. Senza un sistema di codifica, un computer non sarebbe in grado di capire se una sequenza di bit rappresenta una lettera, un numero o un simbolo speciale.
 
-## 1. ASCII: American Standard Code for Information Interchange
+## ASCII: American Standard Code for Information Interchange
 
 **ASCII** è uno dei primi standard di codifica del testo, sviluppato negli anni '60. Utilizza 7 bit per rappresentare 128 simboli unici, che includono:
 - Lettere maiuscole e minuscole (A-Z, a-z)
@@ -30,7 +30,7 @@ La **codifica del testo** è un sistema che associa un insieme di simboli a dei 
 
 ASCII funziona bene per l'inglese e alcune lingue europee, ma non è adatto per rappresentare simboli di altre lingue, come le lettere accentate francesi o i caratteri cinesi. Per questo, si è sviluppata una codifica più estesa, chiamata **Unicode**.
 
-## 2. Unicode: Un Codice Universale
+## Unicode: Un Codice Universale
 
 **Unicode** è uno standard di codifica che include simboli da quasi tutte le lingue del mondo. Unicode assegna un numero univoco a ogni simbolo, chiamato **punto di codice**. Ad esempio:
 - Il carattere `A` ha il punto di codice U+0041.
@@ -46,7 +46,7 @@ Uno dei formati più usati per rappresentare Unicode è **UTF-8**:
 
 Questa caratteristica rende UTF-8 ideale per documenti e pagine web, permettendo di rappresentare testo in diverse lingue mantenendo la compatibilità con il testo ASCII.
 
-## 3. Differenze tra ASCII e Unicode
+## Differenze tra ASCII e Unicode
 
 | Caratteristica        | ASCII                                | Unicode                         |
 |-----------------------|--------------------------------------|---------------------------------|
@@ -55,7 +55,7 @@ Questa caratteristica rende UTF-8 ideale per documenti e pagine web, permettendo
 | Compatibilità UTF-8   | Compatibile                         | UTF-8 è una codifica di Unicode |
 | Utilizzo principale   | Vecchi sistemi e dati semplici      | Pagine web, applicazioni moderne|
 
-## Esempio di Codifica
+### Esempio di Codifica
 
 Immaginiamo di voler rappresentare la parola "Ciao" in UTF-8. Le lettere hanno i seguenti punti di codice in Unicode:
 - `C` → U+0043
@@ -65,11 +65,11 @@ Immaginiamo di voler rappresentare la parola "Ciao" in UTF-8. Le lettere hanno i
 
 UTF-8 rappresenterà ciascuno di questi caratteri in modo efficiente, con un solo byte per carattere, poiché rientrano nei valori ASCII.
 
-## Perché è Importante la Codifica del Testo?
+## Perché è importante la codifica del testo?
 
 La codifica del testo è fondamentale per la comunicazione globale e per il corretto funzionamento di applicazioni software e pagine web. Con Unicode e UTF-8, possiamo rappresentare testi in qualsiasi lingua e utilizzare simboli e emoji, mantenendo la compatibilità con ASCII.
 
-### Esercizi
+## Esercizi
 
 1. Scrivi il codice binario per i caratteri `C` e `i` utilizzando la codifica ASCII.
 2. Qual è il punto di codice Unicode per la lettera `ñ`? (Suggerimento: cerca nella tabella Unicode)

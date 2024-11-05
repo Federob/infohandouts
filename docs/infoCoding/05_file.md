@@ -49,7 +49,7 @@ I file video memorizzano immagini in movimento, spesso accompagnate da suoni. Al
 
 Di seguito è riportata una mappa concettuale in **Mermaid** per riassumere i principali tipi di file e le loro estensioni.
 
-``` mermaid
+```mermaid
 graph TD
     A[File] --> B[Testo]
     A --> C[Immagine]
@@ -75,3 +75,4 @@ graph TD
     E --> E2[.avi]
     E --> E3[.mov]
     E --> E4[.mkv]
+```

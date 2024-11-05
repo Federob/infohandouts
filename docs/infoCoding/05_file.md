@@ -1,4 +1,4 @@
-# I File: Cosa Sono e a cosa servono
+# I File: cosa sono e a cosa servono
 
 Un **file** è una raccolta di dati memorizzata in un dispositivo di archiviazione, come un computer o una chiavetta USB. I file consentono di organizzare le informazioni in modo strutturato e accessibile per permettere ai programmi di leggerle, modificarle o condividerle con altri dispositivi e utenti.
 

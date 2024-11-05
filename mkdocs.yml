@@ -83,7 +83,7 @@ nav:
     - Hardware: hwsw/10_hw.md
     - Software: hwsw/20_sw.md
   - La codifica delle informazioni:
-    - Digitale: infoCoding/00_intro.md
+    - Codifiche numeriche: infoCoding/00_intro.md
     - Testo: infoCoding/01_digit_text.md
     - Immagini: infoCoding/02_digit_img.md
     - Suoni: infoCoding/03_digit_audio.md

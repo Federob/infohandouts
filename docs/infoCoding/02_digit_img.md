@@ -89,4 +89,4 @@ graph LR
     A --> U[Conversione Colori]
     U --> V[RGB -> CMYK per la stampa]
     U --> W[CMYK per colori più vicini all'originale su carta]
-    ```
+```

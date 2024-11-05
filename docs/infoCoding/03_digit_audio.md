@@ -37,7 +37,7 @@ Più alta è la risoluzione, maggiore è la precisione con cui ogni campione rap
 
 Un suono registrato con **8 bit** può sembrare "metallico" o "distorto" rispetto a uno registrato a **16 bit**, che avrà una qualità molto più naturale.
 
-## 4. Rappresentazione Grafica del Campionamento
+## Rappresentazione Grafica del Campionamento
 
 Un’onda sonora digitale può essere visualizzata come una serie di punti su un grafico, dove l’asse X rappresenta il tempo e l’asse Y rappresenta l’intensità del suono. 
 

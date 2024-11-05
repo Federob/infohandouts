@@ -44,10 +44,10 @@ Un’onda sonora digitale può essere visualizzata come una serie di punti su un
 ### Diagrammi Riassuntivi
 
 - **Campionamento di un’Onda Sonora** – Un’immagine che mostra come un’onda continua venga trasformata in una serie di campioni:
-   - ![Esempio di Campionamento](https://upload.wikimedia.org/wikipedia/commons/2/29/Sampled_signal.png)
+   - ![Esempio di Campionamento](https://tecnologiamusicale.wordpress.com/wp-content/uploads/2012/07/schermata-2012-07-21-a-10-42-35.png)
    
 - **Frequenza di Campionamento** – Un’immagine che mostra la differenza tra una frequenza di campionamento bassa e una alta:
-   - ![Frequenza di Campionamento](https://upload.wikimedia.org/wikipedia/commons/8/81/Sample.png)
+   - ![Frequenza di Campionamento](https://helpx-prod.scene7.com/is/image/HelpxProd/da06-1?$png$&jpegSize=100&wid=479)
 
 ## Conclusione
 
@@ -56,6 +56,5 @@ La qualità dell'audio digitale dipende principalmente dalla frequenza di campio
 ### Esercizi
 
 1. Quale sarà la qualità dell’audio se registrato a 8.000 Hz con una risoluzione di 8 bit? Per quale tipo di applicazione potrebbe essere adatta questa configurazione?
-2. Trova la frequenza di campionamento minima per rappresentare un suono che ha una frequenza massima di 10.000 Hz (applica il **teorema di Nyquist**).
-3. Spiega come la risoluzione dei campioni influenza la qualità audio.
+2. Spiega come la risoluzione dei campioni influenza la qualità audio.
 

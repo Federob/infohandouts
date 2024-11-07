@@ -81,7 +81,7 @@ nav:
   - Hardware & Software:
     - Introduzione: hwsw/00_intro.md
     - Hardware: hwsw/10_hw.md
-      - BIOS: hwsw/11_bios.md
+    - BIOS: hwsw/11_bios.md
     - Software: hwsw/20_sw.md
   - La codifica delle informazioni:
     - Codifiche numeriche: infoCoding/00_intro.md

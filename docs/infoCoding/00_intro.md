@@ -185,7 +185,7 @@ Convertire in decimale i seguenti numeri binari:
 10, 100, 1100, 10101010, 11001100, 11110000, 10010010, 10010110
 ```
 
-[Esercitati e gioca online!!](https://learningcontent.cisco.com/games/binary/index.html)
+> [Esercitati e gioca online!!](https://learningcontent.cisco.com/games/binary/index.html)
 
 ## La Codifica Esadecimale
 
@@ -254,6 +254,8 @@ Prendiamo in esempio un numero binario: `11010110`.
    - `0110` diventa `6`
 
 Il numero `11010110` in binario è **D6** in esadecimale.
+
+> [Gioca online e distruggi i nemici esadecimali](https://flippybitandtheattackofthehexadecimalsfrombase16.com/)
 
 ### Vantaggi della Codifica Esadecimale
 

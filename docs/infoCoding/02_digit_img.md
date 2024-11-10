@@ -58,7 +58,9 @@ In sintesi:
       * **Gamma cromatica**: CMYK ha una gamma cromatica più ridotta rispetto a RGB, quindi alcuni colori appaiono meno vivaci su carta.
       * **Utilizzo**: adatto per stampe fisiche su carta, come libri, poster, e tutto ciò che deve essere stampato.
 
-[Esercitati e gioca online on l'RGB!!](https://primozz.github.io/colorgame/)
+[Esercitati e gioca online on l'RGB!! - 1](https://primozz.github.io/colorgame/)
+
+[Esercitati e gioca online on l'RGB!! - 2](https://www.101computing.net/rgb-colour-guessing/)
 
 ## Mappa concettuale
 

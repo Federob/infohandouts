@@ -38,11 +38,11 @@ ASCII funziona bene per l'inglese e alcune lingue europee, ma non è adatto per 
 
 Unicode supporta oltre un milione di simboli, coprendo lingue antiche e moderne, emoji, simboli matematici e molto altro.
 
-### UTF-8: Una Codifica di Unicode
+### UTF-(8/16): Una Codifica di Unicode
 
-Uno dei formati più usati per rappresentare Unicode è **UTF-8**:
-- **UTF-8** è una codifica variabile, che utilizza da 1 a 4 byte per ogni simbolo.
-- È compatibile con ASCII: tutti i simboli ASCII occupano 1 byte in UTF-8 e hanno lo stesso valore numerico.
+Uno dei formati più usati per rappresentare Unicode è **UTF-(8/16)**:
+* **UTF-(8/16)** è una codifica variabile, che utilizza da 1 (UTF-8) a 2 byte (UTF-16) per ogni simbolo.
+* È compatibile con ASCII: tutti i simboli ASCII occupano 1 byte in UTF-8 e hanno lo stesso valore numerico.
 
 Questa caratteristica rende UTF-8 ideale per documenti e pagine web, permettendo di rappresentare testo in diverse lingue mantenendo la compatibilità con il testo ASCII.
 

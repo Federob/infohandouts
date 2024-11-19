@@ -10,10 +10,7 @@ Un video digitale è composto da una sequenza di **fotogrammi** (o frame), che s
 * **30 fps** – Usato in molte trasmissioni televisive.
 * **60 fps** – Usato per video ad alta definizione e giochi.
 
-<iframe src="https://www.youtube.com/watch?v=3UXyKoT-cog" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-[![alt text](FPS Video)](https://www.youtube.com/watch?v=3UXyKoT-cog)
-
+<video src="https://www.youtube.com/watch?v=3UXyKoT-cog" controls></video>
 
 ## Risoluzione del Video
 

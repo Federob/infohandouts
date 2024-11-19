@@ -38,6 +38,11 @@ theme:
         lang: it
     - mermaid2
     - mkdocs-video
+        is_video: True
+        video_muted: True
+        video_controls: True
+        css_style:
+          width: "100%"
 
 extra:
   consent:

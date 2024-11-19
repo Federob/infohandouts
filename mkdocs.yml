@@ -37,6 +37,7 @@ theme:
     - search:
         lang: it
     - mermaid2
+    - mkdocs-video
 
 extra:
   consent:

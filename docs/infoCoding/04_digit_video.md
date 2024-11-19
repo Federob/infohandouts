@@ -12,6 +12,8 @@ Un video digitale è composto da una sequenza di **fotogrammi** (o frame), che s
 
 ![type:video](https://www.youtube.com/embed/3UXyKoT-cog?si=B4ygkcEtQrV-NVfu)
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3UXyKoT-cog?si=SV0ei_g9OJiSh0zW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Risoluzione del Video
 
 La **risoluzione** rappresenta il numero di pixel in ogni fotogramma, ed è solitamente indicata come larghezza × altezza (in pixel). Alcune risoluzioni comuni includono:

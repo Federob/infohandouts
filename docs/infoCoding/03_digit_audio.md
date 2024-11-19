@@ -15,6 +15,7 @@ Supponiamo di avere un'onda sonora molto semplice. Se prendiamo campioni dell'on
 ## La Frequenza di Campionamento
 
 La **frequenza di campionamento** è il numero di campioni prelevati per secondo. Si misura in **Hertz (Hz)**, dove 1 Hz equivale a 1 campione al secondo. Frequenze di campionamento comuni includono:
+
 - **8.000 Hz** – Usata nelle telefonate, con una qualità del suono ridotta.
 - **44.100 Hz** – Usata per la qualità audio CD, che offre una buona fedeltà sonora.
 - **48.000 Hz** – Usata per la qualità audio dei film e della TV.
@@ -28,6 +29,7 @@ Immagina di voler digitalizzare una nota musicale. Se la frequenza di campioname
 ## Risoluzione dei Campioni
 
 Oltre alla frequenza di campionamento, anche la **risoluzione dei campioni** è importante. Essa indica il numero di bit utilizzati per rappresentare l’ampiezza di ciascun campione:
+
 - **8 bit**: 256 valori possibili per ogni campione.
 - **16 bit**: 65.536 valori possibili per ogni campione.
 
@@ -44,10 +46,12 @@ Un’onda sonora digitale può essere visualizzata come una serie di punti su un
 ### Diagrammi Riassuntivi
 
 - **Campionamento di un’Onda Sonora** – Un’immagine che mostra come un’onda continua venga trasformata in una serie di campioni:
-   - ![Esempio di Campionamento](https://tecnologiamusicale.wordpress.com/wp-content/uploads/2012/07/schermata-2012-07-21-a-10-42-35.png)
+
+![Esempio di Campionamento](https://tecnologiamusicale.wordpress.com/wp-content/uploads/2012/07/schermata-2012-07-21-a-10-42-35.png)
    
 - **Frequenza di Campionamento** – Un’immagine che mostra la differenza tra una frequenza di campionamento bassa e una alta:
-   - ![Frequenza di Campionamento](https://helpx-prod.scene7.com/is/image/HelpxProd/da06-1?$png$&jpegSize=100&wid=479)
+
+![Frequenza di Campionamento](https://helpx-prod.scene7.com/is/image/HelpxProd/da06-1?$png$&jpegSize=100&wid=479)
 
 ## Conclusione
 

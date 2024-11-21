@@ -35,7 +35,6 @@ Ecco i principali dettagli e utilizzi della sequenza di avvio:
 - **Ordine di avvio**: Il BIOS verifica i dispositivi in base all'ordine specificato e tenta di avviare il sistema operativo dal primo dispositivo disponibile. L'ordine può essere modificato per dare la priorità a un particolare dispositivo.
   
 - **Utilizzi principali**:
-
   - **Installazione del sistema operativo**: Se si vuole installare un sistema operativo da una chiavetta USB o un DVD, è necessario spostare quel dispositivo in cima all'ordine di avvio.
   - **Avvio da strumenti di riparazione**: In caso di problemi, è possibile avviare il computer da un disco o USB con programmi diagnostici.
   - **Sicurezza**: Si può limitare l’avvio ai soli dischi interni per evitare che il sistema venga avviato da dispositivi esterni non autorizzati.

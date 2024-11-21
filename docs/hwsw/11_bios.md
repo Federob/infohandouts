@@ -79,8 +79,6 @@ Ecco un esempio di una tipica schermata del BIOS, che mostra alcune delle opzion
 
 ## Mappa Concettuale
 
-Di seguito, una mappa concettuale in **Mermaid** che riassume i concetti principali sul BIOS e le sue impostazioni.
-
 ```mermaid
 graph LR
     A[BIOS Basic Input/Output System] --> B[Funzioni Principali]

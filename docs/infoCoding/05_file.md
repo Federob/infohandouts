@@ -5,6 +5,7 @@ Un **file** è una raccolta di dati memorizzata in un dispositivo di archiviazio
 ## A cosa servono i File
 
 I file sono fondamentali per:
+
 - **Memorizzare Dati**: come documenti di testo, immagini, audio e video.
 - **Scambio di Informazioni**: consentono di trasferire dati tra diversi computer e applicazioni.
 - **Organizzazione**: mantengono i dati separati e strutturati in modo che possano essere facilmente trovati e gestiti.
@@ -16,6 +17,7 @@ Ogni file ha un'**estensione** alla fine del nome (ad esempio, `.txt` o `.jpg`),
 ### File di Testo
 
 I file di testo contengono solo caratteri leggibili, come lettere e numeri. Alcune delle estensioni principali includono:
+
 - **.txt** – Testo semplice, senza formattazione.
 - **.docx** – Documento di Microsoft Word.
 - **.pdf** – Formato di documento portatile, utilizzato per documenti finalizzati alla condivisione.
@@ -24,6 +26,7 @@ I file di testo contengono solo caratteri leggibili, come lettere e numeri. Alcu
 ### File Immagine
 
 I file di immagine memorizzano dati visivi in vari formati. Alcune delle estensioni principali includono:
+
 - **.jpg** o **.jpeg** – Formato compresso, molto usato per le foto.
 - **.png** – Formato senza perdita di qualità, con supporto per trasparenza.
 - **.gif** – Formato per immagini animate, con colori limitati.
@@ -32,6 +35,7 @@ I file di immagine memorizzano dati visivi in vari formati. Alcune delle estensi
 ### File Audio
 
 I file audio memorizzano suoni come voce, musica o altri effetti sonori. Alcune delle estensioni principali includono:
+
 - **.mp3** – Formato compresso, usato per la musica digitale.
 - **.wav** – Formato non compresso, usato per audio di alta qualità.
 - **.aac** – Formato audio avanzato, usato per file compressi.
@@ -40,6 +44,7 @@ I file audio memorizzano suoni come voce, musica o altri effetti sonori. Alcune 
 ### File Video
 
 I file video memorizzano immagini in movimento, spesso accompagnate da suoni. Alcune delle estensioni principali includono:
+
 - **.mp4** – Formato di compressione video popolare, compatibile con molti dispositivi.
 - **.avi** – Formato video standard, con qualità alta ma file di grandi dimensioni.
 - **.mov** – Formato usato per i video Apple, compatibile con i sistemi macOS.

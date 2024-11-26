@@ -7,6 +7,7 @@ Il **BIOS** (*Basic Input/Output System*) è un programma fondamentale del compu
 ## A cosa serve il BIOS?
 
 Il BIOS ha il compito di:
+
 1. **Avviare il sistema**: Controlla i componenti hardware (RAM, disco rigido, tastiera, ecc.) per assicurarsi che siano collegati e funzionino correttamente.
 2. **Caricare il sistema operativo**: Dopo il controllo, il BIOS individua e carica il sistema operativo (come Windows o Linux) dal disco rigido o da un altro dispositivo di avvio.
 3. **Gestire le impostazioni di sistema**: Consente di configurare alcuni parametri hardware importanti, come l’ordine di avvio, la frequenza della CPU, e la gestione di alcune periferiche.
@@ -14,6 +15,7 @@ Il BIOS ha il compito di:
 ## Come accedere al BIOS?
 
 Per accedere al BIOS, è necessario premere un tasto specifico durante l’avvio del computer, prima che inizi a caricare il sistema operativo. Questo tasto può variare a seconda del produttore, ma i più comuni sono:
+
 - **F2** o **F10**
 - **DEL** (o **CANC**)
 - **ESC**
@@ -76,8 +78,6 @@ Ecco un esempio di una tipica schermata del BIOS, che mostra alcune delle opzion
 ---
 
 ## Mappa Concettuale
-
-Di seguito, una mappa concettuale in **Mermaid** che riassume i concetti principali sul BIOS e le sue impostazioni.
 
 ```mermaid
 graph LR

@@ -50,6 +50,8 @@ I file video memorizzano immagini in movimento, spesso accompagnate da suoni. Al
 - **.mov** – Formato usato per i video Apple, compatibile con i sistemi macOS.
 - **.mkv** – Formato contenitore, usato per video ad alta qualità.
 
+[Scopri com'è fatto un file all'interno!!](https://hexed.it/)
+
 ## Mappa Concettuale
 
 ```mermaid

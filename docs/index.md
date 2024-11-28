@@ -30,7 +30,7 @@ hide:
 <div class="w3-row">
 
 <div class="w3-half" style="padding:0 10px">
-<a href="hwsw/00_intro/" class="md-button" style="width:300px">Hardware & Software!</a>
+<a href="hwsw/00_intro/" class="md-button" style="width:300px">Hardware & Software</a>
 <p>I concetti di base dell'informatica! L'hardware, la sua struttura di base, i componenti principali. 
 Il software, i sistemi operativi, i programmi applicativi</p>
 <br>
@@ -38,7 +38,7 @@ Il software, i sistemi operativi, i programmi applicativi</p>
 </div>
 
 <div class="w3-half" style="padding:0 10px">
-<a href="infoCoding/00_intro/" class="md-button md-button--primary" style="width:300px">La lingua del PC</a>
+<a href="infoCoding/00_intro/" class="md-button md-button--primary" style="width:300px">La codifica delle informazioni</a>
 <p>I fondamenti del linguaggio del PC. Codici binari ed esadecimali, analogico e digitale, immagini, suoni e video</p>
 <br>
 <br>

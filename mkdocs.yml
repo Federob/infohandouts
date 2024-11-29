@@ -12,14 +12,14 @@ theme:
   palette:
   # Palette toggle for light mode
   - scheme: default
-    primary: indigo
+    primary: blue
     accent: light blue
     toggle:
       icon: material/brightness-7 
       name: Switch to dark mode
   # Palette toggle for dark mode
   - scheme: slate
-    primary: indigo
+    primary: blue
     accent: light blue
     toggle:
       icon: material/brightness-4
@@ -31,6 +31,10 @@ theme:
     - navigation.tabs
     - navigation.sections
     - navigation.top
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.preview
+    - navigation.instant.progress
     - toc.integrate
     - content.code.copy
   plugins:

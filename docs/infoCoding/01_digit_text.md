@@ -5,6 +5,7 @@ La **codifica del testo** è un sistema che associa un insieme di simboli a dei 
 ## ASCII: American Standard Code for Information Interchange
 
 **ASCII** è uno dei primi standard di codifica del testo, sviluppato negli anni '60. Utilizza 7 bit per rappresentare 128 simboli unici, che includono:
+
 - Lettere maiuscole e minuscole (A-Z, a-z)
 - Numeri (0-9)
 - Simboli speciali (come `!`, `@`, `#`, ecc.)
@@ -32,15 +33,11 @@ ASCII funziona bene per l'inglese e alcune lingue europee, ma non è adatto per 
 
 ## Unicode: Un Codice Universale
 
-**Unicode** è uno standard di codifica che include simboli da quasi tutte le lingue del mondo. Unicode assegna un numero univoco a ogni simbolo, chiamato **punto di codice**. Ad esempio:
-- Il carattere `A` ha il punto di codice U+0041.
-- Il simbolo `Ω` (Omega) ha il punto di codice U+03A9.
+**Unicode** è uno standard di codifica che include simboli da quasi tutte le lingue del mondo. 
 
-Unicode supporta oltre un milione di simboli, coprendo lingue antiche e moderne, emoji, simboli matematici e molto altro.
-
-### UTF-(8/16): Una Codifica di Unicode
 
 Uno dei formati più usati per rappresentare Unicode è **UTF-(8/16)**:
+
 * **UTF-(8/16)** è una codifica variabile, che utilizza da 1 (UTF-8) a 2 byte (UTF-16) per ogni simbolo.
 * È compatibile con ASCII: tutti i simboli ASCII occupano 1 byte in UTF-8 e hanno lo stesso valore numerico.
 
@@ -55,16 +52,6 @@ Questa caratteristica rende UTF-8 ideale per documenti e pagine web, permettendo
 | Compatibilità UTF-8   | Compatibile                         | UTF-8 è una codifica di Unicode |
 | Utilizzo principale   | Vecchi sistemi e dati semplici      | Pagine web, applicazioni moderne|
 
-### Esempio di Codifica
-
-Immaginiamo di voler rappresentare la parola "Ciao" in UTF-8. Le lettere hanno i seguenti punti di codice in Unicode:
-- `C` → U+0043
-- `i` → U+0069
-- `a` → U+0061
-- `o` → U+006F
-
-UTF-8 rappresenterà ciascuno di questi caratteri in modo efficiente, con un solo byte per carattere, poiché rientrano nei valori ASCII.
-
 ## Perché è importante la codifica del testo?
 
 La codifica del testo è fondamentale per la comunicazione globale e per il corretto funzionamento di applicazioni software e pagine web. Con Unicode e UTF-8, possiamo rappresentare testi in qualsiasi lingua e utilizzare simboli e emoji, mantenendo la compatibilità con ASCII.
@@ -72,8 +59,7 @@ La codifica del testo è fondamentale per la comunicazione globale e per il corr
 ## Esercizi
 
 1. Scrivi il codice binario per i caratteri `C` e `i` utilizzando la codifica ASCII.
-2. Qual è il punto di codice Unicode per la lettera `ñ`? (Suggerimento: cerca nella tabella Unicode)
-3. Converti la frase "Hello!" in binario usando la codifica ASCII.
+2. Converti la frase "Hello!" in binario usando la codifica ASCII.
 
 ## Mappa concettuale
 

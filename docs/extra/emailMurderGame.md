@@ -27,14 +27,12 @@ Ricreare il gioco dell'assassino utilizzando le email, sfruttando i campi **A** 
 ### Assassino
 
 - **Obiettivo:** Eliminare i cittadini senza farsi scoprire dal poliziotto.
-- **Come Eliminare un Giocatore:**
-  
+- **Come Eliminare un Giocatore:**  
   - Invia un'email a tutti i giocatori rimanenti (escludendo la vittima) nel campo **A** o **Cc**.
   - Inserisce la vittima e l'insegnante nel campo **Ccn**.
   - **Oggetto dell'Email:** "Ho ucciso di nuovo"
   - **Corpo del Messaggio:** Un messaggio che annuncia che l'assassino ha colpito, senza rivelare l'identità della vittima.
-- **Esempio:**
-  
+- **Esempio:**  
   - **Da:** `[Assassino]`
   - **A:** `[Giocatori rimanenti]` (senza la vittima)
   - **Ccn:** `[Vittima]`, `[Insegnante]`
@@ -48,7 +46,6 @@ Ricreare il gioco dell'assassino utilizzando le email, sfruttando i campi **A** 
 
 - **Obiettivo:** Scoprire l'identità dell'assassino.
 - **Come Accusare:**
-
   - Invia un'email all'insegnante indicando il nome del sospettato.
   - **Oggetto dell'Email:** "Accusa"
   - **Esempio:**
@@ -68,14 +65,14 @@ Ricreare il gioco dell'assassino utilizzando le email, sfruttando i campi **A** 
 
 ### Vittime
 
-- **Se Eliminati:**
-  - Non partecipano più alle comunicazioni del gioco.
-  - Inviare un'email all'insegnante per confermare l'eliminazione.
-  - **Esempio:**
-    - **Da:** `[Vittima]`
-    - **A:** `[Insegnante]`
-    - **Oggetto:** Sono stato eliminato
-    - **Corpo del Messaggio:** "Ho ricevuto l'email dell'assassino. Esco dal gioco."
+**Se Eliminati:**
+  * Non partecipano più alle comunicazioni del gioco.
+  * Inviare un'email all'insegnante per confermare l'eliminazione.
+  * **Esempio:**
+    * **Da:** `[Vittima]`
+    * **A:** `[Insegnante]`
+    * **Oggetto:** Sono stato eliminato
+    * **Corpo del Messaggio:** "Ho ricevuto l'email dell'assassino. Esco dal gioco."
 
 ---
 

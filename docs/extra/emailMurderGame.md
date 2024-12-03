@@ -54,14 +54,16 @@ Ricreare il gioco dell'assassino utilizzando le email, sfruttando i campi **A** 
     - **A:** `[Insegnante]`
     - **Oggetto:** Accusa
     - **Corpo del Messaggio:** "Accuso `[Nome Sospettato]` di essere l'assassino."
+
 **Limitazioni:**
 
   - Ha un numero limitato di accuse (es. 2 tentativi).
 
 ### Cittadini
 
-- **Obiettivo:** Collaborare per identificare l'assassino.
-- **Comunicazioni:**
+**Obiettivo:** Collaborare per identificare l'assassino.
+**Comunicazioni:**
+
   - Possono comunicare tra loro utilizzando il campo **Cc** per condividere sospetti e informazioni.
   - Devono sempre includere l'insegnante nelle comunicazioni.
 
@@ -106,11 +108,13 @@ Ricreare il gioco dell'assassino utilizzando le email, sfruttando i campi **A** 
 
 ## Condizioni di Vittoria
 
-- **Assassino vince se:**
+**Assassino vince se:**
+
   - Rimane tra gli ultimi due giocatori non scoperto.
   - Elimina tutti i cittadini e il poliziotto senza essere accusato correttamente.
 
-- **Poliziotto e cittadini vincono se:**
+**Poliziotto e cittadini vincono se:**
+
   - L'assassino viene identificato e accusato correttamente dal poliziotto.
 
 ---
@@ -119,10 +123,10 @@ Ricreare il gioco dell'assassino utilizzando le email, sfruttando i campi **A** 
 
 ### Email dell'Assassino per Eliminare una Vittima
 
-- **Da:** `[Assassino]`
-- **A:** `[Giocatori rimanenti]` (senza includere la vittima)
-- **Ccn:** `[Vittima]`, `[Insegnante]`
-- **Oggetto:** Ho ucciso di nuovo
+**Da:** `[Assassino]`
+**A:** `[Giocatori rimanenti]` (senza includere la vittima)
+**Ccn:** `[Vittima]`, `[Insegnante]`
+**Oggetto:** Ho ucciso di nuovo
 
 > L'assassino ha colpito ancora. Riuscirete a fermarmi?
 >
@@ -131,9 +135,9 @@ Ricreare il gioco dell'assassino utilizzando le email, sfruttando i campi **A** 
 
 ### Email della Vittima all'Insegnante
 
-- **Da:** `[Vittima]`
-- **A:** `[Insegnante]`
-- **Oggetto:** Sono stato eliminato
+**Da:** `[Vittima]`
+**A:** `[Insegnante]`
+**Oggetto:** Sono stato eliminato
 
 > Gentile `[Nome Insegnante]`,
 >
@@ -144,9 +148,9 @@ Ricreare il gioco dell'assassino utilizzando le email, sfruttando i campi **A** 
 
 ### Email del Poliziotto per Accusare
 
-- **Da:** `[Poliziotto]`
-- **A:** `[Insegnante]`
-- **Oggetto:** Accusa
+**Da:** `[Poliziotto]`
+**A:** `[Insegnante]`
+**Oggetto:** Accusa
 
 > Accuso `[Nome Sospettato]` di essere l'assassino.
 >
@@ -155,10 +159,10 @@ Ricreare il gioco dell'assassino utilizzando le email, sfruttando i campi **A** 
 
 ### Email dei Cittadini per Comunicare
 
-- **Da:** `[Cittadino]`
-- **A:** `[Insegnante]`
-- **Cc:** `[Altri Giocatori]`
-- **Oggetto:** Sospetti sull'Assassino
+**Da:** `[Cittadino]`
+**A:** `[Insegnante]`
+**Cc:** `[Altri Giocatori]`
+**Oggetto:** Sospetti sull'Assassino
 
 > Ciao a tutti,
 >
@@ -173,27 +177,33 @@ Ricreare il gioco dell'assassino utilizzando le email, sfruttando i campi **A** 
 
 ## Regole sull'Uso dei Campi Email
 
-- **Campo A (Destinatario):**
+**Campo A (Destinatario):**
+
   - Utilizzato per i destinatari principali dell'email (altri giocatori, esclusa la vittima).
 
-- **Campo Cc (Copia Conoscenza):**
+**Campo Cc (Copia Conoscenza):**
+
   - Può essere utilizzato per includere l'insegnante o altri giocatori.
 
-- **Campo Ccn (Copia Conoscenza Nascosta):**
+**Campo Ccn (Copia Conoscenza Nascosta):**
+
   - Utilizzato dall'assassino per inserire la vittima e l'insegnante senza che gli altri lo sappiano.
 
 ---
 
 ## Consigli per i Giocatori
 
-- **Assassino:**
+**Assassino:**
+
   - Segui attentamente le nuove istruzioni per non rivelare la tua identità.
   - Partecipa attivamente alle discussioni.
 
-- **Poliziotto:**
+**Poliziotto:**
+
   - Utilizza le informazioni disponibili per formulare le tue accuse.
 
-- **Cittadini:**
+**Cittadini:**
+
   - Comunica con gli altri per condividere sospetti.
   - Osserva chi potrebbe comportarsi in modo sospetto.
 
@@ -201,13 +211,16 @@ Ricreare il gioco dell'assassino utilizzando le email, sfruttando i campi **A** 
 
 ## Per l'Insegnante
 
-- **Monitoraggio:**
+**Monitoraggio:**
+
   - Supervisiona tutte le comunicazioni e tieni traccia delle eliminazioni.
 
-- **Annunci:**
+**Annunci:**
+
   - Puoi decidere se mantenere segreta l'identità delle vittime o condividerla in un secondo momento.
 
-- **Debriefing:**
+**Debriefing:**
+
   - Organizza una discussione finale per analizzare l'esperienza.
 
 ---

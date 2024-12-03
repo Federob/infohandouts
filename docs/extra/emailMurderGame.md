@@ -44,8 +44,9 @@ Ricreare il gioco dell'assassino utilizzando le email, sfruttando i campi **A** 
 
 ### Poliziotto
 
-- **Obiettivo:** Scoprire l'identità dell'assassino.
-- **Come Accusare:**
+**Obiettivo:** Scoprire l'identità dell'assassino.
+**Come Accusare:**
+
   - Invia un'email all'insegnante indicando il nome del sospettato.
   - **Oggetto dell'Email:** "Accusa"
   - **Esempio:**
@@ -53,7 +54,8 @@ Ricreare il gioco dell'assassino utilizzando le email, sfruttando i campi **A** 
     - **A:** `[Insegnante]`
     - **Oggetto:** Accusa
     - **Corpo del Messaggio:** "Accuso `[Nome Sospettato]` di essere l'assassino."
-- **Limitazioni:**
+**Limitazioni:**
+
   - Ha un numero limitato di accuse (es. 2 tentativi).
 
 ### Cittadini
@@ -66,6 +68,7 @@ Ricreare il gioco dell'assassino utilizzando le email, sfruttando i campi **A** 
 ### Vittime
 
 **Se Eliminati:**
+
   * Non partecipano più alle comunicazioni del gioco.
   * Inviare un'email all'insegnante per confermare l'eliminazione.
   * **Esempio:**

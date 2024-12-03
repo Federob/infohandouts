@@ -100,4 +100,6 @@ nav:
     - Suoni: infoCoding/03_digit_audio.md
     - Video: infoCoding/04_digit_video.md
     - File: infoCoding/05_file.md
+  - Extra:
+    - Gioco dell'assassino: extra/emailMurderGame.md
  

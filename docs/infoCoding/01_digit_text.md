@@ -35,7 +35,6 @@ ASCII funziona bene per l'inglese e alcune lingue europee, ma non è adatto per 
 
 **Unicode** è uno standard di codifica che include simboli da quasi tutte le lingue del mondo. 
 
-
 Uno dei formati più usati per rappresentare Unicode è **UTF-(8/16)**:
 
 * **UTF-(8/16)** è una codifica variabile, che utilizza da 1 (UTF-8) a 2 byte (UTF-16) per ogni simbolo.

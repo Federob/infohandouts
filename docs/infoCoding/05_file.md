@@ -39,7 +39,6 @@ I file audio memorizzano suoni come voce, musica o altri effetti sonori. Alcune 
 - **.mp3** – Formato compresso, usato per la musica digitale.
 - **.wav** – Formato non compresso, usato per audio di alta qualità.
 - **.aac** – Formato audio avanzato, usato per file compressi.
-- **.flac** – Formato senza perdita di qualità, usato per audio di alta fedeltà.
 
 ### File Video
 
@@ -48,7 +47,6 @@ I file video memorizzano immagini in movimento, spesso accompagnate da suoni. Al
 - **.mp4** – Formato di compressione video popolare, compatibile con molti dispositivi.
 - **.avi** – Formato video standard, con qualità alta ma file di grandi dimensioni.
 - **.mov** – Formato usato per i video Apple, compatibile con i sistemi macOS.
-- **.mkv** – Formato contenitore, usato per video ad alta qualità.
 
 [Scopri com'è fatto un file all'interno!!](https://hexed.it/)
 
@@ -74,10 +72,8 @@ graph LR
     D --> D1[.mp3]
     D --> D2[.wav]
     D --> D3[.aac]
-    D --> D4[.flac]
 
     E --> E1[.mp4]
     E --> E2[.avi]
     E --> E3[.mov]
-    E --> E4[.mkv]
 ```

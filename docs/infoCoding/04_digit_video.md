@@ -39,14 +39,6 @@ La **compressione video** riduce la dimensione del file eliminando informazioni 
 * **Compressione senza perdita di dati (lossless)**: riduce la dimensione del file senza perdere qualità, ma non è molto efficiente per i video.
 * **Compressione con perdita di dati (lossy)**: elimina parte delle informazioni per ridurre la dimensione del file. Questa è la più comune per i video.
 
-### Codec Video
-
-Un **codec** è un software o un algoritmo usato per comprimere e decomprimere i file video. Alcuni codec video popolari includono:
-
-* **H.264**: utilizzato per la maggior parte dei video su Internet e nei Blu-ray.
-* **H.265 (HEVC)**: migliorato rispetto a H.264, è usato per video 4K e HDR.
-* **VP9**: un'alternativa open-source usata da YouTube per lo streaming.
-
 ## Bitrate
 
 Il **bitrate** indica quanti bit vengono trasmessi ogni secondo nel video. Si misura in **kbps** (kilobit al secondo) o **Mbps** (megabit al secondo). Un bitrate più alto generalmente indica una qualità video migliore, ma anche file più grandi.
@@ -80,8 +72,6 @@ graph LR
     A --> I[Compressione Video]
     I --> J[Compressione Lossless]
     I --> K[Compressione Lossy]
-    A --> L[Codec Video]
-    L --> M[H.264, H.265, VP9]
     A --> N[Bitrate]
     N --> O[Qualità e Dimensione]
 ```

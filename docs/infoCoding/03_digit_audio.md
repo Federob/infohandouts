@@ -76,5 +76,5 @@ graph LR
     H --> I[Qualità del Suono]
     H --> J[Dimensione File]
     A --> K[Formati Audio]
-    K --> L[MP3, WAV, AAC, FLAC]
+    K --> L[MP3, WAV, AAC]
 ```

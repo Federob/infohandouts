@@ -3,7 +3,7 @@
 In questo capitolo vedremo come funziona sommariamente il sistema di numerazione binario e lo utilizzeremo per cercare di rappresentare alcune delle informazioni
 di base più importanti!
 
-## Analogico e Digitale 
+## Analogico e Digitale
 
 Tutti noi abbiamo esperienza di dispositivi analogici e digitali, ad esempio chi non ha mai visto un tachimetro analogico dell'auto? che differenza c'è con uno digitale?
 

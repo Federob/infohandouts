@@ -7,9 +7,9 @@ di base più importanti!
 
 Tutti noi abbiamo esperienza di dispositivi analogici e digitali, ad esempio chi non ha mai visto un tachimetro analogico dell'auto? che differenza c'è con uno digitale?
 
-Nei dispositivi analogici i dati variano in modo **continuo** -> In ogni istante abbiamo un'informazione, non ci sono "buchi"
+Nei dispositivi analogici i dati variano in modo **continuo** -> In ogni istante abbiamo un'informazione, non ci sono "buchi".
 
-Nei dispositivi digitali i dai variano un modo **discreto** -> Vengono scelti solo alcuni momenti (di più o di meno dipende da quanto vogliamo essere "fedeli" all'originale) e tutto diventa un numero
+Nei dispositivi digitali i dai variano un modo **discreto** -> Vengono scelti solo alcuni momenti (di più o di meno dipende da quanto vogliamo essere "fedeli" all'originale) e tutto diventa un numero.
 
 > **Analogico** : procedimento che rappresenta un fenomeno con continuità <br><br>
 > **Digitale** : procedimento che rappresenta lo stesso fenomeno traducendolo in cifre (dall'inglese *digit*, cifra) e quindi un modo discontinuo

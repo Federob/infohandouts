@@ -34,7 +34,7 @@ per la rappresentazione di tutti i numeri.
 Un sistema di numerazione posizionale è quello che da valore alle cifre di un numero a seconda della posizione che queste vi occupano.
 
 Ad esempio nel numero decimale 37 tutti sappiamo benissimo che nonostante la cifra 3 sia più piccola della cifra 7, questa valga di più perché occupa la posizione delle decine, 
-mentre la cifra più grande vale meno perché occupa la posizione delle unità
+mentre la cifra più grande vale meno perché occupa la posizione delle unità.
 
 ```
 37   =   3 x 10   +   7 x 1

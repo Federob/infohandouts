@@ -12,7 +12,7 @@ Nei dispositivi analogici i dati variano in modo **continuo** -> In ogni istante
 Nei dispositivi digitali i dai variano un modo **discreto** -> Vengono scelti solo alcuni momenti (di più o di meno dipende da quanto vogliamo essere "fedeli" all'originale) e tutto diventa un numero.
 
 > **Analogico** : procedimento che rappresenta un fenomeno con continuità <br><br>
-> **Digitale** : procedimento che rappresenta lo stesso fenomeno traducendolo in cifre (dall'inglese *digit*, cifra) e quindi un modo discontinuo
+> **Digitale** : procedimento che rappresenta lo stesso fenomeno traducendolo in cifre (dall'inglese *digit*, cifra) e quindi un modo discontinuo.
 
 ![AD](andig.png)
 

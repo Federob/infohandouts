@@ -32,15 +32,6 @@ Ogni pixel in un video ha un **colore** rappresentato da una combinazione di ros
 
 Più alta è la profondità del colore, maggiore è il numero di colori che possono essere rappresentati, migliorando la qualità dell'immagine.
 
-## Bitrate
-
-Il **bitrate** indica quanti bit vengono trasmessi ogni secondo nel video. Si misura in **kbps** (kilobit al secondo) o **Mbps** (megabit al secondo). Un bitrate più alto generalmente indica una qualità video migliore, ma anche file più grandi.
-
-### Esempio di Bitrate
-
-* Un video 1080p con un bitrate di 4 Mbps sarà più nitido rispetto allo stesso video con un bitrate di 2 Mbps.
-* Un video 4K richiede solitamente un bitrate più alto rispetto a un video HD per mantenere la stessa qualità.
-
 ## Conclusione
 
 La codifica dei video è un processo complesso che bilancia qualità visiva e dimensioni dei file. Attraverso tecniche di campionamento, compressione e regolazione della risoluzione e del bitrate, è possibile ottenere video che siano facili da trasmettere e visualizzare su una varietà di dispositivi.
@@ -62,6 +53,5 @@ graph LR
     E --> F[480p, 720p, 1080p, 4K]
     A --> G[Profondità del Colore]
     G --> H[8 bit, 10 bit]
-    A --> N[Bitrate]
     N --> O[Qualità e Dimensione]
 ```

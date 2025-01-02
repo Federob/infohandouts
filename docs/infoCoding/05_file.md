@@ -50,12 +50,31 @@ I file video memorizzano immagini in movimento, spesso accompagnate da suoni. Al
 
 [Scopri com'è fatto un file all'interno!!](https://hexed.it/)
 
+## Bitrate
+
+Il **bitrate** indica quanti bit vengono trasmessi ogni secondo nei file video o nei file audio. Si misura in **kbps** (kilobit al secondo) o **Mbps** (megabit al secondo). Un bitrate più alto generalmente indica una qualità audio/video migliore, ma anche file più grandi.
+
+Il **bitrate  di un video** è dato dalla formula (teorica) : **risoluzione (formato) * profondità di colore * fps (numero di frame ogni secondo)**
+
+Il **bitrate di un file audio** è dato dalla formula (teorica) : **risoluzione (numero di bit per ogni campione) * frequenza di campionamento**
+
+L' **occupazione di memoria** dei file audio e video è data dalla formula (teorica) : **bitrate * durata (in secondi)** , mentre quella delle immagini è data dalla formula : **risoluzione * profondità di colore**
+
+
+> N.B. : Le formule sono teoriche perché non vengono considerate le compressioni, che ottengono sempre come risultato la diminuzione dell'occupazione di memoria teorica stimata
+
+### Esempi
+
+- Un video 1080p con un bitrate di 4 Mbps sarà più nitido rispetto allo stesso video con un bitrate di 2 Mbps (dovuto magari ad un numero di fps più elevato)
+- Un video 4K richiede solitamente un bitrate più alto rispetto a un video HD per mantenere la stessa qualità.
+- Il bitrate teorico di un file audio campionato a 44.1 kHz e risoluzione 16 bit è di 705.6 kbps
+
 ## Compressione dei file multimediali (Immagini, Audio, Video)
 
 La **compressione** riduce la dimensione del file eliminando informazioni ridondanti. Ci sono due principali tipi di compressione:
 
-- **Compressione senza perdita di dati (lossless)**: riduce la dimensione del file senza perdere qualità. Ad esempio elimina i dati ridondanti
-- **Compressione con perdita di dati (lossy)**: elimina parte delle informazioni per ridurre la dimensione del file.
+- **Compressione senza perdita di dati (lossless)**: riduce la dimensione del file senza perdere qualità. Ad esempio *elimina i dati ridondanti*, ma non è molto efficiente per i video.
+- **Compressione con perdita di dati (lossy)**: elimina parte delle informazioni per ridurre la dimensione del file. E' la più comune per i video e gli audio.
 
 ## Mappa Concettuale
 
@@ -79,14 +98,19 @@ graph LR
     D --> D1[.mp3]
     D --> D2[.wav]
     D --> D3[.aac]
+    D --> BTA[Bitrate bps]
+    BTA --> BTA1[Risoluzione]
+    BTA --> BTA2[Frequenza di campionamento]
 
     E --> E1[.mp4]
     E --> E2[.avi]
     E --> E3[.mov]
+    D --> BTV[Bitrate bps]
+    BTV --> BTV1[Risoluzione/Formato]
+    BTV --> BTV2[Fps]
+    BTV --> BTV3[Profondità di colore]
 
-    C --> I[Compressione]
-    D --> I
-    E --> I
+    A --> I[Compressione Immagini, Audio, Video]
     I --> J[Compressione Lossless]
     I --> K[Compressione Lossy]
 ```

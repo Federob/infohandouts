@@ -48,14 +48,15 @@ Un’onda sonora digitale può essere visualizzata come una serie di punti su un
 - **Campionamento di un’Onda Sonora** – Un’immagine che mostra come un’onda continua venga trasformata in una serie di campioni:
 
 ![Esempio di Campionamento](https://tecnologiamusicale.wordpress.com/wp-content/uploads/2012/07/schermata-2012-07-21-a-10-42-35.png)
-   
+
 - **Frequenza di Campionamento** – Un’immagine che mostra la differenza tra una frequenza di campionamento bassa e una alta:
 
 ![Frequenza di Campionamento](https://helpx-prod.scene7.com/is/image/HelpxProd/da06-1?$png$&jpegSize=100&wid=479)
 
 ## Conclusione
 
-La qualità dell'audio digitale dipende principalmente dalla frequenza di campionamento e dalla risoluzione. Una frequenza di campionamento elevata e una risoluzione alta producono un audio più fedele all’originale, mentre una frequenza e una risoluzione basse portano a una qualità inferiore ma con minori requisiti di memoria.
+La qualità dell'audio digitale dipende principalmente dalla frequenza di campionamento e dalla risoluzione. Una frequenza di campionamento elevata e una risoluzione alta producono un audio *più fedele all’originale*, mentre una frequenza e una risoluzione **basse** portano a una *qualità inferiore ma con minore utilizzo di memoria*.
+La frequenza di campionamento e la risoluzione dei campioni sono *indipendenti*, nel senso che possiamo aumentare o diminuire l'una senza dover modificare per forza l'altra
 
 ### Esercizi
 

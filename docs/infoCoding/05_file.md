@@ -44,9 +44,9 @@ I file audio memorizzano suoni come voce, musica o altri effetti sonori. Alcune 
 
 I file video memorizzano immagini in movimento, spesso accompagnate da suoni. Alcune delle estensioni principali includono:
 
-- **.mp4** – Formato di compressione video popolare, compatibile con molti dispositivi.
-- **.avi** – Formato video standard, con qualità alta ma file di grandi dimensioni.
-- **.mov** – Formato usato per i video Apple, compatibile con i sistemi macOS.
+- **.mp4** – Formato di compressione video popolare, compatibile con molti dispositivi
+- **.avi** – Formato video standard, con qualità alta ma file di grandi dimensioni
+- **.mov** – Formato usato per i video Apple, compatibile con i sistemi macOS
 
 [Scopri com'è fatto un file all'interno!!](https://hexed.it/)
 

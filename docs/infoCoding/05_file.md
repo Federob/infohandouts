@@ -50,6 +50,13 @@ I file video memorizzano immagini in movimento, spesso accompagnate da suoni. Al
 
 [Scopri com'è fatto un file all'interno!!](https://hexed.it/)
 
+## Compressione dei file multimediali (Immagini, Audio, Video)
+
+La **compressione** riduce la dimensione del file eliminando informazioni ridondanti. Ci sono due principali tipi di compressione:
+
+- **Compressione senza perdita di dati (lossless)**: riduce la dimensione del file senza perdere qualità. Ad esempio elimina i dati ridondanti
+- **Compressione con perdita di dati (lossy)**: elimina parte delle informazioni per ridurre la dimensione del file.
+
 ## Mappa Concettuale
 
 ```mermaid
@@ -76,4 +83,10 @@ graph LR
     E --> E1[.mp4]
     E --> E2[.avi]
     E --> E3[.mov]
+
+    C --> I[Compressione]
+    D --> I
+    E --> I
+    I --> J[Compressione Lossless]
+    I --> K[Compressione Lossy]
 ```

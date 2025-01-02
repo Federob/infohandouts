@@ -32,13 +32,6 @@ Ogni pixel in un video ha un **colore** rappresentato da una combinazione di ros
 
 Più alta è la profondità del colore, maggiore è il numero di colori che possono essere rappresentati, migliorando la qualità dell'immagine.
 
-## Compressione Video
-
-La **compressione video** riduce la dimensione del file eliminando informazioni ridondanti. Ci sono due principali tipi di compressione:
-
-* **Compressione senza perdita di dati (lossless)**: riduce la dimensione del file senza perdere qualità, ma non è molto efficiente per i video.
-* **Compressione con perdita di dati (lossy)**: elimina parte delle informazioni per ridurre la dimensione del file. Questa è la più comune per i video.
-
 ## Bitrate
 
 Il **bitrate** indica quanti bit vengono trasmessi ogni secondo nel video. Si misura in **kbps** (kilobit al secondo) o **Mbps** (megabit al secondo). Un bitrate più alto generalmente indica una qualità video migliore, ma anche file più grandi.
@@ -69,9 +62,6 @@ graph LR
     E --> F[480p, 720p, 1080p, 4K]
     A --> G[Profondità del Colore]
     G --> H[8 bit, 10 bit]
-    A --> I[Compressione Video]
-    I --> J[Compressione Lossless]
-    I --> K[Compressione Lossy]
     A --> N[Bitrate]
     N --> O[Qualità e Dimensione]
 ```

@@ -53,5 +53,6 @@ graph LR
     E --> F[480p, 720p, 1080p, 4K]
     A --> G[Profondità del Colore]
     G --> H[8 bit, 10 bit]
-    N --> O[Qualità e Dimensione]
+    A --> N
+    N[Compressione] --> O[Bilanciamento di qualità e dimensione]
 ```

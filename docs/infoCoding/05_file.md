@@ -28,7 +28,7 @@ I file di testo contengono solo caratteri leggibili, come lettere e numeri. Alcu
 I file di immagine memorizzano dati visivi in vari formati. Alcune delle estensioni principali includono:
 
 - **.jpg** o **.jpeg** – Formato compresso, molto usato per le foto.
-- **.png** – Formato senza perdita di qualità, con supporto per trasparenza.
+- **.png** – Formato compresso senza perdita di qualità, con supporto per trasparenza.
 - **.gif** – Formato per immagini animate, con colori limitati.
 - **.bmp** – Bitmap, un formato non compresso usato per immagini di alta qualità.
 

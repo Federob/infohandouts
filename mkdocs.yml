@@ -95,8 +95,8 @@ nav:
     - Software: hwsw/20_sw.md
     - Sistemi Operativi: 
       - Storia: hwsw/21_os_intro.md
-      - Architettura: hwsw/21_os_arch.md
-    - Software Applicativi: hwsw/22_app.md
+      - Architettura: hwsw/22_os_arch.md
+    - Software Applicativi:
   - La codifica delle informazioni:
     - Codifiche numeriche: infoCoding/00_intro.md
     - Testo: infoCoding/01_digit_text.md

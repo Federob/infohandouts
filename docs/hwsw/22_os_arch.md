@@ -85,7 +85,8 @@ Abbiamo anche dato uno sguardo alle differenze principali tra Windows, GNU/Linux
 
 ---
 
-### Mappa Concettuale (Mermaid)
+### Mappa Concettuale
+
 ```mermaid
 flowchart LR
     A(Sistema Operativo) --> B(Kernel)
@@ -95,3 +96,4 @@ flowchart LR
     C --> F(File e Cartelle)
     D --> G(Interazione con l'utente)
     A --> H(Differenti OS: Windows, Linux, macOS)
+```

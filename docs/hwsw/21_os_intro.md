@@ -69,7 +69,7 @@ Prima di parlare di storia, ricordiamo che un **Sistema Operativo** è quel soft
 
 ---
 
-## Mappa Concettuale (Mermaid)
+## Mappa Concettuale
 
 ```mermaid
 flowchart TB
@@ -78,3 +78,4 @@ flowchart TB
     C --> D(Anni '80: PC, MS-DOS)
     D --> E(Anni '90: GUI, Windows, Mac)
     E --> F(Oggi: Sistemi Moderni, Cloud, Mobile)
+```

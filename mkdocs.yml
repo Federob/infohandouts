@@ -93,7 +93,8 @@ nav:
     - Hardware: hwsw/10_hw.md
     - BIOS: hwsw/11_bios.md
     - Software: hwsw/20_sw.md
-    - Sistemi Operativi: hwsw/21_os_intro.md
+    - Sistemi Operativi: 
+      - Storia: hwsw/21_os_intro.md
       - Architettura: hwsw/21_os_arch.md
     - Software Applicativi: hwsw/22_app.md
   - La codifica delle informazioni:

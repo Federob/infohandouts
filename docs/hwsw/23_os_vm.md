@@ -54,6 +54,8 @@ _Figura 1: l’interfaccia di VirtualBox con alcune macchine virtuali (fonte: Wi
 8. **Monta la ISO di Ubuntu**: nella sezione “Archiviazione” di VirtualBox, scegli di caricare la ISO come CD o DVD virtuale.  
 9. **Avvia la VM**: si comporterà come un PC che fa il boot dalla ISO di Ubuntu. Segui le istruzioni di installazione (scelta lingua, partizione, creazione utente).
 
+[Guida all'instalalzione (ENG)](https://itslinuxguide.com/install-ubuntu-virtualbox/)
+
 ---
 
 ## 4. Primi passi dopo l’installazione

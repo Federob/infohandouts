@@ -38,6 +38,8 @@ _Figura 1: l’interfaccia di VirtualBox con alcune macchine virtuali (fonte: Wi
 - **VirtualBox** installato sul tuo sistema operativo host
 - **File ISO** di una distribuzione Linux (ad esempio Ubuntu)
 
+[Scarica qui la ISO Ubuntu 24.04 LTS (Long Term Support)!!!](https://releases.ubuntu.com/24.04.1/ubuntu-24.04.1-desktop-amd64.iso)
+
 ### 3.2 Procedura passo-passo
 
 1. **Apri VirtualBox** sul tuo host.  

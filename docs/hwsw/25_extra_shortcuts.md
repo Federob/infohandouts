@@ -1,4 +1,4 @@
-# Interfaccia da linea di comando (CLI)
+# Scorciatoie da tastiera (Shortcuts)
 
 Questo documento raccoglie le scorciatoie da tastiera (shortcuts) più usate in Windows e Linux. Vengono mostrati esempi realistici che simulano il comportamento di un sistema operativo, includendo prompt, comandi e output.
 

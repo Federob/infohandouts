@@ -64,9 +64,6 @@ Per una visualizzazione dettagliata:
     drwxr-xr-x 2 user user 4096 Jan  1 10:05 Immagini
     drwxr-xr-x 2 user user 4096 Jan  1 10:10 Progetti
 
-![Esempio di Terminale Linux (Ubuntu)](https://commons.wikimedia.org/wiki/File:Ubuntu_18.04_desktop_it.png)  
-*Figura 2: Terminale in Ubuntu (fonte: Wikimedia Commons).*
-
 ---
 
 ## 3. Creazione di file e cartelle

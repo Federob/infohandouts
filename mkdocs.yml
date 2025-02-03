@@ -99,6 +99,7 @@ nav:
         - Storia: hwsw/21_os_intro.md
         - Architettura: hwsw/22_os_arch.md
         - Macchine virtuali: hwsw/23_os_vm.md
+        - Interfaccia da linea di comando (CLI): hwsw/24_os_cli.md
   - La codifica delle informazioni:
     - Codifiche numeriche: infoCoding/00_intro.md
     - Testo: infoCoding/01_digit_text.md

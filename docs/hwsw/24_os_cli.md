@@ -269,7 +269,6 @@ Di seguito una mappa concettuale che riassume i concetti trattati:
       F --> G[notepad, nano, type, cat]
       A --> H[Cancellazione]
       H --> I[del, rmdir /s /q, rm, rm -r]
-      A --> J[Esercizi Pratici]
 ```
 
 ---

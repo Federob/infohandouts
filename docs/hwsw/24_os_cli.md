@@ -259,6 +259,7 @@ Modifica il file, aggiungi qualche frase, salva ed esci.
 
 Di seguito una mappa concettuale che riassume i concetti trattati:
 
+```mermaid
     graph LR
       A[CLI] --> B[Navigazione]
       B --> C[cd, dir / ls, ls -l]
@@ -269,6 +270,7 @@ Di seguito una mappa concettuale che riassume i concetti trattati:
       A --> H[Cancellazione]
       H --> I[del, rmdir /s /q, rm, rm -r]
       A --> J[Esercizi Pratici]
+```
 
 ---
 

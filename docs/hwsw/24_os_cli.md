@@ -68,9 +68,6 @@ Per una visualizzazione dettagliata:
     drwxr-xr-x 2 user user 4096 Jan  1 10:05 Immagini  
     drwxr-xr-x 2 user user 4096 Jan  1 10:10 Progetti
 
-![Esempio di Terminale Linux (Ubuntu)](https://commons.wikimedia.org/wiki/File:Ubuntu_18.04_desktop_it.png)  
-*Figura 2: Terminale in Ubuntu (fonte: Wikimedia Commons).*
-
 ---
 
 ## 3. Creazione di file e cartelle
@@ -183,7 +180,8 @@ Per una visualizzazione dettagliata:
 
 **In Windows (CMD):**
 
-    C:\Users\User> doskey /HISTORY > history.txt
+    C:\Users\User> doskey /history **>** history.txt (*crea* e sovrascrive)
+    C:\Users\User> doskey /history **>>** history.txt (*crea* e aggiunge)
 
 Questo comando salva la cronologia dei comandi eseguiti nella sessione corrente nel file "history.txt", o altro file di testo a piacere.
 

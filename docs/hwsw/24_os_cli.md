@@ -1,13 +1,12 @@
 # Interfaccia da linea di comando (CLI)
 
-Questo documento descrive come navigare, creare e modificare file e cartelle usando la riga di comando in Windows e Linux. Verranno mostrati esempi realistici, con prompt, comandi e output simulati, per rappresentare il comportamento di un sistema operativo reale.
+Questo documento descrive come navigare, creare, modificare e cancellare file e cartelle usando la riga di comando in Windows e Linux. Verranno mostrati esempi realistici, con prompt, comandi e output simulati, per rappresentare il comportamento di un sistema operativo reale.
 
 ---
 
 ## 1. Introduzione alla CLI
 
 La Command Line Interface (CLI) consente di eseguire comandi testuali per interagire direttamente con il sistema operativo.
-
 - **Windows:** Si accede tramite il Prompt dei comandi o PowerShell.
 - **Linux:** Si utilizza il Terminale (con shell come bash o zsh).
 
@@ -27,12 +26,16 @@ Esempio simulato in Linux:
 
 ### 2.1 Navigazione su Windows
 
-Per spostarsi in una cartella si usa il comando cd:
+Per spostarsi in una cartella si usa il comando cd.
+
+Esempio:
 
     C:\Users\User> cd Desktop
     C:\Users\User\Desktop>
 
-Per elencare il contenuto della directory, si usa il comando dir:
+Per elencare il contenuto della directory, si usa il comando dir.
+
+Esempio:
 
     C:\Users\User\Desktop> dir
      Volume in drive C has no label.
@@ -84,14 +87,19 @@ Per una visualizzazione dettagliata:
 - **Metodo "copy con":**
 
     C:\Users\User> copy con testo.txt  
-    Questo è un esempio di testo.  
-    [Premere Ctrl+Z e poi Invio]  
-    1 file copiato.
+    (Digita: "Questo è un esempio di testo.")  
+    (Premi Ctrl+Z e poi Invio per salvare.)  
+    Output simulato: "1 file copiato."
 
 - **Metodo "echo":**
 
     C:\Users\User> echo Ciao mondo! > testo.txt  
+    (Questo comando crea o sovrascrive "testo.txt" con il testo "Ciao mondo!")  
+    Per aggiungere una riga senza cancellare il contenuto esistente:
+    
     C:\Users\User> echo Seconda riga >> testo.txt
+
+> **Nota:** Il simbolo ">" crea il file o sostituisce il contenuto esistente, mentre ">>" aggiunge il nuovo testo in coda mantenendo il contenuto già presente.
 
 ### 3.2 Su Linux
 
@@ -108,12 +116,13 @@ Per una visualizzazione dettagliata:
 - **Metodo "echo":**
 
     user@ubuntu:~$ echo "Ciao mondo!" > testo.txt  
+    (Per aggiungere una riga senza cancellare il contenuto esistente:)  
     user@ubuntu:~$ echo "Altra riga" >> testo.txt
 
 - **Metodo interattivo:**
 
     user@ubuntu:~$ cat > testo.txt  
-    (Digitare il testo desiderato, poi premere Ctrl+D per terminare)
+    (Digita il testo desiderato, poi premi Ctrl+D per terminare.)
 
 ---
 
@@ -128,7 +137,7 @@ Per una visualizzazione dettagliata:
 **Modificare il file in Notepad:**
 
     C:\Users\User> notepad testo.txt  
-    (Si apre il Blocco note per modificare il file)
+    (Si apre il Blocco note per modificare il file.)
 
 ### 4.2 Su Linux
 
@@ -139,11 +148,40 @@ Per una visualizzazione dettagliata:
 **Modificare il file in Nano:**
 
     user@ubuntu:~$ nano testo.txt  
-    (In Nano, premere Ctrl+O per salvare, poi Ctrl+X per uscire)
+    (In Nano, premi Ctrl+O per salvare e Ctrl+X per uscire.)
 
 ---
 
-## 5. Esercizi pratici
+## 5. Cancellazione di file e cartelle
+
+### 5.1 In Windows
+
+**Cancellare un file:**
+
+    C:\Users\User> del esempio.txt
+
+**Cancellare una cartella vuota:**
+
+    C:\Users\User> rmdir CartellaDiTest
+
+**Cancellare una cartella con tutto il contenuto:**
+
+    C:\Users\User> rmdir /s /q CartellaDiTest
+
+### 5.2 In Linux
+
+**Cancellare un file:**
+
+    user@ubuntu:~$ rm esempio.txt  
+    (Per forzare la cancellazione senza conferma: rm -f esempio.txt)
+
+**Cancellare una cartella e tutto il suo contenuto:**
+
+    user@ubuntu:~$ rm -r NomeCartella
+
+---
+
+## 6. Esercizi pratici
 
 ### Esercizio 1: Navigazione e creazione di cartelle
 
@@ -217,24 +255,27 @@ Modifica il file, aggiungi qualche frase, salva ed esci.
 
 ---
 
-## 6. Mappa concettuale
+## 7. Mappa concettuale (Mermaid)
 
 Di seguito una mappa concettuale che riassume i concetti trattati:
 
-```mermaid
-graph LR
-    A[CLI] --> B[Navigazione]
-    B --> C[cd, dir / ls]
-    A --> D[Creazione File e Cartelle]
-    D --> E[mkdir, touch]
-    A --> F[Modifica e Visualizzazione]
-    F --> G[type, cat, notepad, nano]
-```
+    graph LR
+      A[CLI] --> B[Navigazione]
+      B --> C[cd, dir / ls, ls -l]
+      A --> D[Creazione File e Cartelle]
+      D --> E[mkdir, touch, type nul, fsutil]
+      A --> F[Modifica e Visualizzazione]
+      F --> G[notepad, nano, type, cat]
+      A --> H[Cancellazione]
+      H --> I[del, rmdir /s /q, rm, rm -r]
+      A --> J[Esercizi Pratici]
 
 ---
 
-## 7. Conclusione
+## 8. Conclusione
 
-Questi esempi mostrano come utilizzare la riga di comando per navigare tra le directory, creare file e cartelle e modificare i contenuti dei file. I comandi sono simili in Windows e Linux, anche se la sintassi varia. Con la pratica, la CLI diventerà uno strumento potente per gestire il sistema in modo rapido ed efficiente.
+Questi esempi mostrano come utilizzare la riga di comando per navigare tra le directory, creare file e cartelle, modificare il contenuto e cancellare file e cartelle. I comandi sono simili in Windows e Linux, anche se la sintassi varia leggermente. Con la pratica, la CLI diventerà uno strumento potente per gestire il sistema in modo rapido ed efficiente.
 
 ---
+
+

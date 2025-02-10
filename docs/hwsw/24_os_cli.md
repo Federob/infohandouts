@@ -255,7 +255,7 @@ Modifica il file, aggiungi qualche frase, salva ed esci.
 
 ---
 
-## 7. Mappa concettuale (Mermaid)
+## 7. Mappa concettuale
 
 Di seguito una mappa concettuale che riassume i concetti trattati:
 

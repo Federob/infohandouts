@@ -13,7 +13,7 @@ La Command Line Interface (CLI) consente di eseguire comandi testuali per intera
 
 Esempio simulato in Windows:
 
-```cmd
+```PowerShell
     C:\Users\User> echo Welcome to the Windows CLI!  
     Welcome to the Windows CLI!
 ```
@@ -35,7 +35,7 @@ Per spostarsi in una cartella si usa il comando cd.
 
 Esempio:
 
-```bash
+```PowerShell
     C:\Users\User> cd Desktop  
     C:\Users\User\Desktop>
 ```
@@ -44,7 +44,7 @@ Per elencare il contenuto della directory si usa il comando dir.
 
 Esempio:
 
-```bash
+```PowerShell
     C:\Users\User\Desktop> dir  
     Volume in drive C has no label.  
     Volume Serial Number is XXXX-XXXX  
@@ -67,23 +67,20 @@ Per spostarsi in una directory:
 
 Per elencare i file:
 
-```bash
+```shell
     user@ubuntu:~/Desktop$ ls  
     Documenti  Immagini  Progetti
 ```
 
 Per una visualizzazione dettagliata:
 
-```bash
+```shell
     user@ubuntu:~/Desktop$ ls -l  
     total 8  
     drwxr-xr-x 2 user user 4096 Jan  1 10:00 Documenti  
     drwxr-xr-x 2 user user 4096 Jan  1 10:05 Immagini  
     drwxr-xr-x 2 user user 4096 Jan  1 10:10 Progetti
 ```
-
-![Esempio di Terminale Linux (Ubuntu)](https://commons.wikimedia.org/wiki/File:Ubuntu_18.04_desktop_it.png)  
-*Figura 2: Terminale in Ubuntu (fonte: Wikimedia Commons).*
 
 ---
 
@@ -93,13 +90,13 @@ Per una visualizzazione dettagliata:
 
 **Creare una cartella:**
 
-```cmd
+```PowerShell
     C:\Users\User> mkdir NuovaCartella
 ```
 
 **Creare un file vuoto:**
 
-```cmd
+```PowerShell
     C:\Users\User> type nul > file_vuoto.txt 
 ```
 
@@ -107,26 +104,28 @@ Per una visualizzazione dettagliata:
 
 - Metodo "copy con":
   
-```bash
+```PowerShell
         C:\Users\User> copy con testo.txt
 ```
 
-        (Digitare: "Questo è un esempio di testo." e premere Ctrl+Z, poi Invio)  
-        Output simulato: "1 file copiato."
+_Digitare: "Questo è un esempio di testo." e premere Ctrl+Z, poi Invio_
+
+> Output simulato: "1 file copiato."
 
 - Metodo "echo":  
 
-```bash
+```PowerShell
         C:\Users\User> echo Ciao mondo! > testo.txt  
 ```
 
-        Questo comando crea o sovrascrive "testo.txt" con il testo "Ciao mondo!"  
-        Per aggiungere una riga senza cancellare il contenuto esistente:
+Questo comando crea o sovrascrive "testo.txt" con il testo "Ciao mondo!"  
+Per aggiungere una riga senza cancellare il contenuto esistente:
 
-```bash
+```PowerShell
         C:\Users\User> echo Seconda riga >> testo.txt
 ```
 
+> [!WARNING]
 > Nota: Il simbolo ">" crea il file o sostituisce il contenuto esistente, mentre ">>" aggiunge il nuovo testo in coda mantenendo il contenuto già presente. Quando si definiscono macro con doskey, l'effetto di ">" e ">>" può differire dal comportamento standard usato con echo.
 
 ### 3.2 In Linux
@@ -163,7 +162,7 @@ Per una visualizzazione dettagliata:
         user@ubuntu:~$ cat > testo.txt
 ```
 
-        (Digitare il testo desiderato, poi premere Ctrl+D per terminare)
+_Digitare il testo desiderato, poi premere Ctrl+D per terminare_
 
 ---
 
@@ -173,17 +172,17 @@ Per una visualizzazione dettagliata:
 
 **Visualizzare il contenuto di un file:**
 
-```bash
+```PowerShell
     C:\Users\User> type testo.txt
 ```
 
 **Modificare il file in Notepad:**
 
-```bash
+```PowerShell
     C:\Users\User> notepad testo.txt
 ```
 
-    (Viene aperto il Blocco note per modificare il file)
+Viene aperto il Blocco note per modificare il file
 
 ### 4.2 In Linux
 
@@ -199,7 +198,7 @@ Per una visualizzazione dettagliata:
     user@ubuntu:~$ nano testo.txt
 ```
 
-    (In Nano, premere Ctrl+O per salvare e Ctrl+X per uscire)
+_In Nano, premere Ctrl+O per salvare e Ctrl+X per uscire_
 
 ---
 
@@ -209,19 +208,19 @@ Per una visualizzazione dettagliata:
 
 **Cancellare un file:**
 
-```bash
+```PowerShell
     C:\Users\User> del esempio.txt
 ```
 
 **Cancellare una cartella vuota:**
 
-```bash
+```PowerShell
     C:\Users\User> rmdir CartellaDiTest
 ```
 
 **Cancellare una cartella e tutto il suo contenuto:**
 
-```bash
+```PowerShell
     C:\Users\User> rmdir /s /q CartellaDiTest
 ```
 
@@ -249,16 +248,16 @@ Per una visualizzazione dettagliata:
 
 **Copiare un file:**
 
-```bash
+```PowerShell
     C:\Users\User> copy "C:\Percorso\Origine\file.txt" "C:\Percorso\Destinazione\file.txt"
 ```
 
 **Copiare una cartella (inclusi i sottocartelle e file) usando xcopy:**
 
-```bash
+```PowerShell
     C:\Users\User> xcopy "C:\Percorso\Origine\Cartella" "C:\Percorso\Destinazione\Cartella" /E /I
 ```
-
+> [!NOTE]
 > /E copia tutte le sottocartelle (comprese quelle vuote); /I assume la destinazione come cartella se non esiste.
 
 ### 6.2 In Linux
@@ -275,6 +274,7 @@ Per una visualizzazione dettagliata:
     user@ubuntu:~$ cp -r /percorso/origine/Cartella /percorso/destinazione/Cartella
 ```
 
+> [!TIP]
 > L'opzione -r (ricorsiva) permette di copiare la cartella insieme a tutti i file e sottocartelle.
 
 ---
@@ -283,7 +283,7 @@ Per una visualizzazione dettagliata:
 
 **In Windows (CMD):**
 
-```bash
+```PowerShell
     C:\Users\User> doskey /history > history.txt  
     C:\Users\User> doskey /history >> history.txt
 ```
@@ -306,7 +306,7 @@ Questo comando esporta la cronologia dei comandi (come registrata nella sessione
 
 **Windows:**
 
-```bash
+```PowerShell
     C:\Users\User> cd Desktop  
     C:\Users\User\Desktop> mkdir LaboratorioCLI  
     C:\Users\User\Desktop> cd LaboratorioCLI  
@@ -326,7 +326,7 @@ Questo comando esporta la cronologia dei comandi (come registrata nella sessione
 
 **Windows:**
 
-```bash
+```PowerShell
     C:\Users\User\Desktop\LaboratorioCLI\Test> echo "Questo è un esempio." > notes.txt  
     C:\Users\User\Desktop\LaboratorioCLI\Test> type notes.txt
 ```
@@ -354,7 +354,7 @@ Questo comando esporta la cronologia dei comandi (come registrata nella sessione
 
 **Windows:**
 
-```bash
+```PowerShell
     C:\Users\User\Desktop\LaboratorioCLI\Test> echo "Nuova riga aggiunta." >> notes.txt  
     C:\Users\User\Desktop\LaboratorioCLI\Test> type notes.txt
 ```
@@ -384,7 +384,7 @@ Questo comando esporta la cronologia dei comandi (come registrata nella sessione
 
 **Windows:**
 
-```bash
+```PowerShell
     C:\Users\User\Desktop\LaboratorioCLI\Test> notepad notes.txt
 ```
 
@@ -401,13 +401,13 @@ Questo comando esporta la cronologia dei comandi (come registrata nella sessione
 
 1. Copia un file da una cartella a un'altra:
 
-```bash
+```PowerShell
         C:\Users\User> copy "C:\Origine\file.txt" "C:\Destinazione\file.txt"
 ```
 
 2. Copia una cartella (con tutti i suoi file e sottocartelle) usando xcopy:
 
-```bash
+```PowerShell
         C:\Users\User> xcopy "C:\Origine\Cartella" "C:\Destinazione\Cartella" /E /I
 ```
 

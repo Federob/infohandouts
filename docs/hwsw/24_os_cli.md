@@ -13,13 +13,17 @@ La Command Line Interface (CLI) consente di eseguire comandi testuali per intera
 
 Esempio simulato in Windows:
 
+```cmd
     C:\Users\User> echo Welcome to the Windows CLI!  
     Welcome to the Windows CLI!
+```
 
 Esempio simulato in Linux:
 
+```bash
     user@ubuntu:~$ echo "Welcome to the Linux CLI!"  
     Welcome to the Linux CLI!
+```
 
 ---
 
@@ -89,15 +93,14 @@ Per una visualizzazione dettagliata:
 
 **Creare una cartella:**
 
-```bash
+```cmd
     C:\Users\User> mkdir NuovaCartella
 ```
 
 **Creare un file vuoto:**
 
-```bash
-    C:\Users\User> type nul > file_vuoto.txt  
-    (Oppure: C:\Users\User> fsutil file createnew file_vuoto.txt 0)
+```cmd
+    C:\Users\User> type nul > file_vuoto.txt 
 ```
 
 **Creare un file e scriverci del testo:**

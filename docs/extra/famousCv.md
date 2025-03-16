@@ -1,16 +1,16 @@
-# 🌟 **Compito di Informatica**: "Un CV per cambiare la storia dell'informatica!" 🚀
+# **Un CV per cambiare la storia dell'informatica!"**
 
-In questo compito vestirai i panni di un personaggio famoso nell'ambito dell'informatica e dovrai realizzare il suo **Curriculum Vitae (CV)** usando **Microsoft Word**.
+In questo compito vestirai i panni di un personaggio famoso nell'ambito dell'informatica e dovrai realizzare il suo **Curriculum Vitae (CV)** utilizzando **Microsoft Word**.
 
-Immagina che questo personaggio sia vivo e stia cercando lavoro nel mondo di oggi: il CV andrà scritto rigorosamente in **prima persona**.
+Immagina che il personaggio scelto sia vivo e stia cercando lavoro nel mondo attuale: il CV dovrà essere scritto rigorosamente in **prima persona**.
 
 Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, purché sia famoso in ambito informatico.
 
 ---
 
-## 🖥️ Lista di personaggi informatici famosi (5 uomini e 5 donne):
+## Lista di personaggi informatici famosi (5 uomini e 5 donne):
 
-### 👨‍💻 Uomini:
+### Uomini:
 
 1. Federico Faggin (Italia)  
 2. Alan Turing (Regno Unito)  
@@ -18,7 +18,7 @@ Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, pu
 4. Linus Torvalds (Finlandia)  
 5. Bill Gates (USA)
 
-### 👩‍💻 Donne:
+### Donne:
 
 1. Ada Lovelace (Regno Unito)  
 2. Grace Hopper (USA)  
@@ -26,11 +26,13 @@ Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, pu
 4. Hedy Lamarr (Austria-USA)  
 5. Radia Perlman (USA)
 
+*(Consulta le descrizioni complete fornite dal docente.)*
+
 ---
 
-## 📌 **Esempio svolto:** Curriculum Vitae (stile Europass) di Steve Jobs
+## Esempio svolto: Curriculum Vitae (stile Europass) di Steve Jobs
 
-> Ricorda: il CV va scritto come se il personaggio fosse vivo e cercasse lavoro oggi!
+> Ricorda: il CV va scritto come se il personaggio fosse vivo e stesse cercando lavoro oggi!
 
 ---
 
@@ -117,7 +119,7 @@ Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, pu
 
 ---
 
-## 📚 Indicazioni tecniche per realizzare il CV con Microsoft Word (stile Europass):
+## Indicazioni tecniche per realizzare il CV con Microsoft Word (stile Europass):
 
 - **Titoli di sezione:** Usa "Titolo 2" o "Titolo 3", dimensione 14-16 pt in grassetto.
 - **Tabelle:** Inserisci tabelle tramite (*Inserisci → Tabella*) per informazioni personali e lingue.
@@ -129,7 +131,7 @@ Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, pu
 
 ---
 
-## ✅ **Controlla sempre prima di consegnare:**
+## Controlla sempre prima di consegnare:
 
 - Ortografia e grammatica
 - Coerenza delle informazioni con la biografia reale del personaggio
@@ -137,5 +139,5 @@ Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, pu
 
 ---
 
-🎯 **Ora scegli il tuo personaggio preferito e mettiti al lavoro!**  
-**Buon lavoro! 💻😉**
+**Ora scegli il tuo personaggio preferito e mettiti al lavoro!**  
+**Buon lavoro!**

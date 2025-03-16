@@ -10,21 +10,39 @@ Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, pu
 
 ## I VIP
 
-### Uomini
-
-1. Federico Faggin (Italia)  
-2. Alan Turing (Regno Unito)  
-3. Tim Berners-Lee (Regno Unito)  
-4. Linus Torvalds (Finlandia)  
-5. Bill Gates (USA)
-
 ### Donne
 
-1. Ada Lovelace (Regno Unito)  
-2. Grace Hopper (USA)  
-3. Margaret Hamilton (USA)  
-4. Hedy Lamarr (Austria-USA)  
-5. Radia Perlman (USA)
+- **Ada Lovelace (Regno Unito)**  
+   Considerata la prima programmatrice della storia per i suoi algoritmi sviluppati per la macchina analitica di Charles Babbage.
+
+- **Grace Hopper (USA)**  
+   Matematica e informatica, pioniera nello sviluppo del linguaggio COBOL e ideatrice del concetto di compilatore.
+
+- **Margaret Hamilton (USA)**  
+   Direttrice del team che ha sviluppato il software per le missioni Apollo della NASA, inclusa Apollo 11.
+
+- **Hedy Lamarr (Austria-USA)**  
+   Attrice e inventrice; ha contribuito allo sviluppo della tecnologia wireless moderna (Wi-Fi, Bluetooth).
+
+- **Radia Perlman (USA)**  
+   Conosciuta come la "madre di Internet", ha inventato il protocollo Spanning Tree (STP), essenziale nelle reti informatiche.
+
+### Uomini
+
+- **Federico Faggin (Italia)**  
+   Inventore del primo microprocessore commerciale (Intel 4004). È considerato uno dei pionieri della microelettronica e dell'informatica moderna.
+
+- **Alan Turing (Regno Unito)**  
+   Padre dell'informatica teorica e dell'intelligenza artificiale. È famoso per la macchina di Turing e per aver decifrato il codice Enigma durante la seconda guerra mondiale.
+
+- **Tim Berners-Lee (Regno Unito)**  
+   Inventore del World Wide Web (WWW) nel 1989, fondamentale per lo sviluppo di Internet come lo conosciamo oggi.
+
+- **Linus Torvalds (Finlandia)**  
+   Creatore del kernel Linux, sistema operativo open source alla base di Android e molti server mondiali.
+
+- **Bill Gates (USA)**  
+   Co-fondatore di Microsoft, ha reso accessibile il personal computer con Windows, influenzando enormemente l'informatica moderna.
 
 ---
 

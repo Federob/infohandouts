@@ -8,9 +8,9 @@ Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, pu
 
 ---
 
-## Lista di personaggi informatici famosi (5 uomini e 5 donne):
+## I VIP
 
-### Uomini:
+### Uomini
 
 1. Federico Faggin (Italia)  
 2. Alan Turing (Regno Unito)  
@@ -18,7 +18,7 @@ Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, pu
 4. Linus Torvalds (Finlandia)  
 5. Bill Gates (USA)
 
-### Donne:
+### Donne
 
 1. Ada Lovelace (Regno Unito)  
 2. Grace Hopper (USA)  
@@ -26,17 +26,11 @@ Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, pu
 4. Hedy Lamarr (Austria-USA)  
 5. Radia Perlman (USA)
 
-*(Consulta le descrizioni complete fornite dal docente.)*
-
 ---
 
-## Esempio svolto: Curriculum Vitae (stile Europass) di Steve Jobs
+## Esempio svolto: Curriculum Vitae (stile Europass) di *Steve Jobs*
 
 > Ricorda: il CV va scritto come se il personaggio fosse vivo e stesse cercando lavoro oggi!
-
----
-
-# **Curriculum Vitae**
 
 ### Informazioni personali
 
@@ -52,7 +46,7 @@ Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, pu
 
 ### Occupazione desiderata / Settore professionale
 
-**Amministratore Delegato / Settore IT e Innovazione**
+- Amministratore Delegato / Settore IT e Innovazione
 
 ---
 
@@ -62,6 +56,7 @@ Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, pu
 **Ruolo:** Amministratore Delegato e Co-Fondatore  
 **Nome dell’azienda:** Apple Inc., Cupertino (USA)  
 **Principali attività e responsabilità:**  
+
 - Ideazione e sviluppo di prodotti innovativi (iPhone, iPad, Macintosh).  
 - Coordinamento strategie aziendali e presentazione pubblica di nuovi prodotti.  
 - Gestione dei team di progettazione hardware e software.
@@ -69,7 +64,8 @@ Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, pu
 **Date:** 1985 - 1996  
 **Ruolo:** Fondatore e CEO  
 **Nome dell’azienda:** NeXT Computer Inc., Redwood City (USA)  
-**Principali attività e responsabilità:**  
+**Principali attività e responsabilità:**
+
 - Creazione del sistema operativo NeXTSTEP, base di macOS.  
 - Sviluppo di workstation avanzate destinate al mercato universitario e industriale.
 
@@ -80,7 +76,8 @@ Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, pu
 **Date:** 1972 - 1974  
 **Nome dell’istituto:** Reed College, Portland (USA)  
 **Titolo ottenuto:** Studi incompleti  
-**Principali materie / competenze professionali acquisite:**  
+**Principali materie / competenze professionali acquisite:**
+
 - Design grafico, tipografia e calligrafia.
 
 ---
@@ -112,14 +109,15 @@ Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, pu
 
 ### Altre informazioni personali
 
-**Interessi:**  
+**Interessi:**
+
 - Filosofia orientale  
 - Design industriale  
 - Calligrafia e tipografia  
 
 ---
 
-## Indicazioni tecniche per realizzare il CV con Microsoft Word (stile Europass):
+## Indicazioni tecniche per realizzare il CV con Microsoft Word (stile Europass)
 
 - **Titoli di sezione:** Usa "Titolo 2" o "Titolo 3", dimensione 14-16 pt in grassetto.
 - **Tabelle:** Inserisci tabelle tramite (*Inserisci → Tabella*) per informazioni personali e lingue.
@@ -131,7 +129,7 @@ Scegli uno dei personaggi dalla lista seguente, oppure proponine uno diverso, pu
 
 ---
 
-## Controlla sempre prima di consegnare:
+## Controlla sempre prima di consegnare
 
 - Ortografia e grammatica
 - Coerenza delle informazioni con la biografia reale del personaggio

@@ -1,4 +1,4 @@
-# Il Gioco dell'Assassino via Email (Versione Aggiornata)
+# Il Gioco dell'Assassino via Email
 
 ## Obiettivo del Gioco
 

@@ -1,4 +1,4 @@
-# **Un CV per cambiare la storia dell'informatica!"**
+# **Un CV per cambiare la storia dell'informatica!**
 
 In questo compito vestirai i panni di un personaggio famoso nell'ambito dell'informatica e dovrai realizzare il suo **Curriculum Vitae (CV)** utilizzando **Microsoft Word**.
 

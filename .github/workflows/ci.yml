@@ -8,6 +8,7 @@ permissions:
   contents: write
 jobs:
   deploy:
+    if: ${{ contains(github.event.head_commit.message, '[ci]') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,7 +26,11 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
+      - name: Install dependencies
+        run: pip install requests
       - run: pip install mkdocs-material
       - run: pip install mkdocs-mermaid2-plugin 
       - run: pip install mkdocs-video 
+      - name: Esegui lo script per generare il file IP
+        run: python code/googleiprangeparser.py --output docs/extra/googleipranges.txt
       - run: mkdocs gh-deploy --force

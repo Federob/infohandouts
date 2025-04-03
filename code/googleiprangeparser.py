@@ -1,4 +1,5 @@
 import requests
+import argparse
 
 def scarica_json(url):
     """
@@ -28,6 +29,7 @@ def estrai_range_ip(data):
 def scrivi_file(ip_ranges, nome_file):
     """
     Scrive i range IP in un file di testo, uno per riga.
+    Se il file non esiste, lo crea; altrimenti lo sovrascrive.
     """
     try:
         with open(nome_file, "w") as file:
@@ -38,8 +40,17 @@ def scrivi_file(ip_ranges, nome_file):
         print("Errore durante la scrittura del file:", e)
 
 def main():
+    parser = argparse.ArgumentParser(
+        description="Scarica i range IP da goog.json e li salva su file."
+    )
+    parser.add_argument(
+        "--output",
+        required=True,
+        help="Percorso e nome del file di output (es. docs/ip_ranges.txt)"
+    )
+    args = parser.parse_args()
+
     url = "https://www.gstatic.com/ipranges/goog.json"
-    nome_file = "../docs/extra/googleipranges.txt"
     
     # Scarica il JSON dal server
     data = scarica_json(url)
@@ -49,8 +60,8 @@ def main():
     # Estrai i range IP dal JSON
     ip_ranges = estrai_range_ip(data)
     
-    # Scrivi i range IP su file
-    scrivi_file(ip_ranges, nome_file)
+    # Scrivi i range IP sul file specificato (crea o sovrascrive)
+    scrivi_file(ip_ranges, args.output)
 
 if __name__ == "__main__":
     main()

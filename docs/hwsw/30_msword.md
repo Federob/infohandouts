@@ -1,122 +1,120 @@
-# Dispensa: Creare una Relazione Scientifica con Microsoft Word
 
-Questa guida spiega come sfruttare le funzionalità di Microsoft Word per ottenere una relazione scientifica completa, partendo dal testo fornito. Verranno illustrati i passaggi per impostare frontespizio, sommario, formattazione dei capitoli, bibliografia e altre impostazioni utili.
+# Creazione di una Relazione Scientifica con Microsoft Word
 
-> [Relazione esempio in formato testo](labreportexample.txt)
+## Introduzione
 
----
+Questa guida ti aiuterà a trasformare il file di testo [labreportexample.txt](https://federob.github.io/infohandouts/hwsw/labreportexample.txt) in una relazione scientifica professionale utilizzando Microsoft Word, completa di esempi pratici.
 
-## 1. Preparazione del Documento
+## 1. Creare e Impostare il Documento
 
-1. **Apri Microsoft Word** e crea un nuovo documento vuoto.
-2. **Salva il documento** con un nome appropriato (ad esempio, "Relazione_Incertezza_Misure.docx").
+### Creazione e Salvataggio
 
----
+- Apri Microsoft Word e scegli "Documento Vuoto".
+- Salva subito il documento con **File > Salva con nome**.  
+**Esempio pratico**: salva il file come "Relazione_Incertezza_Misure.docx".
 
-## 2. Creazione del Frontespizio
+### Impostazioni Layout
 
-Il frontespizio introduce il documento e contiene le informazioni principali.
+- **Margini**: Scheda Layout > Margini > Normale (2,54 cm).
+- **Orientamento**: Layout > Orientamento > Verticale.
+- **Dimensione**: Layout > Dimensione > A4.  
+**Esempio pratico**: margini standard, orientamento verticale, pagina A4.
 
-1. **Inserisci il Frontespizio:**
-   - Vai alla scheda **Inserisci**.
-   - Clicca su **Frontespizio** e scegli un modello tra quelli proposti.
-2. **Personalizza il Frontespizio:**
-   - Inserisci il titolo: *L'Incertezza delle Misure nella Scienza*
-   - Inserisci l’autore: *[Nome Studente]*
-   - Aggiungi la classe: *1°X*
-   - Indica la data: *[Inserire data]*
-   - Specifica l’istituto: *[Inserire nome istituto]*
+## 2. Frontespizio
 
-> *Suggerimento:* Fai doppio clic sui campi testuali per modificare direttamente il contenuto del frontespizio.
+- Inserisci il frontespizio andando su **Inserisci > Pagina di copertina**.
+- Compila con i tuoi dati personali.  
+**Esempio pratico**:
+  - Titolo: "Relazione sull'Incertezza delle Misure"
+  - Autore: "Mario Rossi"
+  - Classe: "1ªA"
+  - Data: "Aprile 2025"
+  - Istituto: "Liceo Scientifico XYZ"
 
----
+## 3. Titoli e Sottotitoli (Uso degli Stili)
 
-## 3. Organizzazione e Formattazione del Contenuto
+- Titolo capitolo principale: seleziona il testo e clicca su **Titolo 1**.
+- Titolo sottosezione: seleziona il testo e clicca su **Titolo 2**.
+**Esempio pratico**:
+  - Titolo 1: "Introduzione"
+  - Titolo 2: "Errori Sistematici"
 
-### 3.1 Utilizzo degli Stili
+## 4. Interruzioni
 
-Gli stili di Word sono fondamentali per mantenere una formattazione uniforme e per creare un indice automatico.
+- Per iniziare un nuovo capitolo su una pagina separata: **Inserisci > Interruzione di pagina**.
+- Per intestazioni/piè di pagina diversi: **Layout > Interruzioni > Pagina successiva**.
+**Esempio pratico**: interruzione di pagina dopo "Introduzione".
 
-1. **Titoli e Sottotitoli:**
-   - Seleziona i titoli principali (ad es. "Introduzione", "Capitolo 1: Definizione di Incertezza nelle Misure", ecc.) e applica lo stile **Titolo 1** (scheda **Home** > **Stili** > **Titolo 1**).
-   - Per le sottosezioni (ad es. "Errori Sistematici", "Errori Casuali") utilizza lo stile **Titolo 2**.
-2. **Testo del Corpo:**
-   - Seleziona il testo dei paragrafi e applica lo stile **Normale** per una formattazione coerente.
+## 5. Sommario Automatico
 
-> *Nota:* L'uso corretto degli stili facilita anche la creazione e l'aggiornamento del sommario.
+- Posiziona il cursore dove vuoi inserire il sommario (di solito dopo il frontespizio).
+- Vai su **Riferimenti > Sommario** e scegli uno stile automatico.
+- Aggiorna cliccando sul sommario e selezionando **Aggiorna sommario**.
+**Esempio pratico**: aggiungi "Capitolo 2: Metodologia" e aggiorna il sommario.
 
-### 3.2 Formattazione del Testo
+## 6. Inserimento di Intestazioni e Piè di Pagina
 
-- **Grassetto e Corsivo:** Utilizza il grassetto (Ctrl+B) per evidenziare termini chiave e il corsivo (Ctrl+I) per enfatizzare concetti o titoli di opere.
-- **Elenco Puntato e Numerato:** Usa gli elenchi puntati per le liste (ad es. le cause degli errori) e gli elenchi numerati per le fasi o i passaggi.
+- Doppio clic in alto per aprire l'intestazione e inserire il titolo.
+- Inserire numerazione automatica pagine: **Inserisci > Numero di pagina**.
+**Esempio pratico**:
+  - Intestazione: "Relazione sull'Incertezza delle Misure"
+  - Piè di pagina: "Pagina 1 di 10" (numerazione automatica)
 
----
+## 7. Formattazione Avanzata del Testo
 
-## 4. Creazione del Sommario (Indice)
+- Seleziona tutto il testo (Ctrl+A), scegli il font (es. Times New Roman o Arial, dimensione 12 pt).
+- Allinea il testo giustificato (icona Giustifica su scheda Home).
+- Imposta interlinea di 1,5 (scheda Home > Paragrafo > Interlinea).
+**Esempio pratico**: tutto il testo della relazione in Times New Roman, 12 pt, giustificato, interlinea 1,5.
 
-Il sommario consente di navigare agevolmente nel documento.
+## 8. Inserire Immagini e Grafici
 
-1. Posiziona il cursore nella pagina in cui desideri inserire il sommario (di solito subito dopo il frontespizio).
-2. Vai alla scheda **Riferimenti**.
-3. Clicca su **Sommario** e seleziona uno dei modelli automatici.
-4. Il sommario si aggiornerà automaticamente ogni volta che modifichi i titoli. Per aggiornare, clicca sul sommario e seleziona **Aggiorna campo**.
+- Posiziona il cursore dove vuoi inserire un'immagine e vai su **Inserisci > Immagini**.
+- Scegli "Testo a capo" per disporre l'immagine.
+- Inserisci una didascalia cliccando con il tasto destro sull'immagine e scegli **Inserisci didascalia**.
+**Esempio pratico**:
+  - Figura 1: Grafico delle misure effettuate con errori assoluti e relativi.
 
----
+## 9. Tabelle e Diagrammi
 
-## 5. Impostazioni di Layout e Pagine
+- Vai su **Inserisci > Tabella** e seleziona il numero di righe e colonne.
+- Compila i dati della tabella.
+- Inserisci diagrammi esplicativi con **Inserisci > SmartArt**.
+**Esempio pratico**:  
+| Lunghezza (cm) | Errore Assoluto (cm) | Errore Relativo (%) |
+|----------------|----------------------|---------------------|
+| 120,0          | ±0,5                 | 0,42%               |
+| 115,5          | ±0,3                 | 0,26%               |
 
-### 5.1 Numerazione delle Pagine
+## 10. Citazioni, Note e Bibliografia
 
-1. Vai alla scheda **Inserisci**.
-2. Seleziona **Numero di pagina** e scegli la posizione (in alto, in basso, a destra o a sinistra).
+- Inserisci citazioni nel testo da **Riferimenti > Inserisci citazione > Aggiungi nuova fonte**.
+- Inserisci note esplicative con **Riferimenti > Inserisci nota a piè di pagina**.
+- Alla fine del documento genera automaticamente la bibliografia (**Riferimenti > Bibliografia**).
+**Esempio pratico**:
+  - Citazione nel testo: "(Bianchi, 2021)"
+  - Nota piè pagina: "Per approfondimenti sugli errori casuali vedi Bianchi (2021)."
+  - Bibliografia generata automaticamente.
 
-### 5.2 Intestazioni e Piè di Pagina
+## 11. Revisione Finale e Controllo Ortografico
 
-1. Accedi a **Inserisci** > **Intestazione** (o **Piè di pagina**).
-2. Personalizza l’intestazione o il piè di pagina aggiungendo ad esempio il titolo della relazione o il nome del capitolo corrente.
+- Vai su **Revisione > Controllo ortografia e grammatica**.
+- Rileggi più volte la relazione per assicurarti chiarezza e accuratezza.
+- Usa la funzione **Revisioni** se collabori con altre persone.
+**Esempio pratico**: effettua il controllo finale prima di salvare e consegnare il documento.
 
-### 5.3 Margini e Orientamento
+## Struttura Finale della Relazione
 
-1. Vai alla scheda **Layout**.
-2. Clicca su **Margini** e scegli l’impostazione desiderata (solitamente "Normale").
-3. Assicurati che l’orientamento sia impostato su **Verticale** (Ritratto).
+- Frontespizio
+- Sommario Automatico
+- Introduzione
+- Metodologia
+- Risultati e discussione
+- Conclusioni
+- Bibliografia
 
----
+## Consigli Finali per un Ottimo Risultato
 
-## 6. Inserimento della Bibliografia
-
-La bibliografia viene inserita come ultima sezione del documento.
-
-1. Crea una nuova pagina dopo le conclusioni.
-2. Inserisci il titolo **Bibliografia** applicando lo stile **Titolo 1**.
-3. Elenca le fonti:
-   - Manuale di fisica sperimentale, Zanichelli Editore, 2022.
-   - Fisica in laboratorio, Mondadori Education, 2021.
-   - Misure e incertezza, Edizioni Scientifiche Italiane, 2020.
-   - Guida pratica agli errori di misura, Edizioni Hoepli, 2019.
-4. (Opzionale) Usa la funzione **Gestione fonti** in **Riferimenti** per aggiungere e formattare automaticamente le citazioni.
-
----
-
-## 7. Revisione e Aggiornamento
-
-1. **Controllo Ortografico e Grammaticale:** Utilizza la funzione di correzione automatica di Word (scheda **Revisione** > **Controllo ortografia e grammatica**).
-2. **Aggiornamento del Sommario:** Dopo aver effettuato modifiche ai titoli, clicca sul sommario e scegli **Aggiorna campo**.
-3. **Revisione Finale:** Rileggi il documento per verificare la coerenza della formattazione e l’organizzazione del contenuto.
-
----
-
-## 8. Salvataggio ed Esportazione
-
-1. **Salva il Documento:** Assicurati di salvare regolarmente il lavoro in formato .docx.
-2. **Esportazione in PDF (se necessario):**
-   - Vai su **File** > **Salva con nome**.
-   - Scegli il formato PDF e salva il documento.
-
----
-
-# Conclusione
-
-Seguendo questi passaggi, potrai trasformare il testo iniziale in una relazione scientifica ben strutturata e professionale, utilizzando le funzionalità avanzate di Microsoft Word. Questa guida ti aiuta a sfruttare strumenti quali frontespizio, sommario, stili di formattazione e gestione della bibliografia, garantendo così un documento di alta qualità adatto al contesto scolastico.
-
-Buon lavoro!
+- Salva frequentemente.
+- Mantieni uniformità stilistica e chiarezza espositiva.
+- Controlla attentamente prima della consegna finale.

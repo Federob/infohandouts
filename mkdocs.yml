@@ -104,7 +104,7 @@ nav:
           - Shortcuts: hwsw/25_extra_shortcuts.md
       - Applicazioni:
         - Editor di testo:
-          - Microsoft Word: hwsw/30_msword.md
+          - Creare una relazione di laboratorio con Microsoft Word: hwsw/30_msword.md
       - Extra:
         - Markdown e Pandoc: hwsw/90_extra_pandoc.md
         - HTML: hwsw/91_extra_htmlcss.md

@@ -80,7 +80,9 @@ Questa guida ti aiuterà a trasformare il file di testo [labreportexample.txt](h
 - Vai su **Inserisci > Tabella** e seleziona il numero di righe e colonne.
 - Compila i dati della tabella.
 - Inserisci diagrammi esplicativi con **Inserisci > SmartArt**.
+
 **Esempio pratico**:  
+
 | Lunghezza (cm) | Errore Assoluto (cm) | Errore Relativo (%) |
 |----------------|----------------------|---------------------|
 | 120,0          | ±0,5                 | 0,42%               |

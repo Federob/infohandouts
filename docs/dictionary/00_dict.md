@@ -18,8 +18,7 @@ Fase iniziale nella realizzazione di un progetto informatico: consiste nello **s
 
 ### **Applicazione (App)**
 
-Programma progettato per svolgere una funzione specifica per l’utente, come scrivere testi, modificare foto o inviare messaggi.  
-Può essere installata su computer o dispositivi mobili.
+Programma progettato per svolgere una funzione specifica per l’utente, come scrivere testi, modificare foto o inviare messaggi. Può essere installata su computer o dispositivi mobili.
 
 ### **ASCII**
 

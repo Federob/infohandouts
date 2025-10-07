@@ -1,4 +1,4 @@
-# 📘 Dizionario di Informatica – Classe Prima Istituto Tecnologico
+# 📘 Dizionario di Informatica
 
 Questo dizionario raccoglie i termini fondamentali dell’informatica, spiegati in modo chiaro e adatto a studenti del primo anno.  
 È pensato per essere ampliato durante l’anno con nuovi concetti incontrati nei laboratori e nelle lezioni.

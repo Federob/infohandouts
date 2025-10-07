@@ -53,6 +53,13 @@ Il software, i sistemi operativi, i programmi applicativi</p>
 <br>
 </div>
 
+<div class="w3-half" style="padding:0 10px">
+<a href="dictionary/00_dict.md" class="md-button md-button--primary" style="width:300px">A,B,C...</a>
+<p>Le parole dell'Informatica</p>
+<br>
+<br>
+</div>
+
 </div>
 
 </section>

@@ -118,5 +118,7 @@ nav:
   - Extra:
     - Gioco dell'assassino: extra/emailMurderGame.md
     - Qualcuno cerca lavoro: extra/famousCv.md
-  - A,B,C..: dictionary/00_dict.md
+  - A,B,C..: 
+    - Parole : dictionary/00_dict.md
+    - Mappa : dictionary/01_map.md
  

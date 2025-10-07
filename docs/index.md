@@ -10,6 +10,7 @@ hide:
 @media (min-width:601px){.w3-half{width:49.99999%}}
 </style>
 
+
 <body>
 <!-- style="background: #4051b5; background:linear-gradient(#4051b5 0%, #4051b5 20%, #C4D5F9 100%);"> -->
 

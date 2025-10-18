@@ -89,7 +89,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Hardware & Software:
-    - Introduzione: hwsw/00_intro.md
+    - Introduzione: fundamentals/00_basic.md
     - Hardware:
       - Architettura di un elaboratore: hwsw/10_hw.md
       - BIOS: hwsw/11_bios.md

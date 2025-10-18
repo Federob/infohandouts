@@ -1,71 +1,50 @@
 ```mermaid
 mindmap
-  root((Informatica - Concetti Generali))
+  root((Informatica))
     Definizione
-      Origine del termine: Karl Steinbuch (1957)
-      Significato: "informazione automatica"
-      Scienza che studia
-        Analisi dei dati
-        Rappresentazione
-        Elaborazione
-        Organizzazione
-        Trasmissione
+      Scienza dell'elaborazione automatica delle informazioni
+      Deriva da "informazione automatica" (Karl Steinbuch, 1957)
     Informazione
       Bit
-        Significato: "binary digit"
-        Valori possibili: 0 o 1
-        Unità fondamentale dell'informatica
-        Facilmente realizzabile fisicamente
-      Combinazioni di bit
-        Più bit → più possibilità
-        Esempio: 2 bit = 4 combinazioni (00, 01, 10, 11)
+        Unità minima: 0 o 1
       Byte
-        1 Byte = 8 bit
-        2^8 = 256 combinazioni
-        Simbolo: B (bit = b)
-      Multipli informatici
-        1 KB = 2^10 B = 1024 B
-        1 MB = 2^20 B = 1.048.576 B
-        1 GB = 2^30 B = 1.073.741.824 B
-        Prefissi corretti: kibi, mebi, gibi
-    Computer
-      Definizione
-        Macchina elettronica per elaborare dati
-        Funziona automaticamente secondo istruzioni
-        Necessita di input, elaborazione e output
-      Struttura
-        Input: Tastiera, Mouse, Scanner, ecc.
-        Output: Monitor, Stampante, ecc.
-        Elaborazione: CPU e memoria
-      Componenti principali
-        Hardware
-          Parte fisica e tangibile
-          Comprende CPU, RAM, dischi, schede, periferiche
-        Software
-          Parte logica e intangibile
-          Insieme di programmi e istruzioni
-          Necessario per l’uso dell’hardware
-      Tipologie di computer
-        PC (desktop, tower)
-        Laptop / Notebook
-        Tablet (touch screen)
-        Smartphone
-        Server
-          Fornisce risorse e servizi ai client
-          Presente in server farm
-    Architettura hardware
-      CPU (Central Processing Unit)
-        Elabora e coordina i componenti
-      Memorie
-        ROM: sola lettura, permanente
-        RAM: lettura/scrittura, volatile
-        HDD/SSD: memoria di massa, permanente
-        Parametri: velocità e capacità
-    Linguaggio macchina
+        8 bit = 1 byte
       Sistema binario
-        Cifre 0 e 1
-      Codifica binaria delle istruzioni
-      Linguaggio compreso dalla CPU
+        Base di tutta l’informatica
+    Computer
+      Macchina elettronica che elabora dati automaticamente
+      Fasi di funzionamento
+        Input
+        Elaborazione
+        Output
+      Componenti
+        Hardware
+          Parte fisica del computer
+        Software
+          Parte logica: programmi e istruzioni
+        Relazione
+          Lavorano insieme per elaborare dati
+    Tipi di elaboratore
+      PC
+        Desktop o Tower
+      Laptop
+        Portatile con schermo e tastiera integrati
+      Tablet
+        Touch screen, senza tastiera fisica
+      Smartphone
+        Telefono con funzioni da computer
+      Server
+        Fornisce servizi o risorse ad altri computer
+    Memorie
+      ROM (permanente)
+      RAM (temporanea)
+      HDD/SSD (archiviazione)
+    Linguaggio macchina
+      Codice binario compreso dalla CPU
+    Unità di misura
+      Kilobyte (KB)
+      Megabyte (MB)
+      Gigabyte (GB)
 ```
 
   

@@ -31,7 +31,7 @@ hide:
 <div class="w3-row">
 
 <div class="w3-half" style="padding:0 10px">
-<a href="fundamentals/00_basics.md/" class="md-button md-button--primary" style="width:300px">Hardware & Software</a>
+<a href="fundamentals/00_basics/" class="md-button md-button--primary" style="width:300px">Hardware & Software</a>
 <p>I concetti di base dell'informatica! L'hardware, la sua struttura di base, i componenti principali. 
 Il software, i sistemi operativi, i programmi applicativi</p>
 <br>

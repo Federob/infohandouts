@@ -89,7 +89,9 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Hardware & Software:
-    - Introduzione: fundamentals/00_basics.md
+    - Introduzione: 
+      - Concetti fondamentali : fundamentals/00_basics.md
+      - Mappa concettuale : fundamentals/01_map.md
     - Hardware:
       - Architettura di un elaboratore: hwsw/10_hw.md
       - BIOS: hwsw/11_bios.md

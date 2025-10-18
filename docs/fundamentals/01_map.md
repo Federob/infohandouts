@@ -1,4 +1,5 @@
 ```mermaid
+
 mindmap
   root((Informatica))
     Definizione
@@ -46,5 +47,3 @@ mindmap
       Megabyte (MB)
       Gigabyte (GB)
 ```
-
-  

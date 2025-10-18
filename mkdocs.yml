@@ -88,7 +88,7 @@ markdown_extensions:
  
 nav:
   - Home: index.md
-  - Hardware & Software:
+  - Le basi..:
     - Introduzione: 
       - Concetti fondamentali : fundamentals/00_basics.md
       - Mappa concettuale : fundamentals/01_map.md
@@ -104,22 +104,15 @@ nav:
         - Interfaccia da linea di comando (CLI): hwsw/24_os_cli.md
         - Extra:
           - Shortcuts: hwsw/25_extra_shortcuts.md
-      - Applicazioni:
-        - Editor di testo:
-          - Creare una relazione di laboratorio con Microsoft Word: hwsw/30_msword.md
-      - Extra:
-        - Markdown e Pandoc: hwsw/90_extra_pandoc.md
-        - HTML: hwsw/91_extra_htmlcss.md
-  - La codifica delle informazioni:
-    - Codifiche numeriche: infoCoding/00_intro.md
-    - Testo: infoCoding/01_digit_text.md
-    - Immagini: infoCoding/02_digit_img.md
-    - Suoni: infoCoding/03_digit_audio.md
-    - Video: infoCoding/04_digit_video.md
-    - File: infoCoding/05_file.md
+    - La codifica delle informazioni:
+      - Codifiche numeriche: infoCoding/00_intro.md
+      - Testo: infoCoding/01_digit_text.md
+      - Immagini: infoCoding/02_digit_img.md
+      - Suoni: infoCoding/03_digit_audio.md
+      - Video: infoCoding/04_digit_video.md
+      - File: infoCoding/05_file.md
   - Extra:
     - Gioco dell'assassino: extra/emailMurderGame.md
-    - Qualcuno cerca lavoro: extra/famousCv.md
   - A,B,C..: 
     - Parole : dictionary/00_dict.md
     - Mappa : dictionary/01_map.md

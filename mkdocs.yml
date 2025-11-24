@@ -104,6 +104,7 @@ nav:
         - Interfaccia da linea di comando (CLI): hwsw/24_os_cli.md
         - Extra:
           - Shortcuts: hwsw/25_extra_shortcuts.md
+      - Algoritmi: algocoding/01_flowgorithm.md
     - La codifica delle informazioni:
       - Codifiche numeriche: infoCoding/00_intro.md
       - Testo: infoCoding/01_digit_text.md

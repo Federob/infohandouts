@@ -1,4 +1,4 @@
-# Dispensa su Flowgorithm
+# Codificare un algoritmo con Flowgorithm
 
 ## 1. Introduzione a Flowgorithm
 

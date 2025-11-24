@@ -172,24 +172,24 @@ stateDiagram-v2
 ```mermaid
 flowchart TD
 
-    classDef startend fill:#D9D9D9,stroke:#000
-    classDef input fill:#C2EABD,stroke:#2E7D32
-    classDef output fill:#E1C4FF,stroke:#6A1B9A
-    classDef assign fill:#BBDEFB,stroke:#0D47A1
-    classDef decision fill:#FFCDD2,stroke:#B71C1C
+    classDef startend fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1,color:#000
+    classDef input fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1,color:#000
+    classDef output fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1,color:#000
+    classDef assign fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1,color:#000
+    classDef decision fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1,color:#000
 
-    A["Output: Questo programma calcola e confronta le aree di un trapezio e un cerchio"\]:::output --> 
-    B["Output: Inserisci la base maggiore del trapezio"\]:::output --> C[/Input base maggiore/]:::input
-    C --> D["Output: Inserisci la base minore del trapezio"\]:::output --> E[/Input base minore/]:::input
-    E --> F["Output: Inserisci l'altezza del trapezio"\]:::output --> G[/Input altezza/]:::input
-    G --> H["Output: Inserisci il raggio del cerchio"\]:::output --> I[/Input raggio/]:::input
+    A[\"Output: Questo programma calcola e confronta le aree di un trapezio e un cerchio"\]:::output --> 
+    B[\"Output: Inserisci la base maggiore del trapezio"\]:::output --> C[/Input base maggiore/]:::input
+    C --> D[\"Output: Inserisci la base minore del trapezio"\]:::output --> E[/Input base minore/]:::input
+    E --> F[\"Output: Inserisci l'altezza del trapezio"\]:::output --> G[/Input altezza/]:::input
+    G --> H[\"Output: Inserisci il raggio del cerchio"\]:::output --> I[/Input raggio/]:::input
 
     I --> J["area_trapezio = (baseMaggiore + baseMinore) / 2 * altezza"]:::assign
     J --> K["area_cerchio = 3.14 * raggio * raggio"]:::assign
 
     K --> L{"area_trapezio > area_cerchio"}:::decision
-    L -->|Sì| M["Output: L'area del trapezio è maggiore"\]:::output
-    L -->|No| N["Output: L'area del cerchio è maggiore"\]:::output
+    L -->|Sì| M[\"Output: L'area del trapezio è maggiore"\]:::output
+    L -->|No| N[\"Output: L'area del cerchio è maggiore"\]:::output
 
     M --> O["Fine del programma"]:::startend
     N --> O["Fine del programma"]:::startend

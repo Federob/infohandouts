@@ -47,11 +47,22 @@ Il software, i sistemi operativi, i programmi applicativi</p>
 
 </div>
 
+<div class="w3-row">
+
 <div class="w3-half" style="padding:0 10px">
 <a href="extra/emailMurderGame/" class="md-button md-button--primary" style="width:300px">Extra!</a>
 <p>Giochi, approfondimenti, curiosità</p>
 <br>
 <br>
+</div>
+
+<div class="w3-half" style="padding:0 10px">
+<a href="algocoding/01_flowgorithm/" class="md-button md-button--primary" style="width:300px">Algoritmi</a>
+<p>Problema -> Cervello -> Soluzione</p>
+<br>
+<br>
+</div>
+
 </div>
 
 </section>

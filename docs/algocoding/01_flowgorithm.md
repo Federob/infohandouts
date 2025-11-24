@@ -3,7 +3,7 @@
 ## 1. Introduzione a Flowgorithm
 
 Flowgorithm è un ambiente visuale che permette di rappresentare algoritmi attraverso **diagrammi di flusso**.  
-Il suo scopo è aiutare gli studenti a comprendere il pensiero computazionale prima di programmare in un linguaggio reale.
+Il suo scopo è comprendere la logica della programmazione prima di utilizzare linguaggi testuali.
 
 ---
 
@@ -11,14 +11,14 @@ Il suo scopo è aiutare gli studenti a comprendere il pensiero computazionale pr
 
 ### Versione “Executable Only” (consigliata)
 
-Non richiede installazione e funziona direttamente dopo aver estratto il contenuto del file ZIP.
+Non richiede installazione: basta estrarre lo ZIP e avviare l’eseguibile.
 
 Scaricare da:  
 ➡️ https://flowgorithm.org/download/index.html
 
 Eseguire:
 
-```
+```bash
 Flowgorithm.exe
 ```
 
@@ -26,122 +26,126 @@ Flowgorithm.exe
 
 ## 3. Blocchi principali di Flowgorithm
 
-I blocchi fondamentali permettono di costruire algoritmi chiari e corretti. Ogni blocco ha uno scopo preciso nella rappresentazione logica.
+Ogni blocco ha un ruolo preciso nella costruzione dell’algoritmo.
 
 ---
 
 ### 3.1 **Declare – Dichiarazione variabili**
 
-Il blocco *Declare* definisce le variabili che verranno utilizzate nel programma.  
-È una fase essenziale, perché permette di stabilire lo spazio di memoria necessario e il tipo di dato previsto (intero, reale, testo, booleano).
+Definisce variabili e tipo di dato.
 
 ```mermaid
 flowchart LR
-    A["Blocco DECLARE:<br/>dichiara nome e tipo delle variabili che serviranno nel programma"]
+    A["Blocco DECLARE:<br/>crea variabili e specifica il tipo (Integer, Real, String, Boolean)"]
 ```
 
 ---
 
 ### 3.2 **Input – Acquisizione dati**
 
-Il blocco *Input* consente di leggere valori inseriti dall’utente.  
-Per migliorare l’esperienza e rendere chiaro cosa si deve digitare, **va sempre preceduto da un blocco Output di istruzione**.
+Legge valori inseriti dall’utente.  
+È sempre consigliato inserire prima un blocco Output che dia istruzioni.
 
 ```mermaid
 flowchart LR
-    A["Output: spiega all'utente cosa deve inserire"] --> B[/"Input: legge il valore digitato e lo memorizza in una variabile"/]
+    A["Output: istruzione per l'utente"] --> B[/"Input: legge il valore inserito"/]
 ```
 
 ---
 
 ### 3.3 **Assign – Assegnazione**
 
-Il blocco *Assign* calcola espressioni e assegna il risultato a una variabile.  
-Viene utilizzato per eseguire operazioni matematiche, aggiornare valori o inizializzare variabili.
+Esegue calcoli e assegna il risultato a variabili.
 
 ```mermaid
 flowchart LR
-    A["Valori disponibili nelle variabili"] --> B["Blocco ASSIGN:<br/>calcolo o assegnazione di un nuovo valore"]
+    A["Valori disponibili"] --> B["Blocco ASSIGN:<br/>esegue calcoli o aggiorna variabili"]
 ```
 
 ---
 
-### 3.4 **Output – Stampa di risultati e messaggi**
+### 3.4 **Output – Stampa risultati**
 
-Il blocco *Output* mostra a schermo un testo o un valore.  
-Può essere utilizzato sia per messaggi preliminari (istruzioni) sia per mostrare risultati finali.
+Mostra un testo o un valore a schermo.
 
 ```mermaid
 flowchart LR
-    A["Valore o messaggio da comunicare all'utente"] --> B[/"Blocco OUTPUT:<br/>visualizza il contenuto richiesto"/]
+    A["Valore o messaggio"] --> B[/"Blocco OUTPUT:<br/>visualizza il contenuto"/]
 ```
 
 ---
 
 ### 3.5 **If – Struttura condizionale**
 
-Il blocco *If* permette di prendere decisioni in base a una condizione logica.
+Permette di scegliere diversi percorsi in base a una condizione.
 
 ```mermaid
 flowchart TD
-    B{"Verifica della condizione"} -->|Sì| C["Esegui i blocchi del ramo VERO"]
-    B -->|No| D["Esegui i blocchi del ramo FALSO"]
+    B{"Verifica della condizione"} -->|Sì| C["Ramo VERO"]
+    B -->|No| D["Ramo FALSO"]
 ```
 
 ---
 
-## 4. Dall’analisi del testo alla costruzione del diagramma
+## 4. Analisi del problema
 
 ### Problema
 
 Calcolare:
 
-- l’area di un **trapezio** usando: base maggiore, base minore, altezza  
-- l’area di un **cerchio** usando il raggio
+- l’area di un trapezio (base maggiore, base minore, altezza)  
+- l’area di un cerchio (raggio)  
 
-e confrontare i due valori, indicando quale area è maggiore.
-
----
-
-## 4.1 Analisi dettagliata del testo
-
-### **Input richiesti**
-
-Per eseguire i calcoli servono quattro valori:
-
-- base maggiore (Real)  
-- base minore (Real)  
-- altezza (Real)  
-- raggio (Real)
-
-Ogni input sarà preceduto da un messaggio esplicativo.
+e confrontarle per stabilire quale sia maggiore.
 
 ---
 
-### **Elaborazioni**
+## 4.1 Come si individuano input, elaborazioni, output e condizioni
 
-- `area_trapezio = (B + b) / 2 * h`  
-- `area_cerchio = π * r²`  
-- confronto finale tra i due valori
+### **1) Individuazione degli INPUT**
 
----
+Gli input sono dati **necessari** per partire e non ottenibili tramite calcoli.
 
-### **Output**
+Dal testo otteniamo:
+
+- baseMaggiore  
+- baseMinore  
+- altezza  
+- raggio  
+
+### **2) Individuazione delle ELABORAZIONI**
+
+Ogni formula richiede una variabile dedicata:
+
+- `area_trapezio = (baseMaggiore + baseMinore) / 2 * altezza`  
+- `area_cerchio = 3.14 * raggio * raggio`
+
+Variabili generate:
+
+- area_trapezio  
+- area_cerchio  
+
+### **3) Individuazione degli OUTPUT**
+
+Il programma deve comunicare:
 
 - area del trapezio  
 - area del cerchio  
-- messaggio finale: quale area è maggiore
+- quale area è maggiore
+
+### **4) Individuazione delle CONDIZIONI**
+
+Confronto:
+
+```
+area_trapezio > area_cerchio
+```
+
+Questa condizione non crea nuove variabili: usa quelle già esistenti.
 
 ---
 
-### **Condizione logica**
-
-- Se area_trapezio > area_cerchio → il trapezio ha area maggiore  
-- Altrimenti → il cerchio ha area maggiore
-
----
-
-## 4.2 Diagramma degli fasi
+## 4.2 Diagramma degli stati
 
 ```mermaid
 stateDiagram-v2
@@ -163,32 +167,43 @@ stateDiagram-v2
 
 ---
 
-## 4.3 Diagramma di flusso
+## 4.3 Flowchart dettagliato
 
 ```mermaid
 flowchart TD
-    A[\"Output: Questo programma calcola e confronta l'area di un trapezio e di un cerchio"\] --> B["Output: Inserisci la base maggiore del trapezio"]
-    B --> C[/Input base maggiore/]
 
-    C --> D[\"Output: Inserisci la base minore del trapezio"\]
-    D --> E[/Input base minore/]
+    classDef startend fill:#D9D9D9,stroke:#000
+    classDef input fill:#C2EABD,stroke:#2E7D32
+    classDef output fill:#E1C4FF,stroke:#6A1B9A
+    classDef assign fill:#BBDEFB,stroke:#0D47A1
+    classDef decision fill:#FFCDD2,stroke:#B71C1C
 
-    E --> F[\"Output: Inserisci l'altezza del trapezio"\]
-    F --> G[/Input altezza/]
+    A["Output: Questo programma calcola e confronta le aree di un trapezio e un cerchio"\]:::output --> 
+    B["Output: Inserisci la base maggiore del trapezio"\]:::output --> C[/Input base maggiore/]:::input
+    C --> D["Output: Inserisci la base minore del trapezio"\]:::output --> E[/Input base minore/]:::input
+    E --> F["Output: Inserisci l'altezza del trapezio"\]:::output --> G[/Input altezza/]:::input
+    G --> H["Output: Inserisci il raggio del cerchio"\]:::output --> I[/Input raggio/]:::input
 
-    G --> H[\"Output: Inserisci il raggio del cerchio"\]
-    H --> I[/Input raggio/]
+    I --> J["area_trapezio = (baseMaggiore + baseMinore) / 2 * altezza"]:::assign
+    J --> K["area_cerchio = 3.14 * raggio * raggio"]:::assign
 
-    I --> J["area_trapezio = (baseMaggiore + baseMinore) / 2 * altezza"]
-    J --> K["area_cerchio = 3.14 * raggio * raggio"]
+    K --> L{"area_trapezio > area_cerchio"}:::decision
+    L -->|Sì| M["Output: L'area del trapezio è maggiore"\]:::output
+    L -->|No| N["Output: L'area del cerchio è maggiore"\]:::output
 
-    K --> L{"area_trapezio > area_cerchio"}
-
-    L -->|Sì| M[\"Output: L'area del trapezio è maggiore"\]
-    L -->|No| N[\"Output: L'area del cerchio è maggiore"\]
-
-    M --> O["Fine del programma"]
-    N --> O["Fine del programma"]
+    M --> O["Fine del programma"]:::startend
+    N --> O["Fine del programma"]:::startend
 ```
+
+---
+
+## 5. Schema delle variabili individuate
+
+| Tipo | Variabili | Origine |
+|------|-----------|---------|
+| **Input** | baseMaggiore, baseMinore, altezza, raggio | esplicitati nel testo |
+| **Elaborazione** | area_trapezio, area_cerchio | derivano dalle formule |
+| **Output** | stessi valori delle aree + messaggio finale | richiesti dal problema |
+| **Condizioni** | usa variabili esistenti | confronto tra aree |
 
 ---

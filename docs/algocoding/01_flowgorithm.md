@@ -157,11 +157,18 @@ stateDiagram-v2
     LetturaH --> LetturaR
     LetturaR --> CalcoloAreaTrapezio
     CalcoloAreaTrapezio --> CalcoloAreaCerchio
-    CalcoloAreaCerchio --> Confronto
-    Confronto --> TrapezioMaggiore: area trapezio > area cerchio
-    Confronto --> CerchioMaggiore: area cerchio >= area trapezio
+    CalcoloAreaCerchio --> VerificaUguaglianza
+
+    VerificaUguaglianza --> AreeUguali: area trapezio = area cerchio
+    VerificaUguaglianza --> VerificaMaggiore: area trapezio <> area cerchio
+
+    VerificaMaggiore --> TrapezioMaggiore: area trapezio > area cerchio
+    VerificaMaggiore --> CerchioMaggiore: area cerchio > area trapezio
+
+    AreeUguali --> OutputRisultato
     TrapezioMaggiore --> OutputRisultato
     CerchioMaggiore --> OutputRisultato
+
     OutputRisultato --> [*]
 ```
 
@@ -180,20 +187,33 @@ flowchart TD
 
     A[\"Output: Questo programma calcola e confronta le aree di un trapezio e un cerchio"\]:::output --> 
     B[\"Output: Inserisci la base maggiore del trapezio"\]:::output --> C[/Input base maggiore/]:::input
+
     C --> D[\"Output: Inserisci la base minore del trapezio"\]:::output --> E[/Input base minore/]:::input
+
     E --> F[\"Output: Inserisci l'altezza del trapezio"\]:::output --> G[/Input altezza/]:::input
+
     G --> H[\"Output: Inserisci il raggio del cerchio"\]:::output --> I[/Input raggio/]:::input
 
     I --> J["area_trapezio = (baseMaggiore + baseMinore) / 2 * altezza"]:::assign
     J --> K["area_cerchio = 3.14 * raggio * raggio"]:::assign
 
-    K --> L{"area_trapezio > area_cerchio"}:::decision
-    L -->|Sì| M[\"Output: L'area del trapezio è maggiore"\]:::output
-    L -->|No| N[\"Output: L'area del cerchio è maggiore"\]:::output
+    K --> L{"area_trapezio = area_cerchio"}:::decision
 
+    L -->|Sì| P[\"Output: Le aree delle due figure sono uguali"\]:::output
+
+    L -->|No| L2{"area_trapezio > area_cerchio"}:::decision
+
+    L2 -->|Sì| M[\"Output: L'area del trapezio è maggiore"\]:::output
+    L2 -->|No| N[\"Output: L'area del cerchio è maggiore"\]:::output
+
+    P --> O["Fine del programma"]:::startend
     M --> O["Fine del programma"]:::startend
     N --> O["Fine del programma"]:::startend
 ```
+
+[Scarica il programma in formato Flowgorithm](./algoritmo_trapeziocerchio.fprg)
+
+[Scarica il programma in formato Immagine (PNG)](./algoritmo_trapeziocerchio_img.png)
 
 ---
 

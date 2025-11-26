@@ -13,8 +13,7 @@ Il suo scopo è comprendere la logica della programmazione prima di utilizzare l
 
 Non richiede installazione: basta estrarre lo ZIP e avviare l’eseguibile.
 
-Scaricare da:  
-➡️ https://flowgorithm.org/download/index.html
+Scaricare cliccando [qui](https://flowgorithm.org/download/index.html)
 
 Eseguire:
 

@@ -1,15 +1,19 @@
 # La Codifica del Testo: ASCII e Unicode
 
-La **codifica del testo** è un sistema che associa un insieme di simboli a dei valori numerici, permettendo ai computer di memorizzare e interpretare il testo. Senza un sistema di codifica, un computer non sarebbe in grado di capire se una sequenza di bit rappresenta una lettera, un numero o un simbolo speciale.
+Come fa il computer a capire la differenza tra la lettera "A" e il numero 65? Semplice: usa una **codifica del testo**, cioè una tabella che associa ogni simbolo (lettera, numero, emoji) a un valore numerico.
+
+Senza un sistema di codifica, il computer vedrebbe solo una sequenza di bit tipo `01000001` e non saprebbe se è una lettera, un numero o che altro. Con la codifica invece sa che `01000001` = "A"!
 
 ## ASCII: American Standard Code for Information Interchange
 
-**ASCII** è uno dei primi standard di codifica del testo, sviluppato negli anni '60. Utilizza 7 bit per rappresentare 128 simboli unici, che includono:
+**ASCII** è il nonno di tutti i sistemi di codifica del testo, sviluppato negli **anni '60** (quando i computer erano grandi come armadi).
 
-- Lettere maiuscole e minuscole (A-Z, a-z)
-- Numeri (0-9)
-- Simboli speciali (come `!`, `@`, `#`, ecc.)
-- Caratteri di controllo, come `Enter` (codice 13) o `Tab` (codice 9)
+Usa **7 bit** per rappresentare **128 simboli** diversi:
+
+- **Lettere maiuscole e minuscole**: A-Z, a-z (sì, maiuscole e minuscole hanno codici diversi!)
+- **Numeri**: 0-9 (attenzione: il carattere "0" è diverso dal numero 0!)
+- **Simboli speciali**: `!`, `@`, `#`, `$`, `%`...
+- **Caratteri di controllo**: tipo `Enter` (a capo), `Tab` (tabulazione), `Backspace`...
 
 ### Tabella dei Caratteri ASCII
 
@@ -27,20 +31,26 @@ La **codifica del testo** è un sistema che associa un insieme di simboli a dei 
 
 ![ASCII](https://upload.wikimedia.org/wikipedia/commons/d/dd/ASCII-Table.svg)
 
-### Limiti di ASCII
+### Limiti di ASCII (spoiler: non basta!)
 
-ASCII funziona bene per l'inglese e alcune lingue europee, ma non è adatto per rappresentare simboli di altre lingue, come le lettere accentate francesi o i caratteri cinesi. Per questo, si è sviluppata una codifica più estesa, chiamata **Unicode**.
+ASCII funziona bene per l'**inglese**, ma ha un problemone: non ha spazio per lettere accentate (àèéìòù), simboli di altre lingue (ñ, ü, ç), caratteri cinesi, giapponesi, arabi, emoji... niente di tutto questo!
 
-## Unicode: Un Codice Universale
+Provate a scrivere "caffè" in ASCII puro: diventa "caff?" perché la "è" non esiste nella tabella ASCII. Disastro!
 
-**Unicode** è uno standard di codifica che include simboli da quasi tutte le lingue del mondo. 
+Per questo è nato **Unicode**...
 
-Uno dei formati più usati per rappresentare Unicode è **UTF-(8/16)**:
+## Unicode: Il Codice Universale (finalmente!)
 
-* **UTF-(8/16)** è una codifica variabile, che utilizza da 1 (UTF-8) a 2 byte (UTF-16) per ogni simbolo.
-* È compatibile con ASCII: tutti i simboli ASCII occupano 1 byte in UTF-8 e hanno lo stesso valore numerico.
+**Unicode** è lo standard moderno che include simboli da **quasi tutte le lingue del mondo**: latino, greco, cirillico, arabo, cinese, giapponese, coreano, hindi... e anche le **emoji**! 🎉
 
-Questa caratteristica rende UTF-8 ideale per documenti e pagine web, permettendo di rappresentare testo in diverse lingue mantenendo la compatibilità con il testo ASCII.
+Il formato più usato è **UTF-8** (e il suo fratello **UTF-16**):
+
+* **UTF-8**: codifica variabile che usa da 1 a 4 byte per simbolo, a seconda di quanto è "esotico". Lettere inglesi = 1 byte, caratteri cinesi = 3-4 byte.
+* **È retrocompatibile con ASCII**: tutti i simboli ASCII occupano esattamente 1 byte in UTF-8 con lo stesso valore. Geniale!
+
+Questa compatibilità rende UTF-8 perfetto per il web: può mostrare testi in qualsiasi lingua, emoji incluse, senza problemi. 🌍
+
+**Fun fact**: Esistono oltre 143.000 caratteri Unicode, incluse emoji, simboli matematici, note musicali, e perfino geroglifici egizi!
 
 ## Differenze tra ASCII e Unicode
 
@@ -53,12 +63,18 @@ Questa caratteristica rende UTF-8 ideale per documenti e pagine web, permettendo
 
 ## Perché è importante la codifica del testo?
 
-La codifica del testo è fondamentale per la comunicazione globale e per il corretto funzionamento di applicazioni software e pagine web. Con Unicode e UTF-8, possiamo rappresentare testi in qualsiasi lingua e utilizzare simboli e emoji, mantenendo la compatibilità con ASCII.
+Senza codifiche standardizzate, Internet non funzionerebbe! Immaginate:
+- Email con caratteri strani tipo "cafÃ¨" invece di "caffè"
+- Siti web incomprensibili se usano lingue diverse dall'inglese
+- Emoji che appaiono come quadratini vuoti ▯
 
-## Esercizi
+Grazie a **Unicode** e **UTF-8** oggi possiamo scrivere in qualsiasi lingua, usare emoji 😎, e tutto funziona ovunque. Internet è veramente globale!
 
-1. Scrivi il codice binario per i caratteri `C` e `i` utilizzando la codifica ASCII.
-2. Converti la frase "Hello!" in binario usando la codifica ASCII.
+## Esercizi (per chi vuole smanettare)
+
+1. Usando la tabella ASCII, scrivi il codice binario per i caratteri `C` e `i`.
+2. Converti la frase "Hello!" in binario usando ASCII (suggerimento: guardate i codici di H, e, l, l, o, !).
+3. Perché il codice ASCII di "A" (65) è diverso da quello di "a" (97)? Cosa possiamo dedurre?
 
 ## Mappa concettuale
 

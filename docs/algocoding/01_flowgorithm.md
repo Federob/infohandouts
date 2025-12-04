@@ -2,36 +2,41 @@
 
 ## 1. Introduzione a Flowgorithm
 
-Flowgorithm è un ambiente visuale che permette di rappresentare algoritmi attraverso **diagrammi di flusso**.  
-Il suo scopo è comprendere la logica della programmazione prima di utilizzare linguaggi testuali.
+**Flowgorithm** è un ambiente visuale che permette di creare algoritmi con **diagrammi di flusso** (tipo flowchart).
+
+È perfetto per capire la logica della programmazione SENZA dover scrivere codice vero. È tipo disegnare invece di scrivere: più intuitivo e meno frustrante per chi inizia!
+
+Praticamente è la modalità "easy" della programmazione. Una volta capito il concetto, passare a linguaggi veri (Python, Java, C++) sarà molto più semplice.
 
 ---
 
 ## 2. Download e installazione
 
-### Versione “Executable Only” (consigliata)
+### Versione "Executable Only" (consigliata)
 
-Non richiede installazione: basta estrarre lo ZIP e avviare l’eseguibile.
+La versione più comoda: **non richiede installazione**! Basta scaricare lo ZIP, estrarlo e avviare l'eseguibile. Zero sbattimenti.
 
-Scaricare cliccando [qui](https://flowgorithm.org/download/index.html)
+📥 **Download**: [Clicca qui per scaricare Flowgorithm](https://flowgorithm.org/download/index.html)
 
-Eseguire:
+Dopo aver estratto, eseguite:
 
 ```bash
 Flowgorithm.exe
 ```
 
+E siete pronti a programmare!
+
 ---
 
 ## 3. Blocchi principali di Flowgorithm
 
-Ogni blocco ha un ruolo preciso nella costruzione dell’algoritmo.
+I diagrammi di flusso sono fatti di **blocchi** (forme geometriche) collegati tra loro. Ogni blocco ha un ruolo preciso.
 
 ---
 
 ### 3.1 **Declare – Dichiarazione variabili**
 
-Definisce variabili e tipo di dato.
+Serve a **creare variabili** e specificare il tipo di dato (numero intero, decimale, testo, vero/falso).
 
 ```mermaid
 flowchart LR
@@ -42,8 +47,9 @@ flowchart LR
 
 ### 3.2 **Input – Acquisizione dati**
 
-Legge valori inseriti dall’utente.  
-È sempre consigliato inserire prima un blocco Output che dia istruzioni.
+Chiede all'utente di inserire un valore (tipo "Inserisci la tua età").
+
+**Pro tip**: prima dell'Input mettete sempre un blocco Output che spiega COSA deve inserire l'utente. Altrimenti l'utente si ritrova una finestra vuota e pensa "Cosa devo scrivere???"
 
 ```mermaid
 flowchart LR
@@ -54,7 +60,7 @@ flowchart LR
 
 ### 3.3 **Assign – Assegnazione**
 
-Esegue calcoli e assegna il risultato a variabili.
+Fa **calcoli** e assegna il risultato a una variabile. Tipo: `area = base * altezza`. Questo è il blocco dove avviene la "magia matematica".
 
 ```mermaid
 flowchart LR

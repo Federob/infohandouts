@@ -4,46 +4,46 @@ mindmap
   root((Informatica))
     Definizione
       Scienza dell'elaborazione automatica delle informazioni
-      Deriva da "informazione automatica" (Karl Steinbuch, 1957)
+      Deriva da "informazione automatica" - Karl Steinbuch, 1957 - Tempi dei computer grandi come stanze
     Informazione
       Bit
-        Unità minima: 0 o 1
+        Unità minima: 0 o 1 - Come un interruttore
       Byte
-        8 bit = 1 byte
+        8 bit = 1 byte - Una lettera dell'alfabeto
       Sistema binario
-        Base di tutta l’informatica
+        Base di tutta l'informatica - Solo 0 e 1, facile no?
     Computer
-      Macchina elettronica che elabora dati automaticamente
+      Macchina elettronica che elabora dati velocemente
       Fasi di funzionamento
-        Input
-        Elaborazione
-        Output
+        Input - Tu dai qualcosa al PC
+        Elaborazione - Il PC pensa intensamente
+        Output - Il PC ti risponde
       Componenti
         Hardware
-          Parte fisica del computer
+          Parte fisica - Quella che puoi toccare
         Software
-          Parte logica: programmi e istruzioni
+          Parte logica - Programmi e istruzioni
         Relazione
-          Lavorano insieme per elaborare dati
+          Corpo e mente del computer - Servono entrambi
     Tipi di elaboratore
       PC
-        Desktop o Tower
+        Desktop o Tower - Il classicone
       Laptop
-        Portatile con schermo e tastiera integrati
+        Portatile - Per lavorare ovunque (o guardare Netflix)
       Tablet
-        Touch screen, senza tastiera fisica
+        Touch screen - Senza tastiera
       Smartphone
-        Telefono con funzioni da computer
+        Il mini-computer in tasca
       Server
-        Fornisce servizi o risorse ad altri computer
+        Gli eroi nascosti di Internet
     Memorie
-      ROM (permanente)
-      RAM (temporanea)
-      HDD/SSD (archiviazione)
+      ROM - Permanente, tipo le regole
+      RAM - Temporanea, smemorata
+      HDD/SSD - Archivio permanente
     Linguaggio macchina
-      Codice binario compreso dalla CPU
+      Codice binario - L'unico che la CPU capisce
     Unità di misura
-      Kilobyte (KB)
-      Megabyte (MB)
-      Gigabyte (GB)
+      Kilobyte (KB) - Un file di testo
+      Megabyte (MB) - Una foto
+      Gigabyte (GB) - Un film
 ```

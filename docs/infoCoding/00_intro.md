@@ -1,48 +1,51 @@
 # Rappresentazione delle Informazioni
 
-In questo capitolo vedremo come funziona sommariamente il sistema di numerazione binario e lo utilizzeremo per cercare di rappresentare alcune delle informazioni
-di base più importanti!
+In questo capitolo scopriremo come il computer riesce a capire testo, immagini, suoni e video usando solo 0 e 1. Sembra magia, ma è solo matematica!
 
-## Analogico e Digitale
+## Analogico vs Digitale (o: il mondo reale contro Matrix)
 
-Tutti noi abbiamo esperienza di dispositivi analogici e digitali, ad esempio chi non ha mai visto un tachimetro analogico dell'auto? che differenza c'è con uno digitale?
+Avete presente il tachimetro dell'auto? Quello con la lancetta che si muove fluidamente è **analogico**, quello con i numeri che saltano è **digitale**.
 
-Nei dispositivi analogici i dati variano in modo **continuo** -> In ogni istante abbiamo un'informazione, non ci sono "buchi".
+**Analogico** = dati che variano in modo **continuo**.
+In ogni istante abbiamo un'informazione, senza "buchi". La lancetta del tachimetro si muove in modo fluido da 0 a 180 km/h, passando per TUTTI i valori intermedi. Tipo il tempo: scorre continuamente, senza salti.
 
-Nei dispositivi digitali i dai variano un modo **discreto** -> Vengono scelti solo alcuni momenti (di più o di meno dipende da quanto vogliamo essere "fedeli" all'originale) e tutto diventa un numero.
+**Digitale** = dati che variano in modo **discreto** (cioè a "scatti").
+Vengono scelti solo alcuni momenti specifici (campioni) e tutto diventa un numero. Tipo un orologio digitale che mostra 10:15:00, poi 10:15:01, poi 10:15:02... salta da un secondo all'altro senza mostrare i millisecondi nel mezzo.
 
-> **Analogico** : procedimento che rappresenta un fenomeno con continuità <br><br>
-> **Digitale** : procedimento che rappresenta lo stesso fenomeno traducendolo in cifre (dall'inglese *digit*, cifra) e quindi un modo discontinuo.
+> **Analogico**: rappresenta un fenomeno con continuità (fluido, senza interruzioni)
+> **Digitale**: rappresenta lo stesso fenomeno traducendolo in cifre (dall'inglese *digit* = cifra), quindi in modo discontinuo.
 
 ![AD](andig.png)
 
-Ma perché abbiamo bisogno di convertire qualcosa di analogico in qualcosa di digitale?
+**Ma perché dobbiamo convertire tutto in digitale?**
 
-**Perché il computer per lavorare ha bisogno di numeri**
+Perché il computer **capisce solo numeri**. Non sa cosa sono le foto, i video, la musica... sa solo fare calcoli con i numeri. Tutto quello che vedete, ascoltate o leggete al PC è stato prima convertito in numeri!
 
+**E che tipo di numeri usa il PC?**
 
-E come sono "fatti" i numeri che sa elaborare il PC?
-
-**Sono i numeri codificati in *binario***
+Numeri in **binario** (cioè solo 0 e 1). Perché? Perché è il modo più semplice per costruire circuiti elettronici: corrente passa = 1, corrente non passa = 0. Easy!
 
 <!--  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 ## Il sistema binario
 
-Il sistema di numerazione binario è un sistema numerico ***posizionale*** e ***in base 2***, cioè che utilizza solo 2 cifre, solitamente 0 e 1, 
-per la rappresentazione di tutti i numeri.
+Il sistema binario è un sistema numerico **posizionale** in **base 2**, che usa solo 2 cifre: **0** e **1**. Tutto il resto si costruisce da lì.
 
-Un sistema di numerazione posizionale è quello che da valore alle cifre di un numero a seconda della posizione che queste vi occupano.
+**Posizionale** significa che la posizione della cifra ne determina il valore. Tipo nel sistema decimale (base 10) che usate tutti i giorni:
 
-Ad esempio nel numero decimale 37 tutti sappiamo benissimo che nonostante la cifra 3 sia più piccola della cifra 7, questa valga di più perché occupa la posizione delle decine, 
-mentre la cifra più grande vale meno perché occupa la posizione delle unità.
+Nel numero **37**, la cifra 3 vale di più della cifra 7, anche se è più piccola, perché occupa la posizione delle **decine**. La cifra 7 invece occupa la posizione delle **unità**.
 
 ```
 37   =   3 x 10   +   7 x 1
 ```
 
-Questo modo di ragionare e di scrivere i numeri deriva dal fatto che siamo abituati a lavorare in base 10, poiché abbiamo 10 dita e fin da bambini il 10 era sempre il punto d'arrivo della conta sulla dita.
+Questo modo di ragionare deriva dal fatto che **abbiamo 10 dita**! Fin da bambini contavamo sulle dita arrivando a 10. Ecco perché usiamo la base 10.
 
-Nonostante ciò, altri modi di contare si sono sviluppati nella storia. Ad esempio le uova si contano a dozzine (per questo si vendono solitamente a gruppi di 6: due gruppi = una dozzina), i minuti e i secondi si contano a gruppi di sessanta, le ore a gruppi di 24 e così via.
+Ma nella storia si sono usate anche altre basi! Ad esempio:
+- Le uova si vendono a **dozzine** (base 12)
+- I minuti e secondi vanno a gruppi di **60** (base 60, eredità dei Babilonesi)
+- Le ore sono **24** (base 24)
+
+Quindi l'idea di usare altre basi non è poi così strana!
 
 Nell'aritmetica decimale esistono 10 cifre diverse (da 0 a 9) e quando si deve indicare un numero più grande di 9, si comincia a raggruppare mettendo in evidenza “a gruppi di 10”. 
 Ecco che
@@ -65,15 +68,16 @@ Allo stesso modo si continua con le centinaia, che sono formate da 10 decine e c
 
 Notiamo soprattutto l'ultima rappresentazione. In questo modo si può indicare ogni gruppo con un indice dato dalla potenza da assegnare alla base per ottenerne il peso. Infatti le unità sono il gruppo 0 (10<sup>0</sup> = 1), le decine sono il gruppo 1 (10<sup>1</sup> = 10), le centinaia il gruppo 2 (10<sup>2</sup> = 100) e così via praticamente all'infinito.
 
-Se lavoriamo in base 2 con solo 2 cifre, gli unici numeri facili da rappresentare saranno proprio 0 e 1, mentre per 2 dovremo già iniziare a raggruppare. Così ad esempio:
+**In base 2 (binario)** abbiamo solo 0 e 1. Per rappresentare il numero 2 dobbiamo già iniziare a raggruppare! Tipo:
 
 ```
-3 = 1 coppia  + 1 unità
+3 = 1 coppia + 1 unità = 11 (in binario)
 
-5 = 1 doppia coppia + 0 coppie + 1 unità
+5 = 1 doppia-coppia + 0 coppie + 1 unità = 101 (in binario)
 ```
 
-Vediamo i primi 10 numeri rappresentati nel sistema di numerazione binaria:
+Ecco i primi 10 numeri in decimale e binario (confrontateli!):
+
 
 <br>
 

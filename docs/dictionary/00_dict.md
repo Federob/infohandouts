@@ -1,7 +1,10 @@
 # 📘 Dizionario di Informatica
 
-Questo dizionario raccoglie i termini fondamentali dell’informatica, spiegati in modo chiaro e adatto a studenti del primo anno.  
-È pensato per essere ampliato durante l’anno con nuovi concetti incontrati nei laboratori e nelle lezioni.
+Benvenuti nel **dizionario dell'informatica**! Qui troverete tutti quei termini strani che il prof usa durante le lezioni, spiegati in modo che abbiano senso.
+
+Tipo quando dice "RAM" e voi pensate a un gruppo musicale, oppure quando parla di "bug" e voi pensate a insetti veri.
+
+Questo dizionario sarà ampliato durante l'anno con nuovi concetti. Salvatelo nei preferiti!
 
 ---
 
@@ -9,8 +12,9 @@ Questo dizionario raccoglie i termini fondamentali dell’informatica, spiegati 
 
 ### **Algoritmo**
 
-Una sequenza ordinata di istruzioni che, se seguite passo per passo, portano alla soluzione di un problema.  
-Esempio: una ricetta di cucina è un algoritmo, perché indica in ordine preciso cosa fare per ottenere un risultato.
+Una **sequenza ordinata di istruzioni** che portano alla soluzione di un problema. Tipo una ricetta di cucina: se seguite i passaggi nell'ordine giusto, alla fine avrete una torta. Se li fate a caso, avrete un disastro.
+
+Stesso concetto in informatica: segui l'algoritmo = risultato corretto. Sbagli l'ordine = crash del programma.
 
 ### **Analisi**
 
@@ -31,13 +35,15 @@ Sistema che assegna un numero a ogni carattere (lettera, cifra o simbolo) per pe
 
 ### **Backup**
 
-Copia di sicurezza dei dati, utile per recuperarli in caso di cancellazione accidentale, guasto o attacco informatico.  
-Esempio: salvare i file importanti su una chiavetta USB o su un servizio cloud.
+**Copia di sicurezza** dei vostri dati, fondamentale per non piangere quando il computer si rompe o cancellate per sbaglio la tesina di 50 pagine.
+
+Salvate i file importanti su chiavetta USB, hard disk esterno o servizi cloud (Google Drive, OneDrive, Dropbox). E fatelo SPESSO. "Non ho fatto il backup" non è una scusa che funziona con i prof!
 
 ### **Bit**
 
-La più piccola unità di informazione digitale, che può assumere solo due valori: 0 oppure 1.  
-Tutti i dati, anche le immagini o i suoni, sono in ultima analisi formati da tanti bit.
+La **più piccola unità di informazione** digitale. Può essere solo **0 o 1**. Tipo un interruttore: acceso o spento, non esiste "un po' acceso".
+
+Tutti i dati (foto, video, musica, documenti) sono fatti di miliardi di bit. Pensatelo come l'atomo del mondo digitale.
 
 ### **Byte**
 
@@ -46,8 +52,9 @@ Esempio: una foto può pesare 2 MB (megabyte), cioè circa due milioni di byte.
 
 ### **Browser**
 
-Programma che permette di accedere e navigare su Internet, visualizzando siti web.  
-Esempi: Google Chrome, Mozilla Firefox, Microsoft Edge.
+Il programma che usate per **navigare su Internet**. Tipo la vostra macchina per viaggiare nel web.
+
+Esempi: **Google Chrome** (quello che usano tutti), **Mozilla Firefox** (per chi ama l'open source), **Microsoft Edge** (quello che Windows cerca disperatamente di farvi usare), **Safari** (per i possessori di Mac/iPhone).
 
 ---
 

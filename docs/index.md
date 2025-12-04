@@ -18,7 +18,8 @@ hide:
 <section class="">
 
 <h1 style="font-weight:bold;margin:0px">Alfabetizzazione Informatica</h1>
-<p>Le dispense per le lezioni di informatica del Prof</p>
+<p>Benvenuti nel fantastico mondo dei computer! (No, non è ironico... o forse sì? 🤔)</p>
+<p>Le dispense per sopravvivere alle lezioni di informatica del Prof senza addormentarsi sulla tastiera</p>
 
 <br>
 <br>
@@ -32,15 +33,15 @@ hide:
 
 <div class="w3-half" style="padding:0 10px">
 <a href="dictionary/00_dict/" class="md-button md-button--primary" style="width:300px">A,B,C...</a>
-<p>Le parole dell'Informatica</p>
+<p>Il dizionario per capire quando il prof parla in codice (letteralmente)</p>
 <br>
 <br>
 </div>
 
 <div class="w3-half" style="padding:0 10px">
 <a href="fundamentals/00_basics/" class="md-button md-button--primary" style="width:300px">Le basi...</a>
-<p>I concetti di base dell'informatica! L'hardware, la sua struttura di base, i componenti principali. 
-Il software, i sistemi operativi, i programmi applicativi</p>
+<p>Tutto quello che avresti voluto sapere su computer, hardware e software ma avevi paura di chiedere.
+Spoiler: il computer non è magia, anche se a volte sembra così!</p>
 <br>
 <br>
 </div>
@@ -51,14 +52,14 @@ Il software, i sistemi operativi, i programmi applicativi</p>
 
 <div class="w3-half" style="padding:0 10px">
 <a href="extra/emailMurderGame/" class="md-button md-button--primary" style="width:300px">Extra!</a>
-<p>Giochi, approfondimenti, curiosità</p>
+<p>La sezione divertente! Giochi, curiosità e cose che non saranno all'esame (ma sono molto più interessanti)</p>
 <br>
 <br>
 </div>
 
 <div class="w3-half" style="padding:0 10px">
 <a href="algocoding/01_flowgorithm/" class="md-button md-button--primary" style="width:300px">Algoritmi</a>
-<p>Problema -> Cervello -> Soluzione</p>
+<p>Problema → Cervello (speriamo acceso) → Soluzione. Impara a pensare come un computer... ma tipo in meglio</p>
 <br>
 <br>
 </div>

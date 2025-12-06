@@ -9,6 +9,7 @@ import sys
 import subprocess
 import tempfile
 import json
+import functools
 from pathlib import Path
 from typing import List, Dict
 import http.server
@@ -251,9 +252,10 @@ def create_html_with_mermaid(md_file: Path, output_html: Path) -> None:
 
 def start_http_server(directory: Path, port: int) -> threading.Thread:
     """Avvia un server HTTP in background"""
-    os.chdir(directory)
-
-    handler = http.server.SimpleHTTPRequestHandler
+    handler = functools.partial(
+        http.server.SimpleHTTPRequestHandler,
+        directory=str(directory)
+    )
     httpd = socketserver.TCPServer(("", port), handler)
 
     server_thread = threading.Thread(target=httpd.serve_forever, daemon=True)
@@ -349,6 +351,7 @@ def main():
     if not md_files:
         print("⚠️  Nessun file markdown trovato")
         return
+    docs_abs = project_root / DOCS_DIR
 
     # Crea directory temporanea per HTML
     with tempfile.TemporaryDirectory() as temp_dir:
@@ -364,7 +367,6 @@ def main():
 
         for md_file in md_files:
             # Calcola percorso relativo rispetto a docs/
-            docs_abs = Path.cwd() / DOCS_DIR
             rel_path = md_file.relative_to(docs_abs)
 
             # Percorso output PDF

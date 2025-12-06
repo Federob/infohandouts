@@ -28,7 +28,88 @@ E siete pronti a programmare!
 
 ---
 
-## 3. Blocchi principali di Flowgorithm
+## 3. Mappa concettuale: Algoritmi e Flowgorithm 🗺️
+
+Prima di entrare nei dettagli, ecco una **mappa concettuale completa** che mostra tutti i concetti principali e come sono collegati tra loro. Usala come guida di riferimento mentre studi!
+
+```mermaid
+mindmap
+  root((ALGORITMI<br/>e<br/>FLOWGORITHM))
+    COS'È
+      Ambiente visuale
+      Diagrammi di flusso
+      Imparare senza codice
+      Base per linguaggi veri
+    METODOLOGIA 5 PASSI
+      1 Leggere il testo
+        Sottolinea parole chiave
+        Rileggi 2 volte
+      2 INPUT
+        Dati da chiedere
+        Non calcolabili
+        Blocco Input
+      3 ELABORAZIONI
+        Formule matematiche
+        Calcoli
+        Blocco Assign
+      4 OUTPUT
+        Risultati da mostrare
+        Messaggi
+        Blocco Output
+      5 CONDIZIONI
+        Confronti
+        Decisioni
+        Blocco If
+    BLOCCHI PRINCIPALI
+      Declare
+        Crea variabili
+        Specifica tipo
+      Input
+        Riceve dati utente
+        Con istruzioni
+      Assign
+        Esegue calcoli
+        Aggiorna variabili
+      Output
+        Mostra risultati
+        Messaggi chiari
+      If
+        Verifica condizioni
+        Vero o Falso
+    PROCESSO RISOLUZIONE
+      Analisi su carta
+      Checklist verifica
+      Bozza flowchart
+      Creazione in Flowgorithm
+      Test con esempi
+    CONSIGLI PRATICI
+      Usa carta e penna
+      Nomi chiari variabili
+      Messaggi prima input
+      Testa con esempi
+      Chiedi aiuto se bloccato
+```
+
+### 📖 Come usare questa mappa
+
+**Per studiare:**
+- Segui i rami principali per capire i concetti chiave
+- Ogni ramo è collegato agli altri: tutto ha senso insieme!
+- Usa i colori per distinguere le diverse aree
+
+**Per risolvere problemi:**
+- Parti dal ramo **METODOLOGIA 5 PASSI**
+- Segui l'ordine: INPUT → ELABORAZIONI → OUTPUT → CONDIZIONI
+- Usa il ramo **BLOCCHI PRINCIPALI** per sapere quale forma usare nel diagramma
+
+**Per ripassare:**
+- Guarda prima la mappa per avere la visione d'insieme
+- Poi approfondisci ogni sezione del materiale
+- Torna alla mappa per collegare i concetti
+
+---
+
+## 4. Blocchi principali di Flowgorithm
 
 I diagrammi di flusso sono fatti di **blocchi** (forme geometriche) collegati tra loro. Ogni blocco ha un ruolo preciso.
 

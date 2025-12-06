@@ -163,3 +163,10 @@ cython_debug/
 
 infoenv/
 docs/extra/googleipranges.txt
+
+# Local settings
+settings.local.json
+*.local.json
+
+# Viewer HTML temporaneo
+viewer.html

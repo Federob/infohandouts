@@ -29,8 +29,19 @@ jobs:
       - name: Install dependencies
         run: pip install requests
       - run: pip install mkdocs-material
-      - run: pip install mkdocs-mermaid2-plugin 
-      - run: pip install mkdocs-video 
+      - run: pip install mkdocs-mermaid2-plugin
+      - run: pip install mkdocs-video
+      - name: Install Chrome for PDF generation
+        run: |
+          wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
       - name: Esegui lo script per generare il file IP
         run: python code/googleiprangeparser.py --output docs/extra/googleipranges.txt
-      - run: mkdocs gh-deploy --force
+      - name: Build MkDocs site
+        run: mkdocs build
+      - name: Generate PDF files
+        run: python code/generate_pdfs.py
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force

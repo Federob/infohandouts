@@ -64,6 +64,9 @@ extra:
 extra_css:
 - stylesheets/extra.css
 
+hooks:
+- hooks/pdf_button.py
+
 # ----------------------------------------------------
 
 markdown_extensions:

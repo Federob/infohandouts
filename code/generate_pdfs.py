@@ -19,7 +19,7 @@ import time
 
 # Configurazione
 DOCS_DIR = Path("docs")
-PDF_OUTPUT_DIR = Path("site/pdf")
+PDF_OUTPUT_DIR = Path("docs/pdf")
 PORT = 8765
 
 

@@ -37,11 +37,11 @@ jobs:
           sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
+      - name: Esegui lo script per generare i PDF (prima del build)
+        run: python code/generate_pdfs.py
       - name: Esegui lo script per generare il file IP
         run: python code/googleiprangeparser.py --output docs/extra/googleipranges.txt
       - name: Build MkDocs site
         run: mkdocs build
-      - name: Generate PDF files
-        run: python code/generate_pdfs.py
       - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force --no-build
+        run: mkdocs gh-deploy --force

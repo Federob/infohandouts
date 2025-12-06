@@ -62,3 +62,22 @@ p,ul,ol {
   .error , .danger {
     background-color: rgba(255,23,68,.1) !important;
   }
+
+/* Mermaid dark mode fix: testi ben leggibili nei blocchi colorati */
+:root[data-md-color-scheme="slate"] .mermaid .node rect,
+:root[data-md-color-scheme="slate"] .mermaid .node polygon,
+:root[data-md-color-scheme="slate"] .mermaid .node ellipse,
+:root[data-md-color-scheme="slate"] .mermaid .node circle {
+    fill: #f6f8fb !important;
+    stroke: #1f2937 !important;
+}
+
+:root[data-md-color-scheme="slate"] .mermaid .edgeLabel rect {
+    fill: #f6f8fb !important;
+    stroke: #1f2937 !important;
+}
+
+:root[data-md-color-scheme="slate"] .mermaid .node text,
+:root[data-md-color-scheme="slate"] .mermaid .edgeLabel text {
+    fill: #0f172a !important;
+}

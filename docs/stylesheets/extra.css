@@ -68,26 +68,28 @@ p,ul,ol {
    Rende i diagrammi Mermaid leggibili nel tema dark
    =================================== */
 
-/* Tema dark: sovrascrive i colori custom dei diagrammi flowchart */
+/* Tema dark: nodi chiari con testo scuro per massimo contrasto */
 :root[data-md-color-scheme="slate"] .mermaid .node rect,
 :root[data-md-color-scheme="slate"] .mermaid .node polygon,
 :root[data-md-color-scheme="slate"] .mermaid .node ellipse,
 :root[data-md-color-scheme="slate"] .mermaid .node circle,
-:root[data-md-color-scheme="slate"] .mermaid .node path {
-    /* Sfondo scuro con bordo chiaro per visibilità */
-    fill: #2d3748 !important;
-    stroke: #cbd5e0 !important;
+:root[data-md-color-scheme="slate"] .mermaid .node path,
+:root[data-md-color-scheme="slate"] .mermaid .state rect,
+:root[data-md-color-scheme="slate"] .mermaid .stateGroup rect,
+:root[data-md-color-scheme="slate"] .mermaid .cluster rect {
+    fill: #f8fafc !important;      /* sfondo chiaro */
+    stroke: #1f2937 !important;    /* bordo scuro */
     stroke-width: 2px !important;
 }
 
-/* Label delle frecce */
-:root[data-md-color-scheme="slate"] .mermaid .edgeLabel rect {
-    fill: #1a202c !important;
-    stroke: #4a5568 !important;
+/* Label delle frecce e dei cluster */
+:root[data-md-color-scheme="slate"] .mermaid .edgeLabel rect,
+:root[data-md-color-scheme="slate"] .mermaid .label rect {
+    fill: #f8fafc !important;
+    stroke: #1f2937 !important;
 }
 
-/* Testo nei nodi e nelle label - BIANCO per leggibilità su sfondo scuro */
-/* IMPORTANTE: Usa selettori più specifici per sovrascrivere color:#000 dai classDef */
+/* Testo nei nodi e nelle label - scuro per contrastare sfondo chiaro */
 :root[data-md-color-scheme="slate"] .mermaid .nodeLabel,
 :root[data-md-color-scheme="slate"] .mermaid .node text,
 :root[data-md-color-scheme="slate"] .mermaid .edgeLabel text,
@@ -97,35 +99,24 @@ p,ul,ol {
 :root[data-md-color-scheme="slate"] .mermaid span.nodeLabel,
 :root[data-md-color-scheme="slate"] .mermaid foreignObject div,
 :root[data-md-color-scheme="slate"] .mermaid foreignObject span,
-:root[data-md-color-scheme="slate"] .mermaid foreignObject p {
-    fill: #ffffff !important;
-    color: #ffffff !important;
-    font-weight: 600 !important;
+:root[data-md-color-scheme="slate"] .mermaid foreignObject p,
+:root[data-md-color-scheme="slate"] .mermaid .label,
+:root[data-md-color-scheme="slate"] .mermaid .label text {
+    fill: #0f172a !important;
+    color: #0f172a !important;
+    font-weight: 700 !important;
 }
 
 /* Frecce tra i nodi */
 :root[data-md-color-scheme="slate"] .mermaid .edgePath path {
-    stroke: #a0aec0 !important;
+    stroke: #1f2937 !important;
     stroke-width: 2px !important;
 }
 
 /* Marker delle frecce (punte) */
 :root[data-md-color-scheme="slate"] .mermaid .marker {
-    fill: #a0aec0 !important;
-    stroke: #a0aec0 !important;
-}
-
-/* StateDiagram specifico */
-:root[data-md-color-scheme="slate"] .mermaid .state rect,
-:root[data-md-color-scheme="slate"] .mermaid .stateGroup rect {
-    fill: #2d3748 !important;
-    stroke: #cbd5e0 !important;
-}
-
-/* Cluster background (per flowchart con subgraph) */
-:root[data-md-color-scheme="slate"] .mermaid .cluster rect {
-    fill: #1a202c !important;
-    stroke: #4a5568 !important;
+    fill: #1f2937 !important;
+    stroke: #1f2937 !important;
 }
 
 /* Tema chiaro: testi NERI su blocchi CHIARI (fix per i classDef grigi) */

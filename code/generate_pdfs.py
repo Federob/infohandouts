@@ -274,9 +274,11 @@ def generate_pdf_from_html(html_path: Path, pdf_path: Path, port: int) -> bool:
     # Comando Chrome headless
     chrome_commands = [
         "google-chrome",
+        "google-chrome-stable",
         "chromium",
         "chromium-browser",
         "/usr/bin/google-chrome",
+        "/usr/bin/google-chrome-stable",
         "/usr/bin/chromium",
         "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
     ]
@@ -391,6 +393,8 @@ def main():
         print(f"✅ PDF generati con successo: {successful}")
         if failed > 0:
             print(f"❌ PDF falliti: {failed}")
+            # Fallisce lo script per evidenziare l'errore nel CI
+            sys.exit(1)
         print(f"{'='*50}")
 
 

@@ -40,7 +40,14 @@ theme:
   plugins:
     - search:
         lang: it
-    - mermaid2
+    - mermaid2:
+        arguments:
+          securityLevel: 'loose'
+          theme: 'base'
+          flowchart:
+            htmlLabels: true
+            useMaxWidth: true
+            curve: 'basis'
     - mkdocs-video:
         is_video: True
         video_muted: True
@@ -63,6 +70,9 @@ extra:
 
 extra_css:
 - stylesheets/extra.css
+
+extra_javascript:
+- javascripts/mermaid-config.js
 
 hooks:
 - hooks/pdf_button.py

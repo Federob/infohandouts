@@ -409,11 +409,11 @@ Ora guardiamo il diagramma di flusso completo. Ogni blocco è spiegato:
 ```mermaid
 flowchart TD
 
-    classDef startend fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1,color:#000
-    classDef input fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1,color:#000
-    classDef output fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1,color:#000
-    classDef assign fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1,color:#000
-    classDef decision fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1,color:#000
+    classDef startend fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1
+    classDef input fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1
+    classDef output fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1
+    classDef assign fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1
+    classDef decision fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1
 
     START(["START<br/>Inizio"]):::startend -->
     A[\"A<br/>Output: Questo programma calcola e confronta<br/>le aree di un trapezio e un cerchio"\]:::output -->

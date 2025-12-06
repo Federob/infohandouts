@@ -28,6 +28,10 @@ def on_page_content(html, page, config, files):
     Aggiunge un bottone per scaricare il PDF della pagina corrente
     """
 
+    # Nessun PDF per la home
+    if page.file.src_path == "index.md":
+        return html
+
     # Calcola il nome del PDF basato sul file sorgente
     source_path = page.file.src_path  # es: "algocoding/01_flowgorithm.md"
     pdf_name = source_path.replace('/', '_').replace('.md', '.pdf')

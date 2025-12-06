@@ -44,4 +44,4 @@ jobs:
       - name: Generate PDF files
         run: python code/generate_pdfs.py
       - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force
+        run: mkdocs gh-deploy --force --no-build

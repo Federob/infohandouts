@@ -7,6 +7,21 @@ import os
 from pathlib import Path
 
 
+def _build_pdf_url(page, pdf_name: str) -> str:
+    """
+    Rende l'URL del PDF relativo alla pagina corrente, così funziona
+    anche quando il sito è pubblicato in una sottocartella (es. GitHub Pages).
+    """
+    page_url = (page.url or "").lstrip('/')
+    if page_url.endswith('index.html'):
+        page_url = page_url[: -len('index.html')]
+    page_url = page_url.rstrip('/')
+
+    depth = len([p for p in page_url.split('/') if p])
+    rel_prefix = '../' * depth
+    return f"{rel_prefix}pdf/{pdf_name}"
+
+
 def on_page_content(html, page, config, files):
     """
     Hook chiamato dopo che il contenuto della pagina è stato convertito in HTML
@@ -16,7 +31,7 @@ def on_page_content(html, page, config, files):
     # Calcola il nome del PDF basato sul file sorgente
     source_path = page.file.src_path  # es: "algocoding/01_flowgorithm.md"
     pdf_name = source_path.replace('/', '_').replace('.md', '.pdf')
-    pdf_url = f"/pdf/{pdf_name}"
+    pdf_url = _build_pdf_url(page, pdf_name)
 
     # Verifica se il PDF esiste (durante build potrebbe non esistere ancora)
     # Questa è una semplice verifica, il PDF verrà generato dopo

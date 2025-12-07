@@ -98,11 +98,13 @@ mindmap
 - Usa i colori per distinguere le diverse aree
 
 **Per risolvere problemi:**
+
 - Parti dal ramo **METODOLOGIA 5 PASSI**
 - Segui l'ordine: INPUT → ELABORAZIONI → OUTPUT → CONDIZIONI
 - Usa il ramo **BLOCCHI PRINCIPALI** per sapere quale forma usare nel diagramma
 
 **Per ripassare:**
+
 - Guarda prima la mappa per avere la visione d'insieme
 - Poi approfondisci ogni sezione del materiale
 - Torna alla mappa per collegare i concetti

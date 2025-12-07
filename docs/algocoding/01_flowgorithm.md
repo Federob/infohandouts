@@ -93,6 +93,7 @@ mindmap
 ### 📖 Come usare questa mappa
 
 **Per studiare:**
+
 - Segui i rami principali per capire i concetti chiave
 - Ogni ramo è collegato agli altri: tutto ha senso insieme!
 - Usa i colori per distinguere le diverse aree

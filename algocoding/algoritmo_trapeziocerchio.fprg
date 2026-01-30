@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="algoritmotrapezio1Ebt"/>
+        <attribute name="authors" value="federico.robuffo"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-11-26 10:07:42 "/>
+        <attribute name="created" value="ZmVkZXJpY28ucm9idWZmbztMQUItMDE7MjAyNS0xMC0zMTsiMTI6MDA6MTAgIjszMTU2"/>
+        <attribute name="edited" value="ZmVkZXJpY28ucm9idWZmbztMQUItMDE7MjAyNS0xMC0zMTsiMTI6MjA6NDkgIjsxOzMyNzg="/>
+        <attribute name="edited" value="ZmVkZXJpY28ucm9idWZmbztMQUItMjQ7MjAyNS0xMS0yNjsiMTA6MDc6NDIgIjs1OzMyODg="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <comment text="Presentare il programma e cosa calcoler&#224;"/>
+            <output expression="&quot;Programma che calcola l'area di un trapezio dati base maggiore, base minore e altezza e la confronta con quella di una cerchio di raggio qualsiasi. Verr&#224; comunicata la figura con area maggiore&quot;" newline="True"/>
+            <comment text="Creare le variabili necessarie per INPUT e OUTPUT"/>
+            <comment text="Dichiarazione delle variabili di INPUT per il calcolo dell'area del trapezio"/>
+            <declare name="bmax, bmin, h" type="Real" array="False" size=""/>
+            <comment text="Dichiarazione delle variabili di INPUT per il calcolo dell'area del quadrato"/>
+            <declare name="r" type="Real" array="False" size=""/>
+            <comment text="Dichiarazione della variabili di output per il calcolo dell'area del trapezio e del quadrato"/>
+            <declare name="areaTrap, areaCer" type="Real" array="False" size=""/>
+            <comment text="Inserimento degli INPUT da parte dell'utilizzatore del programma, con istruzioni su cosa inserire"/>
+            <output expression="&quot;Inserisci la base maggiore del trapezio&quot;" newline="True"/>
+            <input variable="bmax"/>
+            <output expression="&quot;Inserisci base minore del trapezio&quot;" newline="True"/>
+            <input variable="bmin"/>
+            <output expression="&quot;Inserisci l'altezza del trapezio&quot;" newline="True"/>
+            <input variable="h"/>
+            <output expression="&quot;Inserisci il raggio del cerchio&quot;" newline="True"/>
+            <input variable="r"/>
+            <comment text="Calcolo dei risultati, tramite le operazioni di assegnazione"/>
+            <assign variable="areaTrap" expression="(bmax + bmin) * h / 2"/>
+            <assign variable="areaCer" expression="r * r * 3.14"/>
+            <comment text="Comunicazione del risultato del calcolo delle aree"/>
+            <output expression="&quot;L'area del trapezio &#232; &quot; &amp; areaTrap" newline="True"/>
+            <output expression="&quot;L'area del cerchio &#232; &quot; &amp; areaCer" newline="True"/>
+            <comment text="Blocchi Condizione per decidere :&#13;&#10;- se le figure sono uguali&#13;&#10;- se non lo sono, quale delle due &#232; pi&#249; grande"/>
+            <if expression="areaTrap = areaCer">
+                <then>
+                    <output expression="&quot;Le due figure hanno la stessa area&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="areaCer &gt; areaTrap">
+                        <then>
+                            <output expression="&quot;Il cerchio &#232; pi&#249; grande del trapezio&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="&quot;Il trapezio &#232; pi&#249; grande del cerchio&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

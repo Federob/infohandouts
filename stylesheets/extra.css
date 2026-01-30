@@ -1,0 +1,154 @@
+p,ul,ol {
+    font-size: 0.875rem !important;
+    line-height: 1.7 !important;
+  }
+  
+  p {
+    text-align: justify;
+  }
+  
+  code,td {
+    font-size: 0.8rem !important;
+    line-height: 1.6 !important;
+  }
+  
+  h1,h2,h3,h4,h5,h6 {
+    font-weight: bold !important;
+  }
+  
+  /* title margin and color */
+  h3,h4 {
+    margin-top: 90px !important;
+    margin-bottom: 30px !important;
+  }
+  
+  h2 {
+    background-color: rgba(68,138,255,.1) !important;
+    margin-top: 90px !important;
+    margin-bottom: 50px !important;
+  }
+  
+  blockquote {
+    background-color: rgba(160,200,240,.1) !important;  
+    margin: 50px 0 !important;
+    padding: 10px;  
+  }
+  
+  /* code blocks */
+  .highlight {
+    margin: 3em 0 !important;
+  }
+  
+  
+  /* admonitions */
+  
+  .admonition {
+    margin: 3em 0 !important;
+    font-size: .9em !important;
+  }
+  
+  .note {
+    background-color: rgba(68,138,255,.1) !important;
+  }
+  
+  .warning {
+    background-color: rgba(255,145,0,.1) !important;
+  }
+  
+  .tip {
+    background-color: rgba(0,191,165,.1) !important;
+  }
+  
+  .error , .danger {
+    background-color: rgba(255,23,68,.1) !important;
+  }
+
+/* ===================================
+   MERMAID DARK MODE FIX
+   Rende i diagrammi Mermaid leggibili nel tema dark
+   =================================== */
+
+/* Tema dark: nodi chiari con testo scuro per massimo contrasto */
+:root[data-md-color-scheme="slate"] .mermaid .node rect,
+:root[data-md-color-scheme="slate"] .mermaid .node polygon,
+:root[data-md-color-scheme="slate"] .mermaid .node ellipse,
+:root[data-md-color-scheme="slate"] .mermaid .node circle,
+:root[data-md-color-scheme="slate"] .mermaid .node path,
+:root[data-md-color-scheme="slate"] .mermaid .state rect,
+:root[data-md-color-scheme="slate"] .mermaid .stateGroup rect,
+:root[data-md-color-scheme="slate"] .mermaid .cluster rect {
+    fill: #f8fafc !important;      /* sfondo chiaro */
+    stroke: #1f2937 !important;    /* bordo scuro */
+    stroke-width: 2px !important;
+}
+
+/* Label delle frecce e dei cluster */
+:root[data-md-color-scheme="slate"] .mermaid .edgeLabel rect,
+:root[data-md-color-scheme="slate"] .mermaid .label rect {
+    fill: #f8fafc !important;
+    stroke: #1f2937 !important;
+}
+
+/* Testo nei nodi e nelle label - scuro per contrastare sfondo chiaro */
+:root[data-md-color-scheme="slate"] .mermaid .nodeLabel,
+:root[data-md-color-scheme="slate"] .mermaid .node text,
+:root[data-md-color-scheme="slate"] .mermaid .edgeLabel text,
+:root[data-md-color-scheme="slate"] .mermaid text.nodeLabel,
+:root[data-md-color-scheme="slate"] .mermaid .node tspan,
+:root[data-md-color-scheme="slate"] .mermaid tspan,
+:root[data-md-color-scheme="slate"] .mermaid span.nodeLabel,
+:root[data-md-color-scheme="slate"] .mermaid foreignObject div,
+:root[data-md-color-scheme="slate"] .mermaid foreignObject span,
+:root[data-md-color-scheme="slate"] .mermaid foreignObject p,
+:root[data-md-color-scheme="slate"] .mermaid .label,
+:root[data-md-color-scheme="slate"] .mermaid .label text {
+    fill: #0f172a !important;
+    color: #0f172a !important;
+    font-weight: 700 !important;
+}
+
+/* Frecce tra i nodi */
+:root[data-md-color-scheme="slate"] .mermaid .edgePath path {
+    stroke: #1f2937 !important;
+    stroke-width: 2px !important;
+}
+
+/* Marker delle frecce (punte) */
+:root[data-md-color-scheme="slate"] .mermaid .marker {
+    fill: #1f2937 !important;
+    stroke: #1f2937 !important;
+}
+
+/* Tema chiaro: testi NERI su blocchi CHIARI (fix per i classDef grigi) */
+:root[data-md-color-scheme="default"] .mermaid .nodeLabel,
+:root[data-md-color-scheme="default"] .mermaid .node text,
+:root[data-md-color-scheme="default"] .mermaid .edgeLabel text,
+:root[data-md-color-scheme="default"] .mermaid text.nodeLabel,
+:root[data-md-color-scheme="default"] .mermaid .node tspan,
+:root[data-md-color-scheme="default"] .mermaid tspan,
+:root[data-md-color-scheme="default"] .mermaid span.nodeLabel,
+:root[data-md-color-scheme="default"] .mermaid foreignObject div,
+:root[data-md-color-scheme="default"] .mermaid foreignObject span,
+:root[data-md-color-scheme="default"] .mermaid foreignObject p {
+    /* Testo NERO per tema chiaro (leggibile su grigio chiaro #F2F2F2) */
+    fill: #000000 !important;
+    color: #000000 !important;
+    font-weight: 600 !important;
+}
+
+/* Fix per multiline text (br) - spacing tra righe */
+:root .mermaid .nodeLabel,
+:root .mermaid .node tspan,
+:root .mermaid tspan {
+    line-height: 1.5 !important;
+}
+
+/* Fix per foreignObject (usato quando htmlLabels è abilitato) */
+:root .mermaid foreignObject {
+    overflow: visible !important;
+}
+
+:root .mermaid foreignObject div {
+    line-height: 1.5 !important;
+    white-space: normal !important;
+}

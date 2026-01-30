@@ -131,4 +131,5 @@ nav:
     - Mappa : dictionary/01_map.md
   - Algoritmi: 
     - Flowgorithm : algocoding/01_flowgorithm.md
+    - Python : algocoding/02_python_from_flowgorithm.md
  

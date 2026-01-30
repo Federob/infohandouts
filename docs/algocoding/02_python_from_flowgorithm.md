@@ -890,6 +890,7 @@ flowchart LR
 ### Prova a risolverlo seguendo i 5 passi! (Soluzione sotto)
 
 <details>
+
 <summary>💡 Clicca per vedere la soluzione commentata</summary>
 
 ```python

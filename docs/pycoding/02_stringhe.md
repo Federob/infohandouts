@@ -2,7 +2,7 @@
 
 ## Cos'è una stringa?
 
-Una stringa è una **sequenza di caratteri** (testo). In Python si crea racchiudendo il testo tra virgolette doppie `"..."` o singole `'...'`:
+Una stringa è semplicemente del **testo**. Qualsiasi cosa tu metta tra virgolette, per Python è una stringa: un nome, una frase, anche "12345" (sì, anche i numeri tra virgolette diventano testo — attenzione a questa trappola!).
 
 ```pyodide
 saluto = "Ciao mondo"
@@ -12,7 +12,9 @@ print(saluto)
 print(nome)
 ```
 
-Per testo su **più righe**, usa le triple virgolette `"""..."""`:
+Puoi usare virgolette doppie `"..."` o singole `'...'`, a Python non importa. Basta che apri e chiudi con lo stesso tipo!
+
+Per testo su **più righe**, usa le triple virgolette `"""..."""` — praticamente il paragrafo del programmatore:
 
 ```pyodide
 poesia = """Sempre caro mi fu quest'ermo colle,
@@ -26,23 +28,23 @@ print(poesia)
 
 ## Lunghezza di una stringa
 
-La funzione `len()` restituisce il **numero di caratteri** (inclusi gli spazi):
+Vuoi sapere quanti caratteri ha una stringa? La funzione `len()` è la tua amica:
 
 ```pyodide
 parola = "Python"
 print(len(parola))  # 6
 
 frase = "Ciao mondo"
-print(len(frase))   # 10 (lo spazio conta!)
+print(len(frase))   # 10 (lo spazio conta! Sì, anche lui)
 ```
 
 ---
 
 ## Accesso ai singoli caratteri
 
-Ogni carattere ha una **posizione** (indice) che parte da **0**:
+Ogni carattere in una stringa ha una **posizione** (indice). E qui arriva la parte strana: si parte da **0**, non da 1! Lo so, è assurdo, ma tutti i linguaggi di programmazione funzionano così. Ci farai l'abitudine.
 
-```
+```text
  P   y   t   h   o   n
 [0] [1] [2] [3] [4] [5]
 ```
@@ -53,33 +55,33 @@ parola = "Python"
 print(parola[0])   # Primo carattere: P
 print(parola[1])   # Secondo carattere: y
 print(parola[5])   # Ultimo carattere: n
-print(parola[-1])  # Ultimo carattere (dal fondo): n
+print(parola[-1])  # Ultimo (dal fondo): n
 print(parola[-2])  # Penultimo: o
 ```
 
-!!! tip "Indici negativi"
+!!! tip "Indici negativi = contare dal fondo"
 
-    Gli indici negativi contano **dalla fine**: `-1` è l'ultimo carattere, `-2` il penultimo, ecc.
+    Gli indici negativi contano **dalla fine**: `-1` è l'ultimo, `-2` il penultimo, ecc. Comodo quando non vuoi fare il conto di quanti caratteri ci sono!
 
 ---
 
-## Slicing (sottostringhe)
+## Slicing (affettare le stringhe 🍕)
 
-Puoi estrarre una **porzione** della stringa con la sintassi `[inizio:fine]`:
+Puoi estrarre una **fetta** della stringa con la sintassi `[inizio:fine]`. Pensala come tagliare una pizza: scegli da dove a dove tagliare!
 
 ```pyodide
 parola = "Python"
 
-print(parola[0:3])   # Pyt (da indice 0 a 2, il 3 è escluso!)
+print(parola[0:3])   # Pyt (da 0 a 2, il 3 è ESCLUSO!)
 print(parola[2:5])   # tho
 print(parola[:3])    # Pyt (dall'inizio fino a 2)
 print(parola[3:])    # hon (da 3 fino alla fine)
-print(parola[:])     # Python (tutta la stringa)
+print(parola[:])     # Python (tutta, tipo "dammi tutto")
 ```
 
-!!! warning "Il secondo indice è escluso!"
+!!! warning "Il secondo numero è escluso!"
 
-    `parola[0:3]` prende i caratteri alle posizioni 0, 1, 2 ma **NON** il 3.
+    `parola[0:3]` prende i caratteri alle posizioni 0, 1, 2 ma **NON** il 3. È tipo quando dici "da pagina 1 a pagina 3" e in realtà leggi solo le pagine 1 e 2. Sì, è confuso all'inizio, ma ha senso perché così `len(parola[0:3])` è esattamente 3!
 
 ---
 
@@ -92,39 +94,33 @@ cognome = "Rossi"
 nome_completo = nome + " " + cognome
 print(nome_completo)
 
-# Ripetizione: ripetere una stringa con *
+# Ripetizione: ripetere con * (tipo copia-incolla automatico!)
 linea = "-" * 30
 print(linea)
 print("TITOLO")
 print(linea)
 ```
 
-!!! warning "Attenzione ai tipi!"
+!!! warning "Non puoi sommare stringhe e numeri!"
 
-    Non puoi concatenare una stringa con un numero direttamente. Devi convertire il numero con `str()`:
-
-    ```python
-    eta = 16
-    # print("Ho " + eta + " anni")       # ERRORE!
-    print("Ho " + str(eta) + " anni")     # OK
-    ```
+    Python va in panico se provi a fare `"Ho " + 16 + " anni"`. Devi convertire il numero con `str()`: `"Ho " + str(16) + " anni"`. Oppure usa le f-string (le vediamo tra poco, sono molto più comode!).
 
 ---
 
 ## Metodi delle stringhe
 
-Le stringhe hanno molti **metodi** (funzioni integrate). Ecco i più utili:
+Le stringhe hanno un sacco di **metodi** (funzioni integrate) che ti semplificano la vita. Ecco i più utili — sono tipo i superpoteri delle stringhe!
 
 ### Maiuscole e minuscole
 
 ```pyodide
 testo = "ciao Mondo"
 
-print(testo.upper())       # CIAO MONDO
-print(testo.lower())       # ciao mondo
-print(testo.capitalize())  # Ciao mondo
-print(testo.title())       # Ciao Mondo
-print(testo.swapcase())    # CIAO mONDO
+print(testo.upper())       # CIAO MONDO (urla tutto)
+print(testo.lower())       # ciao mondo (sussurra tutto)
+print(testo.capitalize())  # Ciao mondo (educato)
+print(testo.title())       # Ciao Mondo (ogni parola maiuscola)
+print(testo.swapcase())    # CIAO mONDO (il ribelle)
 ```
 
 ### Ricerca
@@ -132,15 +128,15 @@ print(testo.swapcase())    # CIAO mONDO
 ```pyodide
 frase = "Python è un linguaggio fantastico"
 
-# Cercare se contiene una sotto-stringa
+# Contiene una parola?
 print("Python" in frase)      # True
-print("Java" in frase)        # False
+print("Java" in frase)        # False (e meno male! 😄)
 
-# Trovare la posizione
+# Dove si trova?
 print(frase.find("linguaggio"))   # 14 (indice dove inizia)
 print(frase.find("Java"))         # -1 (non trovato)
 
-# Contare le occorrenze
+# Quante volte compare?
 print(frase.count("a"))           # 3
 ```
 
@@ -150,12 +146,12 @@ print(frase.count("a"))           # 3
 frase = "Mi piace la pizza"
 
 nuova = frase.replace("pizza", "pasta")
-print(nuova)
+print(nuova)  # Mi piace la pasta
 
 # Puoi concatenare più sostituzioni
 testo = "uno-due-tre"
 risultato = testo.replace("-", " ")
-print(risultato)
+print(risultato)  # uno due tre
 ```
 
 ### Rimozione spazi
@@ -163,30 +159,32 @@ print(risultato)
 ```pyodide
 testo = "   ciao mondo   "
 
-print(repr(testo.strip()))    # 'ciao mondo' (rimuove spazi da entrambi i lati)
+print(repr(testo.strip()))    # 'ciao mondo' (via gli spazi da entrambi i lati)
 print(repr(testo.lstrip()))   # 'ciao mondo   ' (solo a sinistra)
 print(repr(testo.rstrip()))   # '   ciao mondo' (solo a destra)
 ```
 
 ### Split e Join
 
+Questi due sono **potentissimi**: uno divide, l'altro unisce. Tipo Avengers della manipolazione testo!
+
 ```pyodide
-# Split: divide una stringa in una lista
+# Split: spezza una stringa in una lista
 frase = "uno,due,tre,quattro"
 parti = frase.split(",")
-print(parti)
+print(parti)  # ['uno', 'due', 'tre', 'quattro']
 
-# Join: unisce una lista in una stringa
+# Join: riunisce una lista in una stringa
 parole = ["Ciao", "a", "tutti"]
 frase = " ".join(parole)
-print(frase)
+print(frase)  # Ciao a tutti
 ```
 
 ---
 
-## F-string (formattazione moderna)
+## F-string (il modo furbo di formattare)
 
-Le **f-string** sono il modo più comodo per inserire variabili dentro una stringa. Basta mettere una `f` prima delle virgolette:
+Le **f-string** sono il modo più comodo per mescolare testo e variabili. Metti una `f` prima delle virgolette e le variabili vanno tra `{parentesi graffe}`. È tipo auto-completamento per le stringhe!
 
 ```pyodide
 nome = "Mario"
@@ -196,22 +194,24 @@ media = 7.856
 # F-string base
 print(f"Mi chiamo {nome} e ho {eta} anni")
 
-# Espressioni dentro le parentesi graffe
+# Puoi fare calcoli dentro le graffe!
 print(f"L'anno prossimo avrò {eta + 1} anni")
 
-# Formattazione numeri decimali
-print(f"La mia media è {media:.2f}")  # 2 cifre decimali
-print(f"La mia media è {media:.1f}")  # 1 cifra decimale
+# Formattare i decimali (2 cifre dopo la virgola)
+print(f"La mia media è {media:.2f}")
+print(f"La mia media è {media:.1f}")
 ```
 
-### Formattazione avanzata con f-string
+Una volta che le scopri, non torni più indietro. Addio concatenazione con `+` e `str()`! 🎉
+
+### Formattazione avanzata
 
 ```pyodide
-# Allineamento
+# Allineamento (per fare tabelle carine)
 for i in range(1, 6):
     print(f"Riga {i:>3} | {'*' * i:<10} |")
 
-# Riempimento con zeri
+# Riempire con zeri
 numero = 42
 print(f"Codice: {numero:05d}")  # 00042
 ```
@@ -220,14 +220,14 @@ print(f"Codice: {numero:05d}")  # 00042
 
 ## Caratteri speciali
 
-Alcuni caratteri speciali si scrivono con il **backslash** `\`:
+Alcuni caratteri si scrivono con il **backslash** `\`. Sono tipo le emoji della programmazione old school:
 
-| Sequenza | Significato       |
-|----------|-------------------|
-| `\n`     | A capo            |
-| `\t`     | Tabulazione       |
-| `\\`     | Backslash         |
-| `\"`     | Virgolette doppie |
+| Sequenza | Significato        |
+|----------|--------------------|
+| `\n`     | A capo             |
+| `\t`     | Tabulazione        |
+| `\\`     | Backslash          |
+| `\"`     | Virgolette doppie  |
 | `\'`     | Virgolette singole |
 
 ```pyodide
@@ -240,16 +240,16 @@ print("Lui disse: \"Ciao!\"")
 
 ## Le stringhe sono immutabili
 
-In Python le stringhe **non possono essere modificate** dopo la creazione. Per "modificarle" devi creare una nuova stringa:
+Ecco una cosa che spiazza tutti all'inizio: in Python le stringhe **non si possono modificare** dopo averle create. Se vuoi "cambiare" una stringa, devi crearne una nuova. È tipo la politica del reso: non puoi modificare il prodotto, devi prenderne uno nuovo!
 
 ```pyodide
 parola = "Ciao"
 
-# parola[0] = "M"  # ERRORE! Le stringhe sono immutabili
+# parola[0] = "M"  # ERRORE! Non si può!
 
 # Per "modificare", crea una nuova stringa:
 nuova_parola = "M" + parola[1:]
-print(nuova_parola)  # Miao
+print(nuova_parola)  # Miao 🐱
 ```
 
 ---
@@ -269,7 +269,7 @@ parola = input("Scrivi una parola: ")
 
 ### Esercizio 2: Inverti stringa
 
-Stampa una parola al contrario (suggerimento: usa lo slicing con passo negativo `[::-1]`).
+Stampa una parola al contrario. Suggerimento: usa lo slicing con passo negativo `[::-1]` (sì, è una figata!).
 
 ```pyodide
 parola = input("Scrivi una parola: ")
@@ -280,7 +280,7 @@ parola = input("Scrivi una parola: ")
 
 ### Esercizio 3: Conta vocali
 
-Conta quante vocali ci sono in una frase.
+Conta quante vocali ci sono in una frase. Hint: puoi usare l'operatore `in` per controllare se un carattere è una vocale!
 
 ```pyodide
 frase = input("Scrivi una frase: ").lower()

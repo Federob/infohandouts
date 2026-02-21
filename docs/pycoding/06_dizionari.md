@@ -2,7 +2,7 @@
 
 ## Cos'è un dizionario?
 
-Un dizionario è una collezione di coppie **chiave-valore**. Pensa a un dizionario vero: cerchi una **parola** (chiave) e trovi la sua **definizione** (valore).
+Pensa a un dizionario vero: cerchi una **parola** (la chiave) e trovi la sua **definizione** (il valore). Ecco, i dizionari di Python funzionano esattamente così! Sono collezioni di coppie **chiave → valore**. Tipo la rubrica del telefono: cerchi il nome, trovi il numero.
 
 ```pyodide
 # Dizionario: chiave → valore
@@ -22,8 +22,10 @@ print(studente["media"])
 
 ## Creare un dizionario
 
+Ci sono vari modi per creare un dizionario. Scegli quello che ti piace di più:
+
 ```pyodide
-# Dizionario vuoto
+# Dizionario vuoto (pronto per essere riempito)
 vuoto = {}
 
 # Con valori iniziali
@@ -33,7 +35,7 @@ colori = {
     "blu": "#0000FF"
 }
 
-# Con la funzione dict()
+# Con la funzione dict() (un po' meno usata)
 persona = dict(nome="Luigi", eta=20)
 
 print(colori)
@@ -43,6 +45,8 @@ print(persona)
 ---
 
 ## Accesso e modifica
+
+Accedere ai valori è semplicissimo: usi la chiave come indice. Tipo cercare una parola nell'enciclopedia, ma istantaneo!
 
 ```pyodide
 rubrica = {
@@ -54,25 +58,31 @@ rubrica = {
 # Accesso
 print(rubrica["Mario"])
 
-# Modifica
+# Modifica (Mario ha cambiato numero!)
 rubrica["Mario"] = "333-9999999"
 print("Mario aggiornato:", rubrica["Mario"])
 
-# Aggiungere una nuova coppia
+# Aggiungere un nuovo contatto? Basta assegnare!
 rubrica["Toad"] = "333-0000000"
 print("Rubrica:", rubrica)
 ```
 
 ### Accesso sicuro con `get()`
 
+!!! danger "Attenzione alle chiavi inesistenti!"
+
+    Se cerchi una chiave che non esiste con `rubrica["Bowser"]`, Python ti lancia un `KeyError` in faccia. Per evitare drammi, usa `get()`:
+
 ```pyodide
 rubrica = {"Mario": "333-1234567", "Luigi": "333-7654321"}
 
-# Con [] se la chiave non esiste, dà errore
-# print(rubrica["Peach"])  # KeyError!
+# Con [] se la chiave non esiste → BOOM! KeyError!
+# print(rubrica["Peach"])  # Non farlo!
 
-# Con get() restituisce None (o un valore predefinito)
+# Con get() → niente drammi, restituisce None
 print(rubrica.get("Peach"))
+
+# Oppure un valore di default a tua scelta
 print(rubrica.get("Peach", "Non trovato"))
 print(rubrica.get("Mario", "Non trovato"))
 ```
@@ -81,14 +91,16 @@ print(rubrica.get("Mario", "Non trovato"))
 
 ## Rimuovere elementi
 
+Due modi principali per fare pulizia nel dizionario:
+
 ```pyodide
 voti = {"matematica": 8, "italiano": 7, "inglese": 9, "storia": 6}
 
-# Rimuovere con del
+# del — cancella senza pietà
 del voti["storia"]
 print("Dopo del:", voti)
 
-# Rimuovere con pop (restituisce il valore)
+# pop() — cancella e ti dice cosa ha tolto (tipo un ricevuta!)
 voto_inglese = voti.pop("inglese")
 print(f"Inglese rimosso: {voto_inglese}")
 print("Dopo pop:", voti)
@@ -98,20 +110,22 @@ print("Dopo pop:", voti)
 
 ## Iterare su un dizionario
 
+Scorrere un dizionario è comodissimo. Hai tre opzioni a seconda di cosa ti serve:
+
 ```pyodide
 voti = {"matematica": 8, "italiano": 7, "inglese": 9, "storia": 6}
 
-# Iterare sulle chiavi
+# Solo le chiavi (il default)
 print("Materie:")
 for materia in voti:
     print(f"  {materia}")
 
-# Iterare sui valori
+# Solo i valori
 print("\nVoti:")
 for voto in voti.values():
     print(f"  {voto}")
 
-# Iterare su chiavi e valori insieme
+# Chiavi E valori insieme (il più utile!)
 print("\nPagella:")
 for materia, voto in voti.items():
     print(f"  {materia}: {voto}")
@@ -121,6 +135,8 @@ for materia, voto in voti.items():
 
 ## Metodi utili
 
+Il dizionario ha un sacco di metodi comodi. Ecco i più usati:
+
 ```pyodide
 persona = {"nome": "Mario", "eta": 16, "citta": "Roma"}
 
@@ -129,7 +145,7 @@ print("Chiavi:", list(persona.keys()))
 print("Valori:", list(persona.values()))
 print("Coppie:", list(persona.items()))
 
-# Verifica se una chiave esiste
+# Verificare se una chiave esiste (utilissimo!)
 print("'nome' esiste?", "nome" in persona)
 print("'peso' esiste?", "peso" in persona)
 
@@ -141,14 +157,14 @@ print("Elementi:", len(persona))
 
 ## Dictionary comprehension
 
-Come per le liste, puoi creare dizionari in modo compatto:
+Come per le liste, puoi creare dizionari in modo compatto con una sola riga. Stessa magia, diverso contenitore:
 
 ```pyodide
 # Tabella dei quadrati
 quadrati = {n: n**2 for n in range(1, 6)}
 print(quadrati)
 
-# Filtrare un dizionario
+# Filtrare un dizionario (solo i sufficienti!)
 voti = {"matematica": 8, "italiano": 5, "inglese": 9, "storia": 4}
 sufficienti = {m: v for m, v in voti.items() if v >= 6}
 print("Sufficienti:", sufficienti)
@@ -158,14 +174,14 @@ print("Sufficienti:", sufficienti)
 
 ## I Set
 
-Un set è una **collezione non ordinata di elementi unici** (senza duplicati). Si crea con le parentesi graffe `{}`:
+Un set è una **collezione di elementi unici senza ordine**. Tipo un club esclusivo: niente duplicati ammessi! Si crea con le parentesi graffe `{}`:
 
 ```pyodide
 # Set: elimina automaticamente i duplicati
 numeri = {1, 3, 5, 3, 7, 1, 9, 5}
-print(numeri)  # I duplicati sono spariti!
+print(numeri)  # I duplicati? Spariti! Puf!
 
-# Creare un set da una lista
+# Creare un set da una lista (modo veloce per rimuovere duplicati)
 lista = [1, 2, 2, 3, 3, 3, 4]
 insieme = set(lista)
 print(insieme)
@@ -173,26 +189,30 @@ print(insieme)
 
 ### Operazioni tra set
 
+I set supportano le **operazioni insiemistiche** che hai studiato in matematica. Finalmente servono a qualcosa!
+
 ```pyodide
 classe_a = {"Mario", "Luigi", "Peach", "Toad"}
 classe_b = {"Luigi", "Yoshi", "Peach", "Daisy"}
 
-# Unione: tutti gli studenti
+# Unione: tutti gli studenti (senza duplicati)
 print("Unione:", classe_a | classe_b)
 
-# Intersezione: studenti in entrambe
+# Intersezione: chi c'è in entrambe le classi?
 print("In comune:", classe_a & classe_b)
 
 # Differenza: solo in classe A
 print("Solo A:", classe_a - classe_b)
 
-# Differenza simmetrica: in una ma non nell'altra
+# Differenza simmetrica: in una O nell'altra, ma NON in entrambe
 print("Esclusivi:", classe_a ^ classe_b)
 ```
 
 ---
 
 ## Quando usare cosa?
+
+Hai un sacco di strutture dati, ecco una guida rapida per scegliere quella giusta:
 
 | Struttura    | Uso tipico                               | Esempio                        |
 |--------------|------------------------------------------|--------------------------------|
@@ -207,7 +227,7 @@ print("Esclusivi:", classe_a ^ classe_b)
 
 ### Esercizio 1: Conta parole
 
-Conta quante volte appare ogni parola in una frase.
+Conta quante volte appare ogni parola in una frase. Praticamente stai costruendo un mini motore di ricerca!
 
 ```pyodide
 frase = "il gatto e il cane e il pesce"
@@ -219,7 +239,7 @@ parole = frase.split()
 
 ### Esercizio 2: Rubrica
 
-Crea una rubrica dove l'utente può aggiungere, cercare e visualizzare contatti.
+Crea una rubrica dove l'utente può aggiungere, cercare e visualizzare contatti. La tua prima app utile!
 
 ```pyodide
 rubrica = {}

@@ -2,12 +2,12 @@
 
 ## Ripetere le operazioni
 
-Spesso nei programmi devi **ripetere** un blocco di istruzioni più volte. Invece di scrivere lo stesso codice 100 volte, usi un **ciclo** (loop).
+Immagina di dover stampare "Ciao" 1000 volte. Scriveresti 1000 righe di `print("Ciao")`? Ovviamente no! Ecco perché esistono i **cicli** (o loop): ti permettono di **ripetere** un blocco di codice quante volte vuoi senza impazzire.
 
 Python ha due tipi di ciclo:
 
-- **`for`** - quando sai **quante volte** ripetere
-- **`while`** - quando ripeti **finché** una condizione è vera
+- **`for`** — quando sai **quante volte** ripetere ("fallo 10 volte")
+- **`while`** — quando ripeti **finché** una condizione è vera ("continua finché non trovi la risposta")
 
 ---
 
@@ -15,7 +15,7 @@ Python ha due tipi di ciclo:
 
 ### Ripetere N volte con `range()`
 
-La funzione `range()` genera una sequenza di numeri:
+`range()` genera una sequenza di numeri. È tipo un distributore automatico di numeri:
 
 ```pyodide
 # Ripete 5 volte (da 0 a 4)
@@ -23,13 +23,13 @@ for i in range(5):
     print(f"Ripetizione numero {i}")
 ```
 
-### Varianti di `range()`
+### Le varianti di `range()`
 
-| Sintassi              | Genera                  | Esempio              |
-|-----------------------|-------------------------|----------------------|
-| `range(n)`            | Da 0 a n-1              | `range(5)` → 0,1,2,3,4 |
-| `range(inizio, fine)` | Da inizio a fine-1      | `range(2, 6)` → 2,3,4,5 |
-| `range(inizio, fine, passo)` | Con incremento   | `range(0, 10, 2)` → 0,2,4,6,8 |
+| Sintassi                     | Genera              | Esempio                      |
+|------------------------------|----------------------|------------------------------|
+| `range(n)`                   | Da 0 a n-1           | `range(5)` → 0,1,2,3,4      |
+| `range(inizio, fine)`        | Da inizio a fine-1   | `range(2, 6)` → 2,3,4,5     |
+| `range(inizio, fine, passo)` | Con salti            | `range(0, 10, 2)` → 0,2,4,6,8 |
 
 ```pyodide
 # Da 1 a 10
@@ -46,16 +46,16 @@ for i in range(0, 21, 2):
 
 print()
 
-# Conto alla rovescia
+# Conto alla rovescia! 🚀
 print("\nConto alla rovescia:")
 for i in range(10, 0, -1):
     print(i, end=" ")
 print("\nVia!")
 ```
 
-### Iterare su una stringa
+### Scorrere i caratteri di una stringa
 
-Il `for` può scorrere i caratteri di una stringa:
+Il `for` è anche perfetto per analizzare una stringa carattere per carattere:
 
 ```pyodide
 parola = "Python"
@@ -68,7 +68,7 @@ for carattere in parola:
 
 ## Il ciclo `while`
 
-Il `while` ripete **finché la condizione è vera**:
+Il `while` ripete **finché la condizione è vera**. È tipo "continua a mangiare finché hai fame":
 
 ```pyodide
 contatore = 1
@@ -80,19 +80,19 @@ while contatore <= 5:
 print("Fine!")
 ```
 
-!!! danger "Attenzione ai cicli infiniti!"
+!!! danger "ATTENZIONE ai cicli infiniti! ♾️"
 
-    Se la condizione del `while` non diventa mai falsa, il programma si blocca! Assicurati sempre che qualcosa cambi ad ogni iterazione.
+    Se la condizione del `while` non diventa MAI falsa, il programma si blocca in un loop eterno! È tipo un disco rotto che ripete sempre la stessa canzone. Assicurati sempre che qualcosa cambi ad ogni giro!
 
     ```python
-    # ERRORE: ciclo infinito!
+    # ❌ ERRORE: ciclo infinito!
     x = 1
     while x > 0:    # x sarà sempre > 0!
         print(x)
-        x += 1      # x aumenta, non diminuisce mai
+        x += 1      # x aumenta, non diminuirà MAI
     ```
 
-### Esempio: indovina il numero
+### Esempio: indovina il numero 🎯
 
 ```pyodide
 import random
@@ -107,37 +107,37 @@ while True:
     tentativi += 1
 
     if tentativo == numero_segreto:
-        print(f"Bravo! Hai indovinato in {tentativi} tentativi!")
+        print(f"Bravo! Hai indovinato in {tentativi} tentativi! 🎉")
         break
     elif tentativo < numero_segreto:
-        print("Troppo basso!")
+        print("Troppo basso! ⬆️")
     else:
-        print("Troppo alto!")
+        print("Troppo alto! ⬇️")
 ```
 
 ---
 
 ## `break` e `continue`
 
-Due istruzioni speciali per controllare il flusso di un ciclo:
+Due istruzioni speciali per controllare il flusso del ciclo. Sono tipo il freno a mano e il tasto "salta" di un lettore MP3:
 
-### `break` - Esci dal ciclo
+### `break` — Esci subito dal ciclo
 
 ```pyodide
-# Cerca il primo numero divisibile per 7
+# Trova il primo multiplo di 7
 for i in range(1, 100):
     if i % 7 == 0:
         print(f"Il primo multiplo di 7 è: {i}")
-        break
+        break  # Trovato! Me ne vado
 ```
 
-### `continue` - Salta all'iterazione successiva
+### `continue` — Salta questa iterazione e vai alla prossima
 
 ```pyodide
-# Stampa solo i numeri dispari
+# Stampa solo i numeri dispari (salta i pari)
 for i in range(1, 11):
     if i % 2 == 0:
-        continue  # Salta i numeri pari
+        continue  # Pari? Nah, salto!
     print(i, end=" ")
 ```
 
@@ -145,7 +145,7 @@ for i in range(1, 11):
 
 ## Cicli annidati
 
-Puoi mettere un ciclo dentro un altro ciclo:
+Un ciclo dentro un altro ciclo. È tipo l'Inception dei loop — un sogno dentro un sogno! Utile per lavorare con tabelle e griglie:
 
 ```pyodide
 # Tabellina pitagorica (da 1 a 5)
@@ -155,7 +155,7 @@ for i in range(1, 6):
     print()  # A capo dopo ogni riga
 ```
 
-### Esempio: disegnare un triangolo
+### Disegnare un triangolo di asterischi ⭐
 
 ```pyodide
 altezza = 5
@@ -168,9 +168,9 @@ for i in range(1, altezza + 1):
 
 ## Accumulatori e contatori
 
-Due pattern fondamentali con i cicli:
+Due pattern fondamentali che userai in continuazione. Sono tipo il pane e burro della programmazione con i cicli:
 
-### Contatore: contare quanti elementi soddisfano una condizione
+### Contatore: contare quante volte succede qualcosa
 
 ```pyodide
 frase = input("Scrivi una frase: ")
@@ -183,7 +183,7 @@ for c in frase.lower():
 print(f"La frase contiene {vocali} vocali")
 ```
 
-### Accumulatore: sommare valori
+### Accumulatore: sommare valori mano a mano
 
 ```pyodide
 n = int(input("Quanti numeri vuoi sommare? "))
@@ -200,41 +200,40 @@ print(f"Media: {media:.2f}")
 
 ---
 
-## `for` ... `else` e `while` ... `else`
+## `for` ... `else` (sì, esiste!)
 
-In Python puoi aggiungere un `else` dopo un ciclo. Il blocco `else` viene eseguito solo se il ciclo termina **senza `break`**:
+Plot twist: in Python puoi mettere un `else` dopo un ciclo! Il blocco `else` viene eseguito SOLO se il ciclo finisce **senza `break`**. Se fai `break`, l'`else` viene saltato. È tipo: "se non hai trovato niente, allora...":
 
 ```pyodide
-# Cerca un numero nella lista
 numeri = [4, 8, 15, 16, 23, 42]
 cerca = int(input("Che numero cerchi? "))
 
 for n in numeri:
     if n == cerca:
-        print(f"Trovato: {n}!")
+        print(f"Trovato: {n}! 🎯")
         break
 else:
-    print(f"{cerca} non è presente nella lista")
+    print(f"{cerca} non è presente nella lista 😕")
 ```
 
 ---
 
 ## Esercizi
 
-### Esercizio 1: Somma dei numeri
+### Esercizio 1: Somma da 1 a N
 
-Calcola la somma dei numeri da 1 a N (dove N è inserito dall'utente).
+Calcola la somma dei numeri da 1 a N (dove N lo sceglie l'utente). Sì, esiste una formula matematica, ma qui devi usare il ciclo!
 
 ```pyodide
 n = int(input("Inserisci N: "))
 
-# Calcola la somma da 1 a N
+# Calcola la somma da 1 a N con un ciclo
 
 ```
 
 ### Esercizio 2: Fattoriale
 
-Calcola il fattoriale di un numero (es: 5! = 5 * 4 * 3 * 2 * 1 = 120).
+Calcola il fattoriale di un numero (es: 5! = 5 × 4 × 3 × 2 × 1 = 120). Attenzione: il fattoriale di 0 è 1!
 
 ```pyodide
 n = int(input("Inserisci un numero: "))
@@ -245,7 +244,7 @@ n = int(input("Inserisci un numero: "))
 
 ### Esercizio 3: Numeri primi
 
-Stampa tutti i numeri primi da 2 a N.
+Stampa tutti i numeri primi da 2 a N. Un numero è primo se è divisibile solo per 1 e per se stesso. Hint: ti servirà un ciclo dentro un ciclo! 🤯
 
 ```pyodide
 n = int(input("Inserisci N: "))

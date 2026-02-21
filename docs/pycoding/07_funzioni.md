@@ -2,19 +2,21 @@
 
 ## Cos'è una funzione?
 
-Una funzione è un **blocco di codice riutilizzabile** che svolge un compito specifico. Hai già usato funzioni predefinite come `print()`, `input()`, `len()`. Ora imparerai a creare le **tue** funzioni!
+Una funzione è un **blocco di codice riutilizzabile** che fa un lavoro specifico. Pensala come una **ricetta**: la scrivi una volta e poi la puoi riutilizzare quando vuoi senza riscrivere tutto da capo.
+
+Hai già usato funzioni predefinite senza saperlo: `print()`, `input()`, `len()`, `range()`... Ora imparerai a creare le **tue**! È tipo passare da consumatore a produttore.
 
 Perché usare le funzioni?
 
-- **Riutilizzo**: scrivi il codice una volta, usalo quante volte vuoi
-- **Organizzazione**: il programma è più leggibile
-- **Manutenzione**: se devi correggere qualcosa, lo fai in un solo punto
+- **Riutilizzo**: scrivi il codice una volta, usalo quante volte vuoi (zero copia-incolla!)
+- **Organizzazione**: il programma diventa leggibile e ordinato
+- **Manutenzione**: se devi correggere qualcosa, lo fai in UN solo punto
 
 ---
 
 ## Definire una funzione
 
-Si usa la parola chiave `def`:
+Si usa la parola chiave `def` (abbreviazione di "define"). Facile, no?
 
 ```pyodide
 # Definizione della funzione
@@ -22,20 +24,20 @@ def saluta():
     print("Ciao!")
     print("Benvenuto nel programma")
 
-# Chiamata della funzione
+# Chiamata — qui la funzione viene effettivamente eseguita
 saluta()
-saluta()  # Puoi chiamarla quante volte vuoi!
+saluta()  # Puoi chiamarla quante volte vuoi! Gratis!
 ```
 
 !!! warning "Prima definisci, poi chiami!"
 
-    La funzione deve essere **definita prima** di essere chiamata. Python legge il codice dall'alto verso il basso.
+    La funzione deve essere **definita prima** di essere chiamata. Python legge il codice dall'alto verso il basso: se chiami una funzione che non ha ancora visto, va in panico!
 
 ---
 
 ## Funzioni con parametri
 
-I parametri permettono di passare dati alla funzione:
+I parametri sono tipo gli **ingredienti** della ricetta: passi i dati alla funzione e lei fa il suo lavoro con quelli:
 
 ```pyodide
 def saluta(nome):
@@ -58,6 +60,8 @@ presenta("Luigi", 17, "Milano")
 
 ### Parametri con valore predefinito
 
+Puoi dare un valore di default ai parametri. Se chi chiama la funzione non specifica quel parametro, viene usato il default. Comodo!
+
 ```pyodide
 def saluta(nome, lingua="italiano"):
     if lingua == "italiano":
@@ -69,29 +73,31 @@ def saluta(nome, lingua="italiano"):
 
 saluta("Mario")                    # Usa il default: italiano
 saluta("Mario", "inglese")         # Specifica la lingua
-saluta("Mario", lingua="spagnolo") # Parametro nominato
+saluta("Mario", lingua="spagnolo") # Parametro nominato (più leggibile!)
 ```
 
 ---
 
 ## Il valore di ritorno (`return`)
 
-Una funzione può **restituire un valore** con `return`:
+Una funzione può **restituire un valore** con `return`. È la differenza tra un cameriere che ti DICE cosa c'è nel menu (print) e uno che ti PORTA il piatto (return):
 
 ```pyodide
 def somma(a, b):
     risultato = a + b
     return risultato
 
-# Il valore restituito può essere salvato in una variabile
+# Il valore restituito lo puoi salvare in una variabile
 s = somma(5, 3)
 print(f"5 + 3 = {s}")
 
-# Oppure usato direttamente
+# Oppure usarlo direttamente
 print(f"10 + 20 = {somma(10, 20)}")
 ```
 
 ### Restituire più valori
+
+Python è furbo: puoi restituire più valori in un colpo solo!
 
 ```pyodide
 def analizza_numeri(lista):
@@ -105,39 +111,39 @@ mi, ma, me = analizza_numeri(numeri)
 print(f"Min: {mi}, Max: {ma}, Media: {me:.2f}")
 ```
 
-!!! tip "return vs print"
+!!! tip "return vs print — la confusione più classica!"
 
-    - `print()` **mostra** un valore sullo schermo, ma non lo "salva"
-    - `return` **restituisce** un valore che può essere usato nel programma
+    - `print()` **mostra** un valore sullo schermo, ma non lo "salva" — è tipo gridare la risposta in classe
+    - `return` **restituisce** un valore che il programma può usare — è tipo consegnare il compito al prof
 
     ```python
     def area_print(base, altezza):
-        print(base * altezza)     # Mostra, ma non puoi riutilizzare il valore
+        print(base * altezza)     # Mostra, ma non puoi riutilizzare il valore!
 
     def area_return(base, altezza):
-        return base * altezza     # Restituisce, puoi salvarlo e usarlo
+        return base * altezza     # Restituisce, puoi salvarlo e usarlo!
     ```
 
 ---
 
 ## Scope delle variabili
 
-Le variabili create dentro una funzione esistono **solo dentro quella funzione** (variabili locali):
+Le variabili create dentro una funzione **esistono solo lì dentro** (variabili locali). Appena la funzione finisce, puf, spariscono! È tipo Las Vegas: quello che succede nella funzione, resta nella funzione.
 
 ```pyodide
 def mia_funzione():
-    x = 10  # Variabile locale
+    x = 10  # Variabile locale — esiste solo qui dentro
     print(f"Dentro la funzione: x = {x}")
 
 mia_funzione()
 
 # print(x)  # ERRORE! x non esiste fuori dalla funzione
 
-# Le variabili esterne sono leggibili ma non modificabili
+# Le variabili esterne si possono LEGGERE ma non MODIFICARE
 y = 100
 
 def leggi_y():
-    print(f"y vale: {y}")  # Può leggere y
+    print(f"y vale: {y}")  # Può leggere y, ma non cambiarla
 
 leggi_y()
 ```
@@ -146,7 +152,7 @@ leggi_y()
 
 ## Funzioni come strumenti
 
-Esempio pratico: un insieme di funzioni per la geometria.
+Esempio pratico: creiamo un kit di funzioni per la geometria. Tipo una calcolatrice scientifica personalizzata:
 
 ```pyodide
 def area_rettangolo(base, altezza):
@@ -172,14 +178,14 @@ print(f"Cerchio r=5: area={area_cerchio(5):.2f}")
 
 ## Funzioni ricorsive
 
-Una funzione che **chiama se stessa**. Utile per problemi che si possono scomporre in sotto-problemi simili.
+Una funzione che **chiama se stessa**. Sì, hai letto bene. È tipo l'Inception delle funzioni: una funzione dentro una funzione dentro una funzione... Ma con un punto di stop, altrimenti esplode tutto!
 
 ```pyodide
 def fattoriale(n):
-    if n <= 1:       # Caso base: ferma la ricorsione
+    if n <= 1:       # Caso base: FERMATI qui!
         return 1
     else:
-        return n * fattoriale(n - 1)  # Chiama se stessa
+        return n * fattoriale(n - 1)  # Chiama se stessa con n-1
 
 print(f"5! = {fattoriale(5)}")
 print(f"10! = {fattoriale(10)}")
@@ -187,7 +193,9 @@ print(f"10! = {fattoriale(10)}")
 
 ### Come funziona?
 
-```
+Immagina una pila di scatole, una dentro l'altra:
+
+```text
 fattoriale(5)
 = 5 * fattoriale(4)
 = 5 * 4 * fattoriale(3)
@@ -197,24 +205,28 @@ fattoriale(5)
 = 120
 ```
 
+!!! danger "Senza caso base = disastro!"
+
+    Se dimentichi il caso base (`if n <= 1`), la funzione si chiama all'infinito fino a quando Python ti stoppa con un `RecursionError`. Tipo un loop infinito, ma più elegante nel fallire.
+
 ---
 
 ## Funzioni lambda
 
-Per funzioni semplici di una sola riga, puoi usare le **lambda**:
+Per funzioni semplici di una sola riga, Python offre le **lambda** — le funzioni usa e getta. Sono tipo i post-it delle funzioni: rapide e per cose brevi.
 
 ```pyodide
 # Funzione normale
 def quadrato(x):
     return x ** 2
 
-# Equivalente con lambda
+# Equivalente con lambda (una riga!)
 quadrato_lambda = lambda x: x ** 2
 
 print(quadrato(5))
 print(quadrato_lambda(5))
 
-# Utile con sort, map, filter
+# Dove brillano: con sort, map, filter
 numeri = [3, 1, 4, 1, 5, 9]
 numeri.sort(key=lambda x: -x)  # Ordina in modo decrescente
 print("Ordinati (desc):", numeri)
@@ -226,7 +238,7 @@ print("Ordinati (desc):", numeri)
 
 ### Esercizio 1: Funzione massimo
 
-Scrivi una funzione `massimo(a, b, c)` che restituisce il massimo tra tre numeri, senza usare la funzione `max()`.
+Scrivi una funzione `massimo(a, b, c)` che restituisce il massimo tra tre numeri, **senza usare** la funzione `max()`. Devi farlo con gli if!
 
 ```pyodide
 def massimo(a, b, c):
@@ -240,7 +252,7 @@ print(massimo(10, 2, 8))  # Deve stampare 10
 
 ### Esercizio 2: Funzione palindroma
 
-Scrivi una funzione che controlla se una parola è un palindromo (si legge uguale in entrambe le direzioni).
+Scrivi una funzione che controlla se una parola è un **palindromo** (si legge uguale da sinistra a destra e viceversa). "anna", "radar", "osso"... ci siamo capiti!
 
 ```pyodide
 def is_palindroma(parola):
@@ -255,7 +267,7 @@ print(is_palindroma("radar"))   # True
 
 ### Esercizio 3: Fibonacci
 
-Scrivi una funzione che restituisce l'n-esimo numero della sequenza di Fibonacci (1, 1, 2, 3, 5, 8, 13...).
+Scrivi una funzione che restituisce l'n-esimo numero della sequenza di Fibonacci (1, 1, 2, 3, 5, 8, 13...). Ogni numero è la somma dei due precedenti!
 
 ```pyodide
 def fibonacci(n):

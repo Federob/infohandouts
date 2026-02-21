@@ -2,10 +2,10 @@
 
 ## Liste come array
 
-Python non ha un tipo "array" nativo come altri linguaggi, ma le **liste** funzionano allo stesso modo. Una lista di numeri è un array a tutti gli effetti.
+Python non ha un tipo "array" nativo come Java o C, ma le **liste** fanno lo stesso lavoro — anzi, meglio! Una lista di numeri È un array a tutti gli effetti. Zero sbattimenti aggiuntivi.
 
 ```pyodide
-# Array di numeri
+# Array di temperature (la settimana del meteo)
 temperature = [22.5, 24.0, 19.8, 21.3, 25.1, 23.7, 20.5]
 
 print("Temperature della settimana:", temperature)
@@ -18,12 +18,16 @@ print("Media:", sum(temperature) / len(temperature))
 
 ## Operazioni tipiche sugli array
 
-### Ricerca del massimo e minimo (manuale)
+Queste sono le operazioni classiche che trovi in TUTTI i libri di informatica. Roba che dovete saper fare anche di notte!
+
+### Ricerca del massimo e minimo (a mano!)
+
+Sì, Python ha `max()` e `min()`, ma il prof vuole che li facciate con il ciclo. Ed è giusto, perché dovete capire COME funzionano:
 
 ```pyodide
 numeri = [34, 12, 67, 45, 89, 23, 56]
 
-# Trova il massimo manualmente
+# Trova il massimo: parti dal primo e confronta con tutti
 massimo = numeri[0]
 for n in numeri:
     if n > massimo:
@@ -31,7 +35,7 @@ for n in numeri:
 
 print(f"Massimo: {massimo}")
 
-# Trova il minimo manualmente
+# Trova il minimo: stessa logica, ma al contrario
 minimo = numeri[0]
 for n in numeri:
     if n < minimo:
@@ -42,12 +46,14 @@ print(f"Minimo: {minimo}")
 
 ### Ricerca lineare
 
+Cercare un elemento in un array: scorri uno per uno finché lo trovi (o finché arrivi alla fine). Tipo cercare le chiavi in casa!
+
 ```pyodide
 def cerca(lista, valore):
     for i in range(len(lista)):
         if lista[i] == valore:
-            return i  # Restituisce la posizione
-    return -1  # Non trovato
+            return i  # Trovato! Restituisci la posizione
+    return -1  # Non trovato (il -1 è la convenzione universale)
 
 numeri = [10, 25, 30, 45, 50, 65, 70]
 
@@ -60,12 +66,15 @@ else:
 
 ### Ordinamento (Bubble Sort)
 
+Il **Bubble Sort** è l'algoritmo di ordinamento più semplice da capire (ma anche il più lento per grandi quantità di dati). Il concetto: confronta coppie di elementi adiacenti e scambiali se sono nell'ordine sbagliato. Tipo le bollicine che salgono in un bicchiere!
+
 ```pyodide
 def bubble_sort(lista):
     n = len(lista)
     for i in range(n):
         for j in range(0, n - i - 1):
             if lista[j] > lista[j + 1]:
+                # Scambio! (Python lo fa in modo elegante)
                 lista[j], lista[j + 1] = lista[j + 1], lista[j]
 
 numeri = [64, 34, 25, 12, 22, 11, 90]
@@ -79,7 +88,7 @@ print("Dopo:", numeri)
 
 ## Matrici (liste di liste)
 
-Una **matrice** è una tabella di numeri organizzata in righe e colonne. In Python si rappresenta come una **lista di liste**:
+Una **matrice** è una tabella di numeri organizzata in righe e colonne. Tipo un foglio Excel, ma nel codice. In Python si rappresenta come una **lista di liste** — sì, tipo le matrioske!
 
 ```pyodide
 # Matrice 3x3
@@ -90,12 +99,14 @@ matrice = [
 ]
 
 # Accesso: matrice[riga][colonna]
-print("Elemento [0][0]:", matrice[0][0])  # 1
-print("Elemento [1][2]:", matrice[1][2])  # 6
-print("Elemento [2][1]:", matrice[2][1])  # 8
+print("Elemento [0][0]:", matrice[0][0])  # 1 (prima riga, prima colonna)
+print("Elemento [1][2]:", matrice[1][2])  # 6 (seconda riga, terza colonna)
+print("Elemento [2][1]:", matrice[2][1])  # 8 (terza riga, seconda colonna)
 ```
 
 ### Visualizzare una matrice
+
+Stampare una matrice in modo carino richiede un doppio ciclo. Un `for` per le righe, un `for` per le colonne:
 
 ```pyodide
 matrice = [
@@ -104,7 +115,7 @@ matrice = [
     [7, 8, 9]
 ]
 
-# Stampa formattata
+# Stampa formattata (allineata e tutto!)
 for riga in matrice:
     for elemento in riga:
         print(f"{elemento:4}", end="")
@@ -115,13 +126,13 @@ for riga in matrice:
 
 ## Creare matrici
 
-### Matrice di zeri
+### Matrice di zeri (il modo classico)
 
 ```pyodide
 righe = 3
 colonne = 4
 
-# Matrice 3x4 di zeri
+# Matrice 3x4 piena di zeri
 matrice = []
 for i in range(righe):
     riga = []
@@ -134,13 +145,13 @@ for riga in matrice:
     print(riga)
 ```
 
-### Con list comprehension
+### Con list comprehension (il modo ninja)
 
 ```pyodide
 righe = 3
 colonne = 4
 
-# Matrice di zeri (compatta)
+# Matrice di zeri (una riga di codice!)
 matrice = [[0 for j in range(colonne)] for i in range(righe)]
 
 for riga in matrice:
@@ -148,7 +159,7 @@ for riga in matrice:
 
 print()
 
-# Matrice identità 4x4
+# Matrice identità 4x4 (gli 1 sulla diagonale, 0 altrove)
 identita = [[1 if i == j else 0 for j in range(4)] for i in range(4)]
 
 for riga in identita:
@@ -160,6 +171,8 @@ for riga in identita:
 ## Operazioni sulle matrici
 
 ### Somma di due matrici
+
+Per sommare due matrici, sommi gli elementi che stanno nella stessa posizione. Tipo sommare due tabelle Excel cella per cella:
 
 ```pyodide
 A = [
@@ -175,7 +188,7 @@ B = [
 righe = len(A)
 colonne = len(A[0])
 
-# Matrice risultato
+# Matrice risultato (parte da zeri)
 C = [[0 for j in range(colonne)] for i in range(righe)]
 
 for i in range(righe):
@@ -189,6 +202,8 @@ for riga in C:
 
 ### Trasposta di una matrice
 
+La trasposta **scambia righe e colonne**: la riga 1 diventa la colonna 1, la riga 2 diventa la colonna 2, ecc. Tipo girare il foglio di 90 gradi!
+
 ```pyodide
 matrice = [
     [1, 2, 3],
@@ -198,7 +213,7 @@ matrice = [
 righe = len(matrice)
 colonne = len(matrice[0])
 
-# La trasposta scambia righe e colonne
+# La trasposta ha dimensioni invertite!
 trasposta = [[0 for j in range(righe)] for i in range(colonne)]
 
 for i in range(righe):
@@ -216,6 +231,8 @@ for riga in trasposta:
 
 ### Somma per righe e colonne
 
+Un classicone: calcolare le medie per riga (ogni studente) e per colonna (ogni materia):
+
 ```pyodide
 voti = [
     [8, 7, 9],  # Studente 1
@@ -224,13 +241,13 @@ voti = [
 ]
 materie = ["Mate", "Ita", "Ing"]
 
-# Media per studente (per riga)
+# Media per studente (scorri le righe)
 print("Medie per studente:")
 for i, riga in enumerate(voti):
     media = sum(riga) / len(riga)
     print(f"  Studente {i+1}: {media:.2f}")
 
-# Media per materia (per colonna)
+# Media per materia (scorri le colonne — un po' più tosto!)
 print("\nMedie per materia:")
 for j in range(len(materie)):
     somma = 0
@@ -244,6 +261,8 @@ for j in range(len(materie)):
 
 ## Esempio pratico: griglia di gioco
 
+Le matrici sono perfette per i giochi su griglia! Ecco un mini Tris:
+
 ```pyodide
 # Inizializza griglia 3x3 (tris)
 griglia = [
@@ -252,7 +271,7 @@ griglia = [
     ["O", "X", "X"]
 ]
 
-# Stampa la griglia
+# Stampa la griglia (con coordinate!)
 print("  0 1 2")
 for i, riga in enumerate(griglia):
     print(f"{i} {' '.join(riga)}")
@@ -268,7 +287,7 @@ if griglia[0][0] == griglia[1][1] == griglia[2][2]:
 
 ### Esercizio 1: Somma diagonale
 
-Calcola la somma degli elementi sulla diagonale principale di una matrice quadrata.
+Calcola la somma degli elementi sulla **diagonale principale** di una matrice quadrata. La diagonale principale sono gli elementi dove riga == colonna.
 
 ```pyodide
 matrice = [
@@ -283,7 +302,7 @@ matrice = [
 
 ### Esercizio 2: Matrice moltiplicata per scalare
 
-Moltiplica tutti gli elementi di una matrice per un numero.
+Moltiplica tutti gli elementi di una matrice per un numero. Tipo lo zoom di una foto, ma con i numeri!
 
 ```pyodide
 matrice = [
@@ -298,7 +317,7 @@ scalare = 3
 
 ### Esercizio 3: Cerca nella matrice
 
-Cerca un valore in una matrice e restituisci la sua posizione (riga, colonna).
+Cerca un valore in una matrice e stampa la sua posizione (riga, colonna). Se non c'è, dillo!
 
 ```pyodide
 matrice = [

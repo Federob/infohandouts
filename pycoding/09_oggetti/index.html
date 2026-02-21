@@ -1,0 +1,1614 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Federico Robuffo" name="author"/>
+<link href="../08_matrici/" rel="prev"/>
+<link href="../10_networking/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.2" name="generator"/>
+<title>Classi e oggetti - Corso di Informatica</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link href="../../assets/_markdown_exec_pyodide.css" rel="stylesheet"/>
+<link href="../../assets/_markdown_exec_ansi.css" rel="stylesheet"/>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="light-blue" data-md-color-primary="blue" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#classi-e-oggetti-oop">
+          Vai al contenuto
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Intestazione" class="md-header__inner md-grid">
+<a aria-label="Corso di Informatica" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Corso di Informatica">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Corso di Informatica
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Classi e oggetti
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Cerca" class="md-search__options">
+<button aria-label="Cancella" class="md-search__icon md-icon" tabindex="-1" title="Cancella" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inizializza la ricerca
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../fundamentals/00_basics/">
+          
+  
+  
+  Le basi..
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../extra/emailMurderGame/">
+          
+  
+  
+  Extra
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../dictionary/00_dict/">
+          
+  
+  
+  A,B,C..
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../algocoding/01_flowgorithm/">
+          
+  
+  
+  Algoritmi
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../00_intro/">
+          
+  
+  
+  Python
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigazione" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Corso di Informatica" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Corso di Informatica">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Corso di Informatica
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Le basi..
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Le basi..
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Introduzione
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduzione
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fundamentals/00_basics/">
+<span class="md-ellipsis">
+    
+  
+    Concetti fondamentali
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fundamentals/01_map/">
+<span class="md-ellipsis">
+    
+  
+    Mappa concettuale
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/10_hw/">
+<span class="md-ellipsis">
+    
+  
+    Architettura di un elaboratore
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/11_bios/">
+<span class="md-ellipsis">
+    
+  
+    BIOS
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Software
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/20_sw/">
+<span class="md-ellipsis">
+    
+  
+    Classificazione
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Sistemi Operativi
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sistemi Operativi
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/21_os_intro/">
+<span class="md-ellipsis">
+    
+  
+    Storia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/22_os_arch/">
+<span class="md-ellipsis">
+    
+  
+    Architettura
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/23_os_vm/">
+<span class="md-ellipsis">
+    
+  
+    Macchine virtuali
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/24_os_cli/">
+<span class="md-ellipsis">
+    
+  
+    Interfaccia da linea di comando (CLI)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3_2_5" id="__nav_2_3_2_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Extra
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_5_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_3_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Extra
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/25_extra_shortcuts/">
+<span class="md-ellipsis">
+    
+  
+    Shortcuts
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    La codifica delle informazioni
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    La codifica delle informazioni
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../infoCoding/00_intro/">
+<span class="md-ellipsis">
+    
+  
+    Codifiche numeriche
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../infoCoding/01_digit_text/">
+<span class="md-ellipsis">
+    
+  
+    Testo
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../infoCoding/02_digit_img/">
+<span class="md-ellipsis">
+    
+  
+    Immagini
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../infoCoding/03_digit_audio/">
+<span class="md-ellipsis">
+    
+  
+    Suoni
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../infoCoding/04_digit_video/">
+<span class="md-ellipsis">
+    
+  
+    Video
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../infoCoding/05_file/">
+<span class="md-ellipsis">
+    
+  
+    File
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Extra
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Extra
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../extra/emailMurderGame/">
+<span class="md-ellipsis">
+    
+  
+    Gioco dell'assassino
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    A,B,C..
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    A,B,C..
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../dictionary/00_dict/">
+<span class="md-ellipsis">
+    
+  
+    Parole
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../dictionary/01_map/">
+<span class="md-ellipsis">
+    
+  
+    Mappa
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Algoritmi
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Algoritmi
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../algocoding/01_flowgorithm/">
+<span class="md-ellipsis">
+    
+  
+    Flowgorithm
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../algocoding/02_python_from_flowgorithm/">
+<span class="md-ellipsis">
+    
+  
+    Da Flowgorithm a Python
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../00_intro/">
+<span class="md-ellipsis">
+    
+  
+    Introduzione
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01_variabili/">
+<span class="md-ellipsis">
+    
+  
+    Variabili e tipi
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02_stringhe/">
+<span class="md-ellipsis">
+    
+  
+    Stringhe
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03_condizioni/">
+<span class="md-ellipsis">
+    
+  
+    Condizioni
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04_cicli/">
+<span class="md-ellipsis">
+    
+  
+    Cicli
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05_liste/">
+<span class="md-ellipsis">
+    
+  
+    Liste e tuple
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06_dizionari/">
+<span class="md-ellipsis">
+    
+  
+    Dizionari e set
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07_funzioni/">
+<span class="md-ellipsis">
+    
+  
+    Funzioni
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08_matrici/">
+<span class="md-ellipsis">
+    
+  
+    Array e matrici
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Classi e oggetti
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Classi e oggetti
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Indice" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cose-la-programmazione-a-oggetti">
+<span class="md-ellipsis">
+      
+        Cos'è la programmazione a oggetti?
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#la-prima-classe">
+<span class="md-ellipsis">
+      
+        La prima classe
+      
+    </span>
+</a>
+<nav aria-label="La prima classe" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#spiegazione-non-saltarla">
+<span class="md-ellipsis">
+      
+        Spiegazione (non saltarla!)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metodi">
+<span class="md-ellipsis">
+      
+        Metodi
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#attributi-vs-metodi">
+<span class="md-ellipsis">
+      
+        Attributi vs metodi
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#il-metodo-__str__">
+<span class="md-ellipsis">
+      
+        Il metodo __str__
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#esempio-completo-conto-bancario">
+<span class="md-ellipsis">
+      
+        Esempio completo: Conto bancario
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ereditarieta">
+<span class="md-ellipsis">
+      
+        Ereditarietà
+      
+    </span>
+</a>
+<nav aria-label="Ereditarietà" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#come-funziona">
+<span class="md-ellipsis">
+      
+        Come funziona?
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#esempio-completo-forme-geometriche">
+<span class="md-ellipsis">
+      
+        Esempio completo: Forme geometriche
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#esercizi">
+<span class="md-ellipsis">
+      
+        Esercizi
+      
+    </span>
+</a>
+<nav aria-label="Esercizi" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#esercizio-1-classe-libro">
+<span class="md-ellipsis">
+      
+        Esercizio 1: Classe Libro
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#esercizio-2-classe-dado">
+<span class="md-ellipsis">
+      
+        Esercizio 2: Classe Dado
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../10_networking/">
+<span class="md-ellipsis">
+    
+  
+    Python e networking
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<div style="position: relative; float: right; margin: 0 0 20px 20px;">
+<a class="md-button md-button--primary" download="" href="../../pdf/pycoding_09_oggetti.pdf" onmouseout="this.style.backgroundColor='#2196F3'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.2)';" onmouseover="this.style.backgroundColor='#1976D2'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.3)';" style="
+           background-color: #2196F3;
+           color: white;
+           padding: 10px 20px;
+           border-radius: 4px;
+           text-decoration: none;
+           display: inline-flex;
+           align-items: center;
+           gap: 8px;
+           font-weight: 500;
+           box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+           transition: all 0.3s ease;
+       " title="Scarica questa pagina in formato PDF">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="7 10 12 15 17 10"></polyline>
+<line x1="12" x2="12" y1="15" y2="3"></line>
+</svg>
+        Scarica PDF
+    </a>
+</div>
+<div style="clear: both;"></div>
+<div><h1 id="classi-e-oggetti-oop">Classi e oggetti (OOP)</h1>
+<h2 id="cose-la-programmazione-a-oggetti">Cos'è la programmazione a oggetti?</h2>
+<p>Fino ad ora abbiamo usato variabili separate per rappresentare le cose. Ma nel mondo reale, le "cose" hanno <strong>proprietà</strong> e <strong>comportamenti</strong> che stanno insieme. Un'auto ha colore, marca, velocità (proprietà) e può accelerare, frenare, sterzare (comportamenti). Sarebbe un casino gestire tutto con variabili separate!</p>
+<p>La <strong>Programmazione Orientata agli Oggetti</strong> (OOP) ci permette di creare i nostri <strong>tipi di dato personalizzati</strong> che raggruppano dati e funzioni in un unico pacchetto. Tipo costruire i tuoi LEGO personalizzati invece di usare solo i mattoncini base!</p>
+<hr/>
+<h2 id="la-prima-classe">La prima classe</h2>
+<p>Una <strong>classe</strong> è un "modello" (o stampo) per creare oggetti. Un <strong>oggetto</strong> è un'istanza concreta di quella classe. Tipo: la classe <code>Studente</code> è lo stampo, e tu sei un oggetto creato da quello stampo!</p>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-114--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-114--editor">class Studente:
+    def __init__(self, nome, eta, classe):
+        self.nome = nome
+        self.eta = eta
+        self.classe = classe
+
+# Creare oggetti (istanze) — usiamo lo stampo!
+s1 = Studente("Mario", 16, "3A")
+s2 = Studente("Luigi", 17, "4B")
+
+print(f"{s1.nome} ha {s1.eta} anni, classe {s1.classe}")
+print(f"{s2.nome} ha {s2.eta} anni, classe {s2.classe}")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-114--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-114--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-114--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=12,
+        maxLines=12,
+    );
+});
+</script>
+<h3 id="spiegazione-non-saltarla">Spiegazione (non saltarla!)</h3>
+<ul>
+<li><code>class Studente:</code> — definisce una nuova classe chiamata <code>Studente</code></li>
+<li><code>__init__</code> — è il <strong>costruttore</strong>: viene chiamato automaticamente quando crei un nuovo oggetto. I doppi underscore si chiamano "dunder" (double underscore)</li>
+<li><code>self</code> — è un riferimento all'oggetto stesso (tipo "io" in italiano). È obbligatorio come primo parametro di ogni metodo</li>
+<li><code>self.nome</code>, <code>self.eta</code> ecc. — sono gli <strong>attributi</strong> dell'oggetto, le sue caratteristiche</li>
+</ul>
+<hr/>
+<h2 id="metodi">Metodi</h2>
+<p>I <strong>metodi</strong> sono funzioni che appartengono a una classe e descrivono i <strong>comportamenti</strong> dell'oggetto. Tipo le azioni che può fare:</p>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-115--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-115--editor">class Studente:
+    def __init__(self, nome, voti):
+        self.nome = nome
+        self.voti = voti
+
+    def media(self):
+        return sum(self.voti) / len(self.voti)
+
+    def promosso(self):
+        return self.media() &gt;= 6
+
+    def aggiungi_voto(self, voto):
+        self.voti.append(voto)
+
+    def presentati(self):
+        stato = "promosso" if self.promosso() else "bocciato"
+        print(f"Sono {self.nome}, media {self.media():.2f} ({stato})")
+
+# Uso
+s = Studente("Mario", [7, 8, 6, 9])
+s.presentati()
+
+s.aggiungi_voto(5)
+s.presentati()</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-115--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-115--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-115--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=24,
+        maxLines=24,
+    );
+});
+</script>
+<hr/>
+<h2 id="attributi-vs-metodi">Attributi vs metodi</h2>
+<table>
+<thead>
+<tr>
+<th>Concetto</th>
+<th>Cos'è</th>
+<th>Esempio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Attributo</strong></td>
+<td>Un dato dell'oggetto (cosa HA)</td>
+<td><code>self.nome</code>, <code>self.eta</code></td>
+</tr>
+<tr>
+<td><strong>Metodo</strong></td>
+<td>Un'azione dell'oggetto (cosa FA)</td>
+<td><code>self.presentati()</code></td>
+</tr>
+</tbody>
+</table>
+<p>Pensa a un oggetto come a un <strong>personaggio di un videogioco</strong>: ha delle statistiche (attributi: vita, forza, velocità) e delle azioni (metodi: attacca, difendi, corri).</p>
+<hr/>
+<h2 id="il-metodo-__str__">Il metodo <code>__str__</code></h2>
+<p>Il metodo speciale <code>__str__</code> definisce come l'oggetto viene mostrato quando usi <code>print()</code>. Senza di lui, Python stampa un messaggio tipo <code>&lt;Punto object at 0x7f...&gt;</code> che non dice niente a nessuno:</p>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-116--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-116--editor">class Punto:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+
+    def distanza_origine(self):
+        return (self.x**2 + self.y**2) ** 0.5
+
+p = Punto(3, 4)
+print(p)  # Chiama automaticamente __str__ → (3, 4)
+print(f"Distanza dall'origine: {p.distanza_origine():.2f}")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-116--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-116--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-116--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=14,
+        maxLines=14,
+    );
+});
+</script>
+<hr/>
+<h2 id="esempio-completo-conto-bancario">Esempio completo: Conto bancario</h2>
+<p>Un classico degli esercizi OOP! Simuliamo un conto in banca:</p>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-117--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-117--editor">class ContoBancario:
+    def __init__(self, titolare, saldo=0):
+        self.titolare = titolare
+        self.saldo = saldo
+
+    def deposita(self, importo):
+        if importo &gt; 0:
+            self.saldo += importo
+            print(f"Depositati {importo}€. Saldo: {self.saldo}€")
+        else:
+            print("Importo non valido!")
+
+    def preleva(self, importo):
+        if importo &gt; self.saldo:
+            print("Fondi insufficienti!")
+        elif importo &lt;= 0:
+            print("Importo non valido!")
+        else:
+            self.saldo -= importo
+            print(f"Prelevati {importo}€. Saldo: {self.saldo}€")
+
+    def __str__(self):
+        return f"Conto di {self.titolare}: {self.saldo}€"
+
+# Uso
+conto = ContoBancario("Mario", 1000)
+print(conto)
+
+conto.deposita(500)
+conto.preleva(200)
+conto.preleva(2000)  # Fondi insufficienti!
+print(conto)</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-117--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-117--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-117--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=32,
+        maxLines=32,
+    );
+});
+</script>
+<hr/>
+<h2 id="ereditarieta">Ereditarietà</h2>
+<p>L'<strong>ereditarietà</strong> è tipo il DNA delle classi: puoi creare una nuova classe che <strong>eredita</strong> attributi e metodi da una classe "genitore". Tipo: <code>Cane</code> eredita da <code>Animale</code>, perché un cane È un animale!</p>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-118--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-118--editor">class Animale:
+    def __init__(self, nome, zampe):
+        self.nome = nome
+        self.zampe = zampe
+
+    def parla(self):
+        print("...")
+
+    def __str__(self):
+        return f"{self.nome} ({self.zampe} zampe)"
+
+class Cane(Animale):  # Cane eredita da Animale
+    def __init__(self, nome, razza):
+        super().__init__(nome, 4)  # Chiama il costruttore del genitore
+        self.razza = razza
+
+    def parla(self):  # Sovrascrive il metodo del genitore
+        print("Bau bau!")
+
+class Gatto(Animale):
+    def __init__(self, nome):
+        super().__init__(nome, 4)
+
+    def parla(self):
+        print("Miao!")
+
+class Pesce(Animale):
+    def __init__(self, nome):
+        super().__init__(nome, 0)
+
+    def parla(self):
+        print("Blub blub!")
+
+# Uso — il polimorfismo in azione!
+animali = [
+    Cane("Fido", "Labrador"),
+    Gatto("Micio"),
+    Pesce("Nemo")
+]
+
+for a in animali:
+    print(a, end=" → ")
+    a.parla()</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-118--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-118--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-118--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=43,
+        maxLines=43,
+    );
+});
+</script>
+<h3 id="come-funziona">Come funziona?</h3>
+<ul>
+<li><code>class Cane(Animale)</code> — il <code>Cane</code> <strong>eredita</strong> tutto da <code>Animale</code></li>
+<li><code>super().__init__(...)</code> — chiama il costruttore della classe genitore (tipo dire "prima fai le cose che fanno tutti gli animali, poi le cose specifiche del cane")</li>
+<li>Il metodo <code>parla()</code> viene <strong>sovrascritto</strong> in ogni sottoclasse — questo si chiama <strong>polimorfismo</strong> (stessa funzione, comportamento diverso a seconda dell'oggetto)</li>
+</ul>
+<hr/>
+<h2 id="esempio-completo-forme-geometriche">Esempio completo: Forme geometriche</h2>
+<p>Un esempio più completo che mette insieme tutto: ereditarietà, metodi, <code>__str__</code>:</p>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-119--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-119--editor">class Forma:
+    def __init__(self, nome):
+        self.nome = nome
+
+    def area(self):
+        return 0
+
+    def perimetro(self):
+        return 0
+
+    def __str__(self):
+        return f"{self.nome}: area={self.area():.2f}, perimetro={self.perimetro():.2f}"
+
+class Rettangolo(Forma):
+    def __init__(self, base, altezza):
+        super().__init__("Rettangolo")
+        self.base = base
+        self.altezza = altezza
+
+    def area(self):
+        return self.base * self.altezza
+
+    def perimetro(self):
+        return 2 * (self.base + self.altezza)
+
+class Cerchio(Forma):
+    def __init__(self, raggio):
+        super().__init__("Cerchio")
+        self.raggio = raggio
+
+    def area(self):
+        return 3.14159 * self.raggio ** 2
+
+    def perimetro(self):
+        return 2 * 3.14159 * self.raggio
+
+class Triangolo(Forma):
+    def __init__(self, base, altezza, lato1, lato2, lato3):
+        super().__init__("Triangolo")
+        self.base = base
+        self.altezza = altezza
+        self.lato1 = lato1
+        self.lato2 = lato2
+        self.lato3 = lato3
+
+    def area(self):
+        return self.base * self.altezza / 2
+
+    def perimetro(self):
+        return self.lato1 + self.lato2 + self.lato3
+
+# Uso — ciclo su forme diverse, stesso codice!
+forme = [
+    Rettangolo(5, 3),
+    Cerchio(4),
+    Triangolo(6, 4, 5, 5, 6)
+]
+
+for f in forme:
+    print(f)</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-119--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-119--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-119--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=60,
+        maxLines=60,
+    );
+});
+</script>
+<hr/>
+<h2 id="esercizi">Esercizi</h2>
+<h3 id="esercizio-1-classe-libro">Esercizio 1: Classe Libro</h3>
+<p>Crea una classe <code>Libro</code> con attributi titolo, autore, pagine e un metodo che dice se è un libro "lungo" (oltre 300 pagine). Aggiungi anche <code>__str__</code> per stamparlo in modo carino!</p>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-120--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-120--editor">class Libro:
+    # Completa la classe
+    pass
+
+# Test
+libro1 = Libro("Il Signore degli Anelli", "Tolkien", 1200)
+libro2 = Libro("Il Piccolo Principe", "Saint-Exupéry", 96)
+
+# Stampa le info e se è lungo o corto</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-120--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-120--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-120--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=9,
+        maxLines=9,
+    );
+});
+</script>
+<h3 id="esercizio-2-classe-dado">Esercizio 2: Classe Dado</h3>
+<p>Crea una classe <code>Dado</code> con un metodo <code>lancia()</code> che restituisce un numero casuale da 1 a 6, e un metodo <code>statistiche(n)</code> che lancia N volte e mostra quante volte esce ogni faccia. Tipo fare un esperimento di probabilità!</p>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-121--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-121--editor">import random
+
+class Dado:
+    # Completa la classe
+    pass
+
+# Test: lancia il dado 100 volte e mostra quante volte esce ogni numero</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-121--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-121--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-121--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=7,
+        maxLines=7,
+    );
+});
+</script>
+</div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Torna su
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Piede" class="md-footer__inner md-grid">
+<a aria-label="Precedente: Array e matrici" class="md-footer__link md-footer__link--prev" href="../08_matrici/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Precedente
+              </span>
+<div class="md-ellipsis">
+                Array e matrici
+              </div>
+</div>
+</a>
+<a aria-label="Successivo: Python e networking" class="md-footer__link md-footer__link--next" href="../10_networking/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Successivo
+              </span>
+<div class="md-ellipsis">
+                Python e networking
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Federico Robuffo - Andrea Diamantini(c) 2024-2025<br/> <a href="#__consent">Change Cookie Settings</a>
+</div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+<div class="md-copyright__highlight" style="margin-top: 0.2rem;">
+    Ultimo aggiornamento: 21/02/2026 10:42
+  </div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-consent" data-md-component="consent" hidden="" id="__consent">
+<div class="md-consent__overlay"></div>
+<aside class="md-consent__inner">
+<form class="md-consent__form md-grid md-typeset" name="consent">
+<h4>Consenso all'uso dei Cookie(s)</h4>
+<p>Questo sito memorizza alcuni cookies solo per riconoscere un visitatore  che non è alla sua prima visita e alcune preferenze, come il tema di visualizzazione della pagina selezionato.<br/> Se non acconsenti, questa finestra riapparirà ogni volta che riapri il sito.<br/> Se vuoi cambiare le tue scelte, in fondo alla pagina trovi un link per modificarle ;)
+</p>
+<input checked="" class="md-toggle" id="__settings" type="checkbox"/>
+<div class="md-consent__settings">
+<ul class="task-list">
+</ul>
+</div>
+<div class="md-consent__controls">
+<button class="md-button md-button--primary">Accetta</button>
+<button class="md-button md-button--primary" type="reset">Rifiuta</button>
+</div>
+</form>
+</aside>
+</div>
+<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.tabs", "navigation.sections", "navigation.top", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../assets/_markdown_exec_pyodide.js"></script>
+<script src="../../javascripts/mermaid-config.js"></script>
+<script src="../../javascripts/pyodide-input.js"></script>
+</body>
+</html>

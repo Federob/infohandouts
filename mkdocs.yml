@@ -9,6 +9,7 @@ copyright: >
 
 theme:
   name: material
+  custom_dir: overrides
   palette:
   # Palette toggle for light mode
   - scheme: default
@@ -74,6 +75,7 @@ extra_javascript:
 
 hooks:
 - hooks/pdf_button.py
+- hooks/build_date.py
 
 # ----------------------------------------------------
 

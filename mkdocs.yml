@@ -37,23 +37,25 @@ theme:
     - navigation.instant.progress
     - toc.integrate
     - content.code.copy
-  plugins:
-    - search:
-        lang: it
-    - mermaid2:
-        arguments:
-          securityLevel: 'loose'
-          theme: 'base'
-          flowchart:
-            htmlLabels: true
-            useMaxWidth: true
-            curve: 'basis'
-    - mkdocs-video:
-        is_video: True
-        video_muted: True
-        video_controls: True
-        css_style:
-          width: "100%"
+
+plugins:
+  - search:
+      lang: it
+  - mermaid2:
+      arguments:
+        securityLevel: 'loose'
+        theme: 'base'
+        flowchart:
+          htmlLabels: true
+          useMaxWidth: true
+          curve: 'basis'
+  - mkdocs-video:
+      is_video: True
+      video_muted: True
+      video_controls: True
+      css_style:
+        width: "100%"
+  - markdown-exec: {}
 
 extra:
   consent:
@@ -90,11 +92,14 @@ markdown_extensions:
   - pymdownx.inlinehilite: {}
   - pymdownx.snippets: {}
   - pymdownx.superfences:
-        # make exceptions to highlighting of code:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:mermaid2.fence_mermaid_custom
+        - name: pyodide
+          class: pyodide
+          validator: !!python/name:markdown_exec.validator
+          format: !!python/name:markdown_exec.formatter
 
 
 # -----------------------------------------------------------------------------------------------
@@ -131,5 +136,16 @@ nav:
     - Mappa : dictionary/01_map.md
   - Algoritmi: 
     - Flowgorithm : algocoding/01_flowgorithm.md
-    - Python : algocoding/02_python_from_flowgorithm.md
- 
+    - Da Flowgorithm a Python : algocoding/02_python_from_flowgorithm.md
+  - Python:
+    - Introduzione: pycoding/00_intro.md
+    - Variabili e tipi: pycoding/01_variabili.md
+    - Stringhe: pycoding/02_stringhe.md
+    - Condizioni: pycoding/03_condizioni.md
+    - Cicli: pycoding/04_cicli.md
+    - Liste e tuple: pycoding/05_liste.md
+    - Dizionari e set: pycoding/06_dizionari.md
+    - Funzioni: pycoding/07_funzioni.md
+    - Array e matrici: pycoding/08_matrici.md
+    - Classi e oggetti: pycoding/09_oggetti.md
+

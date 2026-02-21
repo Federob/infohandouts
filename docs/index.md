@@ -66,6 +66,24 @@ Spoiler: il computer non è magia, anche se a volte sembra così!</p>
 
 </div>
 
+<div class="w3-row">
+
+<div class="w3-half" style="padding:0 10px">
+<a href="pycoding/00_intro" class="md-button md-button--primary" style="width:300px">Coding con Python</a>
+<p>Impara a programmare con il linguaggio Python</p>
+<br>
+<br>
+</div>
+
+<div class="w3-half" style="padding:0 10px">
+<a href="ai/00_intro/" class="md-button md-button--primary" style="width:300px">Intelligenza artificiale</a>
+<p>Impara a creare un sistema addestrato con Python</p>
+<br>
+<br>
+</div>
+
+</div>
+
 </section>
 
 </body>

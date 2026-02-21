@@ -31,6 +31,7 @@ jobs:
       - run: pip install mkdocs-material
       - run: pip install mkdocs-mermaid2-plugin
       - run: pip install mkdocs-video
+      - run: pip install "markdown-exec[ansi]"
       - name: Install Chrome for PDF generation
         run: |
           wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -

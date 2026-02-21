@@ -31,10 +31,6 @@ theme:
     - navigation.tabs
     - navigation.sections
     - navigation.top
-    - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.instant.preview
-    - navigation.instant.progress
     - toc.integrate
     - content.code.copy
 

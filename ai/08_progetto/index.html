@@ -1,0 +1,1803 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Federico Robuffo" name="author"/>
+<link href="../07_reti_neurali/" rel="prev"/>
+<link href="../09_etica/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.2" name="generator"/>
+<title>Progetto finale - Corso di Informatica</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link href="../../assets/_markdown_exec_pyodide.css" rel="stylesheet"/>
+<link href="../../assets/_markdown_exec_ansi.css" rel="stylesheet"/>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="light-blue" data-md-color-primary="blue" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#progetto-finale">
+          Vai al contenuto
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Intestazione" class="md-header__inner md-grid">
+<a aria-label="Corso di Informatica" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Corso di Informatica">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Corso di Informatica
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Progetto finale
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Cerca" class="md-search__options">
+<button aria-label="Cancella" class="md-search__icon md-icon" tabindex="-1" title="Cancella" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inizializza la ricerca
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../fundamentals/00_basics/">
+          
+  
+  
+  Le basi..
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../extra/emailMurderGame/">
+          
+  
+  
+  Extra
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../dictionary/00_dict/">
+          
+  
+  
+  A,B,C..
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../algocoding/01_flowgorithm/">
+          
+  
+  
+  Algoritmi
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../pycoding/00_intro/">
+          
+  
+  
+  Python
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../00_intro/">
+          
+  
+  
+  Intelligenza Artificiale
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigazione" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Corso di Informatica" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Corso di Informatica">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Corso di Informatica
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Le basi..
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Le basi..
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Introduzione
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduzione
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fundamentals/00_basics/">
+<span class="md-ellipsis">
+    
+  
+    Concetti fondamentali
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../fundamentals/01_map/">
+<span class="md-ellipsis">
+    
+  
+    Mappa concettuale
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/10_hw/">
+<span class="md-ellipsis">
+    
+  
+    Architettura di un elaboratore
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/11_bios/">
+<span class="md-ellipsis">
+    
+  
+    BIOS
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Software
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/20_sw/">
+<span class="md-ellipsis">
+    
+  
+    Classificazione
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Sistemi Operativi
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sistemi Operativi
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/21_os_intro/">
+<span class="md-ellipsis">
+    
+  
+    Storia
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/22_os_arch/">
+<span class="md-ellipsis">
+    
+  
+    Architettura
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/23_os_vm/">
+<span class="md-ellipsis">
+    
+  
+    Macchine virtuali
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/24_os_cli/">
+<span class="md-ellipsis">
+    
+  
+    Interfaccia da linea di comando (CLI)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3_2_5" id="__nav_2_3_2_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Extra
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_5_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_3_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Extra
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../hwsw/25_extra_shortcuts/">
+<span class="md-ellipsis">
+    
+  
+    Shortcuts
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    La codifica delle informazioni
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    La codifica delle informazioni
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../infoCoding/00_intro/">
+<span class="md-ellipsis">
+    
+  
+    Codifiche numeriche
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../infoCoding/01_digit_text/">
+<span class="md-ellipsis">
+    
+  
+    Testo
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../infoCoding/02_digit_img/">
+<span class="md-ellipsis">
+    
+  
+    Immagini
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../infoCoding/03_digit_audio/">
+<span class="md-ellipsis">
+    
+  
+    Suoni
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../infoCoding/04_digit_video/">
+<span class="md-ellipsis">
+    
+  
+    Video
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../infoCoding/05_file/">
+<span class="md-ellipsis">
+    
+  
+    File
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Extra
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Extra
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../extra/emailMurderGame/">
+<span class="md-ellipsis">
+    
+  
+    Gioco dell'assassino
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    A,B,C..
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    A,B,C..
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../dictionary/00_dict/">
+<span class="md-ellipsis">
+    
+  
+    Parole
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../dictionary/01_map/">
+<span class="md-ellipsis">
+    
+  
+    Mappa
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Algoritmi
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Algoritmi
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../algocoding/01_flowgorithm/">
+<span class="md-ellipsis">
+    
+  
+    Flowgorithm
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../algocoding/02_python_from_flowgorithm/">
+<span class="md-ellipsis">
+    
+  
+    Da Flowgorithm a Python
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pycoding/00_intro/">
+<span class="md-ellipsis">
+    
+  
+    Introduzione
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pycoding/01_variabili/">
+<span class="md-ellipsis">
+    
+  
+    Variabili e tipi
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pycoding/02_stringhe/">
+<span class="md-ellipsis">
+    
+  
+    Stringhe
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pycoding/03_condizioni/">
+<span class="md-ellipsis">
+    
+  
+    Condizioni
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pycoding/04_cicli/">
+<span class="md-ellipsis">
+    
+  
+    Cicli
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pycoding/05_liste/">
+<span class="md-ellipsis">
+    
+  
+    Liste e tuple
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pycoding/06_dizionari/">
+<span class="md-ellipsis">
+    
+  
+    Dizionari e set
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pycoding/07_funzioni/">
+<span class="md-ellipsis">
+    
+  
+    Funzioni
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pycoding/08_matrici/">
+<span class="md-ellipsis">
+    
+  
+    Array e matrici
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pycoding/09_oggetti/">
+<span class="md-ellipsis">
+    
+  
+    Classi e oggetti
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pycoding/10_networking/">
+<span class="md-ellipsis">
+    
+  
+    Python e networking
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Intelligenza Artificiale
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Intelligenza Artificiale
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../00_intro/">
+<span class="md-ellipsis">
+    
+  
+    Cos'è l'IA
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01_ml_intro/">
+<span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02_dati/">
+<span class="md-ellipsis">
+    
+  
+    Preparare i dati
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03_regressione/">
+<span class="md-ellipsis">
+    
+  
+    Regressione lineare
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04_classificazione/">
+<span class="md-ellipsis">
+    
+  
+    Classificazione
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05_valutazione/">
+<span class="md-ellipsis">
+    
+  
+    Valutare un modello
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06_clustering/">
+<span class="md-ellipsis">
+    
+  
+    Clustering
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07_reti_neurali/">
+<span class="md-ellipsis">
+    
+  
+    Reti neurali
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Progetto finale
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Progetto finale
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Indice" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Indice
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mettiamo-tutto-insieme">
+<span class="md-ellipsis">
+      
+        Mettiamo tutto insieme
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-1-creare-il-dataset">
+<span class="md-ellipsis">
+      
+        Step 1: Creare il dataset
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-2-esplorare-i-dati">
+<span class="md-ellipsis">
+      
+        Step 2: Esplorare i dati
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-3-preparare-i-dati">
+<span class="md-ellipsis">
+      
+        Step 3: Preparare i dati
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-4-provare-diversi-modelli">
+<span class="md-ellipsis">
+      
+        Step 4: Provare diversi modelli
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-5-valutare-il-vincitore">
+<span class="md-ellipsis">
+      
+        Step 5: Valutare il vincitore
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-6-fare-previsioni">
+<span class="md-ellipsis">
+      
+        Step 6: Fare previsioni
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sfide-extra">
+<span class="md-ellipsis">
+      
+        Sfide extra
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#esercizi">
+<span class="md-ellipsis">
+      
+        Esercizi
+      
+    </span>
+</a>
+<nav aria-label="Esercizi" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#esercizio-1-pipeline-personalizzata">
+<span class="md-ellipsis">
+      
+        Esercizio 1: Pipeline personalizzata
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#esercizio-2-migliora-il-modello">
+<span class="md-ellipsis">
+      
+        Esercizio 2: Migliora il modello
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../09_etica/">
+<span class="md-ellipsis">
+    
+  
+    IA ed etica
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<div style="position: relative; float: right; margin: 0 0 20px 20px;">
+<a class="md-button md-button--primary" download="" href="../../pdf/ai_08_progetto.pdf" onmouseout="this.style.backgroundColor='#2196F3'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.2)';" onmouseover="this.style.backgroundColor='#1976D2'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.3)';" style="
+           background-color: #2196F3;
+           color: white;
+           padding: 10px 20px;
+           border-radius: 4px;
+           text-decoration: none;
+           display: inline-flex;
+           align-items: center;
+           gap: 8px;
+           font-weight: 500;
+           box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+           transition: all 0.3s ease;
+       " title="Scarica questa pagina in formato PDF">
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="7 10 12 15 17 10"></polyline>
+<line x1="12" x2="12" y1="15" y2="3"></line>
+</svg>
+        Scarica PDF
+    </a>
+</div>
+<div style="clear: both;"></div>
+<div><h1 id="progetto-finale">Progetto finale</h1>
+<h2 id="mettiamo-tutto-insieme">Mettiamo tutto insieme</h2>
+<p>Hai imparato cos'è l'IA, come preparare i dati, la regressione, la classificazione, la valutazione dei modelli, il clustering e le reti neurali. Ora è il momento di mettere tutto insieme in un <strong>progetto completo</strong>!</p>
+<p>Il nostro obiettivo: prevedere se uno studente sarà <strong>promosso o bocciato</strong> basandosi sulle sue abitudini di studio.</p>
+<hr/>
+<h2 id="step-1-creare-il-dataset">Step 1: Creare il dataset</h2>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-66--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-66--editor">import numpy as np
+
+np.random.seed(42)
+n = 200
+
+# Generiamo dati realistici
+ore_studio = np.random.uniform(0, 10, n)
+assenze = np.random.randint(0, 20, n)
+voto_precedente = np.random.uniform(3, 10, n)
+partecipazione = np.random.uniform(1, 10, n)
+
+# La promozione dipende da una combinazione di fattori
+punteggio = (
+    ore_studio * 0.3
+    + voto_precedente * 0.3
+    + partecipazione * 0.2
+    - assenze * 0.15
+    + np.random.randn(n) * 0.5
+)
+
+# Promosso se il punteggio supera una soglia
+promosso = (punteggio &gt; 3.5).astype(int)
+
+X = np.column_stack([ore_studio, assenze, voto_precedente, partecipazione])
+y = promosso
+
+feature_names = ['Ore studio', 'Assenze', 'Voto prec.', 'Partecip.']
+
+print(f"Dataset creato: {X.shape[0]} studenti, {X.shape[1]} features")
+print(f"Promossi: {sum(y)} ({sum(y)/len(y)*100:.0f}%)")
+print(f"Bocciati: {len(y)-sum(y)} ({(len(y)-sum(y))/len(y)*100:.0f}%)")
+
+print(f"\nPrimi 5 studenti:")
+print(f"{'Ore':&gt;6} {'Ass':&gt;5} {'Prec':&gt;6} {'Part':&gt;6} {'Esito':&gt;7}")
+print("-" * 34)
+for i in range(5):
+    esito = "Prom" if y[i] == 1 else "Bocc"
+    print(f"{X[i,0]:&gt;6.1f} {X[i,1]:&gt;5.0f} {X[i,2]:&gt;6.1f} {X[i,3]:&gt;6.1f} {esito:&gt;7}")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-66--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-66--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-66--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=38,
+        maxLines=38,
+    );
+});
+</script>
+<hr/>
+<h2 id="step-2-esplorare-i-dati">Step 2: Esplorare i dati</h2>
+<p>Prima di far partire qualsiasi algoritmo, <strong>guardiamo i dati</strong>!</p>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-67--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-67--editor">import numpy as np
+import matplotlib.pyplot as plt
+
+np.random.seed(42)
+n = 200
+ore_studio = np.random.uniform(0, 10, n)
+assenze = np.random.randint(0, 20, n)
+voto_precedente = np.random.uniform(3, 10, n)
+partecipazione = np.random.uniform(1, 10, n)
+punteggio = ore_studio * 0.3 + voto_precedente * 0.3 + partecipazione * 0.2 - assenze * 0.15 + np.random.randn(n) * 0.5
+y = (punteggio &gt; 3.5).astype(int)
+X = np.column_stack([ore_studio, assenze, voto_precedente, partecipazione])
+feature_names = ['Ore studio', 'Assenze', 'Voto prec.', 'Partecip.']
+
+fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+colori = ['red' if yi == 0 else 'green' for yi in y]
+
+for idx, (ax, nome) in enumerate(zip(axes.flat, feature_names)):
+    promossi = X[y == 1, idx]
+    bocciati = X[y == 0, idx]
+    ax.hist(promossi, bins=15, alpha=0.6, color='green', label='Promossi')
+    ax.hist(bocciati, bins=15, alpha=0.6, color='red', label='Bocciati')
+    ax.set_title(nome)
+    ax.legend()
+    ax.grid(True, alpha=0.3)
+
+plt.suptitle('Distribuzione features per esito', fontsize=14)
+plt.tight_layout()
+plt.show()
+
+# Statistiche
+print("Statistiche per gruppo:")
+for i, nome in enumerate(feature_names):
+    media_prom = X[y == 1, i].mean()
+    media_bocc = X[y == 0, i].mean()
+    print(f"  {nome:15}: promossi={media_prom:.1f}, bocciati={media_bocc:.1f}")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-67--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-67--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-67--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=36,
+        maxLines=36,
+    );
+});
+</script>
+<hr/>
+<h2 id="step-3-preparare-i-dati">Step 3: Preparare i dati</h2>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-68--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-68--editor">import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+
+np.random.seed(42)
+n = 200
+ore_studio = np.random.uniform(0, 10, n)
+assenze = np.random.randint(0, 20, n)
+voto_precedente = np.random.uniform(3, 10, n)
+partecipazione = np.random.uniform(1, 10, n)
+punteggio = ore_studio * 0.3 + voto_precedente * 0.3 + partecipazione * 0.2 - assenze * 0.15 + np.random.randn(n) * 0.5
+y = (punteggio &gt; 3.5).astype(int)
+X = np.column_stack([ore_studio, assenze, voto_precedente, partecipazione])
+
+# Normalizzazione
+scaler = MinMaxScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Split
+X_train, X_test, y_train, y_test = train_test_split(
+    X_scaled, y, test_size=0.2, random_state=42
+)
+
+print(f"Training set: {X_train.shape[0]} studenti")
+print(f"Test set:     {X_test.shape[0]} studenti")
+print(f"\nBilanciamento training: {sum(y_train)} promossi, {len(y_train)-sum(y_train)} bocciati")
+print(f"Bilanciamento test:     {sum(y_test)} promossi, {len(y_test)-sum(y_test)} bocciati")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-68--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-68--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-68--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=27,
+        maxLines=27,
+    );
+});
+</script>
+<hr/>
+<h2 id="step-4-provare-diversi-modelli">Step 4: Provare diversi modelli</h2>
+<p>Qui arriva il bello: proviamo 4 modelli diversi e vediamo chi vince!</p>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-69--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-69--editor">import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.neural_network import MLPClassifier
+
+np.random.seed(42)
+n = 200
+ore_studio = np.random.uniform(0, 10, n)
+assenze = np.random.randint(0, 20, n)
+voto_precedente = np.random.uniform(3, 10, n)
+partecipazione = np.random.uniform(1, 10, n)
+punteggio = ore_studio * 0.3 + voto_precedente * 0.3 + partecipazione * 0.2 - assenze * 0.15 + np.random.randn(n) * 0.5
+y = (punteggio &gt; 3.5).astype(int)
+X = np.column_stack([ore_studio, assenze, voto_precedente, partecipazione])
+
+scaler = MinMaxScaler()
+X_scaled = scaler.fit_transform(X)
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+
+# I 4 contendenti
+modelli = {
+    "KNN (K=5)": KNeighborsClassifier(n_neighbors=5),
+    "Albero decisione": DecisionTreeClassifier(max_depth=4, random_state=42),
+    "Regressione logistica": LogisticRegression(random_state=42),
+    "Rete neurale (MLP)": MLPClassifier(hidden_layer_sizes=(10, 5), max_iter=500, random_state=42),
+}
+
+print(f"{'Modello':&lt;25} {'CV Media':&gt;10} {'CV Std':&gt;8} {'Test':&gt;8}")
+print("-" * 55)
+
+migliore_nome = ""
+migliore_score = 0
+
+for nome, modello in modelli.items():
+    # Cross-validation
+    cv_scores = cross_val_score(modello, X_train, y_train, cv=5)
+
+    # Addestra e testa
+    modello.fit(X_train, y_train)
+    test_score = modello.score(X_test, y_test)
+
+    print(f"{nome:&lt;25} {cv_scores.mean():&gt;10.2%} {cv_scores.std():&gt;8.2%} {test_score:&gt;8.2%}")
+
+    if cv_scores.mean() &gt; migliore_score:
+        migliore_score = cv_scores.mean()
+        migliore_nome = nome
+
+print(f"\nVincitore: {migliore_nome} ({migliore_score:.2%})")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-69--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-69--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-69--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=51,
+        maxLines=51,
+    );
+});
+</script>
+<hr/>
+<h2 id="step-5-valutare-il-vincitore">Step 5: Valutare il vincitore</h2>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-70--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-70--editor">import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
+
+np.random.seed(42)
+n = 200
+ore_studio = np.random.uniform(0, 10, n)
+assenze = np.random.randint(0, 20, n)
+voto_precedente = np.random.uniform(3, 10, n)
+partecipazione = np.random.uniform(1, 10, n)
+punteggio = ore_studio * 0.3 + voto_precedente * 0.3 + partecipazione * 0.2 - assenze * 0.15 + np.random.randn(n) * 0.5
+y = (punteggio &gt; 3.5).astype(int)
+X = np.column_stack([ore_studio, assenze, voto_precedente, partecipazione])
+
+scaler = MinMaxScaler()
+X_scaled = scaler.fit_transform(X)
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+
+# Usiamo il modello migliore
+modello = LogisticRegression(random_state=42)
+modello.fit(X_train, y_train)
+y_pred = modello.predict(X_test)
+
+# Metriche complete
+print("VALUTAZIONE DETTAGLIATA")
+print("=" * 40)
+print(f"Accuracy:  {accuracy_score(y_test, y_pred):.2%}")
+print(f"Precision: {precision_score(y_test, y_pred):.2%}")
+print(f"Recall:    {recall_score(y_test, y_pred):.2%}")
+print(f"F1-score:  {f1_score(y_test, y_pred):.2%}")
+
+# Matrice di confusione
+cm = confusion_matrix(y_test, y_pred)
+print(f"\nMatrice di confusione:")
+print(f"              Previsto")
+print(f"             Bocc  Prom")
+print(f"Vero Bocc  [{cm[0][0]:4} {cm[0][1]:4} ]")
+print(f"     Prom  [{cm[1][0]:4} {cm[1][1]:4} ]")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-70--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-70--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-70--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=40,
+        maxLines=40,
+    );
+});
+</script>
+<hr/>
+<h2 id="step-6-fare-previsioni">Step 6: Fare previsioni</h2>
+<p>Il momento della verita': usiamo il modello per prevedere su studenti completamente nuovi!</p>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-71--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-71--editor">import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+
+np.random.seed(42)
+n = 200
+ore_studio = np.random.uniform(0, 10, n)
+assenze = np.random.randint(0, 20, n)
+voto_precedente = np.random.uniform(3, 10, n)
+partecipazione = np.random.uniform(1, 10, n)
+punteggio = ore_studio * 0.3 + voto_precedente * 0.3 + partecipazione * 0.2 - assenze * 0.15 + np.random.randn(n) * 0.5
+y = (punteggio &gt; 3.5).astype(int)
+X = np.column_stack([ore_studio, assenze, voto_precedente, partecipazione])
+
+scaler = MinMaxScaler()
+X_scaled = scaler.fit_transform(X)
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+
+modello = LogisticRegression(random_state=42)
+modello.fit(X_train, y_train)
+
+# Nuovi studenti!
+nuovi_studenti = [
+    {"nome": "Mario",  "ore": 8, "assenze": 2, "prec": 7.5, "partecip": 8},
+    {"nome": "Luigi",  "ore": 3, "assenze": 12, "prec": 5.0, "partecip": 4},
+    {"nome": "Peach",  "ore": 6, "assenze": 5, "prec": 6.5, "partecip": 7},
+    {"nome": "Bowser", "ore": 1, "assenze": 18, "prec": 4.0, "partecip": 2},
+]
+
+print("PREVISIONI PER NUOVI STUDENTI")
+print("=" * 60)
+
+for s in nuovi_studenti:
+    x_nuovo = np.array([[s["ore"], s["assenze"], s["prec"], s["partecip"]]])
+    x_scaled = scaler.transform(x_nuovo)
+    previsione = modello.predict(x_scaled)[0]
+    probabilita = modello.predict_proba(x_scaled)[0]
+
+    esito = "PROMOSSO" if previsione == 1 else "BOCCIATO"
+    print(f"\n{s['nome']}:")
+    print(f"  Ore studio: {s['ore']}, Assenze: {s['assenze']}, Voto prec: {s['prec']}, Partecip: {s['partecip']}")
+    print(f"  Previsione: {esito}")
+    print(f"  Probabilita': bocciato {probabilita[0]:.0%} | promosso {probabilita[1]:.0%}")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-71--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-71--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-71--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=44,
+        maxLines=44,
+    );
+});
+</script>
+<hr/>
+<h2 id="sfide-extra">Sfide extra</h2>
+<p>Vuoi andare oltre? Prova queste sfide:</p>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-72--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-72--editor"># SFIDA 1: Aggiungi una nuova feature (es. "ore di sonno") e vedi se migliora il modello
+
+# SFIDA 2: Usa il clustering per trovare "profili" di studenti nel dataset
+
+# SFIDA 3: Crea un'interfaccia interattiva che chiede i dati di uno studente e prevede l'esito
+
+ore = float(input("Ore di studio: "))
+assenze = int(input("Numero assenze: "))
+voto_prec = float(input("Voto precedente: "))
+partecip = float(input("Partecipazione (1-10): "))
+
+print(f"\nAnalizzando lo studente...")
+print(f"(Implementa la previsione qui!)")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-72--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-72--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-72--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=13,
+        maxLines=13,
+    );
+});
+</script>
+<hr/>
+<h2 id="esercizi">Esercizi</h2>
+<h3 id="esercizio-1-pipeline-personalizzata">Esercizio 1: Pipeline personalizzata</h3>
+<p>Ricrea l'intera pipeline con un dataset diverso: prevedi se un cliente comprera' un prodotto basandosi su eta', reddito e numero di visite al sito.</p>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-73--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-73--editor">import numpy as np
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.preprocessing import MinMaxScaler
+
+np.random.seed(42)
+
+# Crea il dataset clienti
+
+# Prepara i dati
+
+# Prova almeno 3 modelli diversi
+
+# Valuta il vincitore
+
+# Fai previsioni su nuovi clienti
+</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-73--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-73--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-73--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=15,
+        maxLines=15,
+    );
+});
+</script>
+<h3 id="esercizio-2-migliora-il-modello">Esercizio 2: Migliora il modello</h3>
+<p>Partendo dal progetto di questo capitolo, prova a migliorare l'accuracy con:
+- Feature engineering (crea nuove features combinando quelle esistenti)
+- Grid search sugli iperparametri
+- Prova un modello diverso</p>
+<p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
+<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-74--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre class="pyodide-editor" id="exec-74--editor"># Il tuo codice per migliorare il modello
+</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-74--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code class="pyodide-output" id="exec-74--output"></code></pre>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-74--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=1,
+        maxLines=1,
+    );
+});
+</script>
+</div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Torna su
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Piede" class="md-footer__inner md-grid">
+<a aria-label="Precedente: Reti neurali" class="md-footer__link md-footer__link--prev" href="../07_reti_neurali/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Precedente
+              </span>
+<div class="md-ellipsis">
+                Reti neurali
+              </div>
+</div>
+</a>
+<a aria-label="Successivo: IA ed etica" class="md-footer__link md-footer__link--next" href="../09_etica/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Successivo
+              </span>
+<div class="md-ellipsis">
+                IA ed etica
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Federico Robuffo - Andrea Diamantini(c) 2024-2025<br/> <a href="#__consent">Change Cookie Settings</a>
+</div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+<div class="md-copyright__highlight" style="margin-top: 0.2rem;">
+    Ultimo aggiornamento: 24/02/2026 21:19
+  </div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-consent" data-md-component="consent" hidden="" id="__consent">
+<div class="md-consent__overlay"></div>
+<aside class="md-consent__inner">
+<form class="md-consent__form md-grid md-typeset" name="consent">
+<h4>Consenso all'uso dei Cookie(s)</h4>
+<p>Questo sito memorizza alcuni cookies solo per riconoscere un visitatore  che non è alla sua prima visita e alcune preferenze, come il tema di visualizzazione della pagina selezionato.<br/> Se non acconsenti, questa finestra riapparirà ogni volta che riapri il sito.<br/> Se vuoi cambiare le tue scelte, in fondo alla pagina trovi un link per modificarle ;)
+</p>
+<input checked="" class="md-toggle" id="__settings" type="checkbox"/>
+<div class="md-consent__settings">
+<ul class="task-list">
+</ul>
+</div>
+<div class="md-consent__controls">
+<button class="md-button md-button--primary">Accetta</button>
+<button class="md-button md-button--primary" type="reset">Rifiuta</button>
+</div>
+</form>
+</aside>
+</div>
+<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.tabs", "navigation.sections", "navigation.top", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../assets/_markdown_exec_pyodide.js"></script>
+<script src="../../javascripts/mermaid-config.js"></script>
+<script src="../../javascripts/pyodide-input.js"></script>
+</body>
+</html>

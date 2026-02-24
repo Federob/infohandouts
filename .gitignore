@@ -187,7 +187,6 @@ viewer.html
 # PDF generati
 *.pdf
 !docs/**/*.pdf
-Guida_Flowgorithm*.pdf
 temp_for_pdf.html
 flowgorithm_temp.html
 generate_pdf.js

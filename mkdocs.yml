@@ -148,4 +148,14 @@ nav:
     - Array e matrici: pycoding/08_matrici.md
     - Classi e oggetti: pycoding/09_oggetti.md
     - Python e networking: pycoding/10_networking.md
-
+  - Intelligenza Artificiale:
+    - "Cos'è l'IA": ai/00_intro.md
+    - Machine Learning: ai/01_ml_intro.md
+    - Preparare i dati: ai/02_dati.md
+    - Regressione lineare: ai/03_regressione.md
+    - Classificazione: ai/04_classificazione.md
+    - Valutare un modello: ai/05_valutazione.md
+    - Clustering: ai/06_clustering.md
+    - Reti neurali: ai/07_reti_neurali.md
+    - Progetto finale: ai/08_progetto.md
+    - IA ed etica: ai/09_etica.md

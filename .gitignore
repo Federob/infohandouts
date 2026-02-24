@@ -164,9 +164,22 @@ cython_debug/
 infoenv/
 docs/extra/googleipranges.txt
 
+# Claude Code
+.claude/
+
+# VSCode
+.vscode/
+
 # Local settings
 settings.local.json
 *.local.json
+
+# MkDocs build output
+/site/
+
+# OS files
+.DS_Store
+Thumbs.db
 
 # Viewer HTML temporaneo
 viewer.html

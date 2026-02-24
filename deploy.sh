@@ -3,8 +3,9 @@
 # Script di deploy locale per infohandouts
 # Sostituisce la GitHub Action (ci.yml)
 #
-# Uso: ./deploy.sh [messaggio commit]
+# Uso: ./deploy.sh [messaggio commit] [--force-pdf]
 # Esempio: ./deploy.sh "aggiunta sezione IA"
+# Esempio: ./deploy.sh "rebuild" --force-pdf    (rigenera tutti i PDF)
 #
 
 # Colori
@@ -80,9 +81,9 @@ echo -e "${GREEN}  ✓ googleipranges.txt generato${NC}"
 # -------------------------------------------
 # 3. Genera i PDF
 # -------------------------------------------
-echo -e "\n${YELLOW}[3/7] Generazione PDF...${NC}"
-python code/generate_pdfs.py
-echo -e "${GREEN}  ✓ PDF generati${NC}"
+echo -e "\n${YELLOW}[3/7] Generazione PDF (incrementale)...${NC}"
+python code/generate_pdfs.py $FORCE_PDF
+echo -e "${GREEN}  ✓ PDF aggiornati${NC}"
 
 # -------------------------------------------
 # 4. Build del sito
@@ -96,7 +97,16 @@ echo -e "${GREEN}  ✓ Build completato${NC}"
 # -------------------------------------------
 echo -e "\n${YELLOW}[5/7] Commit delle modifiche su ${ORIGINAL_BRANCH}...${NC}"
 
-COMMIT_MSG="${1:-deploy}"
+# Parsing argomenti
+COMMIT_MSG="deploy"
+FORCE_PDF=""
+for arg in "$@"; do
+    if [ "$arg" = "--force-pdf" ]; then
+        FORCE_PDF="--force"
+    else
+        COMMIT_MSG="$arg"
+    fi
+done
 
 git add -A
 

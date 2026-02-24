@@ -333,6 +333,13 @@ def generate_pdf_from_html(html_path: Path, pdf_path: Path, port: int) -> bool:
         return False
 
 
+def needs_rebuild(md_file: Path, pdf_path: Path) -> bool:
+    """Controlla se il PDF va rigenerato: mancante o più vecchio del .md sorgente"""
+    if not pdf_path.exists():
+        return True
+    return md_file.stat().st_mtime > pdf_path.stat().st_mtime
+
+
 def main():
     """Funzione principale"""
     # Assicurati di essere nella directory root del progetto
@@ -340,8 +347,13 @@ def main():
     project_root = script_dir.parent
     os.chdir(project_root)
 
+    # Flag --force per rigenerare tutti i PDF
+    force = "--force" in sys.argv
+
     print("🚀 Inizio generazione PDF dai file Markdown...")
     print(f"📁 Directory di lavoro: {os.getcwd()}")
+    if force:
+        print("⚠️  Modalità --force: rigenero tutti i PDF")
 
     # Crea directory output se non esiste
     PDF_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -355,6 +367,23 @@ def main():
         return
     docs_abs = project_root / DOCS_DIR
 
+    # Filtra solo i file che necessitano rigenerazione
+    to_generate = []
+    for md_file in md_files:
+        rel_path = md_file.relative_to(docs_abs)
+        pdf_name = str(rel_path).replace('/', '_').replace('.md', '.pdf')
+        pdf_path = PDF_OUTPUT_DIR / pdf_name
+        if force or needs_rebuild(md_file, pdf_path):
+            to_generate.append((md_file, rel_path, pdf_path, pdf_name))
+        else:
+            print(f"   ⏭️  Invariato: {rel_path}")
+
+    if not to_generate:
+        print("\n✅ Tutti i PDF sono aggiornati, nessuna rigenerazione necessaria")
+        return
+
+    print(f"\n📝 PDF da generare/aggiornare: {len(to_generate)} su {len(md_files)}")
+
     # Crea directory temporanea per HTML
     with tempfile.TemporaryDirectory() as temp_dir:
         temp_path = Path(temp_dir)
@@ -367,14 +396,7 @@ def main():
         successful = 0
         failed = 0
 
-        for md_file in md_files:
-            # Calcola percorso relativo rispetto a docs/
-            rel_path = md_file.relative_to(docs_abs)
-
-            # Percorso output PDF
-            pdf_name = str(rel_path).replace('/', '_').replace('.md', '.pdf')
-            pdf_path = PDF_OUTPUT_DIR / pdf_name
-
+        for md_file, rel_path, pdf_path, pdf_name in to_generate:
             print(f"\n📝 Processando: {rel_path}")
 
             # Crea HTML temporaneo
@@ -393,7 +415,6 @@ def main():
         print(f"✅ PDF generati con successo: {successful}")
         if failed > 0:
             print(f"❌ PDF falliti: {failed}")
-            # Fallisce lo script per evidenziare l'errore nel CI
             sys.exit(1)
         print(f"{'='*50}")
 

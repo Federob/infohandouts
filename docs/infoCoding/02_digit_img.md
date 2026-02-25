@@ -65,7 +65,7 @@ In sintesi:
 ## Mappa concettuale
 
 ```mermaid
-graph LR
+flowchart LR
     A[Digitalizzazione delle Immagini] --> B[Pixel]
     B --> C[Numero di Pixel]
     C --> D[Qualità]

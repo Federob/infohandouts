@@ -202,6 +202,34 @@ Nei prossimi capitoli seguiremo questo workflow passo per passo. Pronti?
 
 ---
 
+## Mappa concettuale
+
+```mermaid
+flowchart TD
+    A["Machine Learning"] --> B["Supervisionato"]
+    A --> C["Non supervisionato"]
+    A --> D["Per rinforzo"]
+
+    B --> B1["Ha le etichette"]
+    B --> B2["Regressione"]
+    B --> B3["Classificazione"]
+
+    C --> C1["Senza etichette"]
+    C --> C2["Clustering"]
+
+    D --> D1["Prova e sbaglia"]
+    D --> D2["Ricompensa / penalita"]
+
+    E["Workflow ML"] --> F["1. Raccogli dati"]
+    F --> G["2. Prepara i dati"]
+    G --> H["3. Scegli il modello"]
+    H --> I["4. Addestra"]
+    I --> J["5. Valuta"]
+    J --> K["6. Usa il modello"]
+```
+
+---
+
 ## Esercizi
 
 ### Esercizio 1: Classifica il tipo di apprendimento

@@ -314,6 +314,24 @@ print(f"(Implementa la previsione qui!)")
 
 ---
 
+## Mappa concettuale
+
+```mermaid
+flowchart LR
+    A["1. Dataset<br/>crea i dati"] --> B["2. Esplora<br/>grafici e statistiche"]
+    B --> C["3. Prepara<br/>normalizza e split"]
+    C --> D["4. Addestra<br/>prova piu modelli"]
+    D --> E["5. Valuta<br/>metriche e confronto"]
+    E --> F["6. Predici<br/>nuovi dati"]
+
+    D --> G["KNN"]
+    D --> H["Albero"]
+    D --> I["Logistic Regression"]
+    D --> J["MLP"]
+```
+
+---
+
 ## Esercizi
 
 ### Esercizio 1: Pipeline personalizzata

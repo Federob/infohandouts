@@ -205,6 +205,36 @@ L'UE ha pubblicato delle linee guida per un'IA affidabile. I principi chiave:
 
 ---
 
+## Mappa concettuale
+
+```mermaid
+mindmap
+  root((IA ed Etica))
+    Bias
+      ["Dati sbilanciati"]
+      ["Pregiudizi amplificati"]
+      ["Soluzione: dati equi"]
+    Trasparenza
+      ["Scatola nera vs interpretabile"]
+      ["Diritto alla spiegazione"]
+    Privacy
+      ["GDPR"]
+      ["Minimizzazione dati"]
+      ["Consenso informato"]
+    Deepfake
+      ["Disinformazione"]
+      ["Verifica delle fonti"]
+    IA Responsabile
+      ["Equita"]
+      ["Trasparenza"]
+      ["Privacy"]
+      ["Sicurezza"]
+      ["Responsabilita"]
+      ["Beneficio sociale"]
+```
+
+---
+
 ## Esercizi
 
 ### Esercizio 1: Trova il bias

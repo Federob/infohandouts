@@ -115,6 +115,32 @@ Visto? **Identico** a Flowgorithm, solo che invece di trascinare blocchetti, scr
 
 ---
 
+## Mappa concettuale
+
+```mermaid
+mindmap
+  root((Python))
+    ["Cos'e?"]
+      Linguaggio di programmazione
+      Creato nel 1991
+      Semplice e leggibile
+    Concetti base
+      ["print - mostra a schermo"]
+      ["input - chiede dati"]
+      ["Commenti con #"]
+    Struttura di un programma
+      INPUT
+      ELABORAZIONE
+      OUTPUT
+    Dove si usa
+      Web
+      Intelligenza Artificiale
+      Analisi dati
+      Automazione
+```
+
+---
+
 ## Come eseguire Python sul tuo computer
 
 L'editor interattivo di queste pagine è comodissimo per provare, ma prima o poi vorrai eseguire Python sul tuo PC "per davvero". Ecco come fare, senza impazzire:

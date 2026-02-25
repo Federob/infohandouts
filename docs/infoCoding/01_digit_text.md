@@ -79,7 +79,7 @@ Grazie a **Unicode** e **UTF-8** oggi possiamo scrivere in qualsiasi lingua, usa
 ## Mappa concettuale
 
 ```mermaid
-graph LR
+flowchart LR
     A[Codifica del Testo] --> B[ASCII]
     A --> C[Unicode]
     B --> D[7 bit]

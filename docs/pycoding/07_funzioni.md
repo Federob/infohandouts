@@ -234,6 +234,28 @@ print("Ordinati (desc):", numeri)
 
 ---
 
+## Mappa concettuale
+
+```mermaid
+flowchart TD
+    A["def nome_funzione(parametri)"] --> B["Corpo della funzione"]
+    B --> C{"Ha return?"}
+    C -->|Si| D["Restituisce un valore"]
+    C -->|No| E["Restituisce None"]
+
+    F["Tipi di parametri"] --> G["Posizionali"]
+    F --> H["Con default"]
+    F --> I["Nominati"]
+
+    J["Scope"] --> K["Variabili locali<br/>vivono dentro la funzione"]
+    J --> L["Variabili globali<br/>vivono fuori"]
+
+    M["Funzioni speciali"] --> N["Ricorsive<br/>chiamano se stesse"]
+    M --> O["Lambda<br/>una riga sola"]
+```
+
+---
+
 ## Esercizi
 
 ### Esercizio 1: Funzione massimo

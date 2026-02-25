@@ -34,8 +34,8 @@ Prima di entrare nei dettagli, ecco una **mappa concettuale completa** che mostr
 
 ```mermaid
 mindmap
-  root((ALGORITMI<br/>e<br/>FLOWGORITHM))
-    COS'È
+  root((ALGORITMI e FLOWGORITHM))
+    ["COS'E'"]
       Ambiente visuale
       Diagrammi di flusso
       Imparare senza codice

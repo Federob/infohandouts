@@ -96,7 +96,7 @@ Ecco come appare una tipica schermata del BIOS. Sì, sembra uscita dagli anni '9
 ## Mappa Concettuale
 
 ```mermaid
-graph LR
+flowchart LR
     A[BIOS Basic Input/Output System] --> B[Funzioni Principali]
     B --> C[Avvia il Sistema]
     B --> D[Controlla l'Hardware all'Avvio]

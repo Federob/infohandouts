@@ -162,6 +162,35 @@ Noi ci concentreremo sul **Machine Learning**: è la base di tutto il resto e si
 
 ---
 
+## Mappa concettuale
+
+```mermaid
+mindmap
+  root((Intelligenza Artificiale))
+    Storia
+      ["1950 - Test di Turing"]
+      ["1956 - Nasce il termine IA"]
+      ["2012 - Deep Learning"]
+      ["2022 - ChatGPT"]
+    Tipi di IA
+      ["Debole - un compito specifico"]
+      ["Forte - come un umano"]
+      ["Super - oltre l'umano"]
+    Rami principali
+      Machine Learning
+      Deep Learning
+      Computer Vision
+      ["NLP - linguaggio naturale"]
+      Robotica
+    Nella vita quotidiana
+      Assistenti vocali
+      Suggerimenti Netflix
+      Filtri spam
+      Navigatori GPS
+```
+
+---
+
 ## Esercizi
 
 ### Esercizio 1: IA o non IA?

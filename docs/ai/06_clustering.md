@@ -245,6 +245,24 @@ for k in range(3):
 
 ---
 
+## Mappa concettuale
+
+```mermaid
+flowchart TD
+    A["K-Means"] --> B["1. Scegli K centroidi"]
+    B --> C["2. Assegna ogni punto al centroide piu vicino"]
+    C --> D["3. Ricalcola i centroidi"]
+    D --> E{"Centroidi<br/>cambiati?"}
+    E -->|Si| C
+    E -->|No| F["Fine! K cluster trovati"]
+
+    G["Quanti cluster?"] --> H["Metodo del gomito"]
+    H --> I["Prova K = 1, 2, 3..."]
+    I --> J["Trova il punto di svolta"]
+```
+
+---
+
 ## Esercizi
 
 ### Esercizio 1: K-Means a mano

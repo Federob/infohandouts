@@ -195,6 +195,26 @@ print("Dopo moltiplicatore:", punti)
 
 ---
 
+## Mappa concettuale
+
+```mermaid
+flowchart LR
+    A["Variabili"] --> B["int<br/>numeri interi"]
+    A --> C["float<br/>numeri decimali"]
+    A --> D["str<br/>testo"]
+    A --> E["bool<br/>True / False"]
+
+    F["Operatori"] --> G["+ - * /"]
+    F --> H["// % **"]
+    F --> I["+= -= *= /="]
+
+    J["Casting"] --> K["int()"]
+    J --> L["float()"]
+    J --> M["str()"]
+```
+
+---
+
 ## Esercizi
 
 ### Esercizio 1: Conversione temperatura

@@ -66,7 +66,7 @@ La frequenza di campionamento e la risoluzione dei campioni sono *indipendenti*,
 ## Mappa concettuale
 
 ```mermaid
-graph LR
+flowchart LR
     A[Codifica del Suono] --> B[Campionamento]
     B --> C[Misura dell’Ampiezza]
     B --> D[Intervalli Regolari]

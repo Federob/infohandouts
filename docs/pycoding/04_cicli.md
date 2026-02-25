@@ -218,6 +218,32 @@ else:
 
 ---
 
+## Mappa concettuale
+
+```mermaid
+flowchart TD
+    subgraph FOR["Ciclo for"]
+        F1["for i in range(n)"] --> F2["Esegui blocco"]
+        F2 --> F3{"Finito range?"}
+        F3 -->|No| F2
+        F3 -->|Si| F4["Esci dal ciclo"]
+    end
+
+    subgraph WHILE["Ciclo while"]
+        W1["while condizione"] --> W2{"Vera?"}
+        W2 -->|Si| W3["Esegui blocco"]
+        W3 --> W1
+        W2 -->|No| W4["Esci dal ciclo"]
+    end
+
+    subgraph CTRL["Controllo"]
+        C1["break"] --> C2["Esce subito"]
+        C3["continue"] --> C4["Salta al prossimo giro"]
+    end
+```
+
+---
+
 ## Esercizi
 
 ### Esercizio 1: Somma da 1 a N

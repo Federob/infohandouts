@@ -216,6 +216,24 @@ plt.show()
 
 ---
 
+## Mappa concettuale
+
+```mermaid
+flowchart TD
+    A["Il modello funziona?"] --> B{"Training score<br/>vs Test score"}
+    B -->|"Training alto, Test basso"| C["Overfitting<br/>ha memorizzato"]
+    B -->|"Entrambi bassi"| D["Underfitting<br/>troppo semplice"]
+    B -->|"Entrambi alti"| E["Buon fit!"]
+
+    C --> F["Soluzioni"]
+    D --> F
+    F --> G["Cross-validation"]
+    F --> H["Grid Search"]
+    F --> I["Piu dati / meno complessita"]
+```
+
+---
+
 ## Esercizi
 
 ### Esercizio 1: Visualizza l'overfitting

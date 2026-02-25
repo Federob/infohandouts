@@ -45,7 +45,7 @@ La codifica dei video è un processo complesso che bilancia qualità visiva e di
 ## Mappa concettuale
 
 ```mermaid
-graph LR
+flowchart LR
     A[Codifica dei Video] --> B[Fotogrammi]
     B --> C[Frequenza Fotogrammi]
     C --> D[24 fps, 30 fps, 60 fps]

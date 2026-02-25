@@ -79,7 +79,7 @@ La **compressione** riduce la dimensione del file eliminando informazioni ridond
 ## Mappa Concettuale
 
 ```mermaid
-graph LR
+flowchart LR
     A[File] --> B[Testo]
     A --> C[Immagine]
     A --> D[Audio]

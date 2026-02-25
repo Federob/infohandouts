@@ -323,6 +323,32 @@ print(f"Epoche usate: {mlp.n_iter_}")
 
 ---
 
+## Mappa concettuale
+
+```mermaid
+flowchart LR
+    subgraph RETE["Rete Neurale"]
+        direction LR
+        I1["Input 1"] --> H1["Neurone H1"]
+        I2["Input 2"] --> H1
+        I1 --> H2["Neurone H2"]
+        I2 --> H2
+        H1 --> O["Output"]
+        H2 --> O
+    end
+
+    A["Perceptrone"] --> B["Funzione attivazione"]
+    B --> C["Sigmoid"]
+    B --> D["ReLU"]
+    B --> E["Tanh"]
+
+    F["Apprendimento"] --> G["Forward pass<br/>calcola output"]
+    G --> H["Backpropagation<br/>correggi pesi"]
+    H --> G
+```
+
+---
+
 ## Esercizi
 
 ### Esercizio 1: Porte logiche

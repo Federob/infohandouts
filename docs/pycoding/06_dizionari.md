@@ -223,6 +223,33 @@ Hai un sacco di strutture dati, ecco una guida rapida per scegliere quella giust
 
 ---
 
+## Mappa concettuale
+
+```mermaid
+flowchart LR
+    subgraph DICT["Dizionario"]
+        D1["chiave : valore"] --> D2[".keys()"]
+        D1 --> D3[".values()"]
+        D1 --> D4[".items()"]
+        D1 --> D5[".get()"]
+    end
+
+    subgraph SET["Set"]
+        S1["Elementi unici"] --> S2["Unione |"]
+        S1 --> S3["Intersezione &"]
+        S1 --> S4["Differenza -"]
+    end
+
+    subgraph QUANDO["Quando usare cosa"]
+        Q1["Lista"] --> Q2["Dati ordinati"]
+        Q3["Tupla"] --> Q4["Dati fissi"]
+        Q5["Dizionario"] --> Q6["Coppie chiave-valore"]
+        Q7["Set"] --> Q8["Niente duplicati"]
+    end
+```
+
+---
+
 ## Esercizi
 
 ### Esercizio 1: Conta parole

@@ -271,6 +271,27 @@ for f in forme:
 
 ---
 
+## Mappa concettuale
+
+```mermaid
+flowchart TD
+    A["Classe<br/>lo stampo"] -->|"crea"| B["Oggetto<br/>istanza concreta"]
+
+    A --> C["Attributi<br/>dati"]
+    A --> D["Metodi<br/>comportamenti"]
+    A --> E["__init__<br/>costruttore"]
+    A --> F["__str__<br/>rappresentazione"]
+
+    G["Ereditarieta"] --> H["Classe genitore"]
+    H -->|"extends"| I["Classe figlia"]
+    I --> J["super()"]
+    I --> K["Override metodi"]
+
+    L["Polimorfismo"] --> M["Stesso metodo<br/>comportamento diverso"]
+```
+
+---
+
 ## Esercizi
 
 ### Esercizio 1: Classe Libro

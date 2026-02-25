@@ -63,7 +63,7 @@ extra_css:
 - stylesheets/extra.css
 
 extra_javascript:
-- javascripts/mermaid-config.js
+- javascripts/mermaid-config.mjs
 - javascripts/pyodide-input.js
 
 hooks:

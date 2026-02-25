@@ -430,7 +430,7 @@ Questo comando esporta la cronologia dei comandi (come registrata nella sessione
 ## 9. Mappa concettuale
 
 ```mermaid
-graph LR
+flowchart LR
   A[CLI] --> B[Navigazione]
   B --> C[cd, dir / ls, ls -l]
   A --> D[Creazione File e Cartelle]

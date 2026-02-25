@@ -288,6 +288,28 @@ print("Non esiste un modello 'sempre migliore'!")
 
 ---
 
+## Mappa concettuale
+
+```mermaid
+flowchart LR
+    subgraph ALGO["Algoritmi"]
+        A["KNN"] --> A1["Guarda i K vicini"]
+        B["Albero decisione"] --> B1["Regole se/allora"]
+    end
+
+    subgraph METRICHE["Valutazione"]
+        C["Matrice confusione"] --> D["TP TN FP FN"]
+        D --> E["Accuracy"]
+        D --> F["Precision"]
+        D --> G["Recall"]
+        D --> H["F1-score"]
+    end
+
+    ALGO --> METRICHE
+```
+
+---
+
 ## Esercizi
 
 ### Esercizio 1: Classificatore KNN

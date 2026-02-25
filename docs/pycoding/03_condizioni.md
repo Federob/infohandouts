@@ -209,6 +209,25 @@ else:
 
 ---
 
+## Mappa concettuale
+
+```mermaid
+flowchart TD
+    A["Condizione"] --> B{"Vera?"}
+    B -->|Si| C["Blocco if"]
+    B -->|No| D{"elif?"}
+    D -->|Si| E{"Vera?"}
+    E -->|Si| F["Blocco elif"]
+    E -->|No| G{"Altro elif?"}
+    G -->|No| H["Blocco else"]
+    D -->|No| H
+
+    I["Operatori di confronto"] --> J["== != > < >= <="]
+    K["Operatori logici"] --> L["and or not"]
+```
+
+---
+
 ## Esercizi
 
 ### Esercizio 1: Pari o dispari

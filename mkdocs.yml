@@ -38,14 +38,6 @@ theme:
 plugins:
   - search:
       lang: it
-  - mermaid2:
-      arguments:
-        securityLevel: 'loose'
-        theme: 'base'
-        flowchart:
-          htmlLabels: true
-          useMaxWidth: true
-          curve: 'basis'
   - mkdocs-video:
       is_video: True
       video_muted: True
@@ -94,7 +86,7 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:mermaid2.fence_mermaid_custom
+          format: !!python/name:pymdownx.superfences.fence_code_format
         - name: pyodide
           class: pyodide
           validator: !!python/name:markdown_exec.validator

@@ -1,107 +1,215 @@
 
-<!DOCTYPE html>
+<!doctype html>
+<html lang="it" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Federico Robuffo">
+      
+      
+      
+        <link rel="prev" href="../../dictionary/01_map/">
+      
+      
+        <link rel="next" href="../02_python_from_flowgorithm/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>Flowgorithm - Corso di Informatica</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
 
-<html class="no-js" lang="it">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Federico Robuffo" name="author"/>
-<link href="../../dictionary/01_map/" rel="prev"/>
-<link href="../02_python_from_flowgorithm/" rel="next"/>
-<link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.2" name="generator"/>
-<title>Flowgorithm - Corso di Informatica</title>
-<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
-<link href="../../assets/_markdown_exec_pyodide.css" rel="stylesheet"/>
-<link href="../../assets/_markdown_exec_ansi.css" rel="stylesheet"/>
-<link href="../../stylesheets/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
-<body data-md-color-accent="light-blue" data-md-color-primary="blue" data-md-color-scheme="default" dir="ltr">
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#codificare-un-algoritmo-con-flowgorithm">
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../assets/_markdown_exec_ansi.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#codificare-un-algoritmo-con-flowgorithm" class="md-skip">
           Vai al contenuto
         </a>
-</div>
-<div data-md-component="announce">
-</div>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
 <header class="md-header" data-md-component="header">
-<nav aria-label="Intestazione" class="md-header__inner md-grid">
-<a aria-label="Corso di Informatica" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Corso di Informatica">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
+  <nav class="md-header__inner md-grid" aria-label="Intestazione">
+    <a href="../.." title="Corso di Informatica" class="md-header__button md-logo" aria-label="Corso di Informatica" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             Corso di Informatica
           </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Flowgorithm
             
           </span>
-</div>
-</div>
-</div>
-<form class="md-header__option" data-md-component="palette">
-<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
-</label>
-<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
-</label>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
 </form>
-<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-</label>
-<nav aria-label="Cerca" class="md-search__options">
-<button aria-label="Cancella" class="md-search__icon md-icon" tabindex="-1" title="Cancella" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
-</button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Cancella" aria-label="Cancella" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
             Inizializza la ricerca
           </div>
-<ol class="md-search-result__list" role="presentation"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</nav>
+      
+    
+    
+  </nav>
+  
 </header>
-<div class="md-container" data-md-component="container">
-<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
-<div class="md-grid">
-<ul class="md-tabs__list">
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../..">
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -110,80 +218,189 @@
   Home
 
       </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../fundamentals/00_basics/">
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fundamentals/00_basics/" class="md-tabs__link">
           
   
   
   Le basi..
 
         </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../extra/emailMurderGame/">
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../extra/emailMurderGame/" class="md-tabs__link">
           
   
   
   Extra
 
         </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../dictionary/00_dict/">
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../dictionary/00_dict/" class="md-tabs__link">
           
   
   
   A,B,C..
 
         </a>
-</li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="./">
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
   Algoritmi
 
         </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../pycoding/00_intro/">
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pycoding/00_intro/" class="md-tabs__link">
           
   
   
   Python
 
         </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../ai/00_intro/">
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ai/00_intro/" class="md-tabs__link">
           
   
   
   Intelligenza Artificiale
 
         </a>
-</li>
-</ul>
-</div>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
 </nav>
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigazione" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="Corso di Informatica" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Corso di Informatica">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
-</a>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigazione" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Corso di Informatica" class="md-nav__button md-logo" aria-label="Corso di Informatica" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
     Corso di Informatica
   </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../..">
-<span class="md-ellipsis">
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Home
@@ -191,12 +408,42 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Le basi..
@@ -204,22 +451,51 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_2">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Le basi..
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Introduzione
@@ -227,21 +503,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_1">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Introduzione
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../fundamentals/00_basics/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/00_basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Concetti fondamentali
@@ -249,11 +539,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../fundamentals/01_map/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/01_map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Mappa concettuale
@@ -261,15 +567,51 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Hardware
@@ -277,21 +619,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_2">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Hardware
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/10_hw/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/10_hw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Architettura di un elaboratore
@@ -299,11 +655,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/11_bios/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/11_bios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     BIOS
@@ -311,15 +683,51 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Software
@@ -327,21 +735,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_3">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Software
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/20_sw/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/20_sw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Classificazione
@@ -349,12 +771,43 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Sistemi Operativi
@@ -362,21 +815,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_2_3_2">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Sistemi Operativi
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/21_os_intro/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/21_os_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Storia
@@ -384,11 +851,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/22_os_arch/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/22_os_arch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Architettura
@@ -396,11 +879,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/23_os_vm/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/23_os_vm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Macchine virtuali
@@ -408,11 +907,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/24_os_cli/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/24_os_cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Interfaccia da linea di comando (CLI)
@@ -420,12 +935,43 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3_2_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3_2_5" id="__nav_2_3_2_5_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2_5" id="__nav_2_3_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Extra
@@ -433,21 +979,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_5_label" class="md-nav" data-md-level="4">
-<label class="md-nav__title" for="__nav_2_3_2_5">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Extra
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/25_extra_shortcuts/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/25_extra_shortcuts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Shortcuts
@@ -455,21 +1015,67 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     La codifica delle informazioni
@@ -477,21 +1083,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_4">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
             
   
     La codifica delle informazioni
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../infoCoding/00_intro/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infoCoding/00_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Codifiche numeriche
@@ -499,11 +1119,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../infoCoding/01_digit_text/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infoCoding/01_digit_text/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Testo
@@ -511,11 +1147,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../infoCoding/02_digit_img/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infoCoding/02_digit_img/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Immagini
@@ -523,11 +1175,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../infoCoding/03_digit_audio/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infoCoding/03_digit_audio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Suoni
@@ -535,11 +1203,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../infoCoding/04_digit_video/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infoCoding/04_digit_video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Video
@@ -547,11 +1231,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../infoCoding/05_file/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infoCoding/05_file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     File
@@ -559,18 +1259,58 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Extra
@@ -578,21 +1318,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Extra
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../extra/emailMurderGame/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extra/emailMurderGame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Gioco dell'assassino
@@ -600,15 +1354,50 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     A,B,C..
@@ -616,21 +1405,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_4">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
             
   
     A,B,C..
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../dictionary/00_dict/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dictionary/00_dict/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Parole
@@ -638,11 +1441,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../dictionary/01_map/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dictionary/01_map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Mappa
@@ -650,15 +1469,55 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Algoritmi
@@ -666,22 +1525,44 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_5">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Algoritmi
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
     
   
     Flowgorithm
@@ -689,10 +1570,17 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-<span class="md-ellipsis">
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Flowgorithm
@@ -700,638 +1588,818 @@
 
     
   </span>
-</a>
-<nav aria-label="Indice" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Indice
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1-introduzione-a-flowgorithm">
-<span class="md-ellipsis">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduzione-a-flowgorithm" class="md-nav__link">
+    <span class="md-ellipsis">
       
         1. Introduzione a Flowgorithm
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#2-download-e-installazione">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#2-download-e-installazione" class="md-nav__link">
+    <span class="md-ellipsis">
       
         2. Download e installazione
       
     </span>
-</a>
-<nav aria-label="2. Download e installazione" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#versione-executable-only-consigliata">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Download e installazione">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#versione-executable-only-consigliata" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Versione "Executable Only" (consigliata)
       
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-mappa-concettuale-algoritmi-e-flowgorithm">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#3-mappa-concettuale-algoritmi-e-flowgorithm" class="md-nav__link">
+    <span class="md-ellipsis">
       
         3. Mappa concettuale: Algoritmi e Flowgorithm 🗺️
       
     </span>
-</a>
-<nav aria-label="3. Mappa concettuale: Algoritmi e Flowgorithm 🗺️" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#come-usare-questa-mappa">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Mappa concettuale: Algoritmi e Flowgorithm 🗺️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#come-usare-questa-mappa" class="md-nav__link">
+    <span class="md-ellipsis">
       
         📖 Come usare questa mappa
       
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4-blocchi-principali-di-flowgorithm">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#4-blocchi-principali-di-flowgorithm" class="md-nav__link">
+    <span class="md-ellipsis">
       
         4. Blocchi principali di Flowgorithm
       
     </span>
-</a>
-<nav aria-label="4. Blocchi principali di Flowgorithm" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#31-declare-dichiarazione-variabili">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Blocchi principali di Flowgorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-declare-dichiarazione-variabili" class="md-nav__link">
+    <span class="md-ellipsis">
       
         3.1 Declare – Dichiarazione variabili
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#32-input-acquisizione-dati">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#32-input-acquisizione-dati" class="md-nav__link">
+    <span class="md-ellipsis">
       
         3.2 Input – Acquisizione dati
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#33-assign-assegnazione">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#33-assign-assegnazione" class="md-nav__link">
+    <span class="md-ellipsis">
       
         3.3 Assign – Assegnazione
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#34-output-stampa-risultati">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#34-output-stampa-risultati" class="md-nav__link">
+    <span class="md-ellipsis">
       
         3.4 Output – Stampa risultati
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#35-if-struttura-condizionale">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#35-if-struttura-condizionale" class="md-nav__link">
+    <span class="md-ellipsis">
       
         3.5 If – Struttura condizionale
       
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4-come-analizzare-un-problema-metodologia-passo-passo">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#4-come-analizzare-un-problema-metodologia-passo-passo" class="md-nav__link">
+    <span class="md-ellipsis">
       
         4. Come analizzare un problema: metodologia passo-passo
       
     </span>
-</a>
-<nav aria-label="4. Come analizzare un problema: metodologia passo-passo" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#la-metodologia-in-5-passi">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Come analizzare un problema: metodologia passo-passo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-metodologia-in-5-passi" class="md-nav__link">
+    <span class="md-ellipsis">
       
         📋 La metodologia in 5 passi
       
     </span>
-</a>
-<nav aria-label="📋 La metodologia in 5 passi" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#passo-1-leggere-attentamente-il-testo">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="📋 La metodologia in 5 passi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passo-1-leggere-attentamente-il-testo" class="md-nav__link">
+    <span class="md-ellipsis">
       
         PASSO 1: Leggere attentamente il testo 📖
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#passo-2-identificare-gli-input-dati-in-ingresso">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#passo-2-identificare-gli-input-dati-in-ingresso" class="md-nav__link">
+    <span class="md-ellipsis">
       
         PASSO 2: Identificare gli INPUT (dati in ingresso) ⬇️
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#passo-3-identificare-le-elaborazioni-calcoli">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#passo-3-identificare-le-elaborazioni-calcoli" class="md-nav__link">
+    <span class="md-ellipsis">
       
         PASSO 3: Identificare le ELABORAZIONI (calcoli) 🧮
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#passo-4-identificare-gli-output-risultati">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#passo-4-identificare-gli-output-risultati" class="md-nav__link">
+    <span class="md-ellipsis">
       
         PASSO 4: Identificare gli OUTPUT (risultati) ⬆️
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#passo-5-identificare-le-condizioni-scelte">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#passo-5-identificare-le-condizioni-scelte" class="md-nav__link">
+    <span class="md-ellipsis">
       
         PASSO 5: Identificare le CONDIZIONI (scelte) 🔀
       
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#schema-visivo-della-metodologia">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#schema-visivo-della-metodologia" class="md-nav__link">
+    <span class="md-ellipsis">
       
         🎯 Schema visivo della metodologia
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#checklist-per-lanalisi-salvala-stampala-tatuatela">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#checklist-per-lanalisi-salvala-stampala-tatuatela" class="md-nav__link">
+    <span class="md-ellipsis">
       
         📝 Checklist per l'analisi (salvala, stampala, tatuatela!)
       
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#5-esempio-pratico-primo-problema-semplice">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#5-esempio-pratico-primo-problema-semplice" class="md-nav__link">
+    <span class="md-ellipsis">
       
         5. Esempio pratico: primo problema semplice
       
     </span>
-</a>
-<nav aria-label="5. Esempio pratico: primo problema semplice" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#problema-base">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Esempio pratico: primo problema semplice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problema-base" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Problema base
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#analisi-seguendo-i-5-passi">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#analisi-seguendo-i-5-passi" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Analisi seguendo i 5 passi
       
     </span>
-</a>
-<nav aria-label="Analisi seguendo i 5 passi" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#passo-1-lettura">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="Analisi seguendo i 5 passi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passo-1-lettura" class="md-nav__link">
+    <span class="md-ellipsis">
       
         PASSO 1: Lettura
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#passo-2-input">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#passo-2-input" class="md-nav__link">
+    <span class="md-ellipsis">
       
         PASSO 2: INPUT
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#passo-3-elaborazioni">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#passo-3-elaborazioni" class="md-nav__link">
+    <span class="md-ellipsis">
       
         PASSO 3: ELABORAZIONI
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#passo-4-output">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#passo-4-output" class="md-nav__link">
+    <span class="md-ellipsis">
       
         PASSO 4: OUTPUT
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#passo-5-condizioni">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#passo-5-condizioni" class="md-nav__link">
+    <span class="md-ellipsis">
       
         PASSO 5: CONDIZIONI
       
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#diagramma-di-flusso-semplificato">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#diagramma-di-flusso-semplificato" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Diagramma di flusso semplificato
       
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#6-esempio-complesso-trapezio-e-cerchio">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#6-esempio-complesso-trapezio-e-cerchio" class="md-nav__link">
+    <span class="md-ellipsis">
       
         6. Esempio complesso: trapezio e cerchio
       
     </span>
-</a>
-<nav aria-label="6. Esempio complesso: trapezio e cerchio" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#testo-del-problema">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Esempio complesso: trapezio e cerchio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testo-del-problema" class="md-nav__link">
+    <span class="md-ellipsis">
       
         📜 Testo del problema
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#analisi-seguendo-i-5-passi_1">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#analisi-seguendo-i-5-passi_1" class="md-nav__link">
+    <span class="md-ellipsis">
       
         🔍 Analisi seguendo i 5 passi
       
     </span>
-</a>
-<nav aria-label="🔍 Analisi seguendo i 5 passi" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#passo-1-lettura-attenta">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Analisi seguendo i 5 passi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passo-1-lettura-attenta" class="md-nav__link">
+    <span class="md-ellipsis">
       
         PASSO 1: Lettura attenta
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#passo-2-input-cosa-devo-chiedere">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#passo-2-input-cosa-devo-chiedere" class="md-nav__link">
+    <span class="md-ellipsis">
       
         PASSO 2: INPUT (cosa devo chiedere?)
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#passo-3-elaborazioni-cosa-devo-calcolare">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#passo-3-elaborazioni-cosa-devo-calcolare" class="md-nav__link">
+    <span class="md-ellipsis">
       
         PASSO 3: ELABORAZIONI (cosa devo calcolare?)
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#passo-4-output-cosa-devo-mostrare">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#passo-4-output-cosa-devo-mostrare" class="md-nav__link">
+    <span class="md-ellipsis">
       
         PASSO 4: OUTPUT (cosa devo mostrare?)
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#passo-5-condizioni-quali-confronti-devo-fare">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#passo-5-condizioni-quali-confronti-devo-fare" class="md-nav__link">
+    <span class="md-ellipsis">
       
         PASSO 5: CONDIZIONI (quali confronti devo fare?)
       
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#tabella-riassuntiva-dellanalisi">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#tabella-riassuntiva-dellanalisi" class="md-nav__link">
+    <span class="md-ellipsis">
       
         📊 Tabella riassuntiva dell'analisi
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ordine-logico-delle-operazioni">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#ordine-logico-delle-operazioni" class="md-nav__link">
+    <span class="md-ellipsis">
       
         🎯 Ordine logico delle operazioni
       
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#61-diagramma-degli-stati">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#61-diagramma-degli-stati" class="md-nav__link">
+    <span class="md-ellipsis">
       
         6.1 Diagramma degli stati
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#62-flowchart-dettagliato-con-spiegazioni">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#62-flowchart-dettagliato-con-spiegazioni" class="md-nav__link">
+    <span class="md-ellipsis">
       
         6.2 Flowchart dettagliato con spiegazioni
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#7-schema-delle-variabili-individuate">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#7-schema-delle-variabili-individuate" class="md-nav__link">
+    <span class="md-ellipsis">
       
         7. Schema delle variabili individuate
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#8-errori-comuni-da-evitare">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#8-errori-comuni-da-evitare" class="md-nav__link">
+    <span class="md-ellipsis">
       
         8. Errori comuni da evitare ⚠️
       
     </span>
-</a>
-<nav aria-label="8. Errori comuni da evitare ⚠️" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#errore-1-non-leggere-bene-il-testo">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Errori comuni da evitare ⚠️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#errore-1-non-leggere-bene-il-testo" class="md-nav__link">
+    <span class="md-ellipsis">
       
         ❌ Errore 1: Non leggere bene il testo
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#errore-2-confondere-input-ed-elaborazioni">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#errore-2-confondere-input-ed-elaborazioni" class="md-nav__link">
+    <span class="md-ellipsis">
       
         ❌ Errore 2: Confondere input ed elaborazioni
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#errore-3-dimenticare-di-creare-variabili-per-i-risultati">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#errore-3-dimenticare-di-creare-variabili-per-i-risultati" class="md-nav__link">
+    <span class="md-ellipsis">
       
         ❌ Errore 3: Dimenticare di creare variabili per i risultati
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#errore-4-non-dare-nomi-chiari-alle-variabili">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#errore-4-non-dare-nomi-chiari-alle-variabili" class="md-nav__link">
+    <span class="md-ellipsis">
       
         ❌ Errore 4: Non dare nomi chiari alle variabili
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#errore-5-dimenticare-i-messaggi-di-output">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#errore-5-dimenticare-i-messaggi-di-output" class="md-nav__link">
+    <span class="md-ellipsis">
       
         ❌ Errore 5: Dimenticare i messaggi di output
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#errore-6-non-mettere-le-istruzioni-prima-degli-input">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#errore-6-non-mettere-le-istruzioni-prima-degli-input" class="md-nav__link">
+    <span class="md-ellipsis">
       
         ❌ Errore 6: Non mettere le istruzioni prima degli input
       
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#9-consigli-pratici-per-il-successo">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#9-consigli-pratici-per-il-successo" class="md-nav__link">
+    <span class="md-ellipsis">
       
         9. Consigli pratici per il successo 💡
       
     </span>
-</a>
-<nav aria-label="9. Consigli pratici per il successo 💡" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#consiglio-1-usa-carta-e-penna-si-roba-old-school">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Consigli pratici per il successo 💡">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#consiglio-1-usa-carta-e-penna-si-roba-old-school" class="md-nav__link">
+    <span class="md-ellipsis">
       
         ✅ Consiglio 1: Usa carta e penna (sì, roba old school)
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#consiglio-2-procedi-passo-passo-no-multitasking-da-eroe">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#consiglio-2-procedi-passo-passo-no-multitasking-da-eroe" class="md-nav__link">
+    <span class="md-ellipsis">
       
         ✅ Consiglio 2: Procedi passo-passo (no multitasking da eroe)
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#consiglio-3-testa-con-esempi-concreti-debug-precoce-successo">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#consiglio-3-testa-con-esempi-concreti-debug-precoce-successo" class="md-nav__link">
+    <span class="md-ellipsis">
       
         ✅ Consiglio 3: Testa con esempi concreti (debug precoce = successo)
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#consiglio-4-usa-la-checklist-non-fregarti-da-solo">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#consiglio-4-usa-la-checklist-non-fregarti-da-solo" class="md-nav__link">
+    <span class="md-ellipsis">
       
         ✅ Consiglio 4: Usa la checklist (non fregarti da solo)
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#consiglio-5-chiedi-aiuto-se-sei-bloccato-nessuna-vergogna">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#consiglio-5-chiedi-aiuto-se-sei-bloccato-nessuna-vergogna" class="md-nav__link">
+    <span class="md-ellipsis">
       
         ✅ Consiglio 5: Chiedi aiuto se sei bloccato (nessuna vergogna)
       
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#10-esercizi-guidati-per-fare-pratica">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#10-esercizi-guidati-per-fare-pratica" class="md-nav__link">
+    <span class="md-ellipsis">
       
         10. Esercizi guidati per fare pratica 📝
       
     </span>
-</a>
-<nav aria-label="10. Esercizi guidati per fare pratica 📝" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#esercizio-1-facile">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Esercizi guidati per fare pratica 📝">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esercizio-1-facile" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Esercizio 1 (facile)
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#esercizio-2-medio">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#esercizio-2-medio" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Esercizio 2 (medio)
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#esercizio-3-difficile">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#esercizio-3-difficile" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Esercizio 3 (difficile)
       
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#11-riepilogo-finale-la-strada-verso-il-successo">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#11-riepilogo-finale-la-strada-verso-il-successo" class="md-nav__link">
+    <span class="md-ellipsis">
       
         11. Riepilogo finale: la strada verso il successo 🎯
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#12-risorse-aggiuntive">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#12-risorse-aggiuntive" class="md-nav__link">
+    <span class="md-ellipsis">
       
         12. Risorse aggiuntive
       
     </span>
-</a>
-<nav aria-label="12. Risorse aggiuntive" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#link-utili">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Risorse aggiuntive">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#link-utili" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Link utili
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#file-da-scaricare-per-questo-corso">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#file-da-scaricare-per-questo-corso" class="md-nav__link">
+    <span class="md-ellipsis">
       
         File da scaricare per questo corso
       
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../02_python_from_flowgorithm/">
-<span class="md-ellipsis">
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_python_from_flowgorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Da Flowgorithm a Python
@@ -1339,15 +2407,50 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Python
@@ -1355,21 +2458,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_6">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Python
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/00_intro/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/00_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Introduzione
@@ -1377,11 +2494,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/01_variabili/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/01_variabili/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Variabili e tipi
@@ -1389,11 +2522,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/02_stringhe/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/02_stringhe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Stringhe
@@ -1401,11 +2550,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/03_condizioni/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/03_condizioni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Condizioni
@@ -1413,11 +2578,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/04_cicli/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/04_cicli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Cicli
@@ -1425,11 +2606,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/05_liste/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/05_liste/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Liste e tuple
@@ -1437,11 +2634,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/06_dizionari/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/06_dizionari/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Dizionari e set
@@ -1449,11 +2662,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/07_funzioni/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/07_funzioni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Funzioni
@@ -1461,11 +2690,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/08_matrici/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/08_matrici/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Array e matrici
@@ -1473,11 +2718,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/09_oggetti/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/09_oggetti/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Classi e oggetti
@@ -1485,11 +2746,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/10_networking/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/10_networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Python e networking
@@ -1497,15 +2774,50 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Intelligenza Artificiale
@@ -1513,21 +2825,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_7">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Intelligenza Artificiale
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ai/00_intro/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/00_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Cos'è l'IA
@@ -1535,11 +2861,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ai/01_ml_intro/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/01_ml_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Machine Learning
@@ -1547,11 +2889,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ai/02_dati/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/02_dati/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Preparare i dati
@@ -1559,11 +2917,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ai/03_regressione/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/03_regressione/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Regressione lineare
@@ -1571,11 +2945,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ai/04_classificazione/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/04_classificazione/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Classificazione
@@ -1583,11 +2973,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ai/05_valutazione/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/05_valutazione/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Valutare un modello
@@ -1595,11 +3001,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ai/06_clustering/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/06_clustering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Clustering
@@ -1607,11 +3029,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ai/07_reti_neurali/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/07_reti_neurali/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Reti neurali
@@ -1619,11 +3057,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ai/08_progetto/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/08_progetto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Progetto finale
@@ -1631,11 +3085,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../ai/09_etica/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/09_etica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     IA ed etica
@@ -1643,20 +3113,46 @@
 
     
   </span>
-</a>
-</li>
-</ul>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
 </nav>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+
 <div style="position: relative; float: right; margin: 0 0 20px 20px;">
-<a class="md-button md-button--primary" download="" href="../../pdf/algocoding_01_flowgorithm.pdf" onmouseout="this.style.backgroundColor='#2196F3'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.2)';" onmouseover="this.style.backgroundColor='#1976D2'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.3)';" style="
+    <a href="../../pdf/algocoding_01_flowgorithm.pdf"
+       download
+       class="md-button md-button--primary"
+       title="Scarica questa pagina in formato PDF"
+       style="
            background-color: #2196F3;
            color: white;
            padding: 10px 20px;
@@ -1668,12 +3164,14 @@
            font-weight: 500;
            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
            transition: all 0.3s ease;
-       " title="Scarica questa pagina in formato PDF">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
-<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-<polyline points="7 10 12 15 17 10"></polyline>
-<line x1="12" x2="12" y1="15" y2="3"></line>
-</svg>
+       "
+       onmouseover="this.style.backgroundColor='#1976D2'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.3)';"
+       onmouseout="this.style.backgroundColor='#2196F3'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.2)';">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
         Scarica PDF
     </a>
 </div>
@@ -1683,21 +3181,21 @@
 <p><strong>Flowgorithm</strong> è un ambiente visuale che permette di creare algoritmi con <strong>diagrammi di flusso</strong> (tipo flowchart).</p>
 <p>Odiate scrivere codice? Niente panico: qui <strong>disegnate</strong> invece di digitare. È tipo giocare con i blocchetti LEGO invece di scrivere un tema: decisamente più intuitivo e zero "SyntaxError" che ti fanno impazzire!</p>
 <p>Praticamente è la modalità "tutorial facile" della programmazione. Una volta che hai capito la logica qui dentro, passare a Python, Java o C++ sarà come passare dalla bici con le rotelle alla mountain bike: un upgrade naturale, non un salto nel vuoto.</p>
-<hr/>
+<hr>
 <h2 id="2-download-e-installazione">2. Download e installazione</h2>
 <h3 id="versione-executable-only-consigliata">Versione "Executable Only" (consigliata)</h3>
 <p>La versione più comoda: <strong>non richiede installazione</strong>! Scarichi lo ZIP, lo estrai, clicchi sull'eseguibile e boom: sei operativo. Zero sbattimenti, zero configurazioni assurde, zero "ma sul mio PC non funziona".</p>
 <p>📥 <strong>Download</strong>: <a href="https://flowgorithm.org/download/index.html">Clicca qui per scaricare Flowgorithm</a></p>
 <p>Dopo aver estratto, eseguite:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>Flowgorithm.exe
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Flowgorithm.exe
 </code></pre></div>
 <p>E siete pronti a programmare!</p>
-<hr/>
+<hr>
 <h2 id="3-mappa-concettuale-algoritmi-e-flowgorithm">3. Mappa concettuale: Algoritmi e Flowgorithm 🗺️</h2>
 <p>Prima di entrare nei dettagli, ecco una <strong>mappa concettuale completa</strong> che mostra tutti i concetti principali e come sono collegati tra loro. Usala come guida di riferimento mentre studi!</p>
 <pre class="mermaid"><code>mindmap
-  root((ALGORITMI<br/>e<br/>FLOWGORITHM))
-    COS'È
+  root((ALGORITMI e FLOWGORITHM))
+    ["COS'E'"]
       Ambiente visuale
       Diagrammi di flusso
       Imparare senza codice
@@ -1749,8 +3247,7 @@
       Nomi chiari variabili
       Messaggi prima input
       Testa con esempi
-      Chiedi aiuto se bloccato
-</code></pre>
+      Chiedi aiuto se bloccato</code></pre>
 <h3 id="come-usare-questa-mappa">📖 Come usare questa mappa</h3>
 <p><strong>Per studiare:</strong></p>
 <ul>
@@ -1770,42 +3267,37 @@
 <li>Poi approfondisci ogni sezione del materiale</li>
 <li>Torna alla mappa per collegare i concetti</li>
 </ul>
-<hr/>
+<hr>
 <h2 id="4-blocchi-principali-di-flowgorithm">4. Blocchi principali di Flowgorithm</h2>
 <p>I diagrammi di flusso sono fatti di <strong>blocchi</strong> (forme geometriche) collegati tra loro. Ogni forma ha un superpotere specifico. Tipo gli Avengers, ma versione nerd.</p>
-<hr/>
+<hr>
 <h3 id="31-declare-dichiarazione-variabili">3.1 <strong>Declare – Dichiarazione variabili</strong></h3>
 <p>Serve a <strong>creare variabili</strong> e specificare il tipo di dato (numero intero, decimale, testo, vero/falso).</p>
 <pre class="mermaid"><code>flowchart LR
-    A["Blocco DECLARE:<br/>crea variabili e specifica il tipo (Integer, Real, String, Boolean)"]
-</code></pre>
-<hr/>
+    A["Blocco DECLARE:&lt;br/&gt;crea variabili e specifica il tipo (Integer, Real, String, Boolean)"]</code></pre>
+<hr>
 <h3 id="32-input-acquisizione-dati">3.2 <strong>Input – Acquisizione dati</strong></h3>
 <p>Chiede all'utente di inserire un valore (tipo "Inserisci la tua età").</p>
 <p><strong>Pro tip da esperti</strong>: prima dell'Input mettete SEMPRE un blocco Output che spiega COSA deve inserire l'utente. Altrimenti compare una finestra vuota e il povero utente pensa "Devo scrivere il mio nome? Un numero? La risposta alla vita, l'universo e tutto quanto?" Evitate questa tortura psicologica.</p>
 <pre class="mermaid"><code>flowchart LR
-    A["Output: istruzione per l'utente"] --&gt; B[/"Input: legge il valore inserito"/]
-</code></pre>
-<hr/>
+    A["Output: istruzione per l'utente"] --&gt; B[/"Input: legge il valore inserito"/]</code></pre>
+<hr>
 <h3 id="33-assign-assegnazione">3.3 <strong>Assign – Assegnazione</strong></h3>
 <p>Fa <strong>calcoli</strong> e assegna il risultato a una variabile. Tipo: <code>area = base * altezza</code>. Questo è il blocco dove avviene la "magia matematica".</p>
 <pre class="mermaid"><code>flowchart LR
-    A["Valori disponibili"] --&gt; B["Blocco ASSIGN:<br/>esegue calcoli o aggiorna variabili"]
-</code></pre>
-<hr/>
+    A["Valori disponibili"] --&gt; B["Blocco ASSIGN:&lt;br/&gt;esegue calcoli o aggiorna variabili"]</code></pre>
+<hr>
 <h3 id="34-output-stampa-risultati">3.4 <strong>Output – Stampa risultati</strong></h3>
 <p>Mostra un testo o un valore a schermo.</p>
 <pre class="mermaid"><code>flowchart LR
-    A["Valore o messaggio"] --&gt; B[/"Blocco OUTPUT:<br/>visualizza il contenuto"/]
-</code></pre>
-<hr/>
+    A["Valore o messaggio"] --&gt; B[/"Blocco OUTPUT:&lt;br/&gt;visualizza il contenuto"/]</code></pre>
+<hr>
 <h3 id="35-if-struttura-condizionale">3.5 <strong>If – Struttura condizionale</strong></h3>
 <p>Permette di scegliere diversi percorsi in base a una condizione.</p>
 <pre class="mermaid"><code>flowchart TD
     B{"Verifica della condizione"} --&gt;|Sì| C["Ramo VERO"]
-    B --&gt;|No| D["Ramo FALSO"]
-</code></pre>
-<hr/>
+    B --&gt;|No| D["Ramo FALSO"]</code></pre>
+<hr>
 <h2 id="4-come-analizzare-un-problema-metodologia-passo-passo">4. Come analizzare un problema: metodologia passo-passo</h2>
 <p>Prima di iniziare a programmare (o creare il diagramma di flusso), dobbiamo <strong>analizzare il problema</strong>. Questa è LA parte più importante! È come leggere le istruzioni IKEA PRIMA di montare l'armadio: sì, lo so che nessuno lo fa, ma fidatevi, vi salverà ore di frustrazione. Se capisci bene il problema, risolverlo diventa un gioco da ragazzi.</p>
 <h3 id="la-metodologia-in-5-passi">📋 La metodologia in 5 passi</h3>
@@ -1822,7 +3314,7 @@
 <li>Quali informazioni utili mi dà il testo (e quali sono solo fuffa)?</li>
 <li>Cosa devo calcolare o scoprire alla fine di tutto?</li>
 </ul>
-<hr/>
+<hr>
 <h4 id="passo-2-identificare-gli-input-dati-in-ingresso"><strong>PASSO 2: Identificare gli INPUT (dati in ingresso)</strong> ⬇️</h4>
 <p>Gli <strong>input</strong> sono i dati che:</p>
 <ul>
@@ -1842,7 +3334,7 @@
 <li>"Chiedi all'utente l'età" → INPUT: <code>età</code></li>
 </ul>
 <p><strong>✏️ Fai una lista:</strong> Scrivi tutti gli input con nomi chiari e comprensibili.</p>
-<hr/>
+<hr>
 <h4 id="passo-3-identificare-le-elaborazioni-calcoli"><strong>PASSO 3: Identificare le ELABORAZIONI (calcoli)</strong> 🧮</h4>
 <p>Le <strong>elaborazioni</strong> sono la parte dove fai effettivamente qualcosa:</p>
 <ul>
@@ -1863,7 +3355,7 @@
 <li>"Converti euro in dollari" → ELABORAZIONE: <code>dollari = euro * 1.10</code></li>
 </ul>
 <p><strong>✏️ Fai una lista:</strong> Scrivi ogni formula e crea una variabile per ogni risultato.</p>
-<hr/>
+<hr>
 <h4 id="passo-4-identificare-gli-output-risultati"><strong>PASSO 4: Identificare gli OUTPUT (risultati)</strong> ⬆️</h4>
 <p>Gli <strong>output</strong> sono il momento della gloria, quando mostri cosa hai fatto:</p>
 <ul>
@@ -1883,7 +3375,7 @@
 <li>"Stampa il risultato finale" → OUTPUT: <code>risultato</code></li>
 </ul>
 <p><strong>✏️ Fai una lista:</strong> Scrivi cosa devi mostrare all'utente.</p>
-<hr/>
+<hr>
 <h4 id="passo-5-identificare-le-condizioni-scelte"><strong>PASSO 5: Identificare le CONDIZIONI (scelte)</strong> 🔀</h4>
 <p>Le <strong>condizioni</strong> sono i bivi del programma (tipo "scegli la tua avventura"):</p>
 <ul>
@@ -1903,7 +3395,7 @@
 <li>"Verifica se l'età è maggiorenne" → CONDIZIONE: <code>età &gt;= 18</code></li>
 </ul>
 <p><strong>✏️ Fai una lista:</strong> Scrivi tutte le condizioni che devi verificare.</p>
-<hr/>
+<hr>
 <h3 id="schema-visivo-della-metodologia">🎯 Schema visivo della metodologia</h3>
 <pre class="mermaid"><code>flowchart TD
     A[📖 Leggi il problema] --&gt; B[⬇️ Trova gli INPUT]
@@ -1917,21 +3409,20 @@
     style C fill:#98FB98
     style D fill:#FFB6C1
     style E fill:#DDA0DD
-    style F fill:#90EE90
-</code></pre>
-<hr/>
+    style F fill:#90EE90</code></pre>
+<hr>
 <h3 id="checklist-per-lanalisi-salvala-stampala-tatuatela">📝 Checklist per l'analisi (salvala, stampala, tatuatela!)</h3>
 <p>Prima di iniziare a programmare, verifica di aver fatto tutto (seriamente, TUTTO):</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> Ho letto il problema almeno 2 volte?</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> Ho individuato TUTTI gli input necessari?</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> Ho scritto TUTTE le formule e creato variabili per i risultati?</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> So quali risultati devo mostrare all'utente?</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> Ho identificato tutte le condizioni/confronti?</li>
-<li class="task-list-item"><label class="task-list-control"><input disabled="" type="checkbox"/><span class="task-list-indicator"></span></label> Ho dato nomi chiari e comprensibili a tutte le variabili?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled><span class="task-list-indicator"></span></label> Ho letto il problema almeno 2 volte?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled><span class="task-list-indicator"></span></label> Ho individuato TUTTI gli input necessari?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled><span class="task-list-indicator"></span></label> Ho scritto TUTTE le formule e creato variabili per i risultati?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled><span class="task-list-indicator"></span></label> So quali risultati devo mostrare all'utente?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled><span class="task-list-indicator"></span></label> Ho identificato tutte le condizioni/confronti?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled><span class="task-list-indicator"></span></label> Ho dato nomi chiari e comprensibili a tutte le variabili?</li>
 </ul>
 <p>Se hai risposto SÌ a tutte le domande, complimenti: sei pronto per creare il diagramma! 🎉 Se anche solo UNA risposta è "no", torna indietro e sistema prima di procedere (fidati, ti ringrazierai dopo).</p>
-<hr/>
+<hr>
 <h2 id="5-esempio-pratico-primo-problema-semplice">5. Esempio pratico: primo problema semplice</h2>
 <h3 id="problema-base">Problema base</h3>
 <p><strong>Testo:</strong> Scrivi un programma che chieda all'utente di inserire due numeri e mostri la loro somma.</p>
@@ -1967,10 +3458,9 @@
     D --&gt; E[/Input numero2/]
     E --&gt; F["somma = numero1 + numero2"]
     F --&gt; G[\"Output: La somma è: somma"\]
-    G --&gt; H([Fine])
-</code></pre>
+    G --&gt; H([Fine])</code></pre>
 <p><strong>Vedi come funziona?</strong> Seguendo i 5 passi è facilissimo! Ora che hai capito il meccanismo, alziamo il livello con un problema più tosto.</p>
-<hr/>
+<hr>
 <h2 id="6-esempio-complesso-trapezio-e-cerchio">6. Esempio complesso: trapezio e cerchio</h2>
 <h3 id="testo-del-problema">📜 Testo del problema</h3>
 <p><strong>Problema:</strong> Scrivi un programma che:</p>
@@ -2034,7 +3524,7 @@
 </tr>
 <tr>
 <td><strong>ELABORAZIONI</strong></td>
-<td><code>area_trapezio = (baseMaggiore + baseMinore) / 2 * altezza</code><br/><code>area_cerchio = 3.14 * raggio * raggio</code></td>
+<td><code>area_trapezio = (baseMaggiore + baseMinore) / 2 * altezza</code><br><code>area_cerchio = 3.14 * raggio * raggio</code></td>
 <td>Formule da calcolare</td>
 </tr>
 <tr>
@@ -2044,13 +3534,13 @@
 </tr>
 <tr>
 <td><strong>CONDIZIONI</strong></td>
-<td><code>area_trapezio = area_cerchio</code><br/><code>area_trapezio &gt; area_cerchio</code></td>
+<td><code>area_trapezio = area_cerchio</code><br><code>area_trapezio &gt; area_cerchio</code></td>
 <td>Confronti da verificare</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Importante (e spesso dimenticato):</strong> Le condizioni NON creano nuove variabili, usano solo quelle che hai già calcolato prima! Riutilizzano i risultati per fare confronti.</p>
-<hr/>
+<hr>
 <h3 id="ordine-logico-delle-operazioni">🎯 Ordine logico delle operazioni</h3>
 <p>Ora che abbiamo analizzato il problema, dobbiamo decidere <strong>in che ordine</strong> fare le cose:</p>
 <ol>
@@ -2061,7 +3551,7 @@
 <li><strong>Mostrare i risultati</strong> (le aree calcolate e il messaggio finale)</li>
 </ol>
 <p><strong>Regola d'oro (incidila nella pietra):</strong> Prima raccogli i dati, poi calcola, poi confronta, infine mostra i risultati! Questo ordine non è casuale, è LOGICO. Non puoi calcolare prima di avere i dati, né confrontare prima di aver calcolato. Easy.</p>
-<hr/>
+<hr>
 <h2 id="61-diagramma-degli-stati">6.1 Diagramma degli stati</h2>
 <pre class="mermaid"><code>stateDiagram-v2
     [*] --&gt; Titolo
@@ -2084,9 +3574,8 @@
     TrapezioMaggiore --&gt; OutputRisultato
     CerchioMaggiore --&gt; OutputRisultato
 
-    OutputRisultato --&gt; [*]
-</code></pre>
-<hr/>
+    OutputRisultato --&gt; [*]</code></pre>
+<hr>
 <h2 id="62-flowchart-dettagliato-con-spiegazioni">6.2 Flowchart dettagliato con spiegazioni</h2>
 <p>Ora guardiamo il diagramma di flusso completo. Ogni blocco è spiegato:</p>
 <p><strong>Legenda forme:</strong></p>
@@ -2105,36 +3594,35 @@
     classDef assign fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1
     classDef decision fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1
 
-    START(["START<br/>Inizio"]):::startend --&gt;
-    A[\"A<br/>Output: Questo programma calcola e confronta<br/>le aree di un trapezio e un cerchio"\]:::output --&gt;
-    B[\"B<br/>Output: Inserisci la base maggiore del trapezio"\]:::output --&gt;
-    C[/"C<br/>Input base maggiore"/]:::input
+    START(["START&lt;br/&gt;Inizio"]):::startend --&gt;
+    A[\"A&lt;br/&gt;Output: Questo programma calcola e confronta&lt;br/&gt;le aree di un trapezio e un cerchio"\]:::output --&gt;
+    B[\"B&lt;br/&gt;Output: Inserisci la base maggiore del trapezio"\]:::output --&gt;
+    C[/"C&lt;br/&gt;Input base maggiore"/]:::input
 
-    C --&gt; D[\"D<br/>Output: Inserisci la base minore del trapezio"\]:::output --&gt;
-    E[/"E<br/>Input base minore"/]:::input
+    C --&gt; D[\"D&lt;br/&gt;Output: Inserisci la base minore del trapezio"\]:::output --&gt;
+    E[/"E&lt;br/&gt;Input base minore"/]:::input
 
-    E --&gt; F[\"F<br/>Output: Inserisci l'altezza del trapezio"\]:::output --&gt;
-    G[/"G<br/>Input altezza"/]:::input
+    E --&gt; F[\"F&lt;br/&gt;Output: Inserisci l'altezza del trapezio"\]:::output --&gt;
+    G[/"G&lt;br/&gt;Input altezza"/]:::input
 
-    G --&gt; H[\"H<br/>Output: Inserisci il raggio del cerchio"\]:::output --&gt;
-    I[/"I<br/>Input raggio"/]:::input
+    G --&gt; H[\"H&lt;br/&gt;Output: Inserisci il raggio del cerchio"\]:::output --&gt;
+    I[/"I&lt;br/&gt;Input raggio"/]:::input
 
-    I --&gt; J["J<br/>area_trapezio = <br/>(baseMaggiore + baseMinore) / 2 * altezza"]:::assign
-    J --&gt; K["K<br/>area_cerchio = 3.14 * raggio * raggio"]:::assign
+    I --&gt; J["J&lt;br/&gt;area_trapezio = &lt;br/&gt;(baseMaggiore + baseMinore) / 2 * altezza"]:::assign
+    J --&gt; K["K&lt;br/&gt;area_cerchio = 3.14 * raggio * raggio"]:::assign
 
-    K --&gt; L{"L<br/>area_trapezio =<br/>area_cerchio"}:::decision
+    K --&gt; L{"L&lt;br/&gt;area_trapezio =&lt;br/&gt;area_cerchio"}:::decision
 
-    L --&gt;|Sì| P[\"P<br/>Output: Le aree delle due figure sono uguali"\]:::output
+    L --&gt;|Sì| P[\"P&lt;br/&gt;Output: Le aree delle due figure sono uguali"\]:::output
 
-    L --&gt;|No| L2{"L2<br/>area_trapezio &gt;<br/>area_cerchio"}:::decision
+    L --&gt;|No| L2{"L2&lt;br/&gt;area_trapezio &gt;&lt;br/&gt;area_cerchio"}:::decision
 
-    L2 --&gt;|Sì| M[\"M<br/>Output: L'area del trapezio è maggiore"\]:::output
-    L2 --&gt;|No| N[\"N<br/>Output: L'area del cerchio è maggiore"\]:::output
+    L2 --&gt;|Sì| M[\"M&lt;br/&gt;Output: L'area del trapezio è maggiore"\]:::output
+    L2 --&gt;|No| N[\"N&lt;br/&gt;Output: L'area del cerchio è maggiore"\]:::output
 
-    P --&gt; END(["END<br/>Fine"]):::startend
+    P --&gt; END(["END&lt;br/&gt;Fine"]):::startend
     M --&gt; END
-    N --&gt; END
-</code></pre>
+    N --&gt; END</code></pre>
 <p><a href="../algoritmo_trapeziocerchio.fprg">Scarica il programma in formato Flowgorithm</a></p>
 <p><a href="../algoritmo_trapeziocerchio_img.png">Scarica il programma in formato Immagine (PNG)</a></p>
 <p><strong>💡 Spiegazione del flowchart:</strong></p>
@@ -2150,7 +3638,7 @@
 <li><strong>END</strong> (ovale): Blocco di fine del programma</li>
 </ol>
 <p><strong>Nota bene:</strong> Il programma segue SEMPRE un percorso dall'alto verso il basso (come l'acqua che scende), ma può prendere strade diverse in base alle condizioni verificate nei blocchi L e L2! È tipo un fiume con bivi: la direzione dipende dalla condizione.</p>
-<hr/>
+<hr>
 <h2 id="7-schema-delle-variabili-individuate">7. Schema delle variabili individuate</h2>
 <table>
 <thead>
@@ -2183,7 +3671,7 @@
 </tr>
 </tbody>
 </table>
-<hr/>
+<hr>
 <h2 id="8-errori-comuni-da-evitare">8. Errori comuni da evitare ⚠️</h2>
 <p>Quando si analizzano i problemi, gli studenti commettono SEMPRE gli stessi errori. Tipo errori da manuale. Evitali e risparmia ore di debugging!</p>
 <h3 id="errore-1-non-leggere-bene-il-testo">❌ Errore 1: Non leggere bene il testo</h3>
@@ -2210,7 +3698,7 @@
 <h3 id="errore-6-non-mettere-le-istruzioni-prima-degli-input">❌ Errore 6: Non mettere le istruzioni prima degli input</h3>
 <p><strong>Problema:</strong> Aprire una finestra di input vuota e aspettare che l'utente indovini cosa scrivere (tipo gioco d'azzardo).</p>
 <p><strong>Soluzione:</strong> SEMPRE un Output con istruzioni chiare PRIMA di ogni Input! Tipo "Inserisci il raggio del cerchio". Così l'utente sa cosa fare e non ti maledice.</p>
-<hr/>
+<hr>
 <h2 id="9-consigli-pratici-per-il-successo">9. Consigli pratici per il successo 💡</h2>
 <h3 id="consiglio-1-usa-carta-e-penna-si-roba-old-school">✅ Consiglio 1: Usa carta e penna (sì, roba old school)</h3>
 <p>Prima di aprire Flowgorithm, prendi carta e penna (o tablet se sei super tech) e:</p>
@@ -2244,7 +3732,7 @@
 <li>Prova a spiegare il problema a voce alta (anche al tuo gatto funziona, sul serio)</li>
 <li>Chiedi al compagno o al professore (meglio 5 minuti di domande che 3 ore di blocco mentale)</li>
 </ol>
-<hr/>
+<hr>
 <h2 id="10-esercizi-guidati-per-fare-pratica">10. Esercizi guidati per fare pratica 📝</h2>
 <p>Prova a risolvere questi problemi seguendo i 5 passi!</p>
 <h3 id="esercizio-1-facile">Esercizio 1 (facile)</h3>
@@ -2256,7 +3744,7 @@
 <li>OUTPUT: perimetro, area</li>
 <li>CONDIZIONI: nessuna</li>
 </ul>
-<hr/>
+<hr>
 <h3 id="esercizio-2-medio">Esercizio 2 (medio)</h3>
 <p><strong>Testo:</strong> Scrivi un programma che chieda due numeri e indichi quale dei due è maggiore (o se sono uguali).</p>
 <p><strong>Suggerimento:</strong></p>
@@ -2266,7 +3754,7 @@
 <li>OUTPUT: messaggio che indica quale è maggiore</li>
 <li>CONDIZIONI: numero1 = numero2, numero1 &gt; numero2</li>
 </ul>
-<hr/>
+<hr>
 <h3 id="esercizio-3-difficile">Esercizio 3 (difficile)</h3>
 <p><strong>Testo:</strong> Scrivi un programma che converta una temperatura da gradi Celsius a Fahrenheit. Se la temperatura risultante è maggiore di 100°F, mostra il messaggio "Fa molto caldo!", altrimenti mostra "Temperatura normale".</p>
 <p><strong>Suggerimento:</strong></p>
@@ -2276,16 +3764,16 @@
 <li>OUTPUT: valore di fahrenheit, messaggio appropriato</li>
 <li>CONDIZIONI: fahrenheit &gt; 100</li>
 </ul>
-<hr/>
+<hr>
 <h2 id="11-riepilogo-finale-la-strada-verso-il-successo">11. Riepilogo finale: la strada verso il successo 🎯</h2>
 <p>Per risolvere QUALSIASI problema con Flowgorithm, segui questa strada:</p>
 <pre class="mermaid"><code>flowchart LR
-    A[📖 Leggi 2 volte] --&gt; B[✏️ 5 passi<br/>su carta]
-    B --&gt; C[📋 Checklist<br/>completa?]
+    A[📖 Leggi 2 volte] --&gt; B[✏️ 5 passi&lt;br/&gt;su carta]
+    B --&gt; C[📋 Checklist&lt;br/&gt;completa?]
     C --&gt;|No| B
-    C --&gt;|Sì| D[🎨 Bozza flowchart<br/>su carta]
-    D --&gt; E[💻 Crea in<br/>Flowgorithm]
-    E --&gt; F[🧪 Testa con<br/>esempi]
+    C --&gt;|Sì| D[🎨 Bozza flowchart&lt;br/&gt;su carta]
+    D --&gt; E[💻 Crea in&lt;br/&gt;Flowgorithm]
+    E --&gt; F[🧪 Testa con&lt;br/&gt;esempi]
     F --&gt; G{Funziona?}
     G --&gt;|No| H[🔍 Trova errori]
     H --&gt; E
@@ -2297,10 +3785,9 @@
     style D fill:#98FB98
     style E fill:#DDA0DD
     style F fill:#F0E68C
-    style I fill:#90EE90
-</code></pre>
+    style I fill:#90EE90</code></pre>
 <p><strong>Ricorda:</strong> La programmazione è come imparare a guidare - all'inizio sembra impossibile (troppe cose da fare insieme!), ma con la pratica diventa automatico! Il segreto? Pratica, metodo e pazienza. Non scoraggiarti al primo errore. Anche i pro hanno iniziato così. Segui il metodo dei 5 passi e ce la farai! 💪</p>
-<hr/>
+<hr>
 <h2 id="12-risorse-aggiuntive">12. Risorse aggiuntive</h2>
 <h3 id="link-utili">Link utili</h3>
 <ul>
@@ -2312,102 +3799,168 @@
 <li><a href="../algoritmo_trapeziocerchio.fprg">Algoritmo trapezio-cerchio (.fprg)</a></li>
 <li><a href="../algoritmo_trapeziocerchio_img.png">Immagine flowchart (.png)</a></li>
 </ul>
-<hr/>
+<hr>
 <p><strong>Buono studio! Se segui il metodo dei 5 passi con costanza, diventerai un esperto di algoritmi in poco tempo. E quando passerai a Python o Java, penserai "ma è facilissimo!". Parola di chi ci è passato.</strong> 🚀</p></div>
-</article>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-</div>
-<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
   Torna su
 </button>
-</main>
-<footer class="md-footer">
-<nav aria-label="Piede" class="md-footer__inner md-grid">
-<a aria-label="Precedente: Mappa" class="md-footer__link md-footer__link--prev" href="../../dictionary/01_map/">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-</div>
-<div class="md-footer__title">
-<span class="md-footer__direction">
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Piede" >
+        
+          
+          <a href="../../dictionary/01_map/" class="md-footer__link md-footer__link--prev" aria-label="Precedente: Mappa">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Precedente
               </span>
-<div class="md-ellipsis">
+              <div class="md-ellipsis">
                 Mappa
               </div>
-</div>
-</a>
-<a aria-label="Successivo: Da Flowgorithm a Python" class="md-footer__link md-footer__link--next" href="../02_python_from_flowgorithm/">
-<div class="md-footer__title">
-<span class="md-footer__direction">
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02_python_from_flowgorithm/" class="md-footer__link md-footer__link--next" aria-label="Successivo: Da Flowgorithm a Python">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Successivo
               </span>
-<div class="md-ellipsis">
+              <div class="md-ellipsis">
                 Da Flowgorithm a Python
               </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
-</div>
-</a>
-</nav>
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
-<div class="md-copyright__highlight">
-      Federico Robuffo - Andrea Diamantini(c) 2024-2025<br/> <a href="#__consent">Change Cookie Settings</a>
-</div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Federico Robuffo - Andrea Diamantini(c) 2024-2025<br> <a href="#__consent">Change Cookie Settings</a>
+
+    </div>
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
     </a>
-<div class="md-copyright__highlight" style="margin-top: 0.2rem;">
-    Ultimo aggiornamento: 24/02/2026 21:20
+  
+  <div class="md-copyright__highlight" style="margin-top: 0.2rem;">
+    Ultimo aggiornamento: 25/02/2026 13:08
   </div>
 </div>
-</div>
-</div>
+      
+    </div>
+  </div>
 </footer>
-</div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
-</div>
-<div class="md-consent" data-md-component="consent" hidden="" id="__consent">
-<div class="md-consent__overlay"></div>
-<aside class="md-consent__inner">
-<form class="md-consent__form md-grid md-typeset" name="consent">
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+  
+
 <h4>Consenso all'uso dei Cookie(s)</h4>
-<p>Questo sito memorizza alcuni cookies solo per riconoscere un visitatore  che non è alla sua prima visita e alcune preferenze, come il tema di visualizzazione della pagina selezionato.<br/> Se non acconsenti, questa finestra riapparirà ogni volta che riapri il sito.<br/> Se vuoi cambiare le tue scelte, in fondo alla pagina trovi un link per modificarle ;)
+<p>Questo sito memorizza alcuni cookies solo per riconoscere un visitatore  che non è alla sua prima visita e alcune preferenze, come il tema di visualizzazione della pagina selezionato.<br> Se non acconsenti, questa finestra riapparirà ogni volta che riapri il sito.<br> Se vuoi cambiare le tue scelte, in fondo alla pagina trovi un link per modificarle ;)
 </p>
-<input checked="" class="md-toggle" id="__settings" type="checkbox"/>
+<input class="md-toggle" type="checkbox" id="__settings" checked>
 <div class="md-consent__settings">
-<ul class="task-list">
-</ul>
+  <ul class="task-list">
+    
+    
+      
+    
+    
+      
+    
+    
+  </ul>
 </div>
 <div class="md-consent__controls">
-<button class="md-button md-button--primary">Accetta</button>
-<button class="md-button md-button--primary" type="reset">Rifiuta</button>
+  
+    
+      <button class="md-button md-button--primary">Accetta</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Rifiuta</button>
+    
+    
+  
 </div>
-</form>
-</aside>
-</div>
-<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
-<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.tabs", "navigation.sections", "navigation.top", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
-<script src="../../assets/_markdown_exec_pyodide.js"></script>
-<script src="../../javascripts/mermaid-config.js"></script>
-<script src="../../javascripts/pyodide-input.js"></script>
-<script>window.mermaidConfig = {default: {
-    securityLevel: "loose",
-    theme: "base",
-    flowchart: {
-        htmlLabels: true,
-        useMaxWidth: true,
-        curve: "basis"
-    },
-    startOnLoad: false
-}};</script></body>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.tabs", "navigation.sections", "navigation.top", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="../../javascripts/mermaid-config.mjs" type="module"></script>
+      
+        <script src="../../javascripts/pyodide-input.js"></script>
+      
+    
+  </body>
 </html>

@@ -1,107 +1,215 @@
 
-<!DOCTYPE html>
+<!doctype html>
+<html lang="it" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Federico Robuffo">
+      
+      
+      
+        <link rel="prev" href="../00_intro/">
+      
+      
+        <link rel="next" href="../02_dati/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>Machine Learning - Corso di Informatica</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
 
-<html class="no-js" lang="it">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Federico Robuffo" name="author"/>
-<link href="../00_intro/" rel="prev"/>
-<link href="../02_dati/" rel="next"/>
-<link href="../../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.7.2" name="generator"/>
-<title>Machine Learning - Corso di Informatica</title>
-<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
-<link href="../../assets/_markdown_exec_pyodide.css" rel="stylesheet"/>
-<link href="../../assets/_markdown_exec_ansi.css" rel="stylesheet"/>
-<link href="../../stylesheets/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
-<body data-md-color-accent="light-blue" data-md-color-primary="blue" data-md-color-scheme="default" dir="ltr">
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#machine-learning">
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_markdown_exec_pyodide.css">
+    
+      <link rel="stylesheet" href="../../assets/_markdown_exec_ansi.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#machine-learning" class="md-skip">
           Vai al contenuto
         </a>
-</div>
-<div data-md-component="announce">
-</div>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
 <header class="md-header" data-md-component="header">
-<nav aria-label="Intestazione" class="md-header__inner md-grid">
-<a aria-label="Corso di Informatica" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Corso di Informatica">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
+  <nav class="md-header__inner md-grid" aria-label="Intestazione">
+    <a href="../.." title="Corso di Informatica" class="md-header__button md-logo" aria-label="Corso di Informatica" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             Corso di Informatica
           </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Machine Learning
             
           </span>
-</div>
-</div>
-</div>
-<form class="md-header__option" data-md-component="palette">
-<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
-</label>
-<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="light-blue" data-md-color-media="" data-md-color-primary="blue" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
-<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
-</label>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
 </form>
-<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Cerca" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Cerca" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-</label>
-<nav aria-label="Cerca" class="md-search__options">
-<button aria-label="Cancella" class="md-search__icon md-icon" tabindex="-1" title="Cancella" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
-</button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Cancella" aria-label="Cancella" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
             Inizializza la ricerca
           </div>
-<ol class="md-search-result__list" role="presentation"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</nav>
+      
+    
+    
+  </nav>
+  
 </header>
-<div class="md-container" data-md-component="container">
-<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
-<div class="md-grid">
-<ul class="md-tabs__list">
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../..">
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -110,80 +218,189 @@
   Home
 
       </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../fundamentals/00_basics/">
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fundamentals/00_basics/" class="md-tabs__link">
           
   
   
   Le basi..
 
         </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../extra/emailMurderGame/">
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../extra/emailMurderGame/" class="md-tabs__link">
           
   
   
   Extra
 
         </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../dictionary/00_dict/">
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../dictionary/00_dict/" class="md-tabs__link">
           
   
   
   A,B,C..
 
         </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../algocoding/01_flowgorithm/">
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../algocoding/01_flowgorithm/" class="md-tabs__link">
           
   
   
   Algoritmi
 
         </a>
-</li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../pycoding/00_intro/">
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pycoding/00_intro/" class="md-tabs__link">
           
   
   
   Python
 
         </a>
-</li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../00_intro/">
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00_intro/" class="md-tabs__link">
           
   
   
   Intelligenza Artificiale
 
         </a>
-</li>
-</ul>
-</div>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
 </nav>
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigazione" class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="Corso di Informatica" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Corso di Informatica">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
-</a>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigazione" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Corso di Informatica" class="md-nav__button md-logo" aria-label="Corso di Informatica" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
     Corso di Informatica
   </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../..">
-<span class="md-ellipsis">
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Home
@@ -191,12 +408,42 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Le basi..
@@ -204,22 +451,51 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_2">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Le basi..
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Introduzione
@@ -227,21 +503,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_1">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Introduzione
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../fundamentals/00_basics/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/00_basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Concetti fondamentali
@@ -249,11 +539,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../fundamentals/01_map/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fundamentals/01_map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Mappa concettuale
@@ -261,15 +567,51 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Hardware
@@ -277,21 +619,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_2">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Hardware
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/10_hw/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/10_hw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Architettura di un elaboratore
@@ -299,11 +655,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/11_bios/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/11_bios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     BIOS
@@ -311,15 +683,51 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Software
@@ -327,21 +735,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_3">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Software
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/20_sw/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/20_sw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Classificazione
@@ -349,12 +771,43 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Sistemi Operativi
@@ -362,21 +815,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_label" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_2_3_2">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Sistemi Operativi
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/21_os_intro/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/21_os_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Storia
@@ -384,11 +851,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/22_os_arch/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/22_os_arch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Architettura
@@ -396,11 +879,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/23_os_vm/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/23_os_vm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Macchine virtuali
@@ -408,11 +907,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/24_os_cli/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/24_os_cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Interfaccia da linea di comando (CLI)
@@ -420,12 +935,43 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_3_2_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3_2_5" id="__nav_2_3_2_5_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2_5" id="__nav_2_3_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Extra
@@ -433,21 +979,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_5_label" class="md-nav" data-md-level="4">
-<label class="md-nav__title" for="__nav_2_3_2_5">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Extra
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../hwsw/25_extra_shortcuts/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hwsw/25_extra_shortcuts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Shortcuts
@@ -455,21 +1015,67 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     La codifica delle informazioni
@@ -477,21 +1083,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_4">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
             
   
     La codifica delle informazioni
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../infoCoding/00_intro/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infoCoding/00_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Codifiche numeriche
@@ -499,11 +1119,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../infoCoding/01_digit_text/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infoCoding/01_digit_text/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Testo
@@ -511,11 +1147,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../infoCoding/02_digit_img/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infoCoding/02_digit_img/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Immagini
@@ -523,11 +1175,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../infoCoding/03_digit_audio/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infoCoding/03_digit_audio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Suoni
@@ -535,11 +1203,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../infoCoding/04_digit_video/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infoCoding/04_digit_video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Video
@@ -547,11 +1231,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../infoCoding/05_file/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../infoCoding/05_file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     File
@@ -559,18 +1259,58 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Extra
@@ -578,21 +1318,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_3">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Extra
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../extra/emailMurderGame/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extra/emailMurderGame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Gioco dell'assassino
@@ -600,15 +1354,50 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     A,B,C..
@@ -616,21 +1405,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_4">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
             
   
     A,B,C..
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../dictionary/00_dict/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dictionary/00_dict/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Parole
@@ -638,11 +1441,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../dictionary/01_map/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dictionary/01_map/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Mappa
@@ -650,15 +1469,50 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Algoritmi
@@ -666,21 +1520,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_5">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Algoritmi
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../algocoding/01_flowgorithm/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algocoding/01_flowgorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Flowgorithm
@@ -688,11 +1556,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../algocoding/02_python_from_flowgorithm/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algocoding/02_python_from_flowgorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Da Flowgorithm a Python
@@ -700,15 +1584,50 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
-<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Python
@@ -716,21 +1635,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_6">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Python
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/00_intro/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/00_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Introduzione
@@ -738,11 +1671,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/01_variabili/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/01_variabili/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Variabili e tipi
@@ -750,11 +1699,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/02_stringhe/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/02_stringhe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Stringhe
@@ -762,11 +1727,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/03_condizioni/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/03_condizioni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Condizioni
@@ -774,11 +1755,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/04_cicli/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/04_cicli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Cicli
@@ -786,11 +1783,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/05_liste/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/05_liste/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Liste e tuple
@@ -798,11 +1811,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/06_dizionari/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/06_dizionari/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Dizionari e set
@@ -810,11 +1839,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/07_funzioni/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/07_funzioni/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Funzioni
@@ -822,11 +1867,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/08_matrici/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/08_matrici/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Array e matrici
@@ -834,11 +1895,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/09_oggetti/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/09_oggetti/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Classi e oggetti
@@ -846,11 +1923,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../pycoding/10_networking/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pycoding/10_networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Python e networking
@@ -858,15 +1951,55 @@
 
     
   </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
     
   
     Intelligenza Artificiale
@@ -874,21 +2007,35 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_7">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
             
   
     Intelligenza Artificiale
   
 
           </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../00_intro/">
-<span class="md-ellipsis">
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Cos'è l'IA
@@ -896,12 +2043,36 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
     
   
     Machine Learning
@@ -909,10 +2080,17 @@
 
     
   </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-<span class="md-ellipsis">
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Machine Learning
@@ -920,144 +2098,213 @@
 
     
   </span>
-</a>
-<nav aria-label="Indice" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
       Indice
     </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#da-fai-cosi-a-impara-da-solo">
-<span class="md-ellipsis">
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#da-fai-cosi-a-impara-da-solo" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Da "fai così" a "impara da solo"
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#i-tre-tipi-di-apprendimento">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#i-tre-tipi-di-apprendimento" class="md-nav__link">
+    <span class="md-ellipsis">
       
         I tre tipi di apprendimento
       
     </span>
-</a>
-<nav aria-label="I tre tipi di apprendimento" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1-apprendimento-supervisionato-supervised-learning">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="I tre tipi di apprendimento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-apprendimento-supervisionato-supervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
       
         1. Apprendimento supervisionato (Supervised Learning)
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#2-apprendimento-non-supervisionato-unsupervised-learning">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#2-apprendimento-non-supervisionato-unsupervised-learning" class="md-nav__link">
+    <span class="md-ellipsis">
       
         2. Apprendimento non supervisionato (Unsupervised Learning)
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-apprendimento-per-rinforzo-reinforcement-learning">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#3-apprendimento-per-rinforzo-reinforcement-learning" class="md-nav__link">
+    <span class="md-ellipsis">
       
         3. Apprendimento per rinforzo (Reinforcement Learning)
       
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
-</nav>
+        
+      </ul>
+    </nav>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#il-concetto-di-modello">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#il-concetto-di-modello" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Il concetto di "modello"
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#dataset-features-e-labels">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#dataset-features-e-labels" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Dataset, Features e Labels
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#training-set-e-test-set">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#training-set-e-test-set" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Training set e Test set
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#il-workflow-del-machine-learning">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#il-workflow-del-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Il workflow del Machine Learning
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#esercizi">
-<span class="md-ellipsis">
+      
+        <li class="md-nav__item">
+  <a href="#mappa-concettuale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mappa concettuale
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#esercizi" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Esercizi
       
     </span>
-</a>
-<nav aria-label="Esercizi" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#esercizio-1-classifica-il-tipo-di-apprendimento">
-<span class="md-ellipsis">
+  </a>
+  
+    <nav class="md-nav" aria-label="Esercizi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esercizio-1-classifica-il-tipo-di-apprendimento" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Esercizio 1: Classifica il tipo di apprendimento
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#esercizio-2-crea-un-dataset">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#esercizio-2-crea-un-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Esercizio 2: Crea un dataset
       
     </span>
-</a>
+  </a>
+  
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#esercizio-3-trova-il-pattern">
-<span class="md-ellipsis">
+        
+          <li class="md-nav__item">
+  <a href="#esercizio-3-trova-il-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
       
         Esercizio 3: Trova il pattern
       
     </span>
-</a>
+  </a>
+  
 </li>
-</ul>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../02_dati/">
-<span class="md-ellipsis">
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_dati/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Preparare i dati
@@ -1065,11 +2312,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../03_regressione/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_regressione/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Regressione lineare
@@ -1077,11 +2340,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../04_classificazione/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_classificazione/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Classificazione
@@ -1089,11 +2368,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../05_valutazione/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_valutazione/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Valutare un modello
@@ -1101,11 +2396,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../06_clustering/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_clustering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Clustering
@@ -1113,11 +2424,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../07_reti_neurali/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_reti_neurali/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Reti neurali
@@ -1125,11 +2452,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../08_progetto/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_progetto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     Progetto finale
@@ -1137,11 +2480,27 @@
 
     
   </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../09_etica/">
-<span class="md-ellipsis">
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_etica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
     IA ed etica
@@ -1149,20 +2508,46 @@
 
     
   </span>
-</a>
-</li>
-</ul>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
 </nav>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+
 <div style="position: relative; float: right; margin: 0 0 20px 20px;">
-<a class="md-button md-button--primary" download="" href="../../pdf/ai_01_ml_intro.pdf" onmouseout="this.style.backgroundColor='#2196F3'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.2)';" onmouseover="this.style.backgroundColor='#1976D2'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.3)';" style="
+    <a href="../../pdf/ai_01_ml_intro.pdf"
+       download
+       class="md-button md-button--primary"
+       title="Scarica questa pagina in formato PDF"
+       style="
            background-color: #2196F3;
            color: white;
            padding: 10px 20px;
@@ -1174,12 +2559,14 @@
            font-weight: 500;
            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
            transition: all 0.3s ease;
-       " title="Scarica questa pagina in formato PDF">
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
-<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-<polyline points="7 10 12 15 17 10"></polyline>
-<line x1="12" x2="12" y1="15" y2="3"></line>
-</svg>
+       "
+       onmouseover="this.style.backgroundColor='#1976D2'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.3)';"
+       onmouseout="this.style.backgroundColor='#2196F3'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.2)';">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
         Scarica PDF
     </a>
 </div>
@@ -1188,14 +2575,14 @@
 <h2 id="da-fai-cosi-a-impara-da-solo">Da "fai così" a "impara da solo"</h2>
 <p>Nella programmazione tradizionale, <strong>tu</strong> scrivi le regole: "se il voto è maggiore di 6, lo studente è promosso". Il computer esegue le tue istruzioni alla lettera, senza capire nulla.</p>
 <p>Con il <strong>Machine Learning</strong> (apprendimento automatico) il gioco cambia completamente: invece di scrivere le regole, <strong>dai al computer un sacco di esempi</strong> e lui si trova le regole da solo!</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>Programmazione tradizionale:
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>  REGOLE + DATI  →  [Computer]  →  RISULTATI
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>Machine Learning:
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>  DATI + RISULTATI  →  [Computer]  →  REGOLE
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Programmazione tradizionale:
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  REGOLE + DATI  →  [Computer]  →  RISULTATI
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Machine Learning:
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  DATI + RISULTATI  →  [Computer]  →  REGOLE
 </code></pre></div>
 <p>Tipo: invece di spiegare al computer cos'è un gatto ("ha le orecchie a punta, i baffi, la coda..."), gli mostri 10.000 foto di gatti e 10.000 foto di non-gatti. E lui <em>impara</em> da solo a riconoscerli. Magia? No, matematica!</p>
-<hr/>
+<hr>
 <h2 id="i-tre-tipi-di-apprendimento">I tre tipi di apprendimento</h2>
 <p>Il Machine Learning si divide in tre grandi famiglie, a seconda di come il computer impara:</p>
 <h3 id="1-apprendimento-supervisionato-supervised-learning">1. Apprendimento supervisionato (Supervised Learning)</h3>
@@ -1249,20 +2636,21 @@
 </tr>
 </tbody>
 </table>
-<hr/>
+<hr>
 <h2 id="il-concetto-di-modello">Il concetto di "modello"</h2>
 <p>Quando il computer "impara" dai dati, quello che produce è un <strong>modello</strong>: una specie di "formula" che trasforma gli input in output. Pensa al modello come a una funzione matematica che il computer ha scoperto da solo.</p>
 <p>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
-<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
-<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
 </p><div class="pyodide">
 <div class="pyodide-editor-bar">
-<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-6--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-6--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre class="pyodide-editor" id="exec-6--editor"># Esempio: il computer ha "imparato" che
+<div><pre id="exec-6--editor" class="pyodide-editor"># Esempio: il computer ha "imparato" che
 # il voto è circa uguale a (ore_studio * 0.8 + 2)
 # Questo È il modello!
 
@@ -1274,10 +2662,11 @@ for ore in range(1, 11):
     voto_previsto = modello(ore)
     print(f"Se studi {ore} ore → voto previsto: {voto_previsto:.1f}")</pre></div>
 <div class="pyodide-editor-bar">
-<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-6--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+<span class="pyodide-bar-item">Output</span><span id="exec-6--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
 </div>
-<pre><code class="pyodide-output" id="exec-6--output"></code></pre>
+<pre><code id="exec-6--output" class="pyodide-output"></code></pre>
 </div>
+
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
@@ -1291,11 +2680,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     );
 });
 </script>
+
 <div class="admonition tip">
 <p class="admonition-title">Ma da dove salta fuori 0.8 e 2?</p>
 <p>Il computer li ha trovati analizzando i dati! Nei prossimi capitoli vedrai COME fa a trovarli. Per ora ricorda: il modello è una "formula" che il computer scopre dai dati di esempio.</p>
 </div>
-<hr/>
+<hr>
 <h2 id="dataset-features-e-labels">Dataset, Features e Labels</h2>
 <p>Prima di far imparare un modello, servono i <strong>dati</strong>. E i dati nel ML hanno un vocabolario preciso:</p>
 <ul>
@@ -1349,16 +2739,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <li><strong>Dataset</strong>: tutta la tabella</li>
 </ul>
 <p>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
-<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
-<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
 </p><div class="pyodide">
 <div class="pyodide-editor-bar">
-<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-7--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-7--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre class="pyodide-editor" id="exec-7--editor"># Creiamo il dataset come liste Python
+<div><pre id="exec-7--editor" class="pyodide-editor"># Creiamo il dataset come liste Python
 # Ogni studente: [ore_studio, assenze, voto_precedente]
 features = [
     [5, 2, 7],
@@ -1383,10 +2774,11 @@ for feat, lab in zip(features, labels):
 print(f"\nNumero di campioni: {len(features)}")
 print(f"Numero di features: {len(features[0])}")</pre></div>
 <div class="pyodide-editor-bar">
-<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-7--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+<span class="pyodide-bar-item">Output</span><span id="exec-7--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
 </div>
-<pre><code class="pyodide-output" id="exec-7--output"></code></pre>
+<pre><code id="exec-7--output" class="pyodide-output"></code></pre>
 </div>
+
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
@@ -1400,7 +2792,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     );
 });
 </script>
-<hr/>
+
+<hr>
 <h2 id="training-set-e-test-set">Training set e Test set</h2>
 <p>Ecco una regola d'oro del ML: <strong>non puoi testare il modello sugli stessi dati con cui l'hai addestrato!</strong></p>
 <p>Perché? Tipo a scuola: se il prof ti dà l'esame con le stesse identiche domande del libro di esercizi, non sta testando se hai CAPITO, ma solo se hai MEMORIZZATO. L'esame vero deve avere domande NUOVE.</p>
@@ -1410,16 +2803,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <li><strong>Test set</strong> (~20%): i dati su cui verifichiamo quanto ha imparato</li>
 </ul>
 <p>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
-<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
-<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
 </p><div class="pyodide">
 <div class="pyodide-editor-bar">
-<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-8--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-8--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre class="pyodide-editor" id="exec-8--editor"># I nostri dati
+<div><pre id="exec-8--editor" class="pyodide-editor"># I nostri dati
 dati = [
     {"ore": 5, "assenze": 2, "voto_prec": 7, "voto": 7},
     {"ore": 8, "assenze": 0, "voto_prec": 8, "voto": 9},
@@ -1450,10 +2844,11 @@ print("\n📝 Test set:")
 for d in test:
     print(f"  Ore={d['ore']}, Ass={d['assenze']}, Prec={d['voto_prec']} → Voto={d['voto']}")</pre></div>
 <div class="pyodide-editor-bar">
-<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-8--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+<span class="pyodide-bar-item">Output</span><span id="exec-8--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
 </div>
-<pre><code class="pyodide-output" id="exec-8--output"></code></pre>
+<pre><code id="exec-8--output" class="pyodide-output"></code></pre>
 </div>
+
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
@@ -1467,7 +2862,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     );
 });
 </script>
-<hr/>
+
+<hr>
 <h2 id="il-workflow-del-machine-learning">Il workflow del Machine Learning</h2>
 <p>Ogni progetto ML segue più o meno gli stessi passi:</p>
 <ol>
@@ -1478,29 +2874,53 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <li><strong>Valuta il modello</strong> — quanto è bravo sul test set?</li>
 <li><strong>Usa il modello</strong> — fai previsioni su dati nuovi!</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>  Dati ──→ Preparazione ──→ Training ──→ Valutazione ──→ Previsioni
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>   │                           │              │
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>   │                    Training set      Test set
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>   └──────── Split ────────────┘              │
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>                                              ↓
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>                                       "Quanto è bravo?"
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>  Dati ──→ Preparazione ──→ Training ──→ Valutazione ──→ Previsioni
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>   │                           │              │
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>   │                    Training set      Test set
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>   └──────── Split ────────────┘              │
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>                                              ↓
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                                       "Quanto è bravo?"
 </code></pre></div>
 <p>Nei prossimi capitoli seguiremo questo workflow passo per passo. Pronti?</p>
-<hr/>
+<hr>
+<h2 id="mappa-concettuale">Mappa concettuale</h2>
+<pre class="mermaid"><code>flowchart TD
+    A["Machine Learning"] --&gt; B["Supervisionato"]
+    A --&gt; C["Non supervisionato"]
+    A --&gt; D["Per rinforzo"]
+
+    B --&gt; B1["Ha le etichette"]
+    B --&gt; B2["Regressione"]
+    B --&gt; B3["Classificazione"]
+
+    C --&gt; C1["Senza etichette"]
+    C --&gt; C2["Clustering"]
+
+    D --&gt; D1["Prova e sbaglia"]
+    D --&gt; D2["Ricompensa / penalita"]
+
+    E["Workflow ML"] --&gt; F["1. Raccogli dati"]
+    F --&gt; G["2. Prepara i dati"]
+    G --&gt; H["3. Scegli il modello"]
+    H --&gt; I["4. Addestra"]
+    I --&gt; J["5. Valuta"]
+    J --&gt; K["6. Usa il modello"]</code></pre>
+<hr>
 <h2 id="esercizi">Esercizi</h2>
 <h3 id="esercizio-1-classifica-il-tipo-di-apprendimento">Esercizio 1: Classifica il tipo di apprendimento</h3>
 <p>Per ognuno di questi problemi, stampa se si tratta di apprendimento supervisionato, non supervisionato o per rinforzo:</p>
 <p>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
-<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
-<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
 </p><div class="pyodide">
 <div class="pyodide-editor-bar">
-<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-9--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-9--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre class="pyodide-editor" id="exec-9--editor">problemi = [
+<div><pre id="exec-9--editor" class="pyodide-editor">problemi = [
     "Prevedere se pioverà domani basandosi sui dati meteo storici",
     "Raggruppare le canzoni di Spotify per genere senza etichette",
     "Insegnare a un drone a volare evitando ostacoli",
@@ -1512,10 +2932,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 # Per ogni problema, stampa il tipo di apprendimento e perché
 </pre></div>
 <div class="pyodide-editor-bar">
-<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-9--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+<span class="pyodide-bar-item">Output</span><span id="exec-9--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
 </div>
-<pre><code class="pyodide-output" id="exec-9--output"></code></pre>
+<pre><code id="exec-9--output" class="pyodide-output"></code></pre>
 </div>
+
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
@@ -1529,29 +2950,32 @@ document.addEventListener('DOMContentLoaded', (event) => {
     );
 });
 </script>
+
 <h3 id="esercizio-2-crea-un-dataset">Esercizio 2: Crea un dataset</h3>
 <p>Crea un dataset (come lista di dizionari) con almeno 8 studenti. Ogni studente deve avere: ore di studio, partecipazione (1-10), voto. Poi dividilo in training e test set.</p>
 <p>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
-<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
-<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
 </p><div class="pyodide">
 <div class="pyodide-editor-bar">
-<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-10--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-10--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre class="pyodide-editor" id="exec-10--editor"># Crea il dataset
+<div><pre id="exec-10--editor" class="pyodide-editor"># Crea il dataset
 
 # Dividi in training (80%) e test (20%)
 
 # Stampa entrambi i set
 </pre></div>
 <div class="pyodide-editor-bar">
-<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-10--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+<span class="pyodide-bar-item">Output</span><span id="exec-10--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
 </div>
-<pre><code class="pyodide-output" id="exec-10--output"></code></pre>
+<pre><code id="exec-10--output" class="pyodide-output"></code></pre>
 </div>
+
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
@@ -1565,19 +2989,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
     );
 });
 </script>
+
 <h3 id="esercizio-3-trova-il-pattern">Esercizio 3: Trova il pattern</h3>
 <p>Il computer ha analizzato questi dati e ha trovato un pattern. Riesci a scoprirlo anche tu? Scrivi la formula!</p>
 <p>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js" type="text/javascript"></script>
-<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" rel="alternate stylesheet" title="light"/>
-<link disabled="" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" rel="alternate stylesheet" title="dark"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
 </p><div class="pyodide">
 <div class="pyodide-editor-bar">
-<span class="pyodide-bar-item">Editor (session: default)</span><span class="pyodide-bar-item pyodide-clickable" id="exec-11--run" title="Run: press Ctrl-Enter"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-11--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre class="pyodide-editor" id="exec-11--editor"># Input → Output (il computer ha scoperto la regola)
+<div><pre id="exec-11--editor" class="pyodide-editor"># Input → Output (il computer ha scoperto la regola)
 dati = [
     (1, 5),
     (2, 8),
@@ -1600,10 +3026,11 @@ def formula(x):
 # Test
 # print(f"Se input = 10 → output = {formula(10)}")</pre></div>
 <div class="pyodide-editor-bar">
-<span class="pyodide-bar-item">Output</span><span class="pyodide-bar-item pyodide-clickable" id="exec-11--clear"><span class="twemoji"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+<span class="pyodide-bar-item">Output</span><span id="exec-11--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
 </div>
-<pre><code class="pyodide-output" id="exec-11--output"></code></pre>
+<pre><code id="exec-11--output" class="pyodide-output"></code></pre>
 </div>
+
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
@@ -1618,91 +3045,166 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 </div>
-</article>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-</div>
-<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
   Torna su
 </button>
-</main>
-<footer class="md-footer">
-<nav aria-label="Piede" class="md-footer__inner md-grid">
-<a aria-label="Precedente: Cos'è l'IA" class="md-footer__link md-footer__link--prev" href="../00_intro/">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
-</div>
-<div class="md-footer__title">
-<span class="md-footer__direction">
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Piede" >
+        
+          
+          <a href="../00_intro/" class="md-footer__link md-footer__link--prev" aria-label="Precedente: Cos&#39;è l&#39;IA">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Precedente
               </span>
-<div class="md-ellipsis">
+              <div class="md-ellipsis">
                 Cos'è l'IA
               </div>
-</div>
-</a>
-<a aria-label="Successivo: Preparare i dati" class="md-footer__link md-footer__link--next" href="../02_dati/">
-<div class="md-footer__title">
-<span class="md-footer__direction">
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02_dati/" class="md-footer__link md-footer__link--next" aria-label="Successivo: Preparare i dati">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
                 Successivo
               </span>
-<div class="md-ellipsis">
+              <div class="md-ellipsis">
                 Preparare i dati
               </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
-</div>
-</a>
-</nav>
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
-<div class="md-copyright__highlight">
-      Federico Robuffo - Andrea Diamantini(c) 2024-2025<br/> <a href="#__consent">Change Cookie Settings</a>
-</div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Federico Robuffo - Andrea Diamantini(c) 2024-2025<br> <a href="#__consent">Change Cookie Settings</a>
+
+    </div>
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
     </a>
-<div class="md-copyright__highlight" style="margin-top: 0.2rem;">
-    Ultimo aggiornamento: 24/02/2026 21:20
+  
+  <div class="md-copyright__highlight" style="margin-top: 0.2rem;">
+    Ultimo aggiornamento: 25/02/2026 13:08
   </div>
 </div>
-</div>
-</div>
+      
+    </div>
+  </div>
 </footer>
-</div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
-</div>
-<div class="md-consent" data-md-component="consent" hidden="" id="__consent">
-<div class="md-consent__overlay"></div>
-<aside class="md-consent__inner">
-<form class="md-consent__form md-grid md-typeset" name="consent">
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+  
+
 <h4>Consenso all'uso dei Cookie(s)</h4>
-<p>Questo sito memorizza alcuni cookies solo per riconoscere un visitatore  che non è alla sua prima visita e alcune preferenze, come il tema di visualizzazione della pagina selezionato.<br/> Se non acconsenti, questa finestra riapparirà ogni volta che riapri il sito.<br/> Se vuoi cambiare le tue scelte, in fondo alla pagina trovi un link per modificarle ;)
+<p>Questo sito memorizza alcuni cookies solo per riconoscere un visitatore  che non è alla sua prima visita e alcune preferenze, come il tema di visualizzazione della pagina selezionato.<br> Se non acconsenti, questa finestra riapparirà ogni volta che riapri il sito.<br> Se vuoi cambiare le tue scelte, in fondo alla pagina trovi un link per modificarle ;)
 </p>
-<input checked="" class="md-toggle" id="__settings" type="checkbox"/>
+<input class="md-toggle" type="checkbox" id="__settings" checked>
 <div class="md-consent__settings">
-<ul class="task-list">
-</ul>
+  <ul class="task-list">
+    
+    
+      
+    
+    
+      
+    
+    
+  </ul>
 </div>
 <div class="md-consent__controls">
-<button class="md-button md-button--primary">Accetta</button>
-<button class="md-button md-button--primary" type="reset">Rifiuta</button>
+  
+    
+      <button class="md-button md-button--primary">Accetta</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Rifiuta</button>
+    
+    
+  
 </div>
-</form>
-</aside>
-</div>
-<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
-<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.tabs", "navigation.sections", "navigation.top", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
-<script src="../../assets/_markdown_exec_pyodide.js"></script>
-<script src="../../javascripts/mermaid-config.js"></script>
-<script src="../../javascripts/pyodide-input.js"></script>
-</body>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.tabs", "navigation.sections", "navigation.top", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiato", "clipboard.copy": "Copia", "search.result.more.one": "1 altro in questa pagina", "search.result.more.other": "# altri in questa pagina", "search.result.none": "Nessun documento trovato", "search.result.one": "1 documento trovato", "search.result.other": "# documenti trovati", "search.result.placeholder": "Scrivi per iniziare a cercare", "search.result.term.missing": "Non presente", "select.version": "Seleziona la versione"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/_markdown_exec_pyodide.js"></script>
+      
+        <script src="../../javascripts/mermaid-config.mjs" type="module"></script>
+      
+        <script src="../../javascripts/pyodide-input.js"></script>
+      
+    
+  </body>
 </html>

@@ -2895,6 +2895,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
+<p>??? success "Soluzione"</p>
+<div class="highlight"><pre><span></span><code>```pyodide
+scenari = [
+    ("Un termostato che accende il riscaldamento sotto i 18 gradi", "Automazione", "segue una regola fissa"),
+    ("Spotify che ti consiglia una playlist personalizzata", "IA", "impara dai tuoi gusti"),
+    ("Un semaforo che diventa verde ogni 60 secondi", "Automazione", "segue un timer fisso"),
+    ("Google Foto che riconosce il tuo volto nelle foto", "IA", "usa computer vision e ML"),
+    ("Una sveglia che suona alle 7:00", "Automazione", "segue un orario fisso"),
+    ("Gmail che filtra le email di spam", "IA", "impara a riconoscere lo spam"),
+]
+for scenario, tipo, motivo in scenari:
+    print(f"- {scenario}")
+    print(f"  -&gt; {tipo}: {motivo}\n")
+```
+</code></pre></div>
 <h3 id="esercizio-2-migliora-il-chatbot">Esercizio 2: Migliora il chatbot</h3>
 <p>Aggiungi almeno 5 nuove regole al chatbot per renderlo più "intelligente". Prova ad aggiungere risposte su argomenti che ti interessano!</p>
 <p>
@@ -2906,9 +2921,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 </p><div class="pyodide">
 <div class="pyodide-editor-bar">
-<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-4--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-5--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre id="exec-4--editor" class="pyodide-editor">def chatbot_migliorato(messaggio):
+<div><pre id="exec-5--editor" class="pyodide-editor">def chatbot_migliorato(messaggio):
     messaggio = messaggio.lower().strip()
 
     if "ciao" in messaggio:
@@ -2921,46 +2936,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 # Testa il tuo chatbot migliorato
 frase = input("Tu: ")
 print(f"Bot: {chatbot_migliorato(frase)}")</pre></div>
-<div class="pyodide-editor-bar">
-<span class="pyodide-bar-item">Output</span><span id="exec-4--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
-</div>
-<pre><code id="exec-4--output" class="pyodide-output"></code></pre>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', (event) => {
-    setupPyodide(
-        'exec-4--',
-        install=[],
-        themeLight='tomorrow',
-        themeDark='tomorrow_night',
-        session='default',
-        minLines=13,
-        maxLines=13,
-    );
-});
-</script>
-
-<h3 id="esercizio-3-timeline-dellia">Esercizio 3: Timeline dell'IA</h3>
-<p>Crea un dizionario con almeno 5 eventi importanti nella storia dell'IA e stampali in ordine cronologico:</p>
-<p>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
-<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
-<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
-
-</p><div class="pyodide">
-<div class="pyodide-editor-bar">
-<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-5--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
-</div>
-<div><pre id="exec-5--editor" class="pyodide-editor"># Crea un dizionario anno -&gt; evento
-storia_ia = {}
-
-# Aggiungi almeno 5 eventi
-
-# Stampa la timeline in ordine cronologico
-</pre></div>
 <div class="pyodide-editor-bar">
 <span class="pyodide-bar-item">Output</span><span id="exec-5--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
 </div>
@@ -2975,12 +2950,95 @@ document.addEventListener('DOMContentLoaded', (event) => {
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
+        minLines=13,
+        maxLines=13,
+    );
+});
+</script>
+
+<p>??? success "Soluzione"</p>
+<div class="highlight"><pre><span></span><code>```pyodide
+def chatbot_migliorato(messaggio):
+    messaggio = messaggio.lower().strip()
+
+    if "ciao" in messaggio:
+        return "Ciao! Come stai?"
+    elif "come stai" in messaggio:
+        return "Sono un bot, sto sempre bene!"
+    elif "nome" in messaggio:
+        return "Mi chiamo ChatBot 1.0!"
+    elif "tempo" in messaggio or "meteo" in messaggio:
+        return "Non posso guardare fuori, ma spero ci sia il sole!"
+    elif "musica" in messaggio:
+        return "Mi piace il rock... digitale!"
+    elif "scuola" in messaggio:
+        return "La scuola e' importante, fidati!"
+    elif "grazie" in messaggio:
+        return "Prego! Sono qui per aiutarti."
+    elif "addio" in messaggio or "bye" in messaggio:
+        return "Arrivederci! A presto!"
+    else:
+        return "Non ho capito, scusa!"
+
+frase = input("Tu: ")
+print(f"Bot: {chatbot_migliorato(frase)}")
+```
+</code></pre></div>
+<h3 id="esercizio-3-timeline-dellia">Esercizio 3: Timeline dell'IA</h3>
+<p>Crea un dizionario con almeno 5 eventi importanti nella storia dell'IA e stampali in ordine cronologico:</p>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-7--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-7--editor" class="pyodide-editor"># Crea un dizionario anno -&gt; evento
+storia_ia = {}
+
+# Aggiungi almeno 5 eventi
+
+# Stampa la timeline in ordine cronologico
+</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-7--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-7--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-7--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
         minLines=6,
         maxLines=6,
     );
 });
 </script>
-</div>
+
+<p>??? success "Soluzione"</p>
+<div class="highlight"><pre><span></span><code>```pyodide
+storia_ia = {
+    1950: "Alan Turing propone il Test di Turing",
+    1956: "Nasce ufficialmente il termine IA",
+    1997: "Deep Blue batte Kasparov a scacchi",
+    2012: "Il deep learning vince ImageNet",
+    2016: "AlphaGo batte il campione mondiale di Go",
+    2022: "ChatGPT viene rilasciato al pubblico",
+}
+print("Timeline dell'Intelligenza Artificiale:")
+for anno in sorted(storia_ia.keys()):
+    print(f"  {anno} - {storia_ia[anno]}")
+```
+</code></pre></div></div>
 
 
 
@@ -3067,7 +3125,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     </a>
   
   <div class="md-copyright__highlight" style="margin-top: 0.2rem;">
-    Ultimo aggiornamento: 25/02/2026 13:08
+    Ultimo aggiornamento: 26/02/2026 10:56
   </div>
 </div>
       

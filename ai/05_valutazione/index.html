@@ -2640,7 +2640,7 @@ print("Grado 15: Overfitting totale! Passa per tutti i punti ma e' assurda")</pr
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-58--',
-        install=[],
+        install=['numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2709,7 +2709,7 @@ print("Il punto ideale e' dove l'errore di test e' minimo.")</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-59--',
-        install=[],
+        install=['numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2779,7 +2779,7 @@ print(f"\nQuesto e' molto piu' affidabile di un singolo train/test split!")</pre
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-60--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2851,7 +2851,7 @@ plt.show()</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-61--',
-        install=[],
+        install=['scikit-learn', 'numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2960,7 +2960,7 @@ np.random.seed(42)
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-62--',
-        install=[],
+        install=['numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2983,8 +2983,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <div class="pyodide-editor-bar">
 <span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-63--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre id="exec-63--editor" class="pyodide-editor">install="numpy,matplotlib"
-import numpy as np
+<div><pre id="exec-63--editor" class="pyodide-editor">import numpy as np
 import matplotlib.pyplot as plt
 np.random.seed(42)
 X = np.linspace(0, 6, 30)
@@ -3017,12 +3016,12 @@ plt.show()</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-63--',
-        install=[],
+        install=['numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
-        minLines=24,
-        maxLines=24,
+        minLines=23,
+        maxLines=23,
     );
 });
 </script>
@@ -3064,7 +3063,7 @@ np.random.seed(42)
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-64--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -3087,8 +3086,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <div class="pyodide-editor-bar">
 <span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-65--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre id="exec-65--editor" class="pyodide-editor">install="scikit-learn,numpy"
-import numpy as np
+<div><pre id="exec-65--editor" class="pyodide-editor">import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import cross_val_score
@@ -3117,12 +3115,12 @@ print(f"\nPiu' stabile: quello con std piu' bassa")</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-65--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
-        minLines=20,
-        maxLines=20,
+        minLines=19,
+        maxLines=19,
     );
 });
 </script>
@@ -3163,7 +3161,7 @@ np.random.seed(42)
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-66--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -3186,8 +3184,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <div class="pyodide-editor-bar">
 <span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-67--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre id="exec-67--editor" class="pyodide-editor">install="scikit-learn,numpy"
-import numpy as np
+<div><pre id="exec-67--editor" class="pyodide-editor">import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import cross_val_score
 np.random.seed(42)
@@ -3217,12 +3214,12 @@ print(f"\nMigliore: {migliore_params} con score={migliore_score:.3f}")</pre></di
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-67--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
-        minLines=21,
-        maxLines=21,
+        minLines=20,
+        maxLines=20,
     );
 });
 </script>
@@ -3314,7 +3311,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     </a>
   
   <div class="md-copyright__highlight" style="margin-top: 0.2rem;">
-    Ultimo aggiornamento: 26/02/2026 11:02
+    Ultimo aggiornamento: 26/02/2026 11:17
   </div>
 </div>
       

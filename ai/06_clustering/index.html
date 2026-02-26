@@ -2596,7 +2596,7 @@ print("Il K-Means li trovera' automaticamente!")</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-68--',
-        install=[],
+        install=['numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2674,7 +2674,7 @@ print("Dopo pochi step i gruppi sono gia' ben definiti!")</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-69--',
-        install=[],
+        install=['numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2742,7 +2742,7 @@ for i, c in enumerate(centroidi):
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-70--',
-        install=[],
+        install=['scikit-learn', 'numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2813,7 +2813,7 @@ print("Quindi K=3 e' la scelta giusta!")</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-71--',
-        install=[],
+        install=['scikit-learn', 'numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2897,7 +2897,7 @@ for k in range(3):
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-72--',
-        install=[],
+        install=['scikit-learn', 'numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2958,7 +2958,7 @@ np.random.shuffle(X)
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-73--',
-        install=[],
+        install=['numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2981,8 +2981,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <div class="pyodide-editor-bar">
 <span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-74--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre id="exec-74--editor" class="pyodide-editor">install="numpy,matplotlib"
-import numpy as np
+<div><pre id="exec-74--editor" class="pyodide-editor">import numpy as np
 import matplotlib.pyplot as plt
 np.random.seed(42)
 g1 = np.random.randn(40, 2) + [3, 3]
@@ -3015,12 +3014,12 @@ plt.show()</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-74--',
-        install=[],
+        install=['numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
-        minLines=24,
-        maxLines=24,
+        minLines=23,
+        maxLines=23,
     );
 });
 </script>
@@ -3061,7 +3060,7 @@ np.random.seed(42)
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-75--',
-        install=[],
+        install=['scikit-learn', 'numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -3084,8 +3083,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <div class="pyodide-editor-bar">
 <span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-76--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre id="exec-76--editor" class="pyodide-editor">install="scikit-learn,numpy,matplotlib"
-import numpy as np
+<div><pre id="exec-76--editor" class="pyodide-editor">import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 np.random.seed(42)
@@ -3114,12 +3112,12 @@ plt.show()</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-76--',
-        install=[],
+        install=['scikit-learn', 'numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
-        minLines=20,
-        maxLines=20,
+        minLines=19,
+        maxLines=19,
     );
 });
 </script>
@@ -3160,7 +3158,7 @@ np.random.seed(42)
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-77--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -3183,8 +3181,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <div class="pyodide-editor-bar">
 <span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-78--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre id="exec-78--editor" class="pyodide-editor">install="scikit-learn,numpy"
-import numpy as np
+<div><pre id="exec-78--editor" class="pyodide-editor">import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import MinMaxScaler
 np.random.seed(42)
@@ -3214,12 +3211,12 @@ for k in range(3):
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-78--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
-        minLines=21,
-        maxLines=21,
+        minLines=20,
+        maxLines=20,
     );
 });
 </script>
@@ -3311,7 +3308,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     </a>
   
   <div class="md-copyright__highlight" style="margin-top: 0.2rem;">
-    Ultimo aggiornamento: 26/02/2026 11:02
+    Ultimo aggiornamento: 26/02/2026 11:17
   </div>
 </div>
       

@@ -2669,7 +2669,7 @@ for inputs, target in dati_and:
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-79--',
-        install=[],
+        install=['numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2744,7 +2744,7 @@ print("Tanh: output tra -1 e 1 (a volte meglio della sigmoid)")</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-80--',
-        install=[],
+        install=['numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2823,7 +2823,7 @@ print("(Con pesi casuali l'output e' casuale. Ora dobbiamo ADDESTRARE!)")</pre><
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-81--',
-        install=[],
+        install=['numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2927,7 +2927,7 @@ print("\nFunziona! Il perceptrone singolo non poteva, la rete a 2 strati SI!")</
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-82--',
-        install=[],
+        install=['numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2990,7 +2990,7 @@ print(f"Epoche usate: {mlp.n_iter_}")</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-83--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -3065,7 +3065,7 @@ dati_nand = [([0, 0], 1), ([0, 1], 1), ([1, 0], 1), ([1, 1], 0)]
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-84--',
-        install=[],
+        install=['numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -3122,7 +3122,7 @@ print("\nEntrambe funzionano! OR e NAND sono linearmente separabili.")</pre></di
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-85--',
-        install=[],
+        install=['numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -3162,7 +3162,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-86--',
-        install=[],
+        install=['numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -3224,7 +3224,7 @@ for i in range(4):
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-87--',
-        install=[],
+        install=['numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -3270,7 +3270,7 @@ np.random.seed(42)
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-88--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -3293,8 +3293,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <div class="pyodide-editor-bar">
 <span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-89--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre id="exec-89--editor" class="pyodide-editor">install="scikit-learn,numpy"
-import numpy as np
+<div><pre id="exec-89--editor" class="pyodide-editor">import numpy as np
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import cross_val_score
 np.random.seed(42)
@@ -3330,12 +3329,12 @@ print(f"\nMigliore: {migliore_config} con score={migliore_score:.3f}")</pre></di
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-89--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
-        minLines=27,
-        maxLines=27,
+        minLines=26,
+        maxLines=26,
     );
 });
 </script>
@@ -3427,7 +3426,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     </a>
   
   <div class="md-copyright__highlight" style="margin-top: 0.2rem;">
-    Ultimo aggiornamento: 26/02/2026 11:02
+    Ultimo aggiornamento: 26/02/2026 11:17
   </div>
 </div>
       

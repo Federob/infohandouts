@@ -2687,7 +2687,7 @@ print("Questo e' il BIAS nell'IA!")</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-101--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2757,7 +2757,7 @@ print("\nOra le previsioni dipendono SOLO da capacita' e impegno!")</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-102--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2947,7 +2947,7 @@ np.random.seed(42)
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-103--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2970,8 +2970,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <div class="pyodide-editor-bar">
 <span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-104--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre id="exec-104--editor" class="pyodide-editor">install="scikit-learn,numpy"
-import numpy as np
+<div><pre id="exec-104--editor" class="pyodide-editor">import numpy as np
 from sklearn.linear_model import LogisticRegression
 np.random.seed(42)
 n = 200
@@ -3006,12 +3005,12 @@ print("-&gt; Ora conta solo la competenza!")</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-104--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
-        minLines=26,
-        maxLines=26,
+        minLines=25,
+        maxLines=25,
     );
 });
 </script>
@@ -3154,7 +3153,7 @@ np.random.seed(42)
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-107--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -3177,8 +3176,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <div class="pyodide-editor-bar">
 <span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-108--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre id="exec-108--editor" class="pyodide-editor">install="scikit-learn,numpy"
-import numpy as np
+<div><pre id="exec-108--editor" class="pyodide-editor">import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split
@@ -3216,12 +3214,12 @@ print("-&gt; Non possiamo capire COME decide!")</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-108--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
-        minLines=29,
-        maxLines=29,
+        minLines=28,
+        maxLines=28,
     );
 });
 </script>
@@ -3297,7 +3295,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     </a>
   
   <div class="md-copyright__highlight" style="margin-top: 0.2rem;">
-    Ultimo aggiornamento: 26/02/2026 11:02
+    Ultimo aggiornamento: 26/02/2026 11:17
   </div>
 </div>
       

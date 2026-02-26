@@ -2608,7 +2608,7 @@ for i in range(5):
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-90--',
-        install=[],
+        install=['numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2678,7 +2678,7 @@ for i, nome in enumerate(feature_names):
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-91--',
-        install=[],
+        install=['numpy', 'matplotlib'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2738,7 +2738,7 @@ print(f"Bilanciamento test:     {sum(y_test)} promossi, {len(y_test)-sum(y_test)
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-92--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2823,7 +2823,7 @@ print(f"\nVincitore: {migliore_nome} ({migliore_score:.2%})")</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-93--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2896,7 +2896,7 @@ print(f"     Prom  [{cm[1][0]:4} {cm[1][1]:4} ]")</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-94--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -2974,7 +2974,7 @@ for s in nuovi_studenti:
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-95--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -3085,7 +3085,7 @@ np.random.seed(42)
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-97--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
@@ -3108,8 +3108,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <div class="pyodide-editor-bar">
 <span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-98--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre id="exec-98--editor" class="pyodide-editor">install="scikit-learn,numpy"
-import numpy as np
+<div><pre id="exec-98--editor" class="pyodide-editor">import numpy as np
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.neighbors import KNeighborsClassifier
@@ -3152,12 +3151,12 @@ for nome, modello in modelli.items():
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-98--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
-        minLines=34,
-        maxLines=34,
+        minLines=33,
+        maxLines=33,
     );
 });
 </script>
@@ -3214,8 +3213,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <div class="pyodide-editor-bar">
 <span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-100--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
 </div>
-<div><pre id="exec-100--editor" class="pyodide-editor">install="scikit-learn,numpy"
-import numpy as np
+<div><pre id="exec-100--editor" class="pyodide-editor">import numpy as np
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.tree import DecisionTreeClassifier
@@ -3252,12 +3250,12 @@ print(f"\n5 features usate (3 originali + 2 ingegnerizzate)")</pre></div>
 document.addEventListener('DOMContentLoaded', (event) => {
     setupPyodide(
         'exec-100--',
-        install=[],
+        install=['scikit-learn', 'numpy'],
         themeLight='tomorrow',
         themeDark='tomorrow_night',
         session='default',
-        minLines=28,
-        maxLines=28,
+        minLines=27,
+        maxLines=27,
     );
 });
 </script>
@@ -3349,7 +3347,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     </a>
   
   <div class="md-copyright__highlight" style="margin-top: 0.2rem;">
-    Ultimo aggiornamento: 26/02/2026 11:02
+    Ultimo aggiornamento: 26/02/2026 11:17
   </div>
 </div>
       

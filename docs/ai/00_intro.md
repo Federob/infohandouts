@@ -211,6 +211,22 @@ scenari = [
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    scenari = [
+        ("Un termostato che accende il riscaldamento sotto i 18 gradi", "Automazione", "segue una regola fissa"),
+        ("Spotify che ti consiglia una playlist personalizzata", "IA", "impara dai tuoi gusti"),
+        ("Un semaforo che diventa verde ogni 60 secondi", "Automazione", "segue un timer fisso"),
+        ("Google Foto che riconosce il tuo volto nelle foto", "IA", "usa computer vision e ML"),
+        ("Una sveglia che suona alle 7:00", "Automazione", "segue un orario fisso"),
+        ("Gmail che filtra le email di spam", "IA", "impara a riconoscere lo spam"),
+    ]
+    for scenario, tipo, motivo in scenari:
+        print(f"- {scenario}")
+        print(f"  -> {tipo}: {motivo}\n")
+    ```
+
 ### Esercizio 2: Migliora il chatbot
 
 Aggiungi almeno 5 nuove regole al chatbot per renderlo più "intelligente". Prova ad aggiungere risposte su argomenti che ti interessano!
@@ -231,6 +247,35 @@ frase = input("Tu: ")
 print(f"Bot: {chatbot_migliorato(frase)}")
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    def chatbot_migliorato(messaggio):
+        messaggio = messaggio.lower().strip()
+
+        if "ciao" in messaggio:
+            return "Ciao! Come stai?"
+        elif "come stai" in messaggio:
+            return "Sono un bot, sto sempre bene!"
+        elif "nome" in messaggio:
+            return "Mi chiamo ChatBot 1.0!"
+        elif "tempo" in messaggio or "meteo" in messaggio:
+            return "Non posso guardare fuori, ma spero ci sia il sole!"
+        elif "musica" in messaggio:
+            return "Mi piace il rock... digitale!"
+        elif "scuola" in messaggio:
+            return "La scuola e' importante, fidati!"
+        elif "grazie" in messaggio:
+            return "Prego! Sono qui per aiutarti."
+        elif "addio" in messaggio or "bye" in messaggio:
+            return "Arrivederci! A presto!"
+        else:
+            return "Non ho capito, scusa!"
+
+    frase = input("Tu: ")
+    print(f"Bot: {chatbot_migliorato(frase)}")
+    ```
+
 ### Esercizio 3: Timeline dell'IA
 
 Crea un dizionario con almeno 5 eventi importanti nella storia dell'IA e stampali in ordine cronologico:
@@ -244,3 +289,19 @@ storia_ia = {}
 # Stampa la timeline in ordine cronologico
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    storia_ia = {
+        1950: "Alan Turing propone il Test di Turing",
+        1956: "Nasce ufficialmente il termine IA",
+        1997: "Deep Blue batte Kasparov a scacchi",
+        2012: "Il deep learning vince ImageNet",
+        2016: "AlphaGo batte il campione mondiale di Go",
+        2022: "ChatGPT viene rilasciato al pubblico",
+    }
+    print("Timeline dell'Intelligenza Artificiale:")
+    for anno in sorted(storia_ia.keys()):
+        print(f"  {anno} - {storia_ia[anno]}")
+    ```

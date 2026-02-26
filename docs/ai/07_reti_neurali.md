@@ -368,6 +368,35 @@ dati_nand = [([0, 0], 1), ([0, 1], 1), ([1, 0], 1), ([1, 1], 0)]
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    import numpy as np
+
+    def perceptrone(dati, nome, lr=0.1, epoche=100):
+        w = np.random.randn(2) * 0.5
+        b = 0.0
+        for _ in range(epoche):
+            for inputs, target in dati:
+                x = np.array(inputs)
+                output = 1 if np.dot(w, x) + b > 0.5 else 0
+                errore = target - output
+                w += lr * errore * x
+                b += lr * errore
+        print(f"\nPorta {nome}:")
+        for inputs, target in dati:
+            x = np.array(inputs)
+            pred = 1 if np.dot(w, x) + b > 0.5 else 0
+            ok = "OK" if pred == target else "ERRORE"
+            print(f"  {inputs} -> atteso: {target}, predetto: {pred} {ok}")
+
+    dati_or = [([0, 0], 0), ([0, 1], 1), ([1, 0], 1), ([1, 1], 1)]
+    dati_nand = [([0, 0], 1), ([0, 1], 1), ([1, 0], 1), ([1, 1], 0)]
+    perceptrone(dati_or, "OR")
+    perceptrone(dati_nand, "NAND")
+    print("\nEntrambe funzionano! OR e NAND sono linearmente separabili.")
+    ```
+
 ### Esercizio 2: Rete neurale personalizzata
 
 Modifica la rete neurale numpy per avere 8 neuroni nello strato nascosto invece di 4. Converge piu' velocemente o piu' lentamente?
@@ -380,6 +409,40 @@ import numpy as np
 # Confronta la velocita' di convergenza
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    import numpy as np
+    np.random.seed(42)
+    def sigmoid(x):
+        return 1 / (1 + np.exp(-x))
+
+    X = np.array([[0,0],[0,1],[1,0],[1,1]])
+    y = np.array([[0],[1],[1],[0]])
+    hidden_size = 8
+    w1 = np.random.randn(2, hidden_size) * 0.5
+    b1 = np.zeros((1, hidden_size))
+    w2 = np.random.randn(hidden_size, 1) * 0.5
+    b2 = np.zeros((1, 1))
+    lr = 1.0
+    for epoca in range(5000):
+        h = sigmoid(X @ w1 + b1)
+        out = sigmoid(h @ w2 + b2)
+        errore = y - out
+        d_out = errore * out * (1 - out)
+        d_h = (d_out @ w2.T) * h * (1 - h)
+        w2 += lr * h.T @ d_out
+        b2 += lr * d_out.sum(axis=0, keepdims=True)
+        w1 += lr * X.T @ d_h
+        b1 += lr * d_h.sum(axis=0, keepdims=True)
+        if epoca % 1000 == 0:
+            mse = (errore**2).mean()
+            print(f"Epoca {epoca}: MSE = {mse:.4f}")
+    print(f"\nRisultati con {hidden_size} neuroni nascosti:")
+    for i in range(4):
+        print(f"  {X[i]} -> {out[i][0]:.3f} (atteso: {y[i][0]})")
+    ```
 
 ### Esercizio 3: MLPClassifier tuning
 
@@ -399,3 +462,35 @@ np.random.seed(42)
 # Stampa i risultati e trova la migliore
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    install="scikit-learn,numpy"
+    import numpy as np
+    from sklearn.neural_network import MLPClassifier
+    from sklearn.model_selection import cross_val_score
+    np.random.seed(42)
+    n = 200
+    X = np.random.rand(n, 4) * 10
+    y = ((X[:, 0] * X[:, 1]) > 25).astype(int)
+    configs = [
+        ("(10,)", (10,)),
+        ("(50,)", (50,)),
+        ("(10, 10)", (10, 10)),
+        ("(50, 25)", (50, 25)),
+        ("(100, 50, 25)", (100, 50, 25)),
+    ]
+    print("Configurazione     | Media  | Std")
+    print("-------------------|--------|-----")
+    migliore_score = 0
+    migliore_config = ""
+    for nome, layers in configs:
+        mlp = MLPClassifier(hidden_layer_sizes=layers, max_iter=500, random_state=42)
+        scores = cross_val_score(mlp, X, y, cv=5)
+        print(f"{nome:19s}| {scores.mean():.3f}  | {scores.std():.3f}")
+        if scores.mean() > migliore_score:
+            migliore_score = scores.mean()
+            migliore_config = nome
+    print(f"\nMigliore: {migliore_config} con score={migliore_score:.3f}")
+    ```

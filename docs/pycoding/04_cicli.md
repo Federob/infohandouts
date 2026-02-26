@@ -257,6 +257,16 @@ n = int(input("Inserisci N: "))
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    n = int(input("Inserisci N: "))
+    somma = 0
+    for i in range(1, n + 1):
+        somma += i
+    print(f"La somma da 1 a {n} è {somma}")
+    ```
+
 ### Esercizio 2: Fattoriale
 
 Calcola il fattoriale di un numero (es: 5! = 5 × 4 × 3 × 2 × 1 = 120). Attenzione: il fattoriale di 0 è 1!
@@ -268,6 +278,16 @@ n = int(input("Inserisci un numero: "))
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    n = int(input("Inserisci un numero: "))
+    fattoriale = 1
+    for i in range(1, n + 1):
+        fattoriale *= i
+    print(f"{n}! = {fattoriale}")
+    ```
+
 ### Esercizio 3: Numeri primi
 
 Stampa tutti i numeri primi da 2 a N. Un numero è primo se è divisibile solo per 1 e per se stesso. Hint: ti servirà un ciclo dentro un ciclo! 🤯
@@ -278,3 +298,18 @@ n = int(input("Inserisci N: "))
 # Stampa i numeri primi fino a N
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    n = int(input("Inserisci N: "))
+    print(f"Numeri primi da 2 a {n}:")
+    for num in range(2, n + 1):
+        is_primo = True
+        for div in range(2, num):
+            if num % div == 0:
+                is_primo = False
+                break
+        if is_primo:
+            print(num, end=" ")
+    ```

@@ -241,6 +241,16 @@ numero = int(input("Inserisci un numero: "))
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    numero = int(input("Inserisci un numero: "))
+    if numero % 2 == 0:
+        print(f"{numero} è pari")
+    else:
+        print(f"{numero} è dispari")
+    ```
+
 ### Esercizio 2: Calcolatrice
 
 Chiedi due numeri e un operatore (+, -, *, /) e stampa il risultato. Occhio alla divisione per zero!
@@ -254,6 +264,28 @@ n2 = float(input("Secondo numero: "))
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    n1 = float(input("Primo numero: "))
+    op = input("Operatore (+, -, *, /): ")
+    n2 = float(input("Secondo numero: "))
+
+    if op == "+":
+        print(f"Risultato: {n1 + n2}")
+    elif op == "-":
+        print(f"Risultato: {n1 - n2}")
+    elif op == "*":
+        print(f"Risultato: {n1 * n2}")
+    elif op == "/":
+        if n2 == 0:
+            print("Errore: divisione per zero!")
+        else:
+            print(f"Risultato: {n1 / n2}")
+    else:
+        print("Operatore non valido!")
+    ```
+
 ### Esercizio 3: Voto in lettere
 
 Converti un voto numerico (0-100) in una lettera: A (90-100), B (80-89), C (70-79), D (60-69), F (sotto 60).
@@ -264,3 +296,20 @@ voto = int(input("Inserisci il voto (0-100): "))
 # Converti in lettera e stampa
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    voto = int(input("Inserisci il voto (0-100): "))
+    if voto >= 90:
+        lettera = "A"
+    elif voto >= 80:
+        lettera = "B"
+    elif voto >= 70:
+        lettera = "C"
+    elif voto >= 60:
+        lettera = "D"
+    else:
+        lettera = "F"
+    print(f"Voto {voto} = {lettera}")
+    ```

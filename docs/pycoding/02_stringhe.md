@@ -267,6 +267,16 @@ parola = input("Scrivi una parola: ")
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    parola = input("Scrivi una parola: ")
+    print(f"Lunghezza: {len(parola)}")
+    print(f"Primo carattere: {parola[0]}")
+    print(f"Ultimo carattere: {parola[-1]}")
+    print(f"Maiuscolo: {parola.upper()}")
+    ```
+
 ### Esercizio 2: Inverti stringa
 
 Stampa una parola al contrario. Suggerimento: usa lo slicing con passo negativo `[::-1]` (sì, è una figata!).
@@ -277,6 +287,14 @@ parola = input("Scrivi una parola: ")
 # Inverti la parola e stampala
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    parola = input("Scrivi una parola: ")
+    invertita = parola[::-1]
+    print(f"Al contrario: {invertita}")
+    ```
 
 ### Esercizio 3: Conta vocali
 
@@ -289,3 +307,14 @@ vocali = 0
 # Conta le vocali (a, e, i, o, u) nella frase
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    frase = input("Scrivi una frase: ").lower()
+    vocali = 0
+    for carattere in frase:
+        if carattere in "aeiou":
+            vocali += 1
+    print(f"Vocali trovate: {vocali}")
+    ```

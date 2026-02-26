@@ -310,6 +310,28 @@ libro2 = Libro("Il Piccolo Principe", "Saint-Exupéry", 96)
 # Stampa le info e se è lungo o corto
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    class Libro:
+        def __init__(self, titolo, autore, pagine):
+            self.titolo = titolo
+            self.autore = autore
+            self.pagine = pagine
+
+        def is_lungo(self):
+            return self.pagine > 300
+
+        def __str__(self):
+            tipo = "lungo" if self.is_lungo() else "corto"
+            return f"'{self.titolo}' di {self.autore} ({self.pagine} pag.) - Libro {tipo}"
+
+    libro1 = Libro("Il Signore degli Anelli", "Tolkien", 1200)
+    libro2 = Libro("Il Piccolo Principe", "Saint-Exupery", 96)
+    print(libro1)
+    print(libro2)
+    ```
+
 ### Esercizio 2: Classe Dado
 
 Crea una classe `Dado` con un metodo `lancia()` che restituisce un numero casuale da 1 a 6, e un metodo `statistiche(n)` che lancia N volte e mostra quante volte esce ogni faccia. Tipo fare un esperimento di probabilità!
@@ -323,3 +345,26 @@ class Dado:
 
 # Test: lancia il dado 100 volte e mostra quante volte esce ogni numero
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    import random
+
+    class Dado:
+        def lancia(self):
+            return random.randint(1, 6)
+
+        def statistiche(self, n):
+            conteggio = {i: 0 for i in range(1, 7)}
+            for _ in range(n):
+                risultato = self.lancia()
+                conteggio[risultato] += 1
+            print(f"Statistiche su {n} lanci:")
+            for faccia, volte in conteggio.items():
+                percentuale = volte / n * 100
+                print(f"  Faccia {faccia}: {volte} volte ({percentuale:.1f}%)")
+
+    dado = Dado()
+    dado.statistiche(100)
+    ```

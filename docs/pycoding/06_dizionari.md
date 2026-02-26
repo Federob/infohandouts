@@ -264,6 +264,22 @@ parole = frase.split()
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    frase = "il gatto e il cane e il pesce"
+    parole = frase.split()
+    conteggio = {}
+    for parola in parole:
+        if parola in conteggio:
+            conteggio[parola] += 1
+        else:
+            conteggio[parola] = 1
+    print("Conteggio parole:")
+    for parola, n in conteggio.items():
+        print(f"  '{parola}': {n} volte")
+    ```
+
 ### Esercizio 2: Rubrica
 
 Crea una rubrica dove l'utente può aggiungere, cercare e visualizzare contatti. La tua prima app utile!
@@ -282,3 +298,24 @@ print("\nRubrica completa:")
 for nome, tel in rubrica.items():
     print(f"  {nome}: {tel}")
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    rubrica = {}
+
+    for i in range(3):
+        nome = input(f"Nome contatto {i+1}: ")
+        tel = input(f"Telefono di {nome}: ")
+        rubrica[nome] = tel
+
+    print("\nRubrica completa:")
+    for nome, tel in rubrica.items():
+        print(f"  {nome}: {tel}")
+
+    cerca = input("\nCerca un contatto: ")
+    if cerca in rubrica:
+        print(f"Trovato! {cerca}: {rubrica[cerca]}")
+    else:
+        print(f"{cerca} non trovato nella rubrica")
+    ```

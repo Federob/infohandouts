@@ -257,6 +257,37 @@ np.random.seed(42)
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    install="scikit-learn,numpy"
+    import numpy as np
+    from sklearn.linear_model import LogisticRegression
+    np.random.seed(42)
+    n = 200
+    eta = np.random.randint(18, 65, n)
+    competenza = np.random.uniform(0, 10, n)
+    assunto_biasato = ((competenza > 5) & (eta < 35)).astype(int)
+    X_bias = np.column_stack([eta, competenza])
+    model_bias = LogisticRegression(random_state=42)
+    model_bias.fit(X_bias, assunto_biasato)
+    giovane = model_bias.predict([[25, 7]])[0]
+    anziano = model_bias.predict([[55, 7]])[0]
+    print("=== MODELLO BIASATO ===")
+    print(f"Giovane (25 anni, competenza 7): {'Assunto' if giovane else 'Non assunto'}")
+    print(f"Senior (55 anni, competenza 7): {'Assunto' if anziano else 'Non assunto'}")
+    print("-> Il modello discrimina per eta!\n")
+    assunto_equo = (competenza > 5).astype(int)
+    model_equo = LogisticRegression(random_state=42)
+    model_equo.fit(X_bias, assunto_equo)
+    giovane2 = model_equo.predict([[25, 7]])[0]
+    anziano2 = model_equo.predict([[55, 7]])[0]
+    print("=== MODELLO CORRETTO ===")
+    print(f"Giovane (25 anni, competenza 7): {'Assunto' if giovane2 else 'Non assunto'}")
+    print(f"Senior (55 anni, competenza 7): {'Assunto' if anziano2 else 'Non assunto'}")
+    print("-> Ora conta solo la competenza!")
+    ```
+
 ### Esercizio 2: Discussione
 
 Per ognuno di questi scenari, scrivi (come commento nel codice) se pensi che l'uso dell'IA sia etico o no, e perche':
@@ -278,6 +309,30 @@ for i, s in enumerate(scenari, 1):
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    scenari = [
+        "Un'IA che seleziona i CV per un'azienda",
+        "Un'IA che consiglia quale film guardare su Netflix",
+        "Un'IA che decide se concedere un mutuo",
+        "Un'IA che genera i compiti in classe",
+        "Un'IA che monitora gli studenti durante un esame online",
+        "Un'IA che prevede quali studenti sono a rischio bocciatura",
+    ]
+    risposte = [
+        "ATTENZIONE - Rischio alto di bias (genere, eta, etnia). Serve supervisione umana.",
+        "OK - Basso rischio, al massimo suggerisce un film brutto.",
+        "ATTENZIONE - Puo discriminare per quartiere, etnia. Servono regole GDPR.",
+        "OK con cautela - Utile ma il prof deve verificare la qualita.",
+        "PROBLEMATICO - Rischio privacy, stress, falsi positivi su comportamenti normali.",
+        "UTILE ma DELICATO - Puo aiutare se usata per supportare, non per etichettare.",
+    ]
+    for i, (s, r) in enumerate(zip(scenari, risposte), 1):
+        print(f"{i}. {s}")
+        print(f"   -> {r}\n")
+    ```
+
 ### Esercizio 3: Modello interpretabile vs black box
 
 Addestra sia un albero di decisione che una rete neurale sullo stesso dataset. Mostra come l'albero è interpretabile (puoi vedere le regole) mentre la rete neurale è una scatola nera.
@@ -298,3 +353,37 @@ np.random.seed(42)
 # Mostra che la rete neurale non offre la stessa interpretabilita'
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    install="scikit-learn,numpy"
+    import numpy as np
+    from sklearn.tree import DecisionTreeClassifier
+    from sklearn.neural_network import MLPClassifier
+    from sklearn.model_selection import train_test_split
+    np.random.seed(42)
+    n = 200
+    ore = np.random.uniform(0, 10, n)
+    assenze = np.random.randint(0, 30, n)
+    media = np.random.uniform(3, 10, n)
+    y = ((ore > 4) & (assenze < 15) & (media > 5.5)).astype(int)
+    X = np.column_stack([ore, assenze, media])
+    nomi = ["ore_studio", "assenze", "media"]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    tree = DecisionTreeClassifier(max_depth=3, random_state=42)
+    tree.fit(X_train, y_train)
+    mlp = MLPClassifier(hidden_layer_sizes=(50, 25), max_iter=500, random_state=42)
+    mlp.fit(X_train, y_train)
+    print("=== ALBERO DI DECISIONE (Interpretabile) ===")
+    print(f"Accuracy: {tree.score(X_test, y_test):.3f}")
+    print("Importanza delle feature:")
+    for nome, imp in zip(nomi, tree.feature_importances_):
+        barra = "#" * int(imp * 30)
+        print(f"  {nome:12s}: {imp:.3f} {barra}")
+    print("\n=== RETE NEURALE (Scatola nera) ===")
+    print(f"Accuracy: {mlp.score(X_test, y_test):.3f}")
+    print(f"Pesi: {len(mlp.coefs_)} matrici di pesi")
+    print(f"Totale parametri: {sum(w.size for w in mlp.coefs_)}")
+    print("-> Non possiamo capire COME decide!")
+    ```

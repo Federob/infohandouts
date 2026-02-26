@@ -241,6 +241,18 @@ voti = []
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    voti = []
+    for i in range(5):
+        voto = float(input(f"Inserisci voto {i+1}: "))
+        voti.append(voto)
+    media = sum(voti) / len(voti)
+    print(f"Voti: {voti}")
+    print(f"Media: {media:.1f}")
+    ```
+
 ### Esercizio 2: Lista senza duplicati
 
 Data una lista, crea una nuova lista senza elementi duplicati. Tipo fare pulizia nel cassetto dei calzini!
@@ -252,6 +264,15 @@ numeri = [1, 3, 5, 3, 7, 1, 9, 5, 3]
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    numeri = [1, 3, 5, 3, 7, 1, 9, 5, 3]
+    senza_duplicati = list(set(numeri))
+    print(f"Originale: {numeri}")
+    print(f"Senza duplicati: {senza_duplicati}")
+    ```
+
 ### Esercizio 3: Inversione lista
 
 Inverti una lista senza usare il metodo `reverse()` o lo slicing `[::-1]`. Sì, devi farlo "a mano"! Usa un ciclo.
@@ -262,3 +283,14 @@ originale = [10, 20, 30, 40, 50]
 # Inverti la lista manualmente con un ciclo
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    originale = [10, 20, 30, 40, 50]
+    invertita = []
+    for i in range(len(originale) - 1, -1, -1):
+        invertita.append(originale[i])
+    print(f"Originale: {originale}")
+    print(f"Invertita: {invertita}")
+    ```

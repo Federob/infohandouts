@@ -288,6 +288,23 @@ y = np.array([5, 10, 14, 20, 24, 30], dtype=float)
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    import numpy as np
+    X = np.array([2, 4, 6, 8, 10, 12], dtype=float)
+    y = np.array([5, 10, 14, 20, 24, 30], dtype=float)
+    for lr in [0.001, 0.01, 0.1]:
+        m, b = 0.0, 0.0
+        for epoca in range(100):
+            y_pred = m * X + b
+            errore = y_pred - y
+            m -= lr * (2/len(X)) * sum(errore * X)
+            b -= lr * (2/len(X)) * sum(errore)
+        mse = sum((y - (m * X + b))**2) / len(X)
+        print(f"lr={lr}: m={m:.3f}, b={b:.3f}, MSE={mse:.3f}")
+    ```
+
 ### Esercizio 2: Regressione con sklearn
 
 Crea un dataset dove il voto dipende da ORE DI STUDIO e VOTO PRECEDENTE (2 features). Addestra un modello di regressione lineare e fai delle previsioni.
@@ -307,6 +324,30 @@ np.random.seed(42)
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide install="scikit-learn,numpy"
+    import numpy as np
+    from sklearn.linear_model import LinearRegression
+    from sklearn.model_selection import train_test_split
+    np.random.seed(42)
+    n = 100
+    ore = np.random.uniform(0, 10, n)
+    voto_prec = np.random.uniform(4, 10, n)
+    voto = 2 + 0.5 * ore + 0.3 * voto_prec + np.random.normal(0, 0.5, n)
+    X = np.column_stack([ore, voto_prec])
+    y = voto
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    modello = LinearRegression()
+    modello.fit(X_train, y_train)
+    r2 = modello.score(X_test, y_test)
+    print(f"Coefficienti: ore={modello.coef_[0]:.3f}, voto_prec={modello.coef_[1]:.3f}")
+    print(f"Intercetta: {modello.intercept_:.3f}")
+    print(f"R2 sul test: {r2:.3f}")
+    nuovo = np.array([[5, 7]])
+    print(f"\nPrevisione (5h studio, media 7): {modello.predict(nuovo)[0]:.1f}")
+    ```
+
 ### Esercizio 3: Confronto visuale
 
 Genera 3 dataset diversi (uno molto lineare, uno con tanto rumore, uno non lineare) e mostra come la regressione lineare funziona bene solo sul primo.
@@ -325,3 +366,29 @@ np.random.seed(42)
 # Per ognuno: addestra, prevedi, calcola R2, plotta
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide install="scikit-learn,numpy,matplotlib"
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from sklearn.linear_model import LinearRegression
+    np.random.seed(42)
+    fig, axes = plt.subplots(1, 3, figsize=(12, 4))
+    titoli = ["Molto lineare", "Molto rumore", "Non lineare"]
+    for i, ax in enumerate(axes):
+        X = np.linspace(0, 10, 50).reshape(-1, 1)
+        if i == 0:
+            y = 2 * X.ravel() + 1 + np.random.normal(0, 0.5, 50)
+        elif i == 1:
+            y = 2 * X.ravel() + 1 + np.random.normal(0, 5, 50)
+        else:
+            y = 0.5 * X.ravel()**2 + np.random.normal(0, 1, 50)
+        modello = LinearRegression().fit(X, y)
+        r2 = modello.score(X, y)
+        ax.scatter(X, y, alpha=0.5)
+        ax.plot(X, modello.predict(X), color="red", linewidth=2)
+        ax.set_title(f"{titoli[i]}\nR2 = {r2:.3f}")
+    plt.tight_layout()
+    plt.show()
+    ```

@@ -250,6 +250,22 @@ problemi = [
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    problemi = [
+        ("Prevedere se pioverà domani basandosi sui dati meteo storici", "Supervisionato", "ha dati etichettati (pioggia si/no)"),
+        ("Raggruppare le canzoni di Spotify per genere senza etichette", "Non supervisionato", "nessuna etichetta, trova gruppi"),
+        ("Insegnare a un drone a volare evitando ostacoli", "Per rinforzo", "impara per tentativi ed errori"),
+        ("Riconoscere le cifre scritte a mano (con immagini etichettate)", "Supervisionato", "ha le etichette delle cifre"),
+        ("Trovare gruppi di clienti simili in un negozio online", "Non supervisionato", "clustering senza etichette"),
+        ("Allenare un'IA a giocare a Mario Kart", "Per rinforzo", "impara giocando e ricevendo premi"),
+    ]
+    for problema, tipo, motivo in problemi:
+        print(f"- {problema}")
+        print(f"  -> {tipo}: {motivo}\n")
+    ```
+
 ### Esercizio 2: Crea un dataset
 
 Crea un dataset (come lista di dizionari) con almeno 8 studenti. Ogni studente deve avere: ore di studio, partecipazione (1-10), voto. Poi dividilo in training e test set.
@@ -262,6 +278,32 @@ Crea un dataset (come lista di dizionari) con almeno 8 studenti. Ogni studente d
 # Stampa entrambi i set
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    studenti = [
+        {"ore_studio": 5, "partecipazione": 8, "voto": 8},
+        {"ore_studio": 2, "partecipazione": 4, "voto": 5},
+        {"ore_studio": 7, "partecipazione": 9, "voto": 9},
+        {"ore_studio": 1, "partecipazione": 3, "voto": 4},
+        {"ore_studio": 4, "partecipazione": 7, "voto": 7},
+        {"ore_studio": 6, "partecipazione": 8, "voto": 8},
+        {"ore_studio": 3, "partecipazione": 5, "voto": 6},
+        {"ore_studio": 8, "partecipazione": 10, "voto": 10},
+        {"ore_studio": 2, "partecipazione": 6, "voto": 5},
+        {"ore_studio": 5, "partecipazione": 7, "voto": 7},
+    ]
+    split = int(len(studenti) * 0.8)
+    training = studenti[:split]
+    test = studenti[split:]
+    print(f"Training set ({len(training)} studenti):")
+    for s in training:
+        print(f"  {s}")
+    print(f"\nTest set ({len(test)} studenti):")
+    for s in test:
+        print(f"  {s}")
+    ```
 
 ### Esercizio 3: Trova il pattern
 
@@ -291,3 +333,19 @@ def formula(x):
 # Test
 # print(f"Se input = 10 → output = {formula(10)}")
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    dati = [(1, 5), (2, 8), (3, 11), (4, 14), (5, 17), (6, 20)]
+    print("Input -> Output")
+    for x, y in dati:
+        print(f"  {x}    ->  {y}")
+
+    def formula(x):
+        return 3 * x + 2
+
+    print(f"\nLa formula e': y = 3x + 2")
+    print(f"Se input = 10 -> output = {formula(10)}")
+    print(f"Verifica: {formula(1)} {formula(2)} {formula(3)}")
+    ```

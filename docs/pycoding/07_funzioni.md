@@ -272,6 +272,21 @@ print(massimo(3, 7, 5))   # Deve stampare 7
 print(massimo(10, 2, 8))  # Deve stampare 10
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    def massimo(a, b, c):
+        if a >= b and a >= c:
+            return a
+        elif b >= a and b >= c:
+            return b
+        else:
+            return c
+
+    print(massimo(3, 7, 5))
+    print(massimo(10, 2, 8))
+    ```
+
 ### Esercizio 2: Funzione palindroma
 
 Scrivi una funzione che controlla se una parola è un **palindromo** (si legge uguale da sinistra a destra e viceversa). "anna", "radar", "osso"... ci siamo capiti!
@@ -287,6 +302,17 @@ print(is_palindroma("ciao"))    # False
 print(is_palindroma("radar"))   # True
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    def is_palindroma(parola):
+        return parola == parola[::-1]
+
+    print(is_palindroma("anna"))
+    print(is_palindroma("ciao"))
+    print(is_palindroma("radar"))
+    ```
+
 ### Esercizio 3: Fibonacci
 
 Scrivi una funzione che restituisce l'n-esimo numero della sequenza di Fibonacci (1, 1, 2, 3, 5, 8, 13...). Ogni numero è la somma dei due precedenti!
@@ -300,3 +326,18 @@ def fibonacci(n):
 for i in range(1, 11):
     print(fibonacci(i), end=" ")
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    def fibonacci(n):
+        if n <= 2:
+            return 1
+        a, b = 1, 1
+        for _ in range(n - 2):
+            a, b = b, a + b
+        return b
+
+    for i in range(1, 11):
+        print(fibonacci(i), end=" ")
+    ```

@@ -357,6 +357,45 @@ np.random.seed(42)
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    install="scikit-learn,numpy"
+    import numpy as np
+    from sklearn.model_selection import train_test_split, cross_val_score
+    from sklearn.preprocessing import MinMaxScaler
+    from sklearn.neighbors import KNeighborsClassifier
+    from sklearn.tree import DecisionTreeClassifier
+    from sklearn.neural_network import MLPClassifier
+    np.random.seed(42)
+    n = 200
+    eta = np.random.randint(18, 65, n)
+    reddito = np.random.uniform(15000, 80000, n)
+    visite = np.random.randint(1, 50, n)
+    compra = ((reddito > 35000) & (visite > 15) | (eta < 30) & (visite > 25)).astype(int)
+    X = np.column_stack([eta, reddito, visite])
+    y = compra
+    scaler = MinMaxScaler()
+    X_norm = scaler.fit_transform(X)
+    X_train, X_test, y_train, y_test = train_test_split(X_norm, y, test_size=0.2, random_state=42)
+    modelli = {
+        "KNN": KNeighborsClassifier(n_neighbors=5),
+        "Albero": DecisionTreeClassifier(max_depth=5, random_state=42),
+        "MLP": MLPClassifier(hidden_layer_sizes=(50, 25), max_iter=500, random_state=42),
+    }
+    print("Modello | CV Score")
+    print("--------|--------")
+    for nome, modello in modelli.items():
+        score = cross_val_score(modello, X_train, y_train, cv=5).mean()
+        print(f"{nome:7s} | {score:.3f}")
+    nuovo_cliente = scaler.transform([[25, 45000, 30]])
+    print(f"\nNuovo cliente (25 anni, 45000 reddito, 30 visite):")
+    for nome, modello in modelli.items():
+        modello.fit(X_train, y_train)
+        pred = modello.predict(nuovo_cliente)
+        print(f"  {nome}: {'Comprera!' if pred[0] else 'Non comprera'}")
+    ```
+
 ### Esercizio 2: Migliora il modello
 
 Partendo dal progetto di questo capitolo, prova a migliorare l'accuracy con:
@@ -368,3 +407,36 @@ Partendo dal progetto di questo capitolo, prova a migliorare l'accuracy con:
 # Il tuo codice per migliorare il modello
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    install="scikit-learn,numpy"
+    import numpy as np
+    from sklearn.model_selection import train_test_split, cross_val_score
+    from sklearn.preprocessing import MinMaxScaler
+    from sklearn.tree import DecisionTreeClassifier
+    np.random.seed(42)
+    n = 300
+    ore = np.random.uniform(0, 10, n)
+    assenze = np.random.randint(0, 30, n)
+    media = np.random.uniform(3, 10, n)
+    ore_x_media = ore * media
+    studio_netto = ore - assenze * 0.2
+    X = np.column_stack([ore, assenze, media, ore_x_media, studio_netto])
+    y = ((ore > 4) & (assenze < 15) & (media > 5.5)).astype(int)
+    scaler = MinMaxScaler()
+    X_norm = scaler.fit_transform(X)
+    X_train, X_test, y_train, y_test = train_test_split(X_norm, y, test_size=0.2, random_state=42)
+    print("Grid Search su Albero di Decisione con feature engineering:\n")
+    migliore = {"score": 0}
+    for depth in [3, 5, 7, 10]:
+        for min_split in [2, 5, 10]:
+            tree = DecisionTreeClassifier(max_depth=depth, min_samples_split=min_split, random_state=42)
+            score = cross_val_score(tree, X_train, y_train, cv=5).mean()
+            if score > migliore["score"]:
+                migliore = {"depth": depth, "split": min_split, "score": score}
+    print(f"Migliori parametri: max_depth={migliore['depth']}, min_samples_split={migliore['split']}")
+    print(f"CV Score: {migliore['score']:.3f}")
+    print(f"\n5 features usate (3 originali + 2 ingegnerizzate)")
+    ```

@@ -285,6 +285,35 @@ np.random.shuffle(X)
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    install="numpy,matplotlib"
+    import numpy as np
+    import matplotlib.pyplot as plt
+    np.random.seed(42)
+    g1 = np.random.randn(40, 2) + [3, 3]
+    g2 = np.random.randn(40, 2) + [7, 7]
+    X = np.vstack([g1, g2])
+    np.random.shuffle(X)
+    K = 2
+    idx = np.random.choice(len(X), K, replace=False)
+    centroidi = X[idx].copy()
+    for iterazione in range(10):
+        distanze = np.array([[np.sqrt(((x - c)**2).sum()) for c in centroidi] for x in X])
+        cluster = distanze.argmin(axis=1)
+        nuovi = np.array([X[cluster == k].mean(axis=0) for k in range(K)])
+        if np.allclose(centroidi, nuovi):
+            print(f"Convergenza dopo {iterazione + 1} iterazioni!")
+            break
+        centroidi = nuovi
+        print(f"Iterazione {iterazione+1}: centroidi = {centroidi.round(2)}")
+    plt.scatter(X[:, 0], X[:, 1], c=cluster, cmap="viridis", alpha=0.5)
+    plt.scatter(centroidi[:, 0], centroidi[:, 1], c="red", marker="X", s=200)
+    plt.title("K-Means fatto a mano!")
+    plt.show()
+    ```
+
 ### Esercizio 2: Trovare K con il gomito
 
 Genera un dataset con 5 cluster e usa il metodo del gomito per trovare il numero corretto.
@@ -304,6 +333,31 @@ np.random.seed(42)
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    install="scikit-learn,numpy,matplotlib"
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from sklearn.cluster import KMeans
+    np.random.seed(42)
+    centri = [[2, 2], [8, 8], [2, 8], [8, 2], [5, 5]]
+    X = np.vstack([np.random.randn(30, 2) + c for c in centri])
+    inertie = []
+    K_range = range(1, 11)
+    for k in K_range:
+        km = KMeans(n_clusters=k, random_state=42, n_init=10)
+        km.fit(X)
+        inertie.append(km.inertia_)
+    plt.plot(K_range, inertie, "bo-")
+    plt.xlabel("Numero di cluster (K)")
+    plt.ylabel("Inerzia")
+    plt.title("Metodo del gomito")
+    plt.axvline(x=5, color="r", linestyle="--", label="K ottimale = 5")
+    plt.legend()
+    plt.show()
+    ```
+
 ### Esercizio 3: Segmentazione
 
 Crea un dataset di "clienti" con 3 features (eta, spesa_mensile, visite_mensili) e usa K-Means per trovare profili di clienti. Descrivi i profili trovati.
@@ -322,3 +376,29 @@ np.random.seed(42)
 # Analizza e descrivi i profili trovati
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    install="scikit-learn,numpy"
+    import numpy as np
+    from sklearn.cluster import KMeans
+    from sklearn.preprocessing import MinMaxScaler
+    np.random.seed(42)
+    n = 150
+    eta = np.random.randint(18, 70, n)
+    spesa = np.random.uniform(10, 500, n)
+    visite = np.random.randint(1, 30, n)
+    X = np.column_stack([eta, spesa, visite])
+    scaler = MinMaxScaler()
+    X_norm = scaler.fit_transform(X)
+    km = KMeans(n_clusters=3, random_state=42, n_init=10)
+    cluster = km.fit_predict(X_norm)
+    print("Profili clienti trovati:\n")
+    for k in range(3):
+        punti = X[cluster == k]
+        print(f"Cluster {k+1} ({len(punti)} clienti):")
+        print(f"  Eta media: {punti[:, 0].mean():.0f} anni")
+        print(f"  Spesa media: {punti[:, 1].mean():.0f} euro")
+        print(f"  Visite medie: {punti[:, 2].mean():.0f} al mese\n")
+    ```

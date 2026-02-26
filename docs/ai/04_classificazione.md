@@ -332,6 +332,31 @@ np.random.seed(42)
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    install="scikit-learn,numpy"
+    import numpy as np
+    from sklearn.neighbors import KNeighborsClassifier
+    from sklearn.model_selection import train_test_split
+    from sklearn.metrics import accuracy_score, precision_score, recall_score
+    np.random.seed(42)
+    n = 150
+    ore = np.random.uniform(0, 10, n)
+    assenze = np.random.randint(0, 30, n)
+    media = np.random.uniform(3, 10, n)
+    promosso = ((ore > 4) & (assenze < 15) & (media > 5.5)).astype(int)
+    X = np.column_stack([ore, assenze, media])
+    y = promosso
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    knn = KNeighborsClassifier(n_neighbors=5)
+    knn.fit(X_train, y_train)
+    y_pred = knn.predict(X_test)
+    print(f"Accuracy:  {accuracy_score(y_test, y_pred):.3f}")
+    print(f"Precision: {precision_score(y_test, y_pred):.3f}")
+    print(f"Recall:    {recall_score(y_test, y_pred):.3f}")
+    ```
+
 ### Esercizio 2: Scegliere K
 
 Prova KNN con diversi valori di K (1, 3, 5, 7, 9, 11) e trova quello che dà l'accuracy migliore sul test set.
@@ -351,6 +376,34 @@ np.random.seed(42)
 # Qual e' il K migliore?
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    install="scikit-learn,numpy"
+    import numpy as np
+    from sklearn.neighbors import KNeighborsClassifier
+    from sklearn.model_selection import train_test_split
+    from sklearn.metrics import accuracy_score
+    np.random.seed(42)
+    n = 150
+    X = np.random.rand(n, 3) * 10
+    y = (X[:, 0] + X[:, 1] > 10).astype(int)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    migliore_k = 1
+    migliore_acc = 0
+    print("K  | Accuracy")
+    print("---|--------")
+    for k in [1, 3, 5, 7, 9, 11]:
+        knn = KNeighborsClassifier(n_neighbors=k)
+        knn.fit(X_train, y_train)
+        acc = accuracy_score(y_test, knn.predict(X_test))
+        print(f"{k:2d} | {acc:.3f}")
+        if acc > migliore_acc:
+            migliore_acc = acc
+            migliore_k = k
+    print(f"\nMigliore: K={migliore_k} con accuracy={migliore_acc:.3f}")
+    ```
 
 ### Esercizio 3: Albero vs KNN
 
@@ -372,3 +425,32 @@ np.random.seed(42)
 # Stampa una tabella con i risultati
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    install="scikit-learn,numpy"
+    import numpy as np
+    from sklearn.neighbors import KNeighborsClassifier
+    from sklearn.tree import DecisionTreeClassifier
+    from sklearn.model_selection import train_test_split
+    from sklearn.metrics import accuracy_score
+    np.random.seed(42)
+    n = 200
+    X = np.random.rand(n, 3) * 10
+    y = (X[:, 0] * 0.5 + X[:, 1] * 0.3 + X[:, 2] * 0.2 > 5).astype(int)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    print("Modello              | Parametro      | Accuracy")
+    print("---------------------|----------------|--------")
+    for k in [3, 5, 7]:
+        knn = KNeighborsClassifier(n_neighbors=k)
+        knn.fit(X_train, y_train)
+        acc = accuracy_score(y_test, knn.predict(X_test))
+        print(f"KNN                  | K={k}            | {acc:.3f}")
+    for d in [3, 5, None]:
+        tree = DecisionTreeClassifier(max_depth=d, random_state=42)
+        tree.fit(X_train, y_train)
+        acc = accuracy_score(y_test, tree.predict(X_test))
+        label = f"max_depth={d}" if d else "max_depth=None"
+        print(f"Albero decisione     | {label:14s} | {acc:.3f}")
+    ```

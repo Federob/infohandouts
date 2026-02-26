@@ -300,6 +300,20 @@ matrice = [
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    matrice = [
+        [5, 2, 3],
+        [1, 8, 6],
+        [4, 7, 9]
+    ]
+    somma = 0
+    for i in range(len(matrice)):
+        somma += matrice[i][i]
+    print(f"Somma diagonale: {somma}")
+    ```
+
 ### Esercizio 2: Matrice moltiplicata per scalare
 
 Moltiplica tutti gli elementi di una matrice per un numero. Tipo lo zoom di una foto, ma con i numeri!
@@ -314,6 +328,25 @@ scalare = 3
 # Moltiplica ogni elemento per lo scalare e stampa il risultato
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    matrice = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ]
+    scalare = 3
+    risultato = []
+    for riga in matrice:
+        nuova_riga = []
+        for elemento in riga:
+            nuova_riga.append(elemento * scalare)
+        risultato.append(nuova_riga)
+    print("Risultato:")
+    for riga in risultato:
+        print(riga)
+    ```
 
 ### Esercizio 3: Cerca nella matrice
 
@@ -331,3 +364,22 @@ valore = int(input("Che numero cerchi? "))
 # Cerca il valore e stampa la posizione
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    matrice = [
+        [10, 20, 30],
+        [40, 50, 60],
+        [70, 80, 90]
+    ]
+    valore = int(input("Che numero cerchi? "))
+    trovato = False
+    for i in range(len(matrice)):
+        for j in range(len(matrice[i])):
+            if matrice[i][j] == valore:
+                print(f"Trovato {valore} alla posizione ({i}, {j})")
+                trovato = True
+    if not trovato:
+        print(f"{valore} non trovato nella matrice")
+    ```

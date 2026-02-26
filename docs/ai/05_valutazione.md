@@ -256,6 +256,35 @@ np.random.seed(42)
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    install="numpy,matplotlib"
+    import numpy as np
+    import matplotlib.pyplot as plt
+    np.random.seed(42)
+    X = np.linspace(0, 6, 30)
+    y = np.sin(X) + np.random.normal(0, 0.3, 30)
+    split = 20
+    X_train, X_test = X[:split], X[split:]
+    y_train, y_test = y[:split], y[split:]
+    gradi = [1, 3, 5, 10, 15]
+    fig, axes = plt.subplots(1, len(gradi), figsize=(15, 3))
+    for ax, grado in zip(axes, gradi):
+        coeff = np.polyfit(X_train, y_train, grado)
+        p = np.poly1d(coeff)
+        train_err = np.mean((y_train - p(X_train))**2)
+        test_err = np.mean((y_test - p(X_test))**2)
+        X_plot = np.linspace(0, 6, 100)
+        ax.scatter(X_train, y_train, c="blue", s=20)
+        ax.scatter(X_test, y_test, c="red", s=20)
+        ax.plot(X_plot, p(X_plot), "g-")
+        ax.set_title(f"Grado {grado}\nTrain:{train_err:.2f} Test:{test_err:.2f}")
+        ax.set_ylim(-2, 2)
+    plt.tight_layout()
+    plt.show()
+    ```
+
 ### Esercizio 2: Cross-validation
 
 Usa la cross-validation per confrontare KNN e albero di decisione sullo stesso dataset. Quale modello e' piu' stabile (std piu' bassa)?
@@ -276,6 +305,31 @@ np.random.seed(42)
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    install="scikit-learn,numpy"
+    import numpy as np
+    from sklearn.neighbors import KNeighborsClassifier
+    from sklearn.tree import DecisionTreeClassifier
+    from sklearn.model_selection import cross_val_score
+    np.random.seed(42)
+    n = 200
+    X = np.random.rand(n, 3) * 10
+    y = (X[:, 0] + X[:, 1] > 10).astype(int)
+    modelli = {
+        "KNN (k=5)": KNeighborsClassifier(n_neighbors=5),
+        "Albero (depth=5)": DecisionTreeClassifier(max_depth=5, random_state=42),
+    }
+    print("Modello          | Media    | Std")
+    print("-----------------|----------|-----")
+    for nome, modello in modelli.items():
+        scores = cross_val_score(modello, X, y, cv=5)
+        print(f"{nome:17s}| {scores.mean():.3f}    | {scores.std():.3f}")
+        stabile = "KNN" if scores.std() < 0.05 else "Albero"
+    print(f"\nPiu' stabile: quello con std piu' bassa")
+    ```
+
 ### Esercizio 3: Grid Search completo
 
 Fai un grid search per un albero di decisione provando diverse combinazioni di max_depth (1-10) e min_samples_split (2, 5, 10). Trova la combinazione migliore.
@@ -294,3 +348,29 @@ np.random.seed(42)
 # Stampa la tabella dei risultati e il vincitore
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    install="scikit-learn,numpy"
+    import numpy as np
+    from sklearn.tree import DecisionTreeClassifier
+    from sklearn.model_selection import cross_val_score
+    np.random.seed(42)
+    n = 200
+    X = np.random.rand(n, 4) * 10
+    y = (X[:, 0] + X[:, 1] * 0.5 > 7).astype(int)
+    migliore_score = 0
+    migliore_params = {}
+    print("max_depth | min_samples_split | CV Score")
+    print("----------|-------------------|--------")
+    for depth in range(1, 11):
+        for min_split in [2, 5, 10]:
+            tree = DecisionTreeClassifier(max_depth=depth, min_samples_split=min_split, random_state=42)
+            score = cross_val_score(tree, X, y, cv=5).mean()
+            print(f"    {depth:2d}    |        {min_split:2d}         | {score:.3f}")
+            if score > migliore_score:
+                migliore_score = score
+                migliore_params = {"max_depth": depth, "min_samples_split": min_split}
+    print(f"\nMigliore: {migliore_params} con score={migliore_score:.3f}")
+    ```

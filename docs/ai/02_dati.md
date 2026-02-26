@@ -324,6 +324,24 @@ np.random.seed(123)
 
 ```
 
+??? success "Soluzione"
+
+    ```pyodide
+    import numpy as np
+    np.random.seed(123)
+    ore_studio = np.random.uniform(0, 10, 50)
+    media_prec = np.random.uniform(4, 10, 50)
+    dataset = np.column_stack([ore_studio, media_prec])
+    nomi = ["Ore di studio", "Media precedente"]
+    for i, nome in enumerate(nomi):
+        col = dataset[:, i]
+        print(f"{nome}:")
+        print(f"  Media: {col.mean():.2f}")
+        print(f"  Min: {col.min():.2f}")
+        print(f"  Max: {col.max():.2f}")
+        print(f"  Std: {col.std():.2f}\n")
+    ```
+
 ### Esercizio 2: Visualizza e normalizza
 
 Genera un dataset con 2 features su scale molto diverse (es. altezza in cm e peso in kg), visualizzalo con uno scatter plot, poi normalizzalo e visualizzalo di nuovo.
@@ -343,6 +361,29 @@ np.random.seed(42)
 # Visualizza DOPO la normalizzazione
 
 ```
+
+??? success "Soluzione"
+
+    ```pyodide install="matplotlib,numpy"
+    import numpy as np
+    import matplotlib.pyplot as plt
+    np.random.seed(42)
+    altezza = np.random.uniform(150, 190, 50)
+    peso = np.random.uniform(45, 95, 50)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
+    ax1.scatter(altezza, peso)
+    ax1.set_xlabel("Altezza (cm)")
+    ax1.set_ylabel("Peso (kg)")
+    ax1.set_title("Prima della normalizzazione")
+    alt_norm = (altezza - altezza.min()) / (altezza.max() - altezza.min())
+    peso_norm = (peso - peso.min()) / (peso.max() - peso.min())
+    ax2.scatter(alt_norm, peso_norm)
+    ax2.set_xlabel("Altezza (normalizzata)")
+    ax2.set_ylabel("Peso (normalizzato)")
+    ax2.set_title("Dopo la normalizzazione")
+    plt.tight_layout()
+    plt.show()
+    ```
 
 ### Esercizio 3: Train/test split personalizzato
 
@@ -364,3 +405,27 @@ y = np.random.randint(0, 2, 20)
 
 # X_train, X_test, y_train, y_test = split_dataset(X, y, test_size=0.2)
 ```
+
+??? success "Soluzione"
+
+    ```pyodide
+    import numpy as np
+
+    def split_dataset(X, y, test_size=0.2, seed=42):
+        np.random.seed(seed)
+        n = len(X)
+        indici = np.arange(n)
+        np.random.shuffle(indici)
+        n_test = int(n * test_size)
+        test_idx = indici[:n_test]
+        train_idx = indici[n_test:]
+        return X[train_idx], X[test_idx], y[train_idx], y[test_idx]
+
+    np.random.seed(42)
+    X = np.random.rand(20, 2)
+    y = np.random.randint(0, 2, 20)
+    X_train, X_test, y_train, y_test = split_dataset(X, y, test_size=0.2)
+    print(f"Dataset totale: {len(X)}")
+    print(f"Training set: {len(X_train)}")
+    print(f"Test set: {len(X_test)}")
+    ```

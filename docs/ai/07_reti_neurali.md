@@ -30,7 +30,7 @@ Formula: `output = attivazione(w1*x1 + w2*x2 + ... + bias)`
 
 Il **perceptrone** è il neurone artificiale più semplice: un singolo neurone che prende decisioni binarie (sì/no, 0/1). Proviamo a farlo funzionare come una porta logica AND:
 
-```pyodide
+```pyodide install="numpy"
 import numpy as np
 
 # Porta AND: entrambi gli input devono essere 1
@@ -95,7 +95,7 @@ for inputs, target in dati_and:
 
 La funzione di attivazione decide se il neurone "si attiva" o no. Ce ne sono diverse, ognuna con le sue caratteristiche:
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -154,7 +154,7 @@ Layer        Layer         Layer
 
 Il **forward pass** è il calcolo che va dagli input all'output: moltiplica per i pesi, somma, attiva, ripeti per ogni strato.
 
-```pyodide
+```pyodide install="numpy"
 import numpy as np
 
 def sigmoid(x):
@@ -213,7 +213,7 @@ In termini tecnici: si calcola quanto ogni peso ha contribuito all'errore, e si 
 
 Ecco il grande momento: una rete neurale addestrata da zero con numpy! Risolviamo XOR, il problema che un singolo perceptrone non poteva risolvere:
 
-```pyodide
+```pyodide install="numpy"
 import numpy as np
 
 def sigmoid(x):
@@ -281,7 +281,7 @@ print("\nFunziona! Il perceptrone singolo non poteva, la rete a 2 strati SI!")
 
 Scrivere la rete a mano è educativo, ma per progetti veri usiamo `MLPClassifier` di sklearn:
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split
@@ -355,7 +355,7 @@ flowchart LR
 
 Modifica il perceptrone per imparare la porta OR e la porta NAND. Funziona per tutte?
 
-```pyodide
+```pyodide install="numpy"
 import numpy as np
 
 # Dati OR
@@ -370,7 +370,7 @@ dati_nand = [([0, 0], 1), ([0, 1], 1), ([1, 0], 1), ([1, 1], 0)]
 
 ??? success "Soluzione"
 
-    ```pyodide
+    ```pyodide install="numpy"
     import numpy as np
 
     def perceptrone(dati, nome, lr=0.1, epoche=100):
@@ -401,7 +401,7 @@ dati_nand = [([0, 0], 1), ([0, 1], 1), ([1, 0], 1), ([1, 1], 0)]
 
 Modifica la rete neurale numpy per avere 8 neuroni nello strato nascosto invece di 4. Converge piu' velocemente o piu' lentamente?
 
-```pyodide
+```pyodide install="numpy"
 import numpy as np
 
 # Modifica la rete XOR con 8 neuroni nascosti
@@ -412,7 +412,7 @@ import numpy as np
 
 ??? success "Soluzione"
 
-    ```pyodide
+    ```pyodide install="numpy"
     import numpy as np
     np.random.seed(42)
     def sigmoid(x):
@@ -448,7 +448,7 @@ import numpy as np
 
 Prova diverse configurazioni di MLPClassifier (numero di strati, neuroni, learning rate) e trova quella con l'accuracy migliore usando cross-validation.
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import cross_val_score
@@ -465,8 +465,7 @@ np.random.seed(42)
 
 ??? success "Soluzione"
 
-    ```pyodide
-    install="scikit-learn,numpy"
+    ```pyodide install="scikit-learn,numpy"
     import numpy as np
     from sklearn.neural_network import MLPClassifier
     from sklearn.model_selection import cross_val_score

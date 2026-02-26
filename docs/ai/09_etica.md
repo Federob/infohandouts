@@ -20,7 +20,7 @@ Esempi reali (e inquietanti):
 
 ### Vediamolo con il codice
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
@@ -74,7 +74,7 @@ print("Questo e' il BIAS nell'IA!")
 
 ### Come si risolve?
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 
@@ -241,7 +241,7 @@ mindmap
 
 Crea un dataset biasato (es. dove l'età influenza ingiustamente l'esito) e mostra come il modello amplifica il pregiudizio. Poi correggi il dataset e confronta i risultati.
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 
@@ -259,8 +259,7 @@ np.random.seed(42)
 
 ??? success "Soluzione"
 
-    ```pyodide
-    install="scikit-learn,numpy"
+    ```pyodide install="scikit-learn,numpy"
     import numpy as np
     from sklearn.linear_model import LogisticRegression
     np.random.seed(42)
@@ -337,7 +336,7 @@ for i, s in enumerate(scenari, 1):
 
 Addestra sia un albero di decisione che una rete neurale sullo stesso dataset. Mostra come l'albero è interpretabile (puoi vedere le regole) mentre la rete neurale è una scatola nera.
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neural_network import MLPClassifier
@@ -356,8 +355,7 @@ np.random.seed(42)
 
 ??? success "Soluzione"
 
-    ```pyodide
-    install="scikit-learn,numpy"
+    ```pyodide install="scikit-learn,numpy"
     import numpy as np
     from sklearn.tree import DecisionTreeClassifier
     from sklearn.neural_network import MLPClassifier

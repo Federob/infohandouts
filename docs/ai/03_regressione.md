@@ -17,7 +17,7 @@ Il lavoro del ML è trovare i valori di **m** e **b** che fanno passare la retta
 
 ## Vediamola in azione
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -52,7 +52,7 @@ In pratica:
 3. Aggiusta m e b un pochino nella direzione che riduce l'errore
 4. Ripeti finché l'errore non si stabilizza
 
-```pyodide
+```pyodide install="numpy"
 import numpy as np
 
 np.random.seed(42)
@@ -102,7 +102,7 @@ print(f"(La formula vera era: y = 0.70x + 2.50)")
 
 ## Visualizzare la retta trovata
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -136,7 +136,7 @@ plt.show()
 
 Tutto quel lavoro di gradient descent... scikit-learn lo fa in **3 righe**. Ecco il potere delle librerie!
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
@@ -177,7 +177,7 @@ Indica quanto bene la retta "spiega" i dati. Va da 0 a 1:
 - **R² = 0.8**: la retta spiega l'80% della variazione nei dati (molto buono!)
 - **R² = 0**: la retta non spiega nulla (meglio tirare a caso)
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
@@ -221,7 +221,7 @@ else:
 
 Mettiamo tutto insieme con un esempio completo. Vogliamo prevedere il voto di uno studente in base alle ore di studio:
 
-```pyodide
+```pyodide install="scikit-learn,numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
@@ -278,7 +278,7 @@ for ore_s in nuove_ore:
 
 Modifica il gradient descent visto sopra per trovare la retta che passa meglio per questi dati. Prova con diversi learning rate (0.001, 0.01, 0.1) e confronta i risultati.
 
-```pyodide
+```pyodide install="numpy"
 import numpy as np
 
 X = np.array([2, 4, 6, 8, 10, 12], dtype=float)
@@ -290,7 +290,7 @@ y = np.array([5, 10, 14, 20, 24, 30], dtype=float)
 
 ??? success "Soluzione"
 
-    ```pyodide
+    ```pyodide install="numpy"
     import numpy as np
     X = np.array([2, 4, 6, 8, 10, 12], dtype=float)
     y = np.array([5, 10, 14, 20, 24, 30], dtype=float)
@@ -309,7 +309,7 @@ y = np.array([5, 10, 14, 20, 24, 30], dtype=float)
 
 Crea un dataset dove il voto dipende da ORE DI STUDIO e VOTO PRECEDENTE (2 features). Addestra un modello di regressione lineare e fai delle previsioni.
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
@@ -352,7 +352,7 @@ np.random.seed(42)
 
 Genera 3 dataset diversi (uno molto lineare, uno con tanto rumore, uno non lineare) e mostra come la regressione lineare funziona bene solo sul primo.
 
-```pyodide
+```pyodide install="scikit-learn,numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression

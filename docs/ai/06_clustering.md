@@ -20,7 +20,7 @@ Come funziona, passo per passo:
 4. **Sposta ogni centroide** al centro del suo gruppo
 5. **Ripeti** i passi 3-4 finché i centroidi non si muovono più
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -47,7 +47,7 @@ print("Il K-Means li trovera' automaticamente!")
 
 ### K-Means passo per passo
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -102,7 +102,7 @@ print("Dopo pochi step i gruppi sono gia' ben definiti!")
 
 Ovviamente scikit-learn lo fa in 3 righe:
 
-```pyodide
+```pyodide install="scikit-learn,numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
@@ -149,7 +149,7 @@ Ok, ma come scegli K? Non puoi sempre "vedere" i gruppi a occhio. Il **metodo de
 2. Per ogni K, calcola l'**inerzia** (quanto i punti sono distanti dal loro centroide)
 3. Plotta: l'inerzia scende sempre, ma a un certo punto la discesa rallenta — quello è il "gomito"!
 
-```pyodide
+```pyodide install="scikit-learn,numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
@@ -190,7 +190,7 @@ print("Quindi K=3 e' la scelta giusta!")
 
 Usiamo il clustering per trovare "profili" di studenti basandoci sulle loro abitudini:
 
-```pyodide
+```pyodide install="scikit-learn,numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
@@ -269,7 +269,7 @@ flowchart TD
 
 Implementa il K-Means da zero con numpy (senza sklearn) per K=2. Mostra i centroidi che si spostano ad ogni iterazione.
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -287,8 +287,7 @@ np.random.shuffle(X)
 
 ??? success "Soluzione"
 
-    ```pyodide
-    install="numpy,matplotlib"
+    ```pyodide install="numpy,matplotlib"
     import numpy as np
     import matplotlib.pyplot as plt
     np.random.seed(42)
@@ -318,7 +317,7 @@ np.random.shuffle(X)
 
 Genera un dataset con 5 cluster e usa il metodo del gomito per trovare il numero corretto.
 
-```pyodide
+```pyodide install="scikit-learn,numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
@@ -335,8 +334,7 @@ np.random.seed(42)
 
 ??? success "Soluzione"
 
-    ```pyodide
-    install="scikit-learn,numpy,matplotlib"
+    ```pyodide install="scikit-learn,numpy,matplotlib"
     import numpy as np
     import matplotlib.pyplot as plt
     from sklearn.cluster import KMeans
@@ -362,7 +360,7 @@ np.random.seed(42)
 
 Crea un dataset di "clienti" con 3 features (eta, spesa_mensile, visite_mensili) e usa K-Means per trovare profili di clienti. Descrivi i profili trovati.
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import MinMaxScaler
@@ -379,8 +377,7 @@ np.random.seed(42)
 
 ??? success "Soluzione"
 
-    ```pyodide
-    install="scikit-learn,numpy"
+    ```pyodide install="scikit-learn,numpy"
     import numpy as np
     from sklearn.cluster import KMeans
     from sklearn.preprocessing import MinMaxScaler

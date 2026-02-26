@@ -26,7 +26,7 @@ L'opposto è l'**underfitting**: il modello è troppo semplice e non riesce a ca
 
 Il modo migliore per capire l'overfitting: la regressione polinomiale! Aumentando il grado del polinomio, la curva diventa sempre più contorta per passare per TUTTI i punti... ma perde completamente il senso.
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -66,7 +66,7 @@ print("Grado 15: Overfitting totale! Passa per tutti i punti ma e' assurda")
 
 La prova del nove: confrontare le prestazioni su training e test.
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -125,7 +125,7 @@ Fold 5: [train] [train] [train] [train] [TEST]
 Risultato finale = media dei 5 score
 ```
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import cross_val_score
@@ -160,7 +160,7 @@ Gli **iperparametri** sono le "manopole" che regoli TU (non il modello). Per KNN
 
 Come trovi il valore migliore? **Provi!** Si chiama Grid Search.
 
-```pyodide
+```pyodide install="scikit-learn,numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
@@ -240,7 +240,7 @@ flowchart TD
 
 Crea un dataset non lineare (es. `y = sin(x) + rumore`) e mostra l'overfitting con polinomi di grado crescente. Plotta training error e test error.
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -258,8 +258,7 @@ np.random.seed(42)
 
 ??? success "Soluzione"
 
-    ```pyodide
-    install="numpy,matplotlib"
+    ```pyodide install="numpy,matplotlib"
     import numpy as np
     import matplotlib.pyplot as plt
     np.random.seed(42)
@@ -289,7 +288,7 @@ np.random.seed(42)
 
 Usa la cross-validation per confrontare KNN e albero di decisione sullo stesso dataset. Quale modello e' piu' stabile (std piu' bassa)?
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
@@ -307,8 +306,7 @@ np.random.seed(42)
 
 ??? success "Soluzione"
 
-    ```pyodide
-    install="scikit-learn,numpy"
+    ```pyodide install="scikit-learn,numpy"
     import numpy as np
     from sklearn.neighbors import KNeighborsClassifier
     from sklearn.tree import DecisionTreeClassifier
@@ -334,7 +332,7 @@ np.random.seed(42)
 
 Fai un grid search per un albero di decisione provando diverse combinazioni di max_depth (1-10) e min_samples_split (2, 5, 10). Trova la combinazione migliore.
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import cross_val_score
@@ -351,8 +349,7 @@ np.random.seed(42)
 
 ??? success "Soluzione"
 
-    ```pyodide
-    install="scikit-learn,numpy"
+    ```pyodide install="scikit-learn,numpy"
     import numpy as np
     from sklearn.tree import DecisionTreeClassifier
     from sklearn.model_selection import cross_val_score

@@ -12,7 +12,7 @@ In questo capitolo impariamo a lavorare con i dati usando **NumPy** (per i calco
 
 NumPy è la libreria Python per lavorare con array di numeri in modo veloce e compatto. Se hai fatto il capitolo sulle matrici, è ora di fare il salto di qualità!
 
-```pyodide
+```pyodide install="numpy"
 import numpy as np
 
 # Creare array
@@ -30,7 +30,7 @@ print("Dev. standard:", np.std(numeri))
 
 ### Array 2D (tipo una tabella)
 
-```pyodide
+```pyodide install="numpy"
 import numpy as np
 
 # Dataset: 5 studenti, 3 features (ore_studio, assenze, voto_precedente)
@@ -56,7 +56,7 @@ print("Media ore studio:", np.mean(dati[:, 0]))
 
 Nel ML spesso creiamo **dati sintetici** per esercitarci. NumPy ha tutto quello che serve:
 
-```pyodide
+```pyodide install="numpy"
 import numpy as np
 
 # Seed: rende i numeri "casuali" riproducibili
@@ -84,7 +84,7 @@ I grafici sono fondamentali nel ML: prima di far partire qualsiasi algoritmo, **
 
 ### Scatter plot (grafico a punti)
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -105,7 +105,7 @@ plt.show()
 
 ### Istogramma
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -128,7 +128,7 @@ plt.show()
 
 ### Grafici con più serie
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -163,7 +163,7 @@ La soluzione: **normalizzare** i dati, cioè portarli tutti sulla stessa scala.
 
 La formula è: `x_norm = (x - min) / (max - min)`
 
-```pyodide
+```pyodide install="numpy"
 import numpy as np
 
 # Dati con scale diverse
@@ -186,7 +186,7 @@ print("\nOra entrambe sono tra 0 e 1!")
 
 ### Con scikit-learn (più comodo!)
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 
@@ -220,7 +220,7 @@ print(np.round(dati_norm, 2))
 
 Abbiamo visto come dividere a mano. Ma scikit-learn ha una funzione che lo fa meglio, **mescolando** anche i dati in modo casuale (importantissimo!):
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.model_selection import train_test_split
 
@@ -251,7 +251,7 @@ print(f"Etichette test:     {y_test}")
 
 Mettiamo tutto insieme! Creiamo un dataset "vero" da usare nei prossimi capitoli:
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -313,7 +313,7 @@ plt.show()
 
 Crea un dataset con 50 studenti (ore_studio, media_precedente) e calcola: media, minimo, massimo e deviazione standard di ogni feature.
 
-```pyodide
+```pyodide install="numpy"
 import numpy as np
 
 np.random.seed(123)
@@ -326,7 +326,7 @@ np.random.seed(123)
 
 ??? success "Soluzione"
 
-    ```pyodide
+    ```pyodide install="numpy"
     import numpy as np
     np.random.seed(123)
     ore_studio = np.random.uniform(0, 10, 50)
@@ -346,7 +346,7 @@ np.random.seed(123)
 
 Genera un dataset con 2 features su scale molto diverse (es. altezza in cm e peso in kg), visualizzalo con uno scatter plot, poi normalizzalo e visualizzalo di nuovo.
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -389,7 +389,7 @@ np.random.seed(42)
 
 Senza usare `train_test_split` di sklearn, scrivi una funzione che divide un dataset in training e test set con una percentuale a scelta. La funzione deve anche mescolare i dati!
 
-```pyodide
+```pyodide install="numpy"
 import numpy as np
 
 def split_dataset(X, y, test_size=0.2, seed=42):
@@ -408,7 +408,7 @@ y = np.random.randint(0, 2, 20)
 
 ??? success "Soluzione"
 
-    ```pyodide
+    ```pyodide install="numpy"
     import numpy as np
 
     def split_dataset(X, y, test_size=0.2, seed=42):

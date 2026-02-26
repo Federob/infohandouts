@@ -20,7 +20,7 @@ Come funziona:
 
 Tipo: se ti trasferisci in una nuova classe e i 3 compagni più vicini a te sono tutti fan del basket, il KNN direbbe "anche tu sei fan del basket"!
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -54,7 +54,7 @@ print("Secondo te, sara' promosso o bocciato?")
 
 ### KNN con scikit-learn
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
@@ -109,7 +109,7 @@ Ore di studio > 5?
 
 Semplice, leggibile, intuitivo! Ecco perché gli alberi di decisione sono così popolari.
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
@@ -160,7 +160,7 @@ Reale Bocciato [  TN   |   FP   ]    TN = Veri Negativi (giusto!)
                                       FN = Falsi Negativi (errore!)
 ```
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
@@ -204,7 +204,7 @@ L'accuracy non basta! Immagina un filtro anti-spam:
 - **Precision**: di quelle che hai marcato come spam, quante lo erano DAVVERO? (Se è bassa, stai buttando email buone nello spam!)
 - **Recall**: di tutte le email spam, quante ne hai beccate? (Se è basso, lo spam passa!)
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
@@ -243,7 +243,7 @@ print(f"  F1-score:  {f1_score(y_test, y_pred):.2%}  (media armonica di precisio
 
 ## Confronto: KNN vs Albero di decisione
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
@@ -316,7 +316,7 @@ flowchart LR
 
 Crea un dataset di 150 studenti con 3 features (ore_studio, assenze, media_precedente) e una label (promosso/bocciato). Addestra un KNN e calcola accuracy, precision e recall.
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
@@ -334,8 +334,7 @@ np.random.seed(42)
 
 ??? success "Soluzione"
 
-    ```pyodide
-    install="scikit-learn,numpy"
+    ```pyodide install="scikit-learn,numpy"
     import numpy as np
     from sklearn.neighbors import KNeighborsClassifier
     from sklearn.model_selection import train_test_split
@@ -361,7 +360,7 @@ np.random.seed(42)
 
 Prova KNN con diversi valori di K (1, 3, 5, 7, 9, 11) e trova quello che dà l'accuracy migliore sul test set.
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
@@ -379,8 +378,7 @@ np.random.seed(42)
 
 ??? success "Soluzione"
 
-    ```pyodide
-    install="scikit-learn,numpy"
+    ```pyodide install="scikit-learn,numpy"
     import numpy as np
     from sklearn.neighbors import KNeighborsClassifier
     from sklearn.model_selection import train_test_split
@@ -409,7 +407,7 @@ np.random.seed(42)
 
 Confronta un albero di decisione e un KNN sullo stesso dataset. Prova diversi parametri (max_depth per l'albero, n_neighbors per KNN) e crea una tabella dei risultati.
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
@@ -428,8 +426,7 @@ np.random.seed(42)
 
 ??? success "Soluzione"
 
-    ```pyodide
-    install="scikit-learn,numpy"
+    ```pyodide install="scikit-learn,numpy"
     import numpy as np
     from sklearn.neighbors import KNeighborsClassifier
     from sklearn.tree import DecisionTreeClassifier

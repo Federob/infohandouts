@@ -10,7 +10,7 @@ Il nostro obiettivo: prevedere se uno studente sarà **promosso o bocciato** bas
 
 ## Step 1: Creare il dataset
 
-```pyodide
+```pyodide install="numpy"
 import numpy as np
 
 np.random.seed(42)
@@ -57,7 +57,7 @@ for i in range(5):
 
 Prima di far partire qualsiasi algoritmo, **guardiamo i dati**!
 
-```pyodide
+```pyodide install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -100,7 +100,7 @@ for i, nome in enumerate(feature_names):
 
 ## Step 3: Preparare i dati
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
@@ -136,7 +136,7 @@ print(f"Bilanciamento test:     {sum(y_test)} promossi, {len(y_test)-sum(y_test)
 
 Qui arriva il bello: proviamo 4 modelli diversi e vediamo chi vince!
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split, cross_val_score
@@ -194,7 +194,7 @@ print(f"\nVincitore: {migliore_nome} ({migliore_score:.2%})")
 
 ## Step 5: Valutare il vincitore
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
@@ -243,7 +243,7 @@ print(f"     Prom  [{cm[1][0]:4} {cm[1][1]:4} ]")
 
 Il momento della verita': usiamo il modello per prevedere su studenti completamente nuovi!
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
@@ -338,7 +338,7 @@ flowchart LR
 
 Ricrea l'intera pipeline con un dataset diverso: prevedi se un cliente comprera' un prodotto basandosi su eta', reddito e numero di visite al sito.
 
-```pyodide
+```pyodide install="scikit-learn,numpy"
 import numpy as np
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.preprocessing import MinMaxScaler
@@ -359,8 +359,7 @@ np.random.seed(42)
 
 ??? success "Soluzione"
 
-    ```pyodide
-    install="scikit-learn,numpy"
+    ```pyodide install="scikit-learn,numpy"
     import numpy as np
     from sklearn.model_selection import train_test_split, cross_val_score
     from sklearn.preprocessing import MinMaxScaler
@@ -410,8 +409,7 @@ Partendo dal progetto di questo capitolo, prova a migliorare l'accuracy con:
 
 ??? success "Soluzione"
 
-    ```pyodide
-    install="scikit-learn,numpy"
+    ```pyodide install="scikit-learn,numpy"
     import numpy as np
     from sklearn.model_selection import train_test_split, cross_val_score
     from sklearn.preprocessing import MinMaxScaler

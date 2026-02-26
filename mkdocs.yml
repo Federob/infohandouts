@@ -74,6 +74,7 @@ hooks:
 
 markdown_extensions:
   - admonition: {}
+  - pymdownx.details: {}
   - attr_list: {}
   - toc: {}
   - def_list: {}

@@ -3174,15 +3174,45 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-<p>??? success "Soluzione"</p>
-<div class="highlight"><pre><span></span><code>```pyodide
-numero = int(input("Inserisci un numero: "))
+<details class="success">
+<summary>Soluzione</summary>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-156--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-156--editor" class="pyodide-editor">numero = int(input("Inserisci un numero: "))
 if numero % 2 == 0:
     print(f"{numero} è pari")
 else:
-    print(f"{numero} è dispari")
-```
-</code></pre></div>
+    print(f"{numero} è dispari")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-156--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-156--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-156--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=5,
+        maxLines=5,
+    );
+});
+</script>
+
+</details>
 <h3 id="esercizio-2-calcolatrice">Esercizio 2: Calcolatrice</h3>
 <p>Chiedi due numeri e un operatore (+, -, *, /) e stampa il risultato. Occhio alla divisione per zero!</p>
 <p>
@@ -3222,9 +3252,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-<p>??? success "Soluzione"</p>
-<div class="highlight"><pre><span></span><code>```pyodide
-n1 = float(input("Primo numero: "))
+<details class="success">
+<summary>Soluzione</summary>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-158--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-158--editor" class="pyodide-editor">n1 = float(input("Primo numero: "))
 op = input("Operatore (+, -, *, /): ")
 n2 = float(input("Secondo numero: "))
 
@@ -3240,9 +3281,28 @@ elif op == "/":
     else:
         print(f"Risultato: {n1 / n2}")
 else:
-    print("Operatore non valido!")
-```
-</code></pre></div>
+    print("Operatore non valido!")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-158--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-158--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-158--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=17,
+        maxLines=17,
+    );
+});
+</script>
+
+</details>
 <h3 id="esercizio-3-voto-in-lettere">Esercizio 3: Voto in lettere</h3>
 <p>Converti un voto numerico (0-100) in una lettera: A (90-100), B (80-89), C (70-79), D (60-69), F (sotto 60).</p>
 <p>
@@ -3280,9 +3340,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-<p>??? success "Soluzione"</p>
-<div class="highlight"><pre><span></span><code>```pyodide
-voto = int(input("Inserisci il voto (0-100): "))
+<details class="success">
+<summary>Soluzione</summary>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-160--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-160--editor" class="pyodide-editor">voto = int(input("Inserisci il voto (0-100): "))
 if voto &gt;= 90:
     lettera = "A"
 elif voto &gt;= 80:
@@ -3293,9 +3364,28 @@ elif voto &gt;= 60:
     lettera = "D"
 else:
     lettera = "F"
-print(f"Voto {voto} = {lettera}")
-```
-</code></pre></div></div>
+print(f"Voto {voto} = {lettera}")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-160--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-160--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-160--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=12,
+        maxLines=12,
+    );
+});
+</script>
+
+</details></div>
 
 
 
@@ -3382,7 +3472,7 @@ print(f"Voto {voto} = {lettera}")
     </a>
   
   <div class="md-copyright__highlight" style="margin-top: 0.2rem;">
-    Ultimo aggiornamento: 26/02/2026 10:56
+    Ultimo aggiornamento: 26/02/2026 11:02
   </div>
 </div>
       

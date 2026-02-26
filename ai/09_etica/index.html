@@ -2957,9 +2957,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-<p>??? success "Soluzione"</p>
-<div class="highlight"><pre><span></span><code>```pyodide
-install="scikit-learn,numpy"
+<details class="success">
+<summary>Soluzione</summary>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-104--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-104--editor" class="pyodide-editor">install="scikit-learn,numpy"
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 np.random.seed(42)
@@ -2984,9 +2995,28 @@ anziano2 = model_equo.predict([[55, 7]])[0]
 print("=== MODELLO CORRETTO ===")
 print(f"Giovane (25 anni, competenza 7): {'Assunto' if giovane2 else 'Non assunto'}")
 print(f"Senior (55 anni, competenza 7): {'Assunto' if anziano2 else 'Non assunto'}")
-print("-&gt; Ora conta solo la competenza!")
-```
-</code></pre></div>
+print("-&gt; Ora conta solo la competenza!")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-104--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-104--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-104--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=26,
+        maxLines=26,
+    );
+});
+</script>
+
+</details>
 <h3 id="esercizio-2-discussione">Esercizio 2: Discussione</h3>
 <p>Per ognuno di questi scenari, scrivi (come commento nel codice) se pensi che l'uso dell'IA sia etico o no, e perche':</p>
 <p>
@@ -3034,9 +3064,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-<p>??? success "Soluzione"</p>
-<div class="highlight"><pre><span></span><code>```pyodide
-scenari = [
+<details class="success">
+<summary>Soluzione</summary>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-106--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-106--editor" class="pyodide-editor">scenari = [
     "Un'IA che seleziona i CV per un'azienda",
     "Un'IA che consiglia quale film guardare su Netflix",
     "Un'IA che decide se concedere un mutuo",
@@ -3054,9 +3095,28 @@ risposte = [
 ]
 for i, (s, r) in enumerate(zip(scenari, risposte), 1):
     print(f"{i}. {s}")
-    print(f"   -&gt; {r}\n")
-```
-</code></pre></div>
+    print(f"   -&gt; {r}\n")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-106--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-106--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-106--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=19,
+        maxLines=19,
+    );
+});
+</script>
+
+</details>
 <h3 id="esercizio-3-modello-interpretabile-vs-black-box">Esercizio 3: Modello interpretabile vs black box</h3>
 <p>Addestra sia un albero di decisione che una rete neurale sullo stesso dataset. Mostra come l'albero è interpretabile (puoi vedere le regole) mentre la rete neurale è una scatola nera.</p>
 <p>
@@ -3104,9 +3164,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-<p>??? success "Soluzione"</p>
-<div class="highlight"><pre><span></span><code>```pyodide
-install="scikit-learn,numpy"
+<details class="success">
+<summary>Soluzione</summary>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-108--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-108--editor" class="pyodide-editor">install="scikit-learn,numpy"
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neural_network import MLPClassifier
@@ -3134,9 +3205,28 @@ print("\n=== RETE NEURALE (Scatola nera) ===")
 print(f"Accuracy: {mlp.score(X_test, y_test):.3f}")
 print(f"Pesi: {len(mlp.coefs_)} matrici di pesi")
 print(f"Totale parametri: {sum(w.size for w in mlp.coefs_)}")
-print("-&gt; Non possiamo capire COME decide!")
-```
-</code></pre></div></div>
+print("-&gt; Non possiamo capire COME decide!")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-108--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-108--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-108--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=29,
+        maxLines=29,
+    );
+});
+</script>
+
+</details></div>
 
 
 
@@ -3207,7 +3297,7 @@ print("-&gt; Non possiamo capire COME decide!")
     </a>
   
   <div class="md-copyright__highlight" style="margin-top: 0.2rem;">
-    Ultimo aggiornamento: 26/02/2026 10:56
+    Ultimo aggiornamento: 26/02/2026 11:02
   </div>
 </div>
       

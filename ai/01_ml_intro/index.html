@@ -2951,9 +2951,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-<p>??? success "Soluzione"</p>
-<div class="highlight"><pre><span></span><code>```pyodide
-problemi = [
+<details class="success">
+<summary>Soluzione</summary>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-13--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-13--editor" class="pyodide-editor">problemi = [
     ("Prevedere se pioverà domani basandosi sui dati meteo storici", "Supervisionato", "ha dati etichettati (pioggia si/no)"),
     ("Raggruppare le canzoni di Spotify per genere senza etichette", "Non supervisionato", "nessuna etichetta, trova gruppi"),
     ("Insegnare a un drone a volare evitando ostacoli", "Per rinforzo", "impara per tentativi ed errori"),
@@ -2963,9 +2974,28 @@ problemi = [
 ]
 for problema, tipo, motivo in problemi:
     print(f"- {problema}")
-    print(f"  -&gt; {tipo}: {motivo}\n")
-```
-</code></pre></div>
+    print(f"  -&gt; {tipo}: {motivo}\n")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-13--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-13--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-13--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=11,
+        maxLines=11,
+    );
+});
+</script>
+
+</details>
 <h3 id="esercizio-2-crea-un-dataset">Esercizio 2: Crea un dataset</h3>
 <p>Crea un dataset (come lista di dizionari) con almeno 8 studenti. Ogni studente deve avere: ore di studio, partecipazione (1-10), voto. Poi dividilo in training e test set.</p>
 <p>
@@ -3005,9 +3035,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-<p>??? success "Soluzione"</p>
-<div class="highlight"><pre><span></span><code>```pyodide
-studenti = [
+<details class="success">
+<summary>Soluzione</summary>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-15--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-15--editor" class="pyodide-editor">studenti = [
     {"ore_studio": 5, "partecipazione": 8, "voto": 8},
     {"ore_studio": 2, "partecipazione": 4, "voto": 5},
     {"ore_studio": 7, "partecipazione": 9, "voto": 9},
@@ -3027,9 +3068,28 @@ for s in training:
     print(f"  {s}")
 print(f"\nTest set ({len(test)} studenti):")
 for s in test:
-    print(f"  {s}")
-```
-</code></pre></div>
+    print(f"  {s}")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-15--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-15--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-15--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=21,
+        maxLines=21,
+    );
+});
+</script>
+
+</details>
 <h3 id="esercizio-3-trova-il-pattern">Esercizio 3: Trova il pattern</h3>
 <p>Il computer ha analizzato questi dati e ha trovato un pattern. Riesci a scoprirlo anche tu? Scrivi la formula!</p>
 <p>
@@ -3085,9 +3145,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-<p>??? success "Soluzione"</p>
-<div class="highlight"><pre><span></span><code>```pyodide
-dati = [(1, 5), (2, 8), (3, 11), (4, 14), (5, 17), (6, 20)]
+<details class="success">
+<summary>Soluzione</summary>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-17--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-17--editor" class="pyodide-editor">dati = [(1, 5), (2, 8), (3, 11), (4, 14), (5, 17), (6, 20)]
 print("Input -&gt; Output")
 for x, y in dati:
     print(f"  {x}    -&gt;  {y}")
@@ -3097,9 +3168,28 @@ def formula(x):
 
 print(f"\nLa formula e': y = 3x + 2")
 print(f"Se input = 10 -&gt; output = {formula(10)}")
-print(f"Verifica: {formula(1)} {formula(2)} {formula(3)}")
-```
-</code></pre></div></div>
+print(f"Verifica: {formula(1)} {formula(2)} {formula(3)}")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-17--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-17--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-17--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=11,
+        maxLines=11,
+    );
+});
+</script>
+
+</details></div>
 
 
 
@@ -3186,7 +3276,7 @@ print(f"Verifica: {formula(1)} {formula(2)} {formula(3)}")
     </a>
   
   <div class="md-copyright__highlight" style="margin-top: 0.2rem;">
-    Ultimo aggiornamento: 26/02/2026 10:56
+    Ultimo aggiornamento: 26/02/2026 11:02
   </div>
 </div>
       

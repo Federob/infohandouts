@@ -3219,9 +3219,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-<p>??? success "Soluzione"</p>
-<div class="highlight"><pre><span></span><code>```pyodide
-import numpy as np
+<details class="success">
+<summary>Soluzione</summary>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-29--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-29--editor" class="pyodide-editor">import numpy as np
 np.random.seed(123)
 ore_studio = np.random.uniform(0, 10, 50)
 media_prec = np.random.uniform(4, 10, 50)
@@ -3233,9 +3244,28 @@ for i, nome in enumerate(nomi):
     print(f"  Media: {col.mean():.2f}")
     print(f"  Min: {col.min():.2f}")
     print(f"  Max: {col.max():.2f}")
-    print(f"  Std: {col.std():.2f}\n")
-```
-</code></pre></div>
+    print(f"  Std: {col.std():.2f}\n")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-29--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-29--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-29--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=13,
+        maxLines=13,
+    );
+});
+</script>
+
+</details>
 <h3 id="esercizio-2-visualizza-e-normalizza">Esercizio 2: Visualizza e normalizza</h3>
 <p>Genera un dataset con 2 features su scale molto diverse (es. altezza in cm e peso in kg), visualizzalo con uno scatter plot, poi normalizzalo e visualizzalo di nuovo.</p>
 <p>
@@ -3282,9 +3312,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-<p>??? success "Soluzione"</p>
-<div class="highlight"><pre><span></span><code>```pyodide install="matplotlib,numpy"
-import numpy as np
+<details class="success">
+<summary>Soluzione</summary>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-31--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-31--editor" class="pyodide-editor">import numpy as np
 import matplotlib.pyplot as plt
 np.random.seed(42)
 altezza = np.random.uniform(150, 190, 50)
@@ -3301,9 +3342,28 @@ ax2.set_xlabel("Altezza (normalizzata)")
 ax2.set_ylabel("Peso (normalizzato)")
 ax2.set_title("Dopo la normalizzazione")
 plt.tight_layout()
-plt.show()
-```
-</code></pre></div>
+plt.show()</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-31--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-31--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-31--',
+        install=['matplotlib', 'numpy'],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=18,
+        maxLines=18,
+    );
+});
+</script>
+
+</details>
 <h3 id="esercizio-3-traintest-split-personalizzato">Esercizio 3: Train/test split personalizzato</h3>
 <p>Senza usare <code>train_test_split</code> di sklearn, scrivi una funzione che divide un dataset in training e test set con una percentuale a scelta. La funzione deve anche mescolare i dati!</p>
 <p>
@@ -3351,9 +3411,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-<p>??? success "Soluzione"</p>
-<div class="highlight"><pre><span></span><code>```pyodide
-import numpy as np
+<details class="success">
+<summary>Soluzione</summary>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-33--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-33--editor" class="pyodide-editor">import numpy as np
 
 def split_dataset(X, y, test_size=0.2, seed=42):
     np.random.seed(seed)
@@ -3371,9 +3442,28 @@ y = np.random.randint(0, 2, 20)
 X_train, X_test, y_train, y_test = split_dataset(X, y, test_size=0.2)
 print(f"Dataset totale: {len(X)}")
 print(f"Training set: {len(X_train)}")
-print(f"Test set: {len(X_test)}")
-```
-</code></pre></div></div>
+print(f"Test set: {len(X_test)}")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-33--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-33--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-33--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=19,
+        maxLines=19,
+    );
+});
+</script>
+
+</details></div>
 
 
 
@@ -3460,7 +3550,7 @@ print(f"Test set: {len(X_test)}")
     </a>
   
   <div class="md-copyright__highlight" style="margin-top: 0.2rem;">
-    Ultimo aggiornamento: 26/02/2026 10:56
+    Ultimo aggiornamento: 26/02/2026 11:02
   </div>
 </div>
       

@@ -2970,9 +2970,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-<p>??? success "Soluzione"</p>
-<div class="highlight"><pre><span></span><code>```pyodide
-install="numpy,matplotlib"
+<details class="success">
+<summary>Soluzione</summary>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-63--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-63--editor" class="pyodide-editor">install="numpy,matplotlib"
 import numpy as np
 import matplotlib.pyplot as plt
 np.random.seed(42)
@@ -2995,9 +3006,28 @@ for ax, grado in zip(axes, gradi):
     ax.set_title(f"Grado {grado}\nTrain:{train_err:.2f} Test:{test_err:.2f}")
     ax.set_ylim(-2, 2)
 plt.tight_layout()
-plt.show()
-```
-</code></pre></div>
+plt.show()</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-63--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-63--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-63--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=24,
+        maxLines=24,
+    );
+});
+</script>
+
+</details>
 <h3 id="esercizio-2-cross-validation">Esercizio 2: Cross-validation</h3>
 <p>Usa la cross-validation per confrontare KNN e albero di decisione sullo stesso dataset. Quale modello e' piu' stabile (std piu' bassa)?</p>
 <p>
@@ -3044,9 +3074,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-<p>??? success "Soluzione"</p>
-<div class="highlight"><pre><span></span><code>```pyodide
-install="scikit-learn,numpy"
+<details class="success">
+<summary>Soluzione</summary>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-65--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-65--editor" class="pyodide-editor">install="scikit-learn,numpy"
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
@@ -3065,9 +3106,28 @@ for nome, modello in modelli.items():
     scores = cross_val_score(modello, X, y, cv=5)
     print(f"{nome:17s}| {scores.mean():.3f}    | {scores.std():.3f}")
     stabile = "KNN" if scores.std() &lt; 0.05 else "Albero"
-print(f"\nPiu' stabile: quello con std piu' bassa")
-```
-</code></pre></div>
+print(f"\nPiu' stabile: quello con std piu' bassa")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-65--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-65--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-65--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=20,
+        maxLines=20,
+    );
+});
+</script>
+
+</details>
 <h3 id="esercizio-3-grid-search-completo">Esercizio 3: Grid Search completo</h3>
 <p>Fai un grid search per un albero di decisione provando diverse combinazioni di max_depth (1-10) e min_samples_split (2, 5, 10). Trova la combinazione migliore.</p>
 <p>
@@ -3113,9 +3173,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 </script>
 
-<p>??? success "Soluzione"</p>
-<div class="highlight"><pre><span></span><code>```pyodide
-install="scikit-learn,numpy"
+<details class="success">
+<summary>Soluzione</summary>
+<p>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.16.0/ace.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<link title="light" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow.min.css" disabled>
+<link title="dark" rel="alternate stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-themes@1.0.0/tomorrow-night-blue.min.css" disabled>
+
+</p><div class="pyodide">
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Editor (session: default)</span><span id="exec-67--run" title="Run: press Ctrl-Enter" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7Z"></path></svg></span> Run</span>
+</div>
+<div><pre id="exec-67--editor" class="pyodide-editor">install="scikit-learn,numpy"
 import numpy as np
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import cross_val_score
@@ -3135,9 +3206,28 @@ for depth in range(1, 11):
         if score &gt; migliore_score:
             migliore_score = score
             migliore_params = {"max_depth": depth, "min_samples_split": min_split}
-print(f"\nMigliore: {migliore_params} con score={migliore_score:.3f}")
-```
-</code></pre></div></div>
+print(f"\nMigliore: {migliore_params} con score={migliore_score:.3f}")</pre></div>
+<div class="pyodide-editor-bar">
+<span class="pyodide-bar-item">Output</span><span id="exec-67--clear" class="pyodide-bar-item pyodide-clickable"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24"><path d="M15.14 3c-.51 0-1.02.2-1.41.59L2.59 14.73c-.78.77-.78 2.04 0 2.83L5.03 20h7.66l8.72-8.73c.79-.77.79-2.04 0-2.83l-4.85-4.85c-.39-.39-.91-.59-1.42-.59M17 18l-2 2h7v-2"></path></svg></span> Clear</span>
+</div>
+<pre><code id="exec-67--output" class="pyodide-output"></code></pre>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    setupPyodide(
+        'exec-67--',
+        install=[],
+        themeLight='tomorrow',
+        themeDark='tomorrow_night',
+        session='default',
+        minLines=21,
+        maxLines=21,
+    );
+});
+</script>
+
+</details></div>
 
 
 
@@ -3224,7 +3314,7 @@ print(f"\nMigliore: {migliore_params} con score={migliore_score:.3f}")
     </a>
   
   <div class="md-copyright__highlight" style="margin-top: 0.2rem;">
-    Ultimo aggiornamento: 26/02/2026 10:56
+    Ultimo aggiornamento: 26/02/2026 11:02
   </div>
 </div>
       

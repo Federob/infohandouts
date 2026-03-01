@@ -177,6 +177,12 @@ settings.local.json
 # MkDocs build output
 /site/
 
+# Quarto
+docs/_site/
+docs/.quarto/
+_freeze/
+.quarto/
+
 # OS files
 .DS_Store
 Thumbs.db

@@ -1,0 +1,71 @@
+/* ===================================
+   MERMAID DARK MODE FIX per Quarto
+   Rende i diagrammi Mermaid leggibili nel tema dark
+   =================================== */
+
+/* Tema dark: nodi chiari con testo scuro per massimo contrasto */
+.quarto-dark .mermaid .node rect,
+.quarto-dark .mermaid .node polygon,
+.quarto-dark .mermaid .node ellipse,
+.quarto-dark .mermaid .node circle,
+.quarto-dark .mermaid .node path,
+.quarto-dark .mermaid .state rect,
+.quarto-dark .mermaid .stateGroup rect,
+.quarto-dark .mermaid .cluster rect {
+    fill: #f8fafc !important;
+    stroke: #1f2937 !important;
+    stroke-width: 2px !important;
+}
+
+/* Label delle frecce e dei cluster */
+.quarto-dark .mermaid .edgeLabel rect,
+.quarto-dark .mermaid .label rect {
+    fill: #f8fafc !important;
+    stroke: #1f2937 !important;
+}
+
+/* Testo nei nodi e nelle label - scuro per contrastare sfondo chiaro */
+.quarto-dark .mermaid .nodeLabel,
+.quarto-dark .mermaid .node text,
+.quarto-dark .mermaid .edgeLabel text,
+.quarto-dark .mermaid text.nodeLabel,
+.quarto-dark .mermaid .node tspan,
+.quarto-dark .mermaid tspan,
+.quarto-dark .mermaid span.nodeLabel,
+.quarto-dark .mermaid foreignObject div,
+.quarto-dark .mermaid foreignObject span,
+.quarto-dark .mermaid foreignObject p,
+.quarto-dark .mermaid .label,
+.quarto-dark .mermaid .label text {
+    fill: #0f172a !important;
+    color: #0f172a !important;
+    font-weight: 700 !important;
+}
+
+/* Frecce tra i nodi */
+.quarto-dark .mermaid .edgePath path {
+    stroke: #1f2937 !important;
+    stroke-width: 2px !important;
+}
+
+/* Marker delle frecce (punte) */
+.quarto-dark .mermaid .marker {
+    fill: #1f2937 !important;
+    stroke: #1f2937 !important;
+}
+
+/* Tema chiaro: testi NERI su blocchi CHIARI */
+.quarto-light .mermaid .nodeLabel,
+.quarto-light .mermaid .node text,
+.quarto-light .mermaid .edgeLabel text,
+.quarto-light .mermaid text.nodeLabel,
+.quarto-light .mermaid .node tspan,
+.quarto-light .mermaid tspan,
+.quarto-light .mermaid span.nodeLabel,
+.quarto-light .mermaid foreignObject div,
+.quarto-light .mermaid foreignObject span,
+.quarto-light .mermaid foreignObject p {
+    fill: #000000 !important;
+    color: #000000 !important;
+    font-weight: 600 !important;
+}

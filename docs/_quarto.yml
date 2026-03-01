@@ -1,0 +1,182 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "**/*.qmd"
+    - "!PDF_EXPORT_README.md"
+
+website:
+  title: "Corso di Informatica"
+  site-url: https://federob.github.io/infohandouts/
+  lang: it
+  search:
+    location: navbar
+  back-to-top: true
+  page-navigation: true
+  page-footer:
+    left: "Federico Robuffo - Andrea Diamantini &copy; 2024-2025"
+    center: |
+      Made with [Quarto](https://quarto.org/)
+    right: |
+      Ultimo aggiornamento: {{< meta date >}}
+
+  navbar:
+    background: primary
+    left:
+      - text: "Home"
+        href: index.qmd
+      - sidebar:lebasi
+      - sidebar:extra
+      - sidebar:abc
+      - sidebar:algoritmi
+      - sidebar:python
+      - sidebar:ia
+
+  sidebar:
+    - id: lebasi
+      title: "Le basi"
+      style: docked
+      contents:
+        - section: "Introduzione"
+          contents:
+            - text: "Concetti fondamentali"
+              href: fundamentals/00_basics.qmd
+            - text: "Mappa concettuale"
+              href: fundamentals/01_map.qmd
+        - section: "Hardware"
+          contents:
+            - text: "Architettura di un elaboratore"
+              href: hwsw/10_hw.qmd
+            - text: "BIOS"
+              href: hwsw/11_bios.qmd
+        - section: "Software"
+          contents:
+            - text: "Classificazione"
+              href: hwsw/20_sw.qmd
+            - section: "Sistemi Operativi"
+              contents:
+                - text: "Storia"
+                  href: hwsw/21_os_intro.qmd
+                - text: "Architettura"
+                  href: hwsw/22_os_arch.qmd
+                - text: "Macchine virtuali"
+                  href: hwsw/23_os_vm.qmd
+                - text: "CLI"
+                  href: hwsw/24_os_cli.qmd
+                - text: "Shortcuts"
+                  href: hwsw/25_extra_shortcuts.qmd
+        - section: "La codifica delle informazioni"
+          contents:
+            - text: "Codifiche numeriche"
+              href: infoCoding/00_intro.qmd
+            - text: "Testo"
+              href: infoCoding/01_digit_text.qmd
+            - text: "Immagini"
+              href: infoCoding/02_digit_img.qmd
+            - text: "Suoni"
+              href: infoCoding/03_digit_audio.qmd
+            - text: "Video"
+              href: infoCoding/04_digit_video.qmd
+            - text: "File"
+              href: infoCoding/05_file.qmd
+
+    - id: extra
+      title: "Extra"
+      style: docked
+      contents:
+        - text: "Gioco dell'assassino"
+          href: extra/emailMurderGame.qmd
+
+    - id: abc
+      title: "A,B,C"
+      style: docked
+      contents:
+        - text: "Parole"
+          href: dictionary/00_dict.qmd
+        - text: "Mappa"
+          href: dictionary/01_map.qmd
+
+    - id: algoritmi
+      title: "Algoritmi"
+      style: docked
+      contents:
+        - text: "Flowgorithm"
+          href: algocoding/01_flowgorithm.qmd
+        - text: "Da Flowgorithm a Python"
+          href: algocoding/02_python_from_flowgorithm.qmd
+
+    - id: python
+      title: "Python"
+      style: docked
+      contents:
+        - text: "Introduzione"
+          href: pycoding/00_intro.qmd
+        - text: "Variabili e tipi"
+          href: pycoding/01_variabili.qmd
+        - text: "Stringhe"
+          href: pycoding/02_stringhe.qmd
+        - text: "Condizioni"
+          href: pycoding/03_condizioni.qmd
+        - text: "Cicli"
+          href: pycoding/04_cicli.qmd
+        - text: "Liste e tuple"
+          href: pycoding/05_liste.qmd
+        - text: "Dizionari e set"
+          href: pycoding/06_dizionari.qmd
+        - text: "Funzioni"
+          href: pycoding/07_funzioni.qmd
+        - text: "Array e matrici"
+          href: pycoding/08_matrici.qmd
+        - text: "Classi e oggetti"
+          href: pycoding/09_oggetti.qmd
+        - text: "Python e networking"
+          href: pycoding/10_networking.qmd
+
+    - id: ia
+      title: "Intelligenza Artificiale"
+      style: docked
+      contents:
+        - text: "Cos'è l'IA"
+          href: ai/00_intro.qmd
+        - text: "Machine Learning"
+          href: ai/01_ml_intro.qmd
+        - text: "Preparare i dati"
+          href: ai/02_dati.qmd
+        - text: "Regressione lineare"
+          href: ai/03_regressione.qmd
+        - text: "Classificazione"
+          href: ai/04_classificazione.qmd
+        - text: "Valutare un modello"
+          href: ai/05_valutazione.qmd
+        - text: "Clustering"
+          href: ai/06_clustering.qmd
+        - text: "Reti neurali"
+          href: ai/07_reti_neurali.qmd
+        - text: "Progetto finale"
+          href: ai/08_progetto.qmd
+        - text: "IA ed etica"
+          href: ai/09_etica.qmd
+
+format:
+  html:
+    theme:
+      light: [cosmo, custom.scss]
+      dark: [darkly, custom.scss]
+    lang: it
+    toc: true
+    toc-location: right
+    code-copy: true
+    code-overflow: wrap
+    mainfont: system-ui, -apple-system, sans-serif
+    monofont: ui-monospace, monospace
+    css: stylesheets/mermaid-dark.css
+
+filters:
+  - _filters/mermaid-config.lua
+  - pyodide
+
+# Estensione quarto-pyodide: va installata con
+#   quarto add coatless/quarto-pyodide
+pyodide:
+  packages: []

@@ -1,0 +1,97 @@
+/*-- scss:defaults --*/
+
+/* Tipografia */
+$font-size-base: 0.875rem;
+$line-height-base: 1.7;
+$code-font-size: 0.8rem;
+
+/* Colori primari */
+$primary: #2196F3;
+$link-color: #1976D2;
+
+/*-- scss:rules --*/
+
+/* Testo giustificato */
+p {
+  text-align: justify;
+}
+
+code, td {
+  font-size: 0.8rem !important;
+  line-height: 1.6 !important;
+}
+
+/* Intestazioni */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold !important;
+}
+
+h3, h4 {
+  margin-top: 90px !important;
+  margin-bottom: 30px !important;
+}
+
+h2 {
+  background-color: rgba(68, 138, 255, 0.1) !important;
+  margin-top: 90px !important;
+  margin-bottom: 50px !important;
+  padding: 0.3em 0.5em;
+}
+
+/* Blockquote */
+blockquote {
+  background-color: rgba(160, 200, 240, 0.1) !important;
+  margin: 50px 0 !important;
+  padding: 10px;
+}
+
+/* Code blocks */
+div.sourceCode {
+  margin: 3em 0 !important;
+}
+
+/* Callout (ex-admonitions) - margini */
+.callout {
+  margin: 3em 0 !important;
+  font-size: 0.9em !important;
+}
+
+/* Fix multiline text (br) in Mermaid - spacing tra righe */
+.mermaid .nodeLabel,
+.mermaid .node tspan,
+.mermaid tspan {
+  line-height: 1.5 !important;
+}
+
+.mermaid foreignObject {
+  overflow: visible !important;
+}
+
+.mermaid foreignObject div {
+  line-height: 1.5 !important;
+  white-space: normal !important;
+}
+
+/* PDF download button (riusato dallo shortcode) */
+.pdf-download-btn {
+  background-color: #2196F3;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  float: right;
+  margin: 0 0 20px 20px;
+
+  &:hover {
+    background-color: #1976D2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: white;
+    text-decoration: none;
+  }
+}

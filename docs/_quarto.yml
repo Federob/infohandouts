@@ -9,13 +9,11 @@ project:
 website:
   title: "Corso di Informatica"
   site-url: https://federob.github.io/infohandouts/
-  lang: it
   search:
     location: navbar
-  back-to-top: true
   page-navigation: true
   page-footer:
-    left: "Federico Robuffo - Andrea Diamantini &copy; 2024-2025"
+    left: "Prof. Federico Robuffo &copy; 2026"
     center: |
       Made with [Quarto](https://quarto.org/)
     right: |
@@ -164,6 +162,7 @@ format:
       light: [cosmo, custom.scss]
       dark: [darkly, custom.scss]
     lang: it
+    back-to-top: true
     toc: true
     toc-location: right
     code-copy: true

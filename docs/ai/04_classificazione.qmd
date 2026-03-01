@@ -292,7 +292,7 @@ print("Non esiste un modello 'sempre migliore'!")
 
 ## Mappa concettuale
 
-```mermaid
+```{mermaid}
 flowchart LR
     subgraph ALGO["Algoritmi"]
         A["KNN"] --> A1["Guarda i K vicini"]

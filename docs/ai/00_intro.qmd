@@ -183,7 +183,7 @@ Noi ci concentreremo sul **Machine Learning**: è la base di tutto il resto e si
 
 ## Mappa concettuale
 
-```mermaid
+```{mermaid}
 mindmap
   root((Intelligenza Artificiale))
     Storia

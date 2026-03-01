@@ -329,7 +329,7 @@ Scrivere reti neurali a mano e' perfetto per capire COME funzionano. Ma per prog
 
 ## Mappa concettuale
 
-```mermaid
+```{mermaid}
 flowchart LR
     subgraph RETE["Rete Neurale"]
         direction LR

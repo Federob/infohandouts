@@ -206,7 +206,7 @@ Nei prossimi capitoli seguiremo questo workflow passo per passo. Pronti?
 
 ## Mappa concettuale
 
-```mermaid
+```{mermaid}
 flowchart TD
     A["Machine Learning"] --> B["Supervisionato"]
     A --> C["Non supervisionato"]

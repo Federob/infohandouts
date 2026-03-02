@@ -1,0 +1,48 @@
+```{mermaid}
+mindmap
+  root((Informatica))
+    Definizione
+      Scienza elaborazione automatica delle informazioni
+      Termine coniato da Karl Steinbuch nel 1957
+    Informazione
+      Bit
+        Unita minima 0 o 1
+      Byte
+        8 bit uguale a 1 byte
+      Sistema binario
+        Base di tutta l informatica
+    Computer
+      Macchina elettronica che elabora dati velocemente
+      Fasi di funzionamento
+        Input dai qualcosa al PC
+        Elaborazione il PC pensa
+        Output il PC ti risponde
+      Componenti
+        Hardware
+          Parte fisica che puoi toccare
+        Software
+          Parte logica programmi e istruzioni
+        Relazione
+          Corpo e mente del computer
+    Tipi di elaboratore
+      PC
+        Desktop o Tower
+      Laptop
+        Portatile per lavorare ovunque
+      Tablet
+        Touch screen senza tastiera
+      Smartphone
+        Il mini-computer in tasca
+      Server
+        Gli eroi nascosti di Internet
+    Memorie
+      ROM permanente tipo le regole
+      RAM temporanea smemorata
+      HDD SSD archivio permanente
+    Linguaggio macchina
+      Codice binario l unico che la CPU capisce
+    Unita di misura
+      Kilobyte KB un file di testo
+      Megabyte MB una foto
+      Gigabyte GB un film
+```

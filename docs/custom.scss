@@ -1,0 +1,203 @@
+/*-- scss:defaults --*/
+
+/* Tipografia */
+$font-size-base: 0.875rem;
+$line-height-base: 1.7;
+$code-font-size: 0.8rem;
+
+/* Colori primari */
+$primary: #2196F3;
+$link-color: #1976D2;
+
+/*-- scss:rules --*/
+
+/* Testo giustificato */
+p {
+  text-align: justify;
+}
+
+code, td {
+  font-size: 0.8rem !important;
+  line-height: 1.6 !important;
+}
+
+/* Intestazioni */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold !important;
+}
+
+h3, h4 {
+  margin-top: 90px !important;
+  margin-bottom: 30px !important;
+}
+
+h2 {
+  background-color: rgba(68, 138, 255, 0.1) !important;
+  margin-top: 90px !important;
+  margin-bottom: 50px !important;
+  padding: 0.3em 0.5em;
+}
+
+/* Blockquote */
+blockquote {
+  background-color: rgba(160, 200, 240, 0.1) !important;
+  margin: 50px 0 !important;
+  padding: 10px;
+}
+
+/* Code blocks */
+div.sourceCode {
+  margin: 3em 0 !important;
+}
+
+/* Callout (ex-admonitions) - margini */
+.callout {
+  margin: 3em 0 !important;
+  font-size: 0.9em !important;
+}
+
+/* Fix multiline text (br) in Mermaid - spacing tra righe */
+.mermaid .nodeLabel,
+.mermaid .node tspan,
+.mermaid tspan {
+  line-height: 1.5 !important;
+}
+
+.mermaid foreignObject {
+  overflow: visible !important;
+}
+
+.mermaid foreignObject div {
+  line-height: 1.5 !important;
+  white-space: normal !important;
+}
+
+/* ===================================
+   STAMPA / SALVA PDF
+   =================================== */
+@media print {
+  /* Nascondi tutto ciò che non è contenuto */
+  .navbar,
+  .sidebar,
+  #quarto-sidebar,
+  #quarto-sidebar-glass,
+  #quarto-margin-sidebar,
+  .nav-footer,
+  .back-to-top,
+  #quarto-search,
+  .quarto-title-banner,
+  .qpyodide-editor-toolbar,
+  .qpyodide-button,
+  #TOC,
+  .toc-actions {
+    display: none !important;
+  }
+
+  /* Editor pyodide: mostra solo il codice, non i controlli */
+  .qpyodide-interactive-area {
+    border: 1px solid #ccc !important;
+    break-inside: avoid;
+  }
+
+  /* Reset margini per la stampa */
+  body {
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+    color: #000 !important;
+    background: #fff !important;
+  }
+
+  /* Intestazioni con margini ridotti per risparmiare spazio */
+  h2 {
+    margin-top: 30pt !important;
+    margin-bottom: 10pt !important;
+    background-color: rgba(21, 101, 192, 0.1) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  h3, h4 {
+    margin-top: 20pt !important;
+    margin-bottom: 8pt !important;
+  }
+
+  /* Evita tagli di pagina dentro blocchi importanti */
+  pre, blockquote, .callout, table, figure {
+    break-inside: avoid;
+  }
+
+  /* Larghezza piena senza sidebar */
+  #quarto-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Mostra URL dei link */
+  a[href]:after {
+    content: none !important;
+  }
+}
+
+/* Rinomina "Typst" in "PDF" nel link di download */
+.quarto-alternate-formats a[href$=".pdf"] {
+  font-size: 0;
+  &::after {
+    content: "PDF";
+    font-size: 0.875rem;
+  }
+  i {
+    font-size: 0.875rem;
+  }
+}
+
+/* Pyodide status: toast discreto in alto a destra */
+#qpyodide-status-message-area {
+  position: fixed !important;
+  top: 60px;
+  right: 50px;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.72rem;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  max-width: 200px;
+  opacity: 0.85;
+  transition: opacity 0.5s ease;
+
+  #qpyodide-status-message-title {
+    display: none;
+  }
+
+  #qpyodide-status-message-body {
+    margin: 0;
+    padding: 0;
+  }
+
+  #qpyodide-status-message-text {
+    margin: 0;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+}
+
+.quarto-dark #qpyodide-status-message-area {
+  background: rgba(45, 55, 72, 0.9);
+  border-color: #4a5568;
+  color: #e2e8f0;
+}
+
+/* Monaco editor: ridimensiona font per coerenza col resto */
+.qpyodide-editor .monaco-editor,
+.qpyodide-editor .monaco-editor .view-lines {
+  font-size: 0.8rem !important;
+}
+
+.qpyodide-output-code-area pre,
+.qpyodide-output-code-area code {
+  font-size: 0.8rem !important;
+}

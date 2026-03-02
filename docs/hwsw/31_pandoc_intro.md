@@ -1,3 +1,0 @@
-# Pandoc
-
-Sezione in costruzione.

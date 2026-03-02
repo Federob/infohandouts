@@ -1,3 +1,4 @@
+
 # Rappresentazione delle Informazioni
 
 In questo capitolo scopriremo come il computer riesce a capire testo, immagini, suoni e video usando solo 0 e 1. Sembra magia, ma è solo matematica!

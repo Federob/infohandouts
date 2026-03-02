@@ -1,3 +1,4 @@
+
 # Codificare un algoritmo con Flowgorithm
 
 ## 1. Introduzione a Flowgorithm
@@ -35,7 +36,7 @@ Prima di entrare nei dettagli, ecco una **mappa concettuale completa** che mostr
 ```{mermaid}
 mindmap
   root((ALGORITMI e FLOWGORITHM))
-    ["COS'E'"]
+    COSE
       Ambiente visuale
       Diagrammi di flusso
       Imparare senza codice
@@ -295,11 +296,11 @@ Le **condizioni** sono i bivi del programma (tipo "scegli la tua avventura"):
 
 ```{mermaid}
 flowchart TD
-    A[📖 Leggi il problema] --> B[⬇️ Trova gli INPUT]
-    B --> C[🧮 Trova le ELABORAZIONI]
-    C --> D[⬆️ Trova gli OUTPUT]
-    D --> E[🔀 Trova le CONDIZIONI]
-    E --> F[✅ Crea il diagramma di flusso]
+    A["📖 Leggi il problema"] --> B["⬇️ Trova gli INPUT"]
+    B --> C["🧮 Trova le ELABORAZIONI"]
+    C --> D["⬆️ Trova gli OUTPUT"]
+    D --> E["🔀 Trova le CONDIZIONI"]
+    E --> F["✅ Crea il diagramma di flusso"]
 
     style A fill:#FFE4B5
     style B fill:#B0E0E6
@@ -707,16 +708,16 @@ Per risolvere QUALSIASI problema con Flowgorithm, segui questa strada:
 
 ```{mermaid}
 flowchart LR
-    A[📖 Leggi 2 volte] --> B[✏️ 5 passi<br/>su carta]
-    B --> C[📋 Checklist<br/>completa?]
+    A["📖 Leggi 2 volte"] --> B["✏️ 5 passi<br/>su carta"]
+    B --> C["📋 Checklist<br/>completa?"]
     C -->|No| B
-    C -->|Sì| D[🎨 Bozza flowchart<br/>su carta]
-    D --> E[💻 Crea in<br/>Flowgorithm]
-    E --> F[🧪 Testa con<br/>esempi]
+    C -->|Sì| D["🎨 Bozza flowchart<br/>su carta"]
+    D --> E["💻 Crea in<br/>Flowgorithm"]
+    E --> F["🧪 Testa con<br/>esempi"]
     F --> G{Funziona?}
-    G -->|No| H[🔍 Trova errori]
+    G -->|No| H["🔍 Trova errori"]
     H --> E
-    G -->|Sì| I[✅ Completato!]
+    G -->|Sì| I["✅ Completato!"]
 
     style A fill:#FFE4B5
     style B fill:#B0E0E6

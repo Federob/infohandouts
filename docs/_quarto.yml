@@ -1,10 +1,12 @@
+date: last-modified
+date-format: "DD/MM/YYYY"
+
 project:
   type: website
   output-dir: _site
   render:
     - "*.qmd"
     - "**/*.qmd"
-    - "!PDF_EXPORT_README.md"
 
 website:
   title: "Corso di Informatica"
@@ -170,6 +172,10 @@ format:
     mainfont: system-ui, -apple-system, sans-serif
     monofont: ui-monospace, monospace
     css: stylesheets/mermaid-dark.css
+    include-in-header: stylesheets/monaco-dark-theme.html
+    format-links: [typst]
+  typst:
+    lang: it
 
 filters:
   - _filters/mermaid-config.lua

@@ -1,3 +1,4 @@
+
 # Funzioni
 
 ## Cos'è una funzione?
@@ -242,7 +243,7 @@ print("Ordinati (desc):", numeri)
 
 ## Mappa concettuale
 
-```mermaid
+```{mermaid}
 flowchart TD
     A["def nome_funzione(parametri)"] --> B["Corpo della funzione"]
     B --> C{"Ha return?"}

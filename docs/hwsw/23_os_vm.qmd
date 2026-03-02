@@ -1,3 +1,4 @@
+
 # Macchine virtuali e creazione di una VM Linux con VirtualBox
 
 In questo file vedremo cos’è una **macchina virtuale**, perché è utile nello studio dei sistemi operativi e come installare una distribuzione Linux (ad esempio Ubuntu) utilizzando **VirtualBox**.

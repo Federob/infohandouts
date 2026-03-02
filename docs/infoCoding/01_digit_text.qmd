@@ -1,3 +1,4 @@
+
 # La Codifica del Testo: ASCII e Unicode
 
 Come fa il computer a capire la differenza tra la lettera "A" e il numero 65? Semplice: usa una **codifica del testo**, cioè una tabella che associa ogni simbolo (lettera, numero, emoji) a un valore numerico.

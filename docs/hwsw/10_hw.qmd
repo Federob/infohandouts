@@ -5,6 +5,8 @@ source: https://federob.github.io/infohandouts/hwsw/10_hw/
 author: Federico Robuffo - Andrea Diamantini
 ---
 
+
+
 # Struttura e componenti di un elaboratore
 
 ---

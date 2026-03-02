@@ -1,3 +1,4 @@
+
 # Clustering
 
 ## Raggruppare senza istruzioni
@@ -247,7 +248,7 @@ for k in range(3):
 
 ## Mappa concettuale
 
-```mermaid
+```{mermaid}
 flowchart TD
     A["K-Means"] --> B["1. Scegli K centroidi"]
     B --> C["2. Assegna ogni punto al centroide piu vicino"]

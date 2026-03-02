@@ -1,3 +1,4 @@
+
 ```{pyodide-python}
 #| autorun: true
 #| output: false
@@ -237,7 +238,7 @@ else:
 
 ## Mappa concettuale
 
-```mermaid
+```{mermaid}
 flowchart TD
     subgraph FOR["Ciclo for"]
         F1["for i in range(n)"] --> F2["Esegui blocco"]

@@ -1,3 +1,4 @@
+
 # IA ed etica
 
 ## Da grandi poteri derivano grandi responsabilita'
@@ -211,30 +212,30 @@ L'UE ha pubblicato delle linee guida per un'IA affidabile. I principi chiave:
 
 ## Mappa concettuale
 
-```mermaid
+```{mermaid}
 mindmap
   root((IA ed Etica))
     Bias
-      ["Dati sbilanciati"]
-      ["Pregiudizi amplificati"]
-      ["Soluzione: dati equi"]
+      Dati sbilanciati
+      Pregiudizi amplificati
+      Soluzione dati equi
     Trasparenza
-      ["Scatola nera vs interpretabile"]
-      ["Diritto alla spiegazione"]
+      Scatola nera vs interpretabile
+      Diritto alla spiegazione
     Privacy
-      ["GDPR"]
-      ["Minimizzazione dati"]
-      ["Consenso informato"]
+      GDPR
+      Minimizzazione dati
+      Consenso informato
     Deepfake
-      ["Disinformazione"]
-      ["Verifica delle fonti"]
+      Disinformazione
+      Verifica delle fonti
     IA Responsabile
-      ["Equita"]
-      ["Trasparenza"]
-      ["Privacy"]
-      ["Sicurezza"]
-      ["Responsabilita"]
-      ["Beneficio sociale"]
+      Equita
+      Trasparenza
+      Privacy
+      Sicurezza
+      Responsabilita
+      Beneficio sociale
 ```
 
 ---

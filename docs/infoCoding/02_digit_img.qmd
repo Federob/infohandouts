@@ -1,3 +1,4 @@
+
 # Digitalizzare immagini
 
 Digitalizzare un'immagine significa trasformare la luce che entra nella nostra fotocamera (e che ci permette di vedere forme e colori) in una serie di numeri

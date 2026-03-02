@@ -1,3 +1,4 @@
+
 ```{pyodide-python}
 #| autorun: true
 #| output: false
@@ -234,7 +235,7 @@ else:
 
 ## Mappa concettuale
 
-```mermaid
+```{mermaid}
 flowchart TD
     A["Condizione"] --> B{"Vera?"}
     B -->|Si| C["Blocco if"]

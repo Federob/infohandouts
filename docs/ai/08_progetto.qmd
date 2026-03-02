@@ -1,3 +1,4 @@
+
 ```{pyodide-python}
 #| autorun: true
 #| output: false
@@ -331,7 +332,7 @@ print(f"(Implementa la previsione qui!)")
 
 ## Mappa concettuale
 
-```mermaid
+```{mermaid}
 flowchart LR
     A["1. Dataset<br/>crea i dati"] --> B["2. Esplora<br/>grafici e statistiche"]
     B --> C["3. Prepara<br/>normalizza e split"]

@@ -1,3 +1,4 @@
+
 # Classi e oggetti (OOP)
 
 ## Cos'è la programmazione a oggetti?
@@ -273,7 +274,7 @@ for f in forme:
 
 ## Mappa concettuale
 
-```mermaid
+```{mermaid}
 flowchart TD
     A["Classe<br/>lo stampo"] -->|"crea"| B["Oggetto<br/>istanza concreta"]
 

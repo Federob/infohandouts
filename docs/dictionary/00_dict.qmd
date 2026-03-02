@@ -1,3 +1,4 @@
+
 # 📘 Dizionario di Informatica
 
 Benvenuti nel **dizionario dell'informatica**! Qui troverete tutti quei termini strani che il prof usa durante le lezioni, spiegati in modo che abbiano senso.

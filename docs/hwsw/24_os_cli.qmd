@@ -1,3 +1,4 @@
+
 # Interfaccia da linea di comando (CLI)
 
 Questo documento descrive come navigare, creare, modificare, copiare e cancellare file e cartelle usando la riga di comando in Windows e Linux. Vengono presentati esempi realistici con prompt, comandi e output simulati, che mostrano il comportamento di un sistema operativo reale.

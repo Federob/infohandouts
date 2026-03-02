@@ -1,3 +1,4 @@
+
 # Architettura di un Sistema Operativo
 
 In questo file scopriremo che cos’è un sistema operativo, come è organizzato (kernel, file system e interfacce) e quali sono i principali OS utilizzati oggi. Il tutto con un tocco di leggerezza per mantenere la lettura piacevole.

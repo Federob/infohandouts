@@ -1,3 +1,4 @@
+
 # Valutare un modello
 
 ## Il tuo modello e' bravo o sta barando?
@@ -220,7 +221,7 @@ plt.show()
 
 ## Mappa concettuale
 
-```mermaid
+```{mermaid}
 flowchart TD
     A["Il modello funziona?"] --> B{"Training score<br/>vs Test score"}
     B -->|"Training alto, Test basso"| C["Overfitting<br/>ha memorizzato"]

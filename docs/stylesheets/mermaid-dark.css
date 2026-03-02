@@ -69,3 +69,59 @@
     color: #000000 !important;
     font-weight: 600 !important;
 }
+
+/* ===================================
+   PYODIDE DARK MODE
+   Editor Monaco + output area in tema slate
+   =================================== */
+
+/* Sfondo editor: il canvas Monaco è gestito via JS (monaco-dark-theme.html) */
+.quarto-dark .qpyodide-editor {
+    border-color: #4a5568 !important;
+}
+
+.quarto-dark .qpyodide-editor-toolbar {
+    background-color: #2d3748 !important;
+    border-bottom: 1px solid #4a5568;
+}
+
+/* Pulsanti nella toolbar */
+.quarto-dark .qpyodide-button {
+    background-color: #2d3748 !important;
+    color: #e2e8f0 !important;
+    border-color: #4a5568 !important;
+}
+
+.quarto-dark .qpyodide-button:hover {
+    background-color: #4a5568 !important;
+    color: #f7fafc !important;
+    border-color: #718096 !important;
+}
+
+.quarto-dark .qpyodide-button-reset,
+.quarto-dark .qpyodide-button-copy {
+    color: #a0aec0 !important;
+}
+
+/* Output area (stdout/stderr) */
+.quarto-dark .qpyodide-output-code-stdout {
+    color: #e2e8f0 !important;
+}
+
+.quarto-dark .qpyodide-output-code-stderr {
+    color: #fc8181 !important;
+}
+
+/* Area output con sfondo coerente */
+.quarto-dark .qpyodide-output-code-area pre,
+.quarto-dark .qpyodide-output-code-area {
+    background-color: #1a202c !important;
+    border-color: #4a5568 !important;
+    color: #e2e8f0 !important;
+}
+
+/* Loading spinner */
+.quarto-dark .qpyodide-non-interactive-loading-container {
+    background-color: rgba(30, 37, 48, 0.85) !important;
+    border-color: rgba(74, 85, 104, 0.65) !important;
+}

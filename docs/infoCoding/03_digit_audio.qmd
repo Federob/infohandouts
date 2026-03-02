@@ -1,3 +1,4 @@
+
 # La Codifica dei Suoni: Campionamento e Frequenza di Campionamento
 
 La **codifica dei suoni** è il processo con cui i suoni vengono digitalizzati, cioè trasformati in segnali che i computer possono memorizzare e processare. Poiché i suoni sono onde continue, è necessario "campionarli" per rappresentarli digitalmente.

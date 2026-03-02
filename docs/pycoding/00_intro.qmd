@@ -1,3 +1,4 @@
+
 ```{pyodide-python}
 #| autorun: true
 #| output: false
@@ -136,17 +137,17 @@ Visto? **Identico** a Flowgorithm, solo che invece di trascinare blocchetti, scr
 
 ## Mappa concettuale
 
-```mermaid
+```{mermaid}
 mindmap
   root((Python))
-    ["Cos'e?"]
+    Cose
       Linguaggio di programmazione
       Creato nel 1991
       Semplice e leggibile
     Concetti base
-      ["print - mostra a schermo"]
-      ["input - chiede dati"]
-      ["Commenti con #"]
+      print mostra a schermo
+      input chiede dati
+      Commenti con hash
     Struttura di un programma
       INPUT
       ELABORAZIONE

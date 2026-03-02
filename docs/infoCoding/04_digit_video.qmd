@@ -1,3 +1,4 @@
+
 # La Codifica dei Video
 
 La **codifica dei video** è il processo di trasformazione dei dati video in un formato digitale che può essere memorizzato, trasmesso e visualizzato su diversi dispositivi. Dato che i video consistono in una serie di immagini in movimento, la loro codifica richiede tecniche specifiche per garantire che il file sia di dimensioni contenute, ma mantenga una buona qualità.

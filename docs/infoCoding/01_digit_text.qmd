@@ -30,7 +30,7 @@ Usa **7 bit** per rappresentare **128 simboli** diversi:
 | !       | 33               | 00100001       |
 
 
-![ASCII](https://upload.wikimedia.org/wikipedia/commons/d/dd/ASCII-Table.svg)
+![ASCII](ascii_table.png)
 
 ### Limiti di ASCII (spoiler: non basta!)
 

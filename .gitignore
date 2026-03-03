@@ -3,6 +3,7 @@ docs/_site/
 docs/.quarto/
 _freeze/
 .quarto/
+docs/**/*_files/
 
 # OS files
 .DS_Store

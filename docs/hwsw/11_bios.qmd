@@ -88,7 +88,7 @@ Potete mettere una **password al BIOS** per impedire a chiunque di modificare le
 
 Ecco come appare una tipica schermata del BIOS. Sì, sembra uscita dagli anni '90, e in effetti l'estetica non è cambiata molto!
 
-![Schermata BIOS](https://kmpic.asus.com/images/2022/07/21/e02270e4-b24f-4080-be10-674dde9db4f8.png)
+![Schermata BIOS](bios_screenshot.png)
 
 > 🎮 Volete provare senza rischi? Divertitevi con il [Simulatore di BIOS Lenovo](https://download.lenovo.com/bsco/index.html#/) - È tipo un videogioco, ma per nerd!
 

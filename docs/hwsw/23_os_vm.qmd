@@ -26,7 +26,7 @@ Un esempio pratico: se hai Windows come host, puoi far girare una VM con Linux i
 - **montare file ISO** per installare sistemi operativi,
 - **gestire snapshot** per tornare a una configurazione precedente in caso di problemi.
 
-![Interfaccia di VirtualBox](https://upload.wikimedia.org/wikipedia/commons/7/7c/VirtualBox_screenshot.png)
+![Interfaccia di VirtualBox](virtualbox_screenshot.png)
 
 _Figura 1: l’interfaccia di VirtualBox con alcune macchine virtuali (fonte: Wikimedia Commons)._
 

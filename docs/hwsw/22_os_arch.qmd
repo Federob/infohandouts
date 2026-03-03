@@ -43,7 +43,7 @@ Il **file system** è la struttura con cui il sistema operativo organizza i dati
 - **GUI (Graphical User Interface)**: l’utente interagisce con finestre, icone e pulsanti usando principalmente il mouse (Windows Explorer, macOS Finder, desktop environment in Linux).
 - **CLI (Command Line Interface)**: un terminale testuale in cui si digitano comandi (Prompt dei comandi/PowerShell in Windows, shell Bash o Zsh in Linux/macOS).
 
-![Schema semplificato di un Sistema Operativo](https://upload.wikimedia.org/wikipedia/commons/e/e1/Operating_system_placement.svg)
+![Schema semplificato di un Sistema Operativo](os_placement.png)
 
 _Figura 1: Il Sistema Operativo tra hardware e software (fonte: Wikimedia Commons)_
 

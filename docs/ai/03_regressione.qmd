@@ -174,7 +174,7 @@ Ok, la retta sembra buona. Ma *quanto* buona? Servono delle **metriche**:
 
 La media dei quadrati degli errori. Più è bassa, meglio è.
 
-### R² (R-squared)
+### R-squared
 
 Indica quanto bene la retta "spiega" i dati. Va da 0 a 1:
 

@@ -1,9 +1,25 @@
-# Quarto
+# Quarto build output
 docs/_site/
 docs/.quarto/
 _freeze/
 .quarto/
 docs/**/*_files/
+
+# Artefatti di quarto render (PDF, typ, HTML intermedi, libs)
+docs/**/*.pdf
+docs/**/*.typ
+docs/**/site_libs/
+
+# HTML generati da quarto render (non i sorgenti in stylesheets/ e _extensions/)
+docs/ai/*.html
+docs/algocoding/*.html
+docs/dictionary/*.html
+docs/extra/*.html
+docs/fundamentals/*.html
+docs/hwsw/*.html
+docs/infoCoding/*.html
+docs/pycoding/*.html
+docs/index.html
 
 # OS files
 .DS_Store

@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-03-03">
+
+<title>bios – Corso di Informatica</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../hwsw/20_sw.html" rel="next">
+<link href="../hwsw/10_hw.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-71957ac9ccc9d0fc18656807f2d8b8ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-a5b2293a6d69cf4cfe8b9bfeee78cd61.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-71957ac9ccc9d0fc18656807f2d8b8ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare",
+    "search-label": "Ricerca"
+  }
+}</script>
+<script>
+(function () {
+  // Applica tema e font-size a tutti gli editor Monaco nella pagina
+  function applyMonacoSettings(isDark) {
+    if (typeof monaco === 'undefined') return;
+    monaco.editor.setTheme(isDark ? 'vs-dark' : 'vs-light');
+    // Riduce il font-size da 17.5pt a ~13px (coerente col sito)
+    monaco.editor.getEditors().forEach(function (ed) {
+      ed.updateOptions({ fontSize: 13 });
+    });
+  }
+
+  // Riapplica il font-size agli editor creati successivamente
+  function applyMonacoTheme(isDark) {
+    applyMonacoSettings(isDark);
+  }
+
+  // Legge se il body ha la classe quarto-dark
+  function isQuartoDark() {
+    return document.body.classList.contains('quarto-dark');
+  }
+
+  // Osserva i cambiamenti di classe su body (toggle light/dark di Quarto)
+  const bodyObserver = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      if (mutation.attributeName === 'class') {
+        applyMonacoTheme(isQuartoDark());
+      }
+    });
+  });
+
+  // Attendi che Monaco sia disponibile, poi applica e installa l'observer
+  function waitForMonaco() {
+    if (typeof monaco !== 'undefined') {
+      applyMonacoSettings(isQuartoDark());
+      bodyObserver.observe(document.body, { attributes: true });
+      // Applica font-size anche agli editor creati successivamente
+      monaco.editor.onDidCreateEditor(function (ed) {
+        ed.updateOptions({ fontSize: 13 });
+      });
+    } else {
+      setTimeout(waitForMonaco, 200);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', waitForMonaco);
+
+  // Auto-nascondi la notifica pyodide dopo il caricamento
+  function watchPyodideStatus() {
+    var statusEl = document.getElementById('qpyodide-status-message-text');
+    if (!statusEl) {
+      setTimeout(watchPyodideStatus, 500);
+      return;
+    }
+    var obs = new MutationObserver(function () {
+      var text = statusEl.textContent || '';
+      if (text.indexOf('Ready') !== -1 || text.indexOf('ready') !== -1 || text.indexOf('🟢') !== -1) {
+        setTimeout(function () {
+          var area = document.getElementById('qpyodide-status-message-area');
+          if (area) {
+            area.style.opacity = '0';
+            setTimeout(function () { area.style.display = 'none'; }, 600);
+          }
+        }, 2000);
+        obs.disconnect();
+      }
+    });
+    obs.observe(statusEl, { childList: true, characterData: true, subtree: true });
+  }
+  document.addEventListener('DOMContentLoaded', watchPyodideStatus);
+})();
+</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../stylesheets/mermaid-dark.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Corso di Informatica</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Ricerca"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Attiva/disattiva la navigazione" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-le-basi" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Le basi</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-le-basi">    
+        <li class="dropdown-header">Introduzione</li>
+        <li>
+    <a class="dropdown-item" href="../fundamentals/00_basics.html">
+ <span class="dropdown-text">Concetti fondamentali</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../fundamentals/01_map.html">
+ <span class="dropdown-text">Mappa concettuale</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Hardware</li>
+        <li>
+    <a class="dropdown-item" href="../hwsw/10_hw.html">
+ <span class="dropdown-text">Architettura di un elaboratore</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../hwsw/11_bios.html">
+ <span class="dropdown-text">BIOS</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Software</li>
+        <li>
+    <a class="dropdown-item" href="../hwsw/20_sw.html">
+ <span class="dropdown-text">Classificazione</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../hwsw/21_os_intro.html">
+ <span class="dropdown-text">Sistemi Operativi</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">La codifica delle informazioni</li>
+        <li>
+    <a class="dropdown-item" href="../infoCoding/00_intro.html">
+ <span class="dropdown-text">Codifiche numeriche</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/01_digit_text.html">
+ <span class="dropdown-text">Testo</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/02_digit_img.html">
+ <span class="dropdown-text">Immagini</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/03_digit_audio.html">
+ <span class="dropdown-text">Suoni</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/04_digit_video.html">
+ <span class="dropdown-text">Video</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/05_file.html">
+ <span class="dropdown-text">File</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-extra" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Extra</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-extra">    
+        <li>
+    <a class="dropdown-item" href="../extra/emailMurderGame.html">
+ <span class="dropdown-text">Gioco dell’assassino</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-abc" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">A,B,C</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-abc">    
+        <li>
+    <a class="dropdown-item" href="../dictionary/00_dict.html">
+ <span class="dropdown-text">Parole</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../dictionary/01_map.html">
+ <span class="dropdown-text">Mappa</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-algoritmi" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Algoritmi</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-algoritmi">    
+        <li>
+    <a class="dropdown-item" href="../algocoding/01_flowgorithm.html">
+ <span class="dropdown-text">Flowgorithm</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algocoding/02_python_from_flowgorithm.html">
+ <span class="dropdown-text">Da Flowgorithm a Python</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python">    
+        <li>
+    <a class="dropdown-item" href="../pycoding/00_intro.html">
+ <span class="dropdown-text">Introduzione</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/01_variabili.html">
+ <span class="dropdown-text">Variabili e tipi</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/02_stringhe.html">
+ <span class="dropdown-text">Stringhe</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/03_condizioni.html">
+ <span class="dropdown-text">Condizioni</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/04_cicli.html">
+ <span class="dropdown-text">Cicli</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/05_liste.html">
+ <span class="dropdown-text">Liste e tuple</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/06_dizionari.html">
+ <span class="dropdown-text">Dizionari e set</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/07_funzioni.html">
+ <span class="dropdown-text">Funzioni</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/08_matrici.html">
+ <span class="dropdown-text">Array e matrici</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/09_oggetti.html">
+ <span class="dropdown-text">Classi e oggetti</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/10_networking.html">
+ <span class="dropdown-text">Python e networking</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-intelligenza-artificiale" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Intelligenza Artificiale</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-intelligenza-artificiale">    
+        <li>
+    <a class="dropdown-item" href="../ai/00_intro.html">
+ <span class="dropdown-text">Cos’è l’IA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/01_ml_intro.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/02_dati.html">
+ <span class="dropdown-text">Preparare i dati</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/03_regressione.html">
+ <span class="dropdown-text">Regressione lineare</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/04_classificazione.html">
+ <span class="dropdown-text">Classificazione</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/05_valutazione.html">
+ <span class="dropdown-text">Valutare un modello</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/06_clustering.html">
+ <span class="dropdown-text">Clustering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/07_reti_neurali.html">
+ <span class="dropdown-text">Reti neurali</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/08_progetto.html">
+ <span class="dropdown-text">Progetto finale</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/09_etica.html">
+ <span class="dropdown-text">IA ed etica</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Attiva/disattiva la modalità oscura"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hwsw/10_hw.html">Hardware</a></li><li class="breadcrumb-item"><a href="../hwsw/11_bios.html">BIOS</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Introduzione</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Attiva/disattiva sezione">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../fundamentals/00_basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Concetti fondamentali</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../fundamentals/01_map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mappa concettuale</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Hardware</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Attiva/disattiva sezione">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hwsw/10_hw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Architettura di un elaboratore</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hwsw/11_bios.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">BIOS</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Software</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Attiva/disattiva sezione">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hwsw/20_sw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classificazione</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Sistemi Operativi</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Attiva/disattiva sezione">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hwsw/21_os_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Storia</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hwsw/22_os_arch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Architettura</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hwsw/23_os_vm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Macchine virtuali</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hwsw/24_os_cli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CLI</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hwsw/25_extra_shortcuts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Shortcuts</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">La codifica delle informazioni</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Attiva/disattiva sezione">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../infoCoding/00_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Codifiche numeriche</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../infoCoding/01_digit_text.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../infoCoding/02_digit_img.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Immagini</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../infoCoding/03_digit_audio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Suoni</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../infoCoding/04_digit_video.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../infoCoding/05_file.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">File</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">In questa pagina</h2>
+   
+  <ul>
+  <li><a href="#bios-basic-inputoutput-system" id="toc-bios-basic-inputoutput-system" class="nav-link active" data-scroll-target="#bios-basic-inputoutput-system">BIOS (Basic Input/Output System)</a>
+  <ul class="collapse">
+  <li><a href="#cosè-il-bios" id="toc-cosè-il-bios" class="nav-link" data-scroll-target="#cosè-il-bios">Cos’è il BIOS?</a></li>
+  <li><a href="#a-cosa-serve-il-bios" id="toc-a-cosa-serve-il-bios" class="nav-link" data-scroll-target="#a-cosa-serve-il-bios">A cosa serve il BIOS?</a></li>
+  <li><a href="#come-accedere-al-bios" id="toc-come-accedere-al-bios" class="nav-link" data-scroll-target="#come-accedere-al-bios">Come accedere al BIOS?</a></li>
+  <li><a href="#impostazioni-principali-modificabili-nel-bios" id="toc-impostazioni-principali-modificabili-nel-bios" class="nav-link" data-scroll-target="#impostazioni-principali-modificabili-nel-bios">Impostazioni principali modificabili nel BIOS</a>
+  <ul class="collapse">
+  <li><a href="#sequenza-di-avvio-boot-order" id="toc-sequenza-di-avvio-boot-order" class="nav-link" data-scroll-target="#sequenza-di-avvio-boot-order">1. Sequenza di avvio (Boot Order)</a></li>
+  <li><a href="#data-e-ora" id="toc-data-e-ora" class="nav-link" data-scroll-target="#data-e-ora">2. Data e ora</a></li>
+  <li><a href="#velocità-della-cpu-e-gestione-energetica" id="toc-velocità-della-cpu-e-gestione-energetica" class="nav-link" data-scroll-target="#velocità-della-cpu-e-gestione-energetica">3. Velocità della CPU e gestione energetica</a></li>
+  <li><a href="#configurazione-della-memoria-ram" id="toc-configurazione-della-memoria-ram" class="nav-link" data-scroll-target="#configurazione-della-memoria-ram">4. Configurazione della memoria (RAM)</a></li>
+  <li><a href="#abilitazionedisabilitazione-delle-periferiche" id="toc-abilitazionedisabilitazione-delle-periferiche" class="nav-link" data-scroll-target="#abilitazionedisabilitazione-delle-periferiche">5. Abilitazione/disabilitazione delle periferiche</a></li>
+  <li><a href="#gestione-della-sicurezza" id="toc-gestione-della-sicurezza" class="nav-link" data-scroll-target="#gestione-della-sicurezza">6. Gestione della sicurezza</a></li>
+  </ul></li>
+  <li><a href="#informazioni-importanti-sul-bios-leggete-questa-parte" id="toc-informazioni-importanti-sul-bios-leggete-questa-parte" class="nav-link" data-scroll-target="#informazioni-importanti-sul-bios-leggete-questa-parte">Informazioni Importanti sul BIOS (leggete questa parte!)</a></li>
+  <li><a href="#esempio-di-schermata-del-bios" id="toc-esempio-di-schermata-del-bios" class="nav-link" data-scroll-target="#esempio-di-schermata-del-bios">Esempio di schermata del BIOS</a></li>
+  <li><a href="#mappa-concettuale" id="toc-mappa-concettuale" class="nav-link" data-scroll-target="#mappa-concettuale">Mappa Concettuale</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Altri Formati</h2><ul><li><a href="11_bios.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hwsw/10_hw.html">Hardware</a></li><li class="breadcrumb-item"><a href="../hwsw/11_bios.html">BIOS</a></li></ol></nav>
+<div class="quarto-title">
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">03/03/2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="bios-basic-inputoutput-system" class="level1">
+<h1>BIOS (Basic Input/Output System)</h1>
+<section id="cosè-il-bios" class="level2">
+<h2 class="anchored" data-anchor-id="cosè-il-bios">Cos’è il BIOS?</h2>
+<p>Il <strong>BIOS</strong> (<em>Basic Input/Output System</em>) è il programma che si sveglia per primo quando accendete il PC. È memorizzato in una memoria speciale chiamata <strong>ROM</strong>, e il suo lavoro è fare un check-up completo dell’hardware prima di passare il testimone al sistema operativo.</p>
+<p>Praticamente è tipo il portiere del palazzo: controlla che tutto sia a posto prima di far entrare qualcuno (in questo caso il sistema operativo).</p>
+</section>
+<section id="a-cosa-serve-il-bios" class="level2">
+<h2 class="anchored" data-anchor-id="a-cosa-serve-il-bios">A cosa serve il BIOS?</h2>
+<p>Il BIOS è il primo soccorritore del vostro PC. Ha questi compiti fondamentali:</p>
+<ol type="1">
+<li><p><strong>Avviare il sistema</strong>: Controlla tutti i componenti hardware (RAM, disco rigido, tastiera, ecc.) per assicurarsi che siano collegati e funzionino. Se qualcosa non va, vi fa sentire dei beep fastidiosi per avvisarvi. (Sì, il PC sa bippare quando sta male!)</p></li>
+<li><p><strong>Caricare il sistema operativo</strong>: Dopo aver controllato che tutto sia ok, il BIOS trova e carica il sistema operativo dal disco. È tipo dire “Ok ragazzi, tutto a posto, posso chiamare Windows!”</p></li>
+<li><p><strong>Gestire le impostazioni di sistema</strong>: Vi permette di configurare parametri hardware importanti. Tipo decidere da dove far partire il PC, quanto veloce far andare la CPU, e altre cose da smanettoni.</p></li>
+</ol>
+</section>
+<section id="come-accedere-al-bios" class="level2">
+<h2 class="anchored" data-anchor-id="come-accedere-al-bios">Come accedere al BIOS?</h2>
+<p>Per entrare nel BIOS dovete essere VELOCI! Durante l’avvio del PC (quando vedete il logo del produttore), dovete premere un tasto specifico. È tipo un minigioco di riflessi. Se siete lenti, il PC parte normalmente e dovete riavviare e riprovare.</p>
+<p>I tasti più comuni sono:</p>
+<ul>
+<li><strong>F2</strong> o <strong>F10</strong> (tipico dei laptop)</li>
+<li><strong>DEL</strong> (o <strong>CANC</strong>) (tipico dei PC desktop)</li>
+<li><strong>ESC</strong> (per fare i difficili)</li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>Pro tip</strong>: In genere sulla prima schermata di avvio compare un messaggio tipo “Press F2 to enter setup” o simili. Leggete veloce e schiacciate! Se non fate in tempo, tranquilli: riavviate e riprovate. Non esplode niente.</p>
+</blockquote>
+</section>
+<section id="impostazioni-principali-modificabili-nel-bios" class="level2">
+<h2 class="anchored" data-anchor-id="impostazioni-principali-modificabili-nel-bios">Impostazioni principali modificabili nel BIOS</h2>
+<section id="sequenza-di-avvio-boot-order" class="level3">
+<h3 class="anchored" data-anchor-id="sequenza-di-avvio-boot-order">1. Sequenza di avvio (Boot Order)</h3>
+<p>La <strong>sequenza di avvio</strong> (o <strong>boot order</strong>) decide in quale ordine il BIOS cerca il sistema operativo. È tipo una lista di priorità: “Prova prima qui, se non c’è niente prova là, poi là…”</p>
+<p><strong>Come funziona:</strong></p>
+<ul>
+<li><p><strong>Dispositivi comuni</strong>: Disco rigido interno, chiavette USB, CD/DVD, schede di rete (per i super nerd).</p></li>
+<li><p><strong>Ordine di avvio</strong>: Il BIOS controlla i dispositivi nell’ordine che avete impostato. Trova il sistema operativo sul primo dispositivo disponibile e lo fa partire.</p></li>
+</ul>
+<p><strong>Quando serve cambiarlo:</strong> - <strong>Installare un nuovo OS</strong>: Volete installare Windows o Linux da USB? Dovete mettere l’USB in cima alla lista. - <strong>Riparare il PC</strong>: Se il PC non parte, potete avviarlo da una chiavetta di emergenza con programmi di riparazione. - <strong>Sicurezza</strong>: Potete bloccare l’avvio da dispositivi esterni per evitare che qualcuno faccia partire il vostro PC da una chiavetta non autorizzata.</p>
+<blockquote class="blockquote">
+<p><strong>Attenzione</strong>: Se sbagliate l’ordine, il PC potrebbe non avviarsi. Ma niente panico: basta rientrare nel BIOS e sistemare. Non rompete niente di permanente!</p>
+</blockquote>
+</section>
+<section id="data-e-ora" class="level3">
+<h3 class="anchored" data-anchor-id="data-e-ora">2. Data e ora</h3>
+<p>Aggiorna data e ora del sistema. Sembra banale, ma se l’ora è sbagliata il PC fa confusione con i file, le connessioni di rete e tutto il resto. Quindi tenetela corretta!</p>
+<p>(Se la data torna indietro ogni volta che spegnete il PC, probabilmente la batteria del BIOS è scarica. Sì, il BIOS ha una sua piccola batteria!)</p>
+</section>
+<section id="velocità-della-cpu-e-gestione-energetica" class="level3">
+<h3 class="anchored" data-anchor-id="velocità-della-cpu-e-gestione-energetica">3. Velocità della CPU e gestione energetica</h3>
+<p>Per gli smanettoni: potete overcloccare la CPU (farla andare più veloce del previsto) o metterla in modalità risparmio energetico.</p>
+<p><strong>Pro dell’overclock</strong>: più velocità! 🚀 <strong>Contro dell’overclock</strong>: più calore, più consumo, possibili crash. Quindi occhio.</p>
+</section>
+<section id="configurazione-della-memoria-ram" class="level3">
+<h3 class="anchored" data-anchor-id="configurazione-della-memoria-ram">4. Configurazione della memoria (RAM)</h3>
+<p>Nei BIOS avanzati potete regolare la velocità della RAM o attivare funzioni speciali. È roba da esperti, ma se sapete cosa fate potete spremere qualche prestazione extra.</p>
+</section>
+<section id="abilitazionedisabilitazione-delle-periferiche" class="level3">
+<h3 class="anchored" data-anchor-id="abilitazionedisabilitazione-delle-periferiche">5. Abilitazione/disabilitazione delle periferiche</h3>
+<p>Potete disattivare porte USB, audio, webcam, ecc. Utile per: - Risparmiare un po’ di energia - Risolvere problemi di compatibilità - Aumentare la sicurezza (es. disabilitare tutte le USB per evitare che qualcuno ci infili una chiavetta sospetta)</p>
+</section>
+<section id="gestione-della-sicurezza" class="level3">
+<h3 class="anchored" data-anchor-id="gestione-della-sicurezza">6. Gestione della sicurezza</h3>
+<p>Potete mettere una <strong>password al BIOS</strong> per impedire a chiunque di modificare le impostazioni o far partire il PC. È tipo il lucchetto del computer. Se la mettete, RICORDATEVELA! Perderla è un casino.</p>
+</section>
+</section>
+<section id="informazioni-importanti-sul-bios-leggete-questa-parte" class="level2">
+<h2 class="anchored" data-anchor-id="informazioni-importanti-sul-bios-leggete-questa-parte">Informazioni Importanti sul BIOS (leggete questa parte!)</h2>
+<ul>
+<li><p><strong>⚠️ Modifica delle Impostazioni</strong>: Le impostazioni del BIOS sono DELICATE. Se non sapete cosa state facendo, NON toccate roba a caso! Potreste impedire al PC di avviarsi. La regola d’oro: se non siete sicuri, NON modificate.</p></li>
+<li><p><strong>Aggiornamento del BIOS</strong>: A volte bisogna aggiornare il BIOS per supportare nuovo hardware. Ma è un’operazione rischiosa: se va male durante l’aggiornamento (tipo si spegne il PC), il computer potrebbe non ripartire più. Fatelo solo se davvero necessario e seguite le istruzioni alla lettera.</p></li>
+<li><p><strong>UEFI - Il BIOS moderno</strong>: Nei PC più recenti c’è l’<strong>UEFI</strong> (<em>Unified Extensible Firmware Interface</em>), che è tipo il BIOS 2.0. Ha più funzioni, un’interfaccia grafica più bella (con il mouse!) e avvia il sistema più velocemente. Ma il concetto è lo stesso.</p></li>
+</ul>
+</section>
+<section id="esempio-di-schermata-del-bios" class="level2">
+<h2 class="anchored" data-anchor-id="esempio-di-schermata-del-bios">Esempio di schermata del BIOS</h2>
+<p>Ecco come appare una tipica schermata del BIOS. Sì, sembra uscita dagli anni ’90, e in effetti l’estetica non è cambiata molto!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="bios_screenshot.png" class="img-fluid figure-img"></p>
+<figcaption>Schermata BIOS</figcaption>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>🎮 Volete provare senza rischi? Divertitevi con il <a href="https://download.lenovo.com/bsco/index.html#/">Simulatore di BIOS Lenovo</a> - È tipo un videogioco, ma per nerd!</p>
+</blockquote>
+<hr>
+</section>
+<section id="mappa-concettuale" class="level2">
+<h2 class="anchored" data-anchor-id="mappa-concettuale">Mappa Concettuale</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+    A[BIOS Basic Input/Output System] --&gt; B[Funzioni Principali]
+    B --&gt; C[Avvia il Sistema]
+    B --&gt; D[Controlla l'Hardware all'Avvio]
+    B --&gt; E[Carica il Sistema Operativo]
+    B --&gt; F[Gestisce le Impostazioni Hardware]
+
+    A --&gt; G[Accesso al BIOS]
+    G --&gt; H[Pulsanti di Accesso]
+    H --&gt; H1[F2]
+    H --&gt; H2[F10]
+    H --&gt; H3[DEL/CANC]
+    H --&gt; H4[ESC]
+
+    A --&gt; I[Impostazioni Principali]
+    I --&gt; J[Sequenza di Avvio]
+    J --&gt; J1[Dispositivi Comuni]
+    J1 --&gt; J1a[Disco Rigido]
+    J1 --&gt; J1b[USB]
+    J1 --&gt; J1c[CD/DVD]
+    J1 --&gt; J1d[Scheda di Rete]
+    J --&gt; J2[Ordine di Avvio]
+    J --&gt; J3[Utilizzi]
+    J3 --&gt; J3a[Installazione OS]
+    J3 --&gt; J3b[Strumenti di Riparazione]
+    J3 --&gt; J3c[Sicurezza]
+
+    I --&gt; K[Data e Ora]
+    I --&gt; L[Velocità della CPU]
+    I --&gt; M[Configurazione della Memoria]
+    I --&gt; N[Gestione delle Periferiche]
+    I --&gt; O[Sicurezza]
+
+    A --&gt; P[Informazioni Importanti]
+    P --&gt; Q[Modifica delle Impostazioni]
+    P --&gt; R[Aggiornamento del BIOS]
+    P --&gt; S[Interfaccia UEFI]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiato!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiato!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/federob\.github\.io\/infohandouts\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../hwsw/10_hw.html" class="pagination-link" aria-label="Architettura di un elaboratore">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Architettura di un elaboratore</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../hwsw/20_sw.html" class="pagination-link" aria-label="Classificazione">
+        <span class="nav-page-text">Classificazione</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Prof.&nbsp;Federico Robuffo © 2026</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Made with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>Ultimo aggiornamento: 03/03/2026</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

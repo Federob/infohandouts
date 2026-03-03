@@ -1,0 +1,2186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-02-03">
+
+<title>python_from_flowgorithm – Corso di Informatica</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../algocoding/01_flowgorithm.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-71957ac9ccc9d0fc18656807f2d8b8ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-a5b2293a6d69cf4cfe8b9bfeee78cd61.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-71957ac9ccc9d0fc18656807f2d8b8ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare",
+    "search-label": "Ricerca"
+  }
+}</script>
+<script>
+(function () {
+  // Applica tema e font-size a tutti gli editor Monaco nella pagina
+  function applyMonacoSettings(isDark) {
+    if (typeof monaco === 'undefined') return;
+    monaco.editor.setTheme(isDark ? 'vs-dark' : 'vs-light');
+    // Riduce il font-size da 17.5pt a ~13px (coerente col sito)
+    monaco.editor.getEditors().forEach(function (ed) {
+      ed.updateOptions({ fontSize: 13 });
+    });
+  }
+
+  // Riapplica il font-size agli editor creati successivamente
+  function applyMonacoTheme(isDark) {
+    applyMonacoSettings(isDark);
+  }
+
+  // Legge se il body ha la classe quarto-dark
+  function isQuartoDark() {
+    return document.body.classList.contains('quarto-dark');
+  }
+
+  // Osserva i cambiamenti di classe su body (toggle light/dark di Quarto)
+  const bodyObserver = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      if (mutation.attributeName === 'class') {
+        applyMonacoTheme(isQuartoDark());
+      }
+    });
+  });
+
+  // Attendi che Monaco sia disponibile, poi applica e installa l'observer
+  function waitForMonaco() {
+    if (typeof monaco !== 'undefined') {
+      applyMonacoSettings(isQuartoDark());
+      bodyObserver.observe(document.body, { attributes: true });
+      // Applica font-size anche agli editor creati successivamente
+      monaco.editor.onDidCreateEditor(function (ed) {
+        ed.updateOptions({ fontSize: 13 });
+      });
+    } else {
+      setTimeout(waitForMonaco, 200);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', waitForMonaco);
+
+  // Auto-nascondi la notifica pyodide dopo il caricamento
+  function watchPyodideStatus() {
+    var statusEl = document.getElementById('qpyodide-status-message-text');
+    if (!statusEl) {
+      setTimeout(watchPyodideStatus, 500);
+      return;
+    }
+    var obs = new MutationObserver(function () {
+      var text = statusEl.textContent || '';
+      if (text.indexOf('Ready') !== -1 || text.indexOf('ready') !== -1 || text.indexOf('🟢') !== -1) {
+        setTimeout(function () {
+          var area = document.getElementById('qpyodide-status-message-area');
+          if (area) {
+            area.style.opacity = '0';
+            setTimeout(function () { area.style.display = 'none'; }, 600);
+          }
+        }, 2000);
+        obs.disconnect();
+      }
+    });
+    obs.observe(statusEl, { childList: true, characterData: true, subtree: true });
+  }
+  document.addEventListener('DOMContentLoaded', watchPyodideStatus);
+})();
+</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../stylesheets/mermaid-dark.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Corso di Informatica</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Ricerca"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Attiva/disattiva la navigazione" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-le-basi" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Le basi</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-le-basi">    
+        <li class="dropdown-header">Introduzione</li>
+        <li>
+    <a class="dropdown-item" href="../fundamentals/00_basics.html">
+ <span class="dropdown-text">Concetti fondamentali</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../fundamentals/01_map.html">
+ <span class="dropdown-text">Mappa concettuale</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Hardware</li>
+        <li>
+    <a class="dropdown-item" href="../hwsw/10_hw.html">
+ <span class="dropdown-text">Architettura di un elaboratore</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../hwsw/11_bios.html">
+ <span class="dropdown-text">BIOS</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Software</li>
+        <li>
+    <a class="dropdown-item" href="../hwsw/20_sw.html">
+ <span class="dropdown-text">Classificazione</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../hwsw/21_os_intro.html">
+ <span class="dropdown-text">Sistemi Operativi</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">La codifica delle informazioni</li>
+        <li>
+    <a class="dropdown-item" href="../infoCoding/00_intro.html">
+ <span class="dropdown-text">Codifiche numeriche</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/01_digit_text.html">
+ <span class="dropdown-text">Testo</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/02_digit_img.html">
+ <span class="dropdown-text">Immagini</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/03_digit_audio.html">
+ <span class="dropdown-text">Suoni</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/04_digit_video.html">
+ <span class="dropdown-text">Video</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/05_file.html">
+ <span class="dropdown-text">File</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-extra" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Extra</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-extra">    
+        <li>
+    <a class="dropdown-item" href="../extra/emailMurderGame.html">
+ <span class="dropdown-text">Gioco dell’assassino</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-abc" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">A,B,C</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-abc">    
+        <li>
+    <a class="dropdown-item" href="../dictionary/00_dict.html">
+ <span class="dropdown-text">Parole</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../dictionary/01_map.html">
+ <span class="dropdown-text">Mappa</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-algoritmi" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Algoritmi</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-algoritmi">    
+        <li>
+    <a class="dropdown-item" href="../algocoding/01_flowgorithm.html">
+ <span class="dropdown-text">Flowgorithm</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algocoding/02_python_from_flowgorithm.html">
+ <span class="dropdown-text">Da Flowgorithm a Python</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python">    
+        <li>
+    <a class="dropdown-item" href="../pycoding/00_intro.html">
+ <span class="dropdown-text">Introduzione</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/01_variabili.html">
+ <span class="dropdown-text">Variabili e tipi</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/02_stringhe.html">
+ <span class="dropdown-text">Stringhe</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/03_condizioni.html">
+ <span class="dropdown-text">Condizioni</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/04_cicli.html">
+ <span class="dropdown-text">Cicli</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/05_liste.html">
+ <span class="dropdown-text">Liste e tuple</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/06_dizionari.html">
+ <span class="dropdown-text">Dizionari e set</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/07_funzioni.html">
+ <span class="dropdown-text">Funzioni</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/08_matrici.html">
+ <span class="dropdown-text">Array e matrici</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/09_oggetti.html">
+ <span class="dropdown-text">Classi e oggetti</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/10_networking.html">
+ <span class="dropdown-text">Python e networking</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-intelligenza-artificiale" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Intelligenza Artificiale</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-intelligenza-artificiale">    
+        <li>
+    <a class="dropdown-item" href="../ai/00_intro.html">
+ <span class="dropdown-text">Cos’è l’IA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/01_ml_intro.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/02_dati.html">
+ <span class="dropdown-text">Preparare i dati</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/03_regressione.html">
+ <span class="dropdown-text">Regressione lineare</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/04_classificazione.html">
+ <span class="dropdown-text">Classificazione</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/05_valutazione.html">
+ <span class="dropdown-text">Valutare un modello</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/06_clustering.html">
+ <span class="dropdown-text">Clustering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/07_reti_neurali.html">
+ <span class="dropdown-text">Reti neurali</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/08_progetto.html">
+ <span class="dropdown-text">Progetto finale</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/09_etica.html">
+ <span class="dropdown-text">IA ed etica</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Attiva/disattiva la modalità oscura"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../algocoding/02_python_from_flowgorithm.html">Da Flowgorithm a Python</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../algocoding/01_flowgorithm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flowgorithm</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../algocoding/02_python_from_flowgorithm.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Da Flowgorithm a Python</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">In questa pagina</h2>
+   
+  <ul>
+  <li><a href="#da-flowgorithm-a-python-guida-pratica-alla-transizione" id="toc-da-flowgorithm-a-python-guida-pratica-alla-transizione" class="nav-link active" data-scroll-target="#da-flowgorithm-a-python-guida-pratica-alla-transizione">Da Flowgorithm a Python: guida pratica alla transizione</a>
+  <ul class="collapse">
+  <li><a href="#introduzione" id="toc-introduzione" class="nav-link" data-scroll-target="#introduzione">1. Introduzione</a></li>
+  <li><a href="#perché-python" id="toc-perché-python" class="nav-link" data-scroll-target="#perché-python">2. Perché Python?</a></li>
+  <li><a href="#tabella-di-traduzione-flowgorithm-python" id="toc-tabella-di-traduzione-flowgorithm-python" class="nav-link" data-scroll-target="#tabella-di-traduzione-flowgorithm-python">3. Tabella di traduzione: Flowgorithm → Python</a></li>
+  <li><a href="#i-blocchi-flowgorithm-tradotti-in-python" id="toc-i-blocchi-flowgorithm-tradotti-in-python" class="nav-link" data-scroll-target="#i-blocchi-flowgorithm-tradotti-in-python">4. I blocchi Flowgorithm tradotti in Python</a>
+  <ul class="collapse">
+  <li><a href="#declare-dichiarazione-variabili" id="toc-declare-dichiarazione-variabili" class="nav-link" data-scroll-target="#declare-dichiarazione-variabili">4.1 Declare (Dichiarazione variabili)</a></li>
+  <li><a href="#output-mostrare-messaggi" id="toc-output-mostrare-messaggi" class="nav-link" data-scroll-target="#output-mostrare-messaggi">4.2 Output (Mostrare messaggi)</a></li>
+  <li><a href="#input-ricevere-dati-dallutente" id="toc-input-ricevere-dati-dallutente" class="nav-link" data-scroll-target="#input-ricevere-dati-dallutente">4.3 Input (Ricevere dati dall’utente)</a></li>
+  <li><a href="#assign-assegnazione-e-calcoli" id="toc-assign-assegnazione-e-calcoli" class="nav-link" data-scroll-target="#assign-assegnazione-e-calcoli">4.4 Assign (Assegnazione e calcoli)</a></li>
+  <li><a href="#if-condizioni" id="toc-if-condizioni" class="nav-link" data-scroll-target="#if-condizioni">4.5 If (Condizioni)</a></li>
+  </ul></li>
+  <li><a href="#esempio-completo-somma-di-due-numeri" id="toc-esempio-completo-somma-di-due-numeri" class="nav-link" data-scroll-target="#esempio-completo-somma-di-due-numeri">5. Esempio completo: Somma di due numeri</a>
+  <ul class="collapse">
+  <li><a href="#flowchart-flowgorithm" id="toc-flowchart-flowgorithm" class="nav-link" data-scroll-target="#flowchart-flowgorithm">Flowchart Flowgorithm</a></li>
+  <li><a href="#codice-python-equivalente" id="toc-codice-python-equivalente" class="nav-link" data-scroll-target="#codice-python-equivalente">Codice Python equivalente</a></li>
+  </ul></li>
+  <li><a href="#esempio-completo-trapezio-e-cerchio" id="toc-esempio-completo-trapezio-e-cerchio" class="nav-link" data-scroll-target="#esempio-completo-trapezio-e-cerchio">6. Esempio completo: Trapezio e Cerchio</a>
+  <ul class="collapse">
+  <li><a href="#versione-python-completa" id="toc-versione-python-completa" class="nav-link" data-scroll-target="#versione-python-completa">Versione Python completa</a></li>
+  </ul></li>
+  <li><a href="#differenze-chiave-tra-flowgorithm-e-python" id="toc-differenze-chiave-tra-flowgorithm-e-python" class="nav-link" data-scroll-target="#differenze-chiave-tra-flowgorithm-e-python">7. Differenze chiave tra Flowgorithm e Python</a>
+  <ul class="collapse">
+  <li><a href="#indentazione-fondamentale" id="toc-indentazione-fondamentale" class="nav-link" data-scroll-target="#indentazione-fondamentale">7.1 Indentazione (fondamentale!)</a></li>
+  <li><a href="#conversione-dei-tipi" id="toc-conversione-dei-tipi" class="nav-link" data-scroll-target="#conversione-dei-tipi">7.2 Conversione dei tipi</a></li>
+  <li><a href="#operatori-logici" id="toc-operatori-logici" class="nav-link" data-scroll-target="#operatori-logici">7.3 Operatori logici</a></li>
+  </ul></li>
+  <li><a href="#come-eseguire-un-programma-python" id="toc-come-eseguire-un-programma-python" class="nav-link" data-scroll-target="#come-eseguire-un-programma-python">8. Come eseguire un programma Python</a>
+  <ul class="collapse">
+  <li><a href="#metodo-1-idle-ide-incluso-con-python" id="toc-metodo-1-idle-ide-incluso-con-python" class="nav-link" data-scroll-target="#metodo-1-idle-ide-incluso-con-python">Metodo 1: IDLE (IDE incluso con Python)</a></li>
+  <li><a href="#metodo-2-terminaleprompt-dei-comandi" id="toc-metodo-2-terminaleprompt-dei-comandi" class="nav-link" data-scroll-target="#metodo-2-terminaleprompt-dei-comandi">Metodo 2: Terminale/Prompt dei comandi</a></li>
+  <li><a href="#metodo-3-editor-online-per-iniziare-senza-installare" id="toc-metodo-3-editor-online-per-iniziare-senza-installare" class="nav-link" data-scroll-target="#metodo-3-editor-online-per-iniziare-senza-installare">Metodo 3: Editor online (per iniziare senza installare)</a></li>
+  </ul></li>
+  <li><a href="#esercizi-di-traduzione-flowgorithm-python" id="toc-esercizi-di-traduzione-flowgorithm-python" class="nav-link" data-scroll-target="#esercizi-di-traduzione-flowgorithm-python">9. Esercizi di traduzione Flowgorithm → Python</a>
+  <ul class="collapse">
+  <li><a href="#esercizio-1-facile-calcolo-perimetro-e-area-quadrato" id="toc-esercizio-1-facile-calcolo-perimetro-e-area-quadrato" class="nav-link" data-scroll-target="#esercizio-1-facile-calcolo-perimetro-e-area-quadrato">Esercizio 1 (facile): Calcolo perimetro e area quadrato</a></li>
+  <li><a href="#esercizio-2-medio-confronto-tra-due-numeri" id="toc-esercizio-2-medio-confronto-tra-due-numeri" class="nav-link" data-scroll-target="#esercizio-2-medio-confronto-tra-due-numeri">Esercizio 2 (medio): Confronto tra due numeri</a></li>
+  <li><a href="#esercizio-3-difficile-conversione-temperatura-con-messaggio" id="toc-esercizio-3-difficile-conversione-temperatura-con-messaggio" class="nav-link" data-scroll-target="#esercizio-3-difficile-conversione-temperatura-con-messaggio">Esercizio 3 (difficile): Conversione temperatura con messaggio</a></li>
+  </ul></li>
+  <li><a href="#metodologia-dei-5-passi-in-python" id="toc-metodologia-dei-5-passi-in-python" class="nav-link" data-scroll-target="#metodologia-dei-5-passi-in-python">10. Metodologia dei 5 passi in Python</a>
+  <ul class="collapse">
+  <li><a href="#i-5-passi-stesso-processo" id="toc-i-5-passi-stesso-processo" class="nav-link" data-scroll-target="#i-5-passi-stesso-processo">I 5 passi (stesso processo!)</a></li>
+  <li><a href="#template-base-di-un-programma-python" id="toc-template-base-di-un-programma-python" class="nav-link" data-scroll-target="#template-base-di-un-programma-python">Template base di un programma Python</a></li>
+  </ul></li>
+  <li><a href="#errori-comuni-da-evitare-in-python" id="toc-errori-comuni-da-evitare-in-python" class="nav-link" data-scroll-target="#errori-comuni-da-evitare-in-python">11. Errori comuni da evitare in Python</a>
+  <ul class="collapse">
+  <li><a href="#errore-1-dimenticare-di-convertire-linput" id="toc-errore-1-dimenticare-di-convertire-linput" class="nav-link" data-scroll-target="#errore-1-dimenticare-di-convertire-linput">❌ Errore 1: Dimenticare di convertire l’input</a></li>
+  <li><a href="#errore-2-usare-invece-di-nelle-condizioni" id="toc-errore-2-usare-invece-di-nelle-condizioni" class="nav-link" data-scroll-target="#errore-2-usare-invece-di-nelle-condizioni">❌ Errore 2: Usare = invece di == nelle condizioni</a></li>
+  <li><a href="#errore-3-sbagliare-lindentazione" id="toc-errore-3-sbagliare-lindentazione" class="nav-link" data-scroll-target="#errore-3-sbagliare-lindentazione">❌ Errore 3: Sbagliare l’indentazione</a></li>
+  <li><a href="#errore-4-dimenticare-i-due-punti-dopo-ifelifelse" id="toc-errore-4-dimenticare-i-due-punti-dopo-ifelifelse" class="nav-link" data-scroll-target="#errore-4-dimenticare-i-due-punti-dopo-ifelifelse">❌ Errore 4: Dimenticare i due punti dopo if/elif/else</a></li>
+  <li><a href="#errore-5-usare-variabili-non-definite" id="toc-errore-5-usare-variabili-non-definite" class="nav-link" data-scroll-target="#errore-5-usare-variabili-non-definite">❌ Errore 5: Usare variabili non definite</a></li>
+  </ul></li>
+  <li><a href="#trucchi-e-consigli-per-programmare-in-python" id="toc-trucchi-e-consigli-per-programmare-in-python" class="nav-link" data-scroll-target="#trucchi-e-consigli-per-programmare-in-python">12. Trucchi e consigli per programmare in Python</a>
+  <ul class="collapse">
+  <li><a href="#consiglio-1-usa-commenti-per-organizzare-il-codice" id="toc-consiglio-1-usa-commenti-per-organizzare-il-codice" class="nav-link" data-scroll-target="#consiglio-1-usa-commenti-per-organizzare-il-codice">✅ Consiglio 1: Usa commenti per organizzare il codice</a></li>
+  <li><a href="#consiglio-2-dai-nomi-chiari-alle-variabili" id="toc-consiglio-2-dai-nomi-chiari-alle-variabili" class="nav-link" data-scroll-target="#consiglio-2-dai-nomi-chiari-alle-variabili">✅ Consiglio 2: Dai nomi chiari alle variabili</a></li>
+  <li><a href="#consiglio-3-testa-il-codice-passo-per-passo" id="toc-consiglio-3-testa-il-codice-passo-per-passo" class="nav-link" data-scroll-target="#consiglio-3-testa-il-codice-passo-per-passo">✅ Consiglio 3: Testa il codice passo per passo</a></li>
+  <li><a href="#consiglio-4-usa-print-per-il-debug" id="toc-consiglio-4-usa-print-per-il-debug" class="nav-link" data-scroll-target="#consiglio-4-usa-print-per-il-debug">✅ Consiglio 4: Usa print() per il debug</a></li>
+  <li><a href="#consiglio-5-formatta-loutput-in-modo-carino" id="toc-consiglio-5-formatta-loutput-in-modo-carino" class="nav-link" data-scroll-target="#consiglio-5-formatta-loutput-in-modo-carino">✅ Consiglio 5: Formatta l’output in modo carino</a></li>
+  </ul></li>
+  <li><a href="#python-avanzato-cosa-viene-dopo" id="toc-python-avanzato-cosa-viene-dopo" class="nav-link" data-scroll-target="#python-avanzato-cosa-viene-dopo">13. Python avanzato: cosa viene dopo?</a>
+  <ul class="collapse">
+  <li><a href="#cicli-loop---ripetere-operazioni" id="toc-cicli-loop---ripetere-operazioni" class="nav-link" data-scroll-target="#cicli-loop---ripetere-operazioni">13.1 Cicli (Loop) - Ripetere operazioni</a></li>
+  <li><a href="#liste---raccogliere-più-valori" id="toc-liste---raccogliere-più-valori" class="nav-link" data-scroll-target="#liste---raccogliere-più-valori">13.2 Liste - Raccogliere più valori</a></li>
+  <li><a href="#funzioni---riutilizzare-codice" id="toc-funzioni---riutilizzare-codice" class="nav-link" data-scroll-target="#funzioni---riutilizzare-codice">13.3 Funzioni - Riutilizzare codice</a></li>
+  </ul></li>
+  <li><a href="#risorse-per-continuare-a-imparare" id="toc-risorse-per-continuare-a-imparare" class="nav-link" data-scroll-target="#risorse-per-continuare-a-imparare">14. Risorse per continuare a imparare</a>
+  <ul class="collapse">
+  <li><a href="#siti-web-consigliati" id="toc-siti-web-consigliati" class="nav-link" data-scroll-target="#siti-web-consigliati">Siti web consigliati</a></li>
+  <li><a href="#editoride-consigliati" id="toc-editoride-consigliati" class="nav-link" data-scroll-target="#editoride-consigliati">Editor/IDE consigliati</a></li>
+  <li><a href="#esercizi-online" id="toc-esercizi-online" class="nav-link" data-scroll-target="#esercizi-online">Esercizi online</a></li>
+  </ul></li>
+  <li><a href="#riepilogo-il-tuo-percorso-da-flowgorithm-a-python" id="toc-riepilogo-il-tuo-percorso-da-flowgorithm-a-python" class="nav-link" data-scroll-target="#riepilogo-il-tuo-percorso-da-flowgorithm-a-python">15. Riepilogo: il tuo percorso da Flowgorithm a Python</a></li>
+  <li><a href="#esercizio-finale-completo" id="toc-esercizio-finale-completo" class="nav-link" data-scroll-target="#esercizio-finale-completo">16. Esercizio finale completo</a>
+  <ul class="collapse">
+  <li><a href="#prova-a-risolverlo-seguendo-i-5-passi-soluzione-sotto" id="toc-prova-a-risolverlo-seguendo-i-5-passi-soluzione-sotto" class="nav-link" data-scroll-target="#prova-a-risolverlo-seguendo-i-5-passi-soluzione-sotto">Prova a risolverlo seguendo i 5 passi! (Soluzione sotto)</a></li>
+  </ul></li>
+  <li><a href="#conclusione" id="toc-conclusione" class="nav-link" data-scroll-target="#conclusione">17. Conclusione</a></li>
+  <li><a href="#appendice-cheatsheet-rapida-flowgorithm-python" id="toc-appendice-cheatsheet-rapida-flowgorithm-python" class="nav-link" data-scroll-target="#appendice-cheatsheet-rapida-flowgorithm-python">Appendice: Cheatsheet rapida Flowgorithm → Python</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Altri Formati</h2><ul><li><a href="02_python_from_flowgorithm.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">02/03/2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="da-flowgorithm-a-python-guida-pratica-alla-transizione" class="level1">
+<h1>Da Flowgorithm a Python: guida pratica alla transizione</h1>
+<section id="introduzione" class="level2">
+<h2 class="anchored" data-anchor-id="introduzione">1. Introduzione</h2>
+<p>Hai imparato a creare algoritmi con Flowgorithm usando i diagrammi di flusso? Ottimo! Ora è il momento di fare il salto verso la <strong>programmazione vera e propria</strong> con Python.</p>
+<p>Non preoccuparti: se hai capito come funzionano i flowchart, passare a Python sarà come tradurre da una lingua all’altra. I concetti sono <strong>esattamente gli stessi</strong>, cambia solo la “sintassi” (il modo di scrivere).</p>
+<p><strong>Ricordi quando ti avevamo detto che Flowgorithm era tipo la bici con le rotelle?</strong> Bene, ora togliamo le rotelle e passiamo alla mountain bike. Stessa logica, più libertà e potenza! 🚴‍♂️➡️🚵</p>
+<hr>
+</section>
+<section id="perché-python" class="level2">
+<h2 class="anchored" data-anchor-id="perché-python">2. Perché Python?</h2>
+<p>Python è uno dei linguaggi più usati al mondo per un motivo: <strong>è semplice e potente</strong>. È perfetto per chi inizia, ma anche i professionisti lo usano per:</p>
+<ul>
+<li>Intelligenza artificiale e machine learning</li>
+<li>Analisi dati e data science</li>
+<li>Sviluppo web</li>
+<li>Automazione e scripting</li>
+<li>E molto altro!</li>
+</ul>
+<p><strong>La buona notizia?</strong> La logica che hai imparato con Flowgorithm (i famosi 5 passi: input, elaborazioni, output, condizioni) funziona <strong>IDENTICA</strong> in Python. Cambia solo come la scrivi!</p>
+<hr>
+</section>
+<section id="tabella-di-traduzione-flowgorithm-python" class="level2">
+<h2 class="anchored" data-anchor-id="tabella-di-traduzione-flowgorithm-python">3. Tabella di traduzione: Flowgorithm → Python</h2>
+<p>Ecco la tabella più importante di questa guida. Salvala, stampala, mettila come sfondo del desktop!</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 42%">
+<col style="width: 29%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Concetto</th>
+<th>Flowgorithm (flowchart)</th>
+<th>Python (codice)</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Inizio programma</strong></td>
+<td>Blocco ovale “Start”</td>
+<td>Niente di speciale, inizi a scrivere</td>
+<td>Python non ha bisogno di dichiarare l’inizio</td>
+</tr>
+<tr class="even">
+<td><strong>Fine programma</strong></td>
+<td>Blocco ovale “End”</td>
+<td>Niente di speciale, il programma finisce automaticamente</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><strong>Dichiarazione variabile</strong></td>
+<td>Blocco “Declare” con tipo</td>
+<td>Nessuna dichiarazione esplicita</td>
+<td>Python capisce il tipo automaticamente</td>
+</tr>
+<tr class="even">
+<td><strong>Input</strong></td>
+<td>Blocco parallelogramma Input</td>
+<td><code>variabile = input("messaggio")</code></td>
+<td>Input restituisce sempre una stringa!</td>
+</tr>
+<tr class="odd">
+<td><strong>Output</strong></td>
+<td>Blocco parallelogramma Output</td>
+<td><code>print("messaggio", variabile)</code></td>
+<td>Puoi stampare testo e variabili insieme</td>
+</tr>
+<tr class="even">
+<td><strong>Assegnazione</strong></td>
+<td>Blocco rettangolo Assign</td>
+<td><code>variabile = espressione</code></td>
+<td>Usa <code>=</code> per assegnare valori</td>
+</tr>
+<tr class="odd">
+<td><strong>Condizione If</strong></td>
+<td>Blocco rombo Decision</td>
+<td><code>if condizione:</code></td>
+<td>Non dimenticare i due punti <code>:</code> e l’indentazione!</td>
+</tr>
+<tr class="even">
+<td><strong>Commenti</strong></td>
+<td>Blocco “Comment”</td>
+<td><code># questo è un commento</code></td>
+<td>I commenti iniziano con <code>#</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="i-blocchi-flowgorithm-tradotti-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="i-blocchi-flowgorithm-tradotti-in-python">4. I blocchi Flowgorithm tradotti in Python</h2>
+<section id="declare-dichiarazione-variabili" class="level3">
+<h3 class="anchored" data-anchor-id="declare-dichiarazione-variabili">4.1 Declare (Dichiarazione variabili)</h3>
+<p><strong>In Flowgorithm:</strong></p>
+<pre><code>Declare Integer numero
+Declare Real prezzo
+Declare String nome
+Declare Boolean verifica</code></pre>
+<p><strong>In Python:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python NON richiede dichiarazione esplicita!</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Crei la variabile semplicemente assegnandole un valore:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>numero <span class="op">=</span> <span class="dv">0</span>          <span class="co"># Python capisce che è un intero</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>prezzo <span class="op">=</span> <span class="fl">0.0</span>        <span class="co"># Python capisce che è un numero decimale</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>nome <span class="op">=</span> <span class="st">""</span>           <span class="co"># Python capisce che è una stringa</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>verifica <span class="op">=</span> <span class="va">False</span>    <span class="co"># Python capisce che è un booleano</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>💡 Differenza chiave:</strong> Python è un linguaggio a <strong>tipizzazione dinamica</strong>. Non devi dire “questa è una variabile intera”, basta assegnarle un valore e Python capisce da solo! Meno lavoro per te. 🎉</p>
+<hr>
+</section>
+<section id="output-mostrare-messaggi" class="level3">
+<h3 class="anchored" data-anchor-id="output-mostrare-messaggi">4.2 Output (Mostrare messaggi)</h3>
+<p><strong>In Flowgorithm:</strong></p>
+<pre><code>Output: "Ciao!"
+Output: "Il risultato è: " &amp; risultato</code></pre>
+<p><strong>In Python:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Ciao!"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Il risultato è:"</span>, risultato)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Oppure con concatenazione stringa:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Il risultato è: "</span> <span class="op">+</span> <span class="bu">str</span>(risultato))</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>💡 Pro tip:</strong> Usa la virgola <code>,</code> in <code>print()</code> per separare testo e variabili - Python aggiunge automaticamente uno spazio! Se concateni con <code>+</code>, devi convertire i numeri in stringhe con <code>str()</code>.</p>
+<p><strong>Esempi pratici:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>nome <span class="op">=</span> <span class="st">"Mario"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>eta <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Ciao"</span>, nome)                    <span class="co"># Output: Ciao Mario</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hai"</span>, eta, <span class="st">"anni"</span>)              <span class="co"># Output: Hai 20 anni</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nome <span class="op">+</span> <span class="st">" ha "</span> <span class="op">+</span> <span class="bu">str</span>(eta) <span class="op">+</span> <span class="st">" anni"</span>)  <span class="co"># Output: Mario ha 20 anni</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="input-ricevere-dati-dallutente" class="level3">
+<h3 class="anchored" data-anchor-id="input-ricevere-dati-dallutente">4.3 Input (Ricevere dati dall’utente)</h3>
+<p><strong>In Flowgorithm:</strong></p>
+<pre><code>Output: "Inserisci il tuo nome"
+Input nome</code></pre>
+<p><strong>In Python:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>nome <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Inserisci il tuo nome: "</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>⚠️ ATTENZIONE - SUPER IMPORTANTE!</strong></p>
+<p><code>input()</code> in Python restituisce <strong>SEMPRE una stringa</strong>, anche se l’utente scrive un numero! Se devi fare calcoli, devi <strong>convertire</strong> il valore!</p>
+<p><strong>Conversioni necessarie:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Per numeri INTERI:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>eta <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Inserisci la tua età: "</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Per numeri DECIMALI:</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>prezzo <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Inserisci il prezzo: "</span>))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Per STRINGHE (testo):</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>nome <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Inserisci il nome: "</span>)  <span class="co"># Già stringa, nessuna conversione!</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Esempio completo:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SBAGLIATO - non funziona per i calcoli!</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>numero1 <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Inserisci un numero: "</span>)  <span class="co"># Questo è una stringa "5", non il numero 5</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>numero2 <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Inserisci un altro numero: "</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>somma <span class="op">=</span> numero1 <span class="op">+</span> numero2  <span class="co"># ❌ Questo concatena stringhe: "5" + "3" = "53"</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># CORRETTO - converte in numeri!</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>numero1 <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Inserisci un numero: "</span>))  <span class="co"># Ora è il numero 5</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>numero2 <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Inserisci un altro numero: "</span>))</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>somma <span class="op">=</span> numero1 <span class="op">+</span> numero2  <span class="co"># ✅ Questo somma: 5 + 3 = 8</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="assign-assegnazione-e-calcoli" class="level3">
+<h3 class="anchored" data-anchor-id="assign-assegnazione-e-calcoli">4.4 Assign (Assegnazione e calcoli)</h3>
+<p><strong>In Flowgorithm:</strong></p>
+<pre><code>area = base * altezza
+somma = numero1 + numero2</code></pre>
+<p><strong>In Python:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>area <span class="op">=</span> base <span class="op">*</span> altezza</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>somma <span class="op">=</span> numero1 <span class="op">+</span> numero2</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Operatori matematici in Python:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operazione</th>
+<th>Simbolo</th>
+<th>Esempio</th>
+<th>Risultato</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Addizione</td>
+<td><code>+</code></td>
+<td><code>5 + 3</code></td>
+<td><code>8</code></td>
+</tr>
+<tr class="even">
+<td>Sottrazione</td>
+<td><code>-</code></td>
+<td><code>5 - 3</code></td>
+<td><code>2</code></td>
+</tr>
+<tr class="odd">
+<td>Moltiplicazione</td>
+<td><code>*</code></td>
+<td><code>5 * 3</code></td>
+<td><code>15</code></td>
+</tr>
+<tr class="even">
+<td>Divisione (decimale)</td>
+<td><code>/</code></td>
+<td><code>5 / 2</code></td>
+<td><code>2.5</code></td>
+</tr>
+<tr class="odd">
+<td>Divisione intera</td>
+<td><code>//</code></td>
+<td><code>5 // 2</code></td>
+<td><code>2</code></td>
+</tr>
+<tr class="even">
+<td>Resto (modulo)</td>
+<td><code>%</code></td>
+<td><code>5 % 2</code></td>
+<td><code>1</code></td>
+</tr>
+<tr class="odd">
+<td>Potenza</td>
+<td><code>**</code></td>
+<td><code>5 ** 2</code></td>
+<td><code>25</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Esempi pratici:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcolo area trapezio</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>base_maggiore <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>base_minore <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>altezza <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>area_trapezio <span class="op">=</span> (base_maggiore <span class="op">+</span> base_minore) <span class="op">/</span> <span class="dv">2</span> <span class="op">*</span> altezza</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcolo area cerchio</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>raggio <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> <span class="fl">3.14159</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>area_cerchio <span class="op">=</span> pi <span class="op">*</span> raggio <span class="op">**</span> <span class="dv">2</span>  <span class="co"># ** significa "elevato a"</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Conversione temperature</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>celsius <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>fahrenheit <span class="op">=</span> celsius <span class="op">*</span> <span class="fl">1.8</span> <span class="op">+</span> <span class="dv">32</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="if-condizioni" class="level3">
+<h3 class="anchored" data-anchor-id="if-condizioni">4.5 If (Condizioni)</h3>
+<p><strong>In Flowgorithm:</strong></p>
+<pre><code>If numero &gt; 0 Then
+    Output: "Positivo"
+Else
+    Output: "Negativo o zero"
+End If</code></pre>
+<p><strong>In Python:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> numero <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Positivo"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Negativo o zero"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>⚠️ ATTENZIONE all’indentazione!</strong></p>
+<p>Python usa gli <strong>spazi</strong> (o tab) per capire quali righe fanno parte del blocco <code>if</code>. Questo è FONDAMENTALE! Se sbagli l’indentazione, il programma non funziona.</p>
+<p><strong>Operatori di confronto:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Confronto</th>
+<th>Simbolo</th>
+<th>Esempio</th>
+<th>Significato</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Uguale</td>
+<td><code>==</code></td>
+<td><code>x == 5</code></td>
+<td>x è uguale a 5?</td>
+</tr>
+<tr class="even">
+<td>Diverso</td>
+<td><code>!=</code></td>
+<td><code>x != 5</code></td>
+<td>x è diverso da 5?</td>
+</tr>
+<tr class="odd">
+<td>Maggiore</td>
+<td><code>&gt;</code></td>
+<td><code>x &gt; 5</code></td>
+<td>x è maggiore di 5?</td>
+</tr>
+<tr class="even">
+<td>Minore</td>
+<td><code>&lt;</code></td>
+<td><code>x &lt; 5</code></td>
+<td>x è minore di 5?</td>
+</tr>
+<tr class="odd">
+<td>Maggiore o uguale</td>
+<td><code>&gt;=</code></td>
+<td><code>x &gt;= 5</code></td>
+<td>x è maggiore o uguale a 5?</td>
+</tr>
+<tr class="even">
+<td>Minore o uguale</td>
+<td><code>&lt;=</code></td>
+<td><code>x &lt;= 5</code></td>
+<td>x è minore o uguale a 5?</td>
+</tr>
+</tbody>
+</table>
+<p><strong>⚠️ ERRORE COMUNE:</strong> Usare <code>=</code> invece di <code>==</code> nelle condizioni!</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ❌ SBAGLIATO:</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">=</span> <span class="dv">5</span>:  <span class="co"># Questo dà errore! = è assegnazione, non confronto!</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ✅ CORRETTO:</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">==</span> <span class="dv">5</span>:  <span class="co"># Questo controlla se x è uguale a 5</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Strutture condizionali multiple (if-elif-else):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se hai più condizioni da verificare:</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> eta <span class="op">&lt;</span> <span class="dv">18</span>:</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Minorenne"</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> eta <span class="op">&lt;</span> <span class="dv">65</span>:</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Adulto"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Anziano"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Operatori logici (AND, OR, NOT):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># AND - entrambe le condizioni devono essere vere</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> eta <span class="op">&gt;=</span> <span class="dv">18</span> <span class="kw">and</span> patente <span class="op">==</span> <span class="va">True</span>:</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Puoi guidare"</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># OR - almeno una condizione deve essere vera</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> giorno <span class="op">==</span> <span class="st">"sabato"</span> <span class="kw">or</span> giorno <span class="op">==</span> <span class="st">"domenica"</span>:</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"È weekend!"</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># NOT - inverte il valore booleano</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> piove:</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Possiamo uscire"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="esempio-completo-somma-di-due-numeri" class="level2">
+<h2 class="anchored" data-anchor-id="esempio-completo-somma-di-due-numeri">5. Esempio completo: Somma di due numeri</h2>
+<section id="flowchart-flowgorithm" class="level3">
+<h3 class="anchored" data-anchor-id="flowchart-flowgorithm">Flowchart Flowgorithm</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A([Inizio]) --&gt; B["Output: Inserisci il primo numero"]
+    B --&gt; C[/Input numero1/]
+    C --&gt; D["Output: Inserisci il secondo numero"]
+    D --&gt; E[/Input numero2/]
+    E --&gt; F["somma = numero1 + numero2"]
+    F --&gt; G["Output: La somma è: somma"]
+    G --&gt; H([Fine])
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="codice-python-equivalente" class="level3">
+<h3 class="anchored" data-anchor-id="codice-python-equivalente">Codice Python equivalente</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Programma che somma due numeri</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># INPUT</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>numero1 <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Inserisci il primo numero: "</span>))</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>numero2 <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Inserisci il secondo numero: "</span>))</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ELABORAZIONE</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>somma <span class="op">=</span> numero1 <span class="op">+</span> numero2</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># OUTPUT</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"La somma è:"</span>, somma)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Vedi? Esattamente gli stessi passaggi!</strong> Input → Elaborazione → Output. La struttura è identica, cambia solo la sintassi!</p>
+<hr>
+</section>
+</section>
+<section id="esempio-completo-trapezio-e-cerchio" class="level2">
+<h2 class="anchored" data-anchor-id="esempio-completo-trapezio-e-cerchio">6. Esempio completo: Trapezio e Cerchio</h2>
+<p>Ricordi l’esercizio complesso di Flowgorithm con trapezio e cerchio? Ecco la traduzione completa in Python!</p>
+<section id="versione-python-completa" class="level3">
+<h3 class="anchored" data-anchor-id="versione-python-completa">Versione Python completa</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Programma che calcola e confronta le aree di un trapezio e un cerchio</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Questo programma calcola e confronta le aree di un trapezio e un cerchio"</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()  <span class="co"># Stampa una riga vuota per leggibilità</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># INPUT - Raccolta dati</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>base_maggiore <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Inserisci la base maggiore del trapezio: "</span>))</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>base_minore <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Inserisci la base minore del trapezio: "</span>))</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>altezza <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Inserisci l'altezza del trapezio: "</span>))</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>raggio <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Inserisci il raggio del cerchio: "</span>))</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co"># ELABORAZIONI - Calcoli</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>area_trapezio <span class="op">=</span> (base_maggiore <span class="op">+</span> base_minore) <span class="op">/</span> <span class="dv">2</span> <span class="op">*</span> altezza</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>area_cerchio <span class="op">=</span> <span class="fl">3.14159</span> <span class="op">*</span> raggio <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co"># OUTPUT - Mostra i risultati</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()  <span class="co"># Riga vuota per separare</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Area del trapezio:"</span>, area_trapezio)</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Area del cerchio:"</span>, area_cerchio)</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()  <span class="co"># Riga vuota</span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="co"># CONDIZIONI - Confronto</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> area_trapezio <span class="op">==</span> area_cerchio:</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Le aree delle due figure sono uguali"</span>)</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> area_trapezio <span class="op">&gt;</span> area_cerchio:</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"L'area del trapezio è maggiore"</span>)</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"L'area del cerchio è maggiore"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>💡 Confronta con il flowchart di Flowgorithm!</strong> È IDENTICO nella logica:</p>
+<ol type="1">
+<li>Messaggio iniziale ✅</li>
+<li>Richiesta di tutti gli input ✅</li>
+<li>Calcolo delle due aree ✅</li>
+<li>Confronto con if-elif-else ✅</li>
+<li>Output dei risultati ✅</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="differenze-chiave-tra-flowgorithm-e-python" class="level2">
+<h2 class="anchored" data-anchor-id="differenze-chiave-tra-flowgorithm-e-python">7. Differenze chiave tra Flowgorithm e Python</h2>
+<section id="indentazione-fondamentale" class="level3">
+<h3 class="anchored" data-anchor-id="indentazione-fondamentale">7.1 Indentazione (fondamentale!)</h3>
+<p><strong>Flowgorithm:</strong> Usa le forme grafiche per definire i blocchi</p>
+<p><strong>Python:</strong> Usa gli <strong>spazi</strong> (o tab) per definire i blocchi di codice</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Indentazione corretta:</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> eta <span class="op">&gt;=</span> <span class="dv">18</span>:</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Sei maggiorenne"</span>)  <span class="co"># 4 spazi (o 1 tab) di indentazione</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Puoi votare"</span>)      <span class="co"># Stesso livello di indentazione</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ❌ Indentazione sbagliata:</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> eta <span class="op">&gt;=</span> <span class="dv">18</span>:</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Sei maggiorenne"</span>)  <span class="co"># ERRORE! Manca l'indentazione!</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>💡 Regola d’oro:</strong> Dopo i due punti <code>:</code>, vai a capo e <strong>indenta</strong> (sposta a destra) il codice!</p>
+<hr>
+</section>
+<section id="conversione-dei-tipi" class="level3">
+<h3 class="anchored" data-anchor-id="conversione-dei-tipi">7.2 Conversione dei tipi</h3>
+<p><strong>Flowgorithm:</strong> Devi dichiarare il tipo (Integer, Real, String) all’inizio</p>
+<p><strong>Python:</strong> Devi convertire manualmente quando necessario</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Input come stringa</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>testo <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Scrivi qualcosa: "</span>)  <span class="co"># Tipo: stringa</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Input convertito in numero intero</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>numero_intero <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Inserisci un intero: "</span>))  <span class="co"># Tipo: int</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Input convertito in numero decimale</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>numero_decimale <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Inserisci un decimale: "</span>))  <span class="co"># Tipo: float</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Conversioni tra tipi:</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>numero <span class="op">=</span> <span class="dv">42</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>testo <span class="op">=</span> <span class="bu">str</span>(numero)  <span class="co"># Converte numero in stringa: "42"</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>testo <span class="op">=</span> <span class="st">"100"</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>numero <span class="op">=</span> <span class="bu">int</span>(testo)  <span class="co"># Converte stringa in numero: 100</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>numero_decimale <span class="op">=</span> <span class="bu">float</span>(numero)  <span class="co"># Converte int in float: 100.0</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="operatori-logici" class="level3">
+<h3 class="anchored" data-anchor-id="operatori-logici">7.3 Operatori logici</h3>
+<p><strong>Flowgorithm:</strong> AND, OR, NOT (parole intere)</p>
+<p><strong>Python:</strong> <code>and</code>, <code>or</code>, <code>not</code> (minuscolo!)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Flowgorithm: x &gt; 0 AND x &lt; 10</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Python equivalente:</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">0</span> <span class="kw">and</span> x <span class="op">&lt;</span> <span class="dv">10</span>:</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x è tra 0 e 10"</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Flowgorithm: giorno = "sabato" OR giorno = "domenica"</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Python equivalente:</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> giorno <span class="op">==</span> <span class="st">"sabato"</span> <span class="kw">or</span> giorno <span class="op">==</span> <span class="st">"domenica"</span>:</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"È weekend!"</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Flowgorithm: NOT trovato</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Python equivalente:</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> trovato:</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Non trovato"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="come-eseguire-un-programma-python" class="level2">
+<h2 class="anchored" data-anchor-id="come-eseguire-un-programma-python">8. Come eseguire un programma Python</h2>
+<section id="metodo-1-idle-ide-incluso-con-python" class="level3">
+<h3 class="anchored" data-anchor-id="metodo-1-idle-ide-incluso-con-python">Metodo 1: IDLE (IDE incluso con Python)</h3>
+<ol type="1">
+<li>Scarica e installa Python da <a href="https://www.python.org/downloads/">python.org</a></li>
+<li>Apri IDLE (viene installato insieme a Python)</li>
+<li>File → New File</li>
+<li>Scrivi il tuo codice</li>
+<li>File → Save (salva con estensione <code>.py</code>, esempio: <code>programma.py</code>)</li>
+<li>Run → Run Module (oppure premi F5)</li>
+</ol>
+</section>
+<section id="metodo-2-terminaleprompt-dei-comandi" class="level3">
+<h3 class="anchored" data-anchor-id="metodo-2-terminaleprompt-dei-comandi">Metodo 2: Terminale/Prompt dei comandi</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Crea un file .py con un editor di testo (Notepad, VSCode, etc.)</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Salva il file, esempio: programma.py</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Apri il terminale nella cartella del file</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Esegui:</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> programma.py</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="metodo-3-editor-online-per-iniziare-senza-installare" class="level3">
+<h3 class="anchored" data-anchor-id="metodo-3-editor-online-per-iniziare-senza-installare">Metodo 3: Editor online (per iniziare senza installare)</h3>
+<p>Se vuoi provare subito senza installare nulla:</p>
+<ul>
+<li><a href="https://replit.com/">Replit</a> - editor online, gratuito</li>
+<li><a href="https://colab.research.google.com/">Google Colab</a> - notebook Python online</li>
+<li><a href="https://www.python.org/shell/">Python.org Shell</a> - interprete online</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="esercizi-di-traduzione-flowgorithm-python" class="level2">
+<h2 class="anchored" data-anchor-id="esercizi-di-traduzione-flowgorithm-python">9. Esercizi di traduzione Flowgorithm → Python</h2>
+<p>Prova a tradurre questi algoritmi da Flowgorithm a Python!</p>
+<section id="esercizio-1-facile-calcolo-perimetro-e-area-quadrato" class="level3">
+<h3 class="anchored" data-anchor-id="esercizio-1-facile-calcolo-perimetro-e-area-quadrato">Esercizio 1 (facile): Calcolo perimetro e area quadrato</h3>
+<p><strong>Flowchart Flowgorithm:</strong></p>
+<pre><code>1. Output: "Inserisci il lato del quadrato"
+2. Input lato
+3. perimetro = lato * 4
+4. area = lato * lato
+5. Output: perimetro
+6. Output: area</code></pre>
+<p><strong>Prova a scriverlo in Python!</strong> (Soluzione sotto)</p>
+<details>
+<summary>
+💡 Clicca per vedere la soluzione
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcolo perimetro e area di un quadrato</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>lato <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Inserisci il lato del quadrato: "</span>))</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>perimetro <span class="op">=</span> lato <span class="op">*</span> <span class="dv">4</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>area <span class="op">=</span> lato <span class="op">*</span> lato  <span class="co"># oppure: area = lato ** 2</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Il perimetro è:"</span>, perimetro)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"L'area è:"</span>, area)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<hr>
+</section>
+<section id="esercizio-2-medio-confronto-tra-due-numeri" class="level3">
+<h3 class="anchored" data-anchor-id="esercizio-2-medio-confronto-tra-due-numeri">Esercizio 2 (medio): Confronto tra due numeri</h3>
+<p><strong>Flowchart Flowgorithm:</strong></p>
+<pre><code>1. Output: "Inserisci il primo numero"
+2. Input numero1
+3. Output: "Inserisci il secondo numero"
+4. Input numero2
+5. If numero1 = numero2 Then
+       Output: "I numeri sono uguali"
+   Else If numero1 &gt; numero2 Then
+       Output: "Il primo è maggiore"
+   Else
+       Output: "Il secondo è maggiore"</code></pre>
+<p><strong>Prova a scriverlo in Python!</strong> (Soluzione sotto)</p>
+<details>
+<summary>
+💡 Clicca per vedere la soluzione
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Confronto tra due numeri</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>numero1 <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Inserisci il primo numero: "</span>))</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>numero2 <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Inserisci il secondo numero: "</span>))</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> numero1 <span class="op">==</span> numero2:</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"I numeri sono uguali"</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> numero1 <span class="op">&gt;</span> numero2:</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Il primo è maggiore"</span>)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Il secondo è maggiore"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<hr>
+</section>
+<section id="esercizio-3-difficile-conversione-temperatura-con-messaggio" class="level3">
+<h3 class="anchored" data-anchor-id="esercizio-3-difficile-conversione-temperatura-con-messaggio">Esercizio 3 (difficile): Conversione temperatura con messaggio</h3>
+<p><strong>Flowchart Flowgorithm:</strong></p>
+<pre><code>1. Output: "Inserisci la temperatura in Celsius"
+2. Input celsius
+3. fahrenheit = celsius * 1.8 + 32
+4. Output: fahrenheit
+5. If fahrenheit &gt; 100 Then
+       Output: "Fa molto caldo!"
+   Else
+       Output: "Temperatura normale"</code></pre>
+<p><strong>Prova a scriverlo in Python!</strong> (Soluzione sotto)</p>
+<details>
+<summary>
+💡 Clicca per vedere la soluzione
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conversione Celsius → Fahrenheit con verifica</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>celsius <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Inserisci la temperatura in Celsius: "</span>))</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>fahrenheit <span class="op">=</span> celsius <span class="op">*</span> <span class="fl">1.8</span> <span class="op">+</span> <span class="dv">32</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"La temperatura in Fahrenheit è:"</span>, fahrenheit)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> fahrenheit <span class="op">&gt;</span> <span class="dv">100</span>:</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Fa molto caldo!"</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Temperatura normale"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<hr>
+</section>
+</section>
+<section id="metodologia-dei-5-passi-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="metodologia-dei-5-passi-in-python">10. Metodologia dei 5 passi in Python</h2>
+<p>Ricordi la metodologia dei 5 passi di Flowgorithm? <strong>Funziona IDENTICA</strong> in Python!</p>
+<section id="i-5-passi-stesso-processo" class="level3">
+<h3 class="anchored" data-anchor-id="i-5-passi-stesso-processo">I 5 passi (stesso processo!)</h3>
+<ol type="1">
+<li><strong>PASSO 1: Leggere attentamente il testo</strong> - Sempre uguale, carta e penna!</li>
+<li><strong>PASSO 2: Identificare gli INPUT</strong> - Diventeranno <code>input()</code> in Python</li>
+<li><strong>PASSO 3: Identificare le ELABORAZIONI</strong> - Diventeranno assegnazioni con <code>=</code></li>
+<li><strong>PASSO 4: Identificare gli OUTPUT</strong> - Diventeranno <code>print()</code> in Python</li>
+<li><strong>PASSO 5: Identificare le CONDIZIONI</strong> - Diventeranno <code>if</code>, <code>elif</code>, <code>else</code></li>
+</ol>
+</section>
+<section id="template-base-di-un-programma-python" class="level3">
+<h3 class="anchored" data-anchor-id="template-base-di-un-programma-python">Template base di un programma Python</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Messaggio iniziale (opzionale)</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Descrizione del programma"</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># FASE INPUT - Raccolta dati</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>variabile1 <span class="op">=</span> tipo(<span class="bu">input</span>(<span class="st">"Messaggio input 1: "</span>))</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>variabile2 <span class="op">=</span> tipo(<span class="bu">input</span>(<span class="st">"Messaggio input 2: "</span>))</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co"># FASE ELABORAZIONE - Calcoli</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>risultato1 <span class="op">=</span> formula1</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>risultato2 <span class="op">=</span> formula2</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co"># FASE OUTPUT - Mostra risultati</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Risultato 1:"</span>, risultato1)</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Risultato 2:"</span>, risultato2)</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="co"># FASE CONDIZIONI (se necessarie)</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> condizione1:</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Messaggio ramo vero"</span>)</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> condizione2:</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Messaggio ramo alternativo"</span>)</span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Messaggio ramo falso"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>💡 Salva questo template!</strong> Puoi usarlo come base per TUTTI i tuoi programmi iniziali!</p>
+<hr>
+</section>
+</section>
+<section id="errori-comuni-da-evitare-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="errori-comuni-da-evitare-in-python">11. Errori comuni da evitare in Python</h2>
+<section id="errore-1-dimenticare-di-convertire-linput" class="level3">
+<h3 class="anchored" data-anchor-id="errore-1-dimenticare-di-convertire-linput">❌ Errore 1: Dimenticare di convertire l’input</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SBAGLIATO:</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>numero <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Inserisci un numero: "</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>doppio <span class="op">=</span> numero <span class="op">*</span> <span class="dv">2</span>  <span class="co"># ❌ Questo ripete la stringa, non moltiplica!</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Se scrivi "5", ottieni "55" invece di 10!</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co"># CORRETTO:</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>numero <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Inserisci un numero: "</span>))</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>doppio <span class="op">=</span> numero <span class="op">*</span> <span class="dv">2</span>  <span class="co"># ✅ Questo moltiplica correttamente</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="errore-2-usare-invece-di-nelle-condizioni" class="level3">
+<h3 class="anchored" data-anchor-id="errore-2-usare-invece-di-nelle-condizioni">❌ Errore 2: Usare = invece di == nelle condizioni</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SBAGLIATO:</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">=</span> <span class="dv">5</span>:  <span class="co"># ❌ Errore di sintassi! = è assegnazione</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x vale 5"</span>)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># CORRETTO:</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">==</span> <span class="dv">5</span>:  <span class="co"># ✅ == è confronto</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x vale 5"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="errore-3-sbagliare-lindentazione" class="level3">
+<h3 class="anchored" data-anchor-id="errore-3-sbagliare-lindentazione">❌ Errore 3: Sbagliare l’indentazione</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SBAGLIATO:</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> eta <span class="op">&gt;=</span> <span class="dv">18</span>:</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Maggiorenne"</span>)  <span class="co"># ❌ IndentationError: manca l'indentazione</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># CORRETTO:</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> eta <span class="op">&gt;=</span> <span class="dv">18</span>:</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Maggiorenne"</span>)  <span class="co"># ✅ Indentato correttamente</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="errore-4-dimenticare-i-due-punti-dopo-ifelifelse" class="level3">
+<h3 class="anchored" data-anchor-id="errore-4-dimenticare-i-due-punti-dopo-ifelifelse">❌ Errore 4: Dimenticare i due punti dopo if/elif/else</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SBAGLIATO:</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">0</span>  <span class="co"># ❌ Mancano i due punti :</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Positivo"</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># CORRETTO:</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">0</span>:  <span class="co"># ✅ Due punti presenti</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Positivo"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="errore-5-usare-variabili-non-definite" class="level3">
+<h3 class="anchored" data-anchor-id="errore-5-usare-variabili-non-definite">❌ Errore 5: Usare variabili non definite</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SBAGLIATO:</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(risultato)  <span class="co"># ❌ NameError: risultato non esiste ancora!</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>risultato <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co"># CORRETTO:</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>risultato <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(risultato)  <span class="co"># ✅ Prima definisci, poi usi</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="trucchi-e-consigli-per-programmare-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="trucchi-e-consigli-per-programmare-in-python">12. Trucchi e consigli per programmare in Python</h2>
+<section id="consiglio-1-usa-commenti-per-organizzare-il-codice" class="level3">
+<h3 class="anchored" data-anchor-id="consiglio-1-usa-commenti-per-organizzare-il-codice">✅ Consiglio 1: Usa commenti per organizzare il codice</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ======== INPUT ========</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>numero <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Inserisci un numero: "</span>))</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ======== ELABORAZIONE ========</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>quadrato <span class="op">=</span> numero <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ======== OUTPUT ========</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Il quadrato è:"</span>, quadrato)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>I commenti aiutano te (e gli altri) a capire cosa fa ogni parte del programma!</p>
+<hr>
+</section>
+<section id="consiglio-2-dai-nomi-chiari-alle-variabili" class="level3">
+<h3 class="anchored" data-anchor-id="consiglio-2-dai-nomi-chiari-alle-variabili">✅ Consiglio 2: Dai nomi chiari alle variabili</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ❌ Male:</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> x <span class="op">*</span> y</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ✅ Bene:</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>altezza <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>area_rettangolo <span class="op">=</span> base <span class="op">*</span> altezza</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="consiglio-3-testa-il-codice-passo-per-passo" class="level3">
+<h3 class="anchored" data-anchor-id="consiglio-3-testa-il-codice-passo-per-passo">✅ Consiglio 3: Testa il codice passo per passo</h3>
+<p>Non scrivere tutto il programma in una volta! Procedi così:</p>
+<ol type="1">
+<li>Scrivi solo la parte INPUT e testa</li>
+<li>Aggiungi le ELABORAZIONI e testa</li>
+<li>Aggiungi gli OUTPUT e testa</li>
+<li>Aggiungi le CONDIZIONI e testa</li>
+</ol>
+<p>Se qualcosa non funziona, è più facile trovare l’errore!</p>
+<hr>
+</section>
+<section id="consiglio-4-usa-print-per-il-debug" class="level3">
+<h3 class="anchored" data-anchor-id="consiglio-4-usa-print-per-il-debug">✅ Consiglio 4: Usa print() per il debug</h3>
+<p>Se qualcosa non funziona, aggiungi <code>print()</code> per vedere i valori:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>numero1 <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Numero 1: "</span>))</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>numero2 <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Numero 2: "</span>))</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"DEBUG - numero1:"</span>, numero1)  <span class="co"># Vedi cosa contiene</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"DEBUG - numero2:"</span>, numero2)  <span class="co"># Vedi cosa contiene</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>somma <span class="op">=</span> numero1 <span class="op">+</span> numero2</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"DEBUG - somma:"</span>, somma)  <span class="co"># Vedi il risultato</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Quando tutto funziona, rimuovi i print di debug!</p>
+<hr>
+</section>
+<section id="consiglio-5-formatta-loutput-in-modo-carino" class="level3">
+<h3 class="anchored" data-anchor-id="consiglio-5-formatta-loutput-in-modo-carino">✅ Consiglio 5: Formatta l’output in modo carino</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Output base (funziona, ma poco carino):</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Area:"</span>, area)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Output più carino con messaggi chiari:</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">40</span>)  <span class="co"># Linea di separazione</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"RISULTATO DEL CALCOLO"</span>)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">40</span>)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"L'area calcolata è: </span><span class="sc">{</span>area<span class="sc">:.2f}</span><span class="ss"> cm²"</span>)</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">40</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="python-avanzato-cosa-viene-dopo" class="level2">
+<h2 class="anchored" data-anchor-id="python-avanzato-cosa-viene-dopo">13. Python avanzato: cosa viene dopo?</h2>
+<p>Una volta che hai padroneggiato le basi (input, output, variabili, condizioni), puoi esplorare:</p>
+<section id="cicli-loop---ripetere-operazioni" class="level3">
+<h3 class="anchored" data-anchor-id="cicli-loop---ripetere-operazioni">13.1 Cicli (Loop) - Ripetere operazioni</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For loop - ripete un numero fisso di volte</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Ripetizione numero"</span>, i<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co"># While loop - ripete finché una condizione è vera</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>numero <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> numero <span class="op">&lt;=</span> <span class="dv">10</span>:</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(numero)</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>    numero <span class="op">=</span> numero <span class="op">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="liste---raccogliere-più-valori" class="level3">
+<h3 class="anchored" data-anchor-id="liste---raccogliere-più-valori">13.2 Liste - Raccogliere più valori</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista di numeri</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>voti <span class="op">=</span> [<span class="dv">8</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">6</span>, <span class="dv">8</span>]</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista di stringhe</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>nomi <span class="op">=</span> [<span class="st">"Mario"</span>, <span class="st">"Luigi"</span>, <span class="st">"Peach"</span>]</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Accesso agli elementi (indice parte da 0!)</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(voti[<span class="dv">0</span>])  <span class="co"># Stampa il primo voto: 8</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nomi[<span class="dv">1</span>])  <span class="co"># Stampa il secondo nome: Luigi</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="funzioni---riutilizzare-codice" class="level3">
+<h3 class="anchored" data-anchor-id="funzioni---riutilizzare-codice">13.3 Funzioni - Riutilizzare codice</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definizione di una funzione</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calcola_area_cerchio(raggio):</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    pi <span class="op">=</span> <span class="fl">3.14159</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    area <span class="op">=</span> pi <span class="op">*</span> raggio <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> area</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Uso della funzione</span></span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>raggio <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>area <span class="op">=</span> calcola_area_cerchio(raggio)</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Area del cerchio:"</span>, area)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="risorse-per-continuare-a-imparare" class="level2">
+<h2 class="anchored" data-anchor-id="risorse-per-continuare-a-imparare">14. Risorse per continuare a imparare</h2>
+<section id="siti-web-consigliati" class="level3">
+<h3 class="anchored" data-anchor-id="siti-web-consigliati">Siti web consigliati</h3>
+<ul>
+<li><a href="https://docs.python.org/it/3/tutorial/">Python.org - Tutorial ufficiale</a> (in italiano!)</li>
+<li><a href="https://www.w3schools.com/python/">W3Schools Python</a> (in inglese, molto chiaro)</li>
+<li><a href="https://www.programiz.com/python-programming">Programiz Python</a> (tutorial ed esempi)</li>
+</ul>
+</section>
+<section id="editoride-consigliati" class="level3">
+<h3 class="anchored" data-anchor-id="editoride-consigliati">Editor/IDE consigliati</h3>
+<ul>
+<li><strong>IDLE</strong> - Semplice, già incluso con Python</li>
+<li><strong>Visual Studio Code</strong> - Professionale, gratuito</li>
+<li><strong>PyCharm Community</strong> - Completo, ottimo per progetti grandi</li>
+<li><strong>Replit</strong> - Online, non richiede installazione</li>
+</ul>
+</section>
+<section id="esercizi-online" class="level3">
+<h3 class="anchored" data-anchor-id="esercizi-online">Esercizi online</h3>
+<ul>
+<li><a href="https://www.hackerrank.com/domains/python">HackerRank</a> - Esercizi graduali</li>
+<li><a href="https://www.codewars.com/">Codewars</a> - Sfide di programmazione</li>
+<li><a href="https://leetcode.com/">LeetCode</a> - Problemi algoritmici</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="riepilogo-il-tuo-percorso-da-flowgorithm-a-python" class="level2">
+<h2 class="anchored" data-anchor-id="riepilogo-il-tuo-percorso-da-flowgorithm-a-python">15. Riepilogo: il tuo percorso da Flowgorithm a Python</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A[📊 Flowgorithm&lt;br/&gt;Logica visuale] --&gt; B[🐍 Python&lt;br/&gt;Codice testuale]
+    B --&gt; C[🔁 Loop e cicli]
+    C --&gt; D[📚 Liste e strutture]
+    D --&gt; E[⚙️ Funzioni]
+    E --&gt; F[🚀 Progetti reali!]
+
+    style A fill:#FFE4B5
+    style B fill:#98FB98
+    style C fill:#B0E0E6
+    style D fill:#FFB6C1
+    style E fill:#DDA0DD
+    style F fill:#90EE90
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="esercizio-finale-completo" class="level2">
+<h2 class="anchored" data-anchor-id="esercizio-finale-completo">16. Esercizio finale completo</h2>
+<p><strong>Testo:</strong> Scrivi un programma Python che:</p>
+<ol type="1">
+<li>Chieda all’utente tre numeri</li>
+<li>Calcoli la media dei tre numeri</li>
+<li>Se la media è &gt;= 6, stampi “Promosso!”</li>
+<li>Altrimenti stampi “Bocciato!”</li>
+</ol>
+<section id="prova-a-risolverlo-seguendo-i-5-passi-soluzione-sotto" class="level3">
+<h3 class="anchored" data-anchor-id="prova-a-risolverlo-seguendo-i-5-passi-soluzione-sotto">Prova a risolverlo seguendo i 5 passi! (Soluzione sotto)</h3>
+<details>
+<summary>
+💡 Clicca per vedere la soluzione commentata
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Programma che calcola la media di tre voti e determina se promosso</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"CALCOLO MEDIA VOTI"</span>)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">40</span>)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ======== INPUT ========</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>voto1 <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Inserisci il primo voto: "</span>))</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>voto2 <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Inserisci il secondo voto: "</span>))</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>voto3 <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Inserisci il terzo voto: "</span>))</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ======== ELABORAZIONE ========</span></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>media <span class="op">=</span> (voto1 <span class="op">+</span> voto2 <span class="op">+</span> voto3) <span class="op">/</span> <span class="dv">3</span></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a><span class="co"># ======== OUTPUT ========</span></span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">40</span>)</span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"La tua media è: </span><span class="sc">{</span>media<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ======== CONDIZIONI ========</span></span>
+<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> media <span class="op">&gt;=</span> <span class="dv">6</span>:</span>
+<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"✅ PROMOSSO!"</span>)</span>
+<span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"❌ BOCCIATO!"</span>)</span>
+<span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-24"><a href="#cb43-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">40</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<hr>
+</section>
+</section>
+<section id="conclusione" class="level2">
+<h2 class="anchored" data-anchor-id="conclusione">17. Conclusione</h2>
+<p><strong>Congratulazioni!</strong> 🎉 Ora sai come tradurre tutto quello che hai imparato con Flowgorithm in Python!</p>
+<p><strong>Ricorda:</strong></p>
+<p>✅ La logica è <strong>identica</strong>: INPUT → ELABORAZIONE → OUTPUT → CONDIZIONI</p>
+<p>✅ Cambia solo la <strong>sintassi</strong> (come lo scrivi)</p>
+<p>✅ I 5 passi funzionano <strong>sempre</strong>, in qualsiasi linguaggio!</p>
+<p>✅ Pratica, pratica, pratica! Più esercizi fai, più diventa naturale.</p>
+<p><strong>Il prossimo passo?</strong> Prendi TUTTI gli esercizi che hai fatto con Flowgorithm e traducili in Python. Vedrai che dopo 5-10 esercizi, inizierai a scrivere Python <strong>senza più pensare al flowchart</strong>! Sarà diventato automatico. 🚀</p>
+<p><strong>Buon coding!</strong> 🐍💻</p>
+<hr>
+</section>
+<section id="appendice-cheatsheet-rapida-flowgorithm-python" class="level2">
+<h2 class="anchored" data-anchor-id="appendice-cheatsheet-rapida-flowgorithm-python">Appendice: Cheatsheet rapida Flowgorithm → Python</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Flowgorithm</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Output: "Testo"</code></td>
+<td><code>print("Testo")</code></td>
+</tr>
+<tr class="even">
+<td><code>Input variabile</code></td>
+<td><code>variabile = input("Messaggio: ")</code></td>
+</tr>
+<tr class="odd">
+<td><code>Declare Integer x</code></td>
+<td><code>x = 0</code> (nessuna dichiarazione)</td>
+</tr>
+<tr class="even">
+<td><code>x = 5</code></td>
+<td><code>x = 5</code></td>
+</tr>
+<tr class="odd">
+<td><code>If x &gt; 0 Then</code></td>
+<td><code>if x &gt; 0:</code></td>
+</tr>
+<tr class="even">
+<td><code>Else If x &lt; 0 Then</code></td>
+<td><code>elif x &lt; 0:</code></td>
+</tr>
+<tr class="odd">
+<td><code>Else</code></td>
+<td><code>else:</code></td>
+</tr>
+<tr class="even">
+<td><code>End If</code></td>
+<td>(niente, solo togli indentazione)</td>
+</tr>
+<tr class="odd">
+<td><code>x ^ 2</code> (potenza)</td>
+<td><code>x ** 2</code></td>
+</tr>
+<tr class="even">
+<td><code>x MOD 2</code> (resto)</td>
+<td><code>x % 2</code></td>
+</tr>
+<tr class="odd">
+<td><code>AND</code></td>
+<td><code>and</code></td>
+</tr>
+<tr class="even">
+<td><code>OR</code></td>
+<td><code>or</code></td>
+</tr>
+<tr class="odd">
+<td><code>NOT</code></td>
+<td><code>not</code></td>
+</tr>
+<tr class="even">
+<td><code>Comment</code></td>
+<td><code># commento</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Stampa questa tabella e tienila vicino mentre fai i primi esercizi!</strong> 📄✨</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiato!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiato!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/federob\.github\.io\/infohandouts\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../algocoding/01_flowgorithm.html" class="pagination-link" aria-label="Flowgorithm">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Flowgorithm</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Prof.&nbsp;Federico Robuffo © 2026</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Made with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>Ultimo aggiornamento: 02/03/2026</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

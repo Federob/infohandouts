@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-02-03">
+
+<title>dict – Corso di Informatica</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../dictionary/01_map.html" rel="next">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-71957ac9ccc9d0fc18656807f2d8b8ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-a5b2293a6d69cf4cfe8b9bfeee78cd61.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-71957ac9ccc9d0fc18656807f2d8b8ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare",
+    "search-label": "Ricerca"
+  }
+}</script>
+<script>
+(function () {
+  // Applica tema e font-size a tutti gli editor Monaco nella pagina
+  function applyMonacoSettings(isDark) {
+    if (typeof monaco === 'undefined') return;
+    monaco.editor.setTheme(isDark ? 'vs-dark' : 'vs-light');
+    // Riduce il font-size da 17.5pt a ~13px (coerente col sito)
+    monaco.editor.getEditors().forEach(function (ed) {
+      ed.updateOptions({ fontSize: 13 });
+    });
+  }
+
+  // Riapplica il font-size agli editor creati successivamente
+  function applyMonacoTheme(isDark) {
+    applyMonacoSettings(isDark);
+  }
+
+  // Legge se il body ha la classe quarto-dark
+  function isQuartoDark() {
+    return document.body.classList.contains('quarto-dark');
+  }
+
+  // Osserva i cambiamenti di classe su body (toggle light/dark di Quarto)
+  const bodyObserver = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      if (mutation.attributeName === 'class') {
+        applyMonacoTheme(isQuartoDark());
+      }
+    });
+  });
+
+  // Attendi che Monaco sia disponibile, poi applica e installa l'observer
+  function waitForMonaco() {
+    if (typeof monaco !== 'undefined') {
+      applyMonacoSettings(isQuartoDark());
+      bodyObserver.observe(document.body, { attributes: true });
+      // Applica font-size anche agli editor creati successivamente
+      monaco.editor.onDidCreateEditor(function (ed) {
+        ed.updateOptions({ fontSize: 13 });
+      });
+    } else {
+      setTimeout(waitForMonaco, 200);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', waitForMonaco);
+
+  // Auto-nascondi la notifica pyodide dopo il caricamento
+  function watchPyodideStatus() {
+    var statusEl = document.getElementById('qpyodide-status-message-text');
+    if (!statusEl) {
+      setTimeout(watchPyodideStatus, 500);
+      return;
+    }
+    var obs = new MutationObserver(function () {
+      var text = statusEl.textContent || '';
+      if (text.indexOf('Ready') !== -1 || text.indexOf('ready') !== -1 || text.indexOf('🟢') !== -1) {
+        setTimeout(function () {
+          var area = document.getElementById('qpyodide-status-message-area');
+          if (area) {
+            area.style.opacity = '0';
+            setTimeout(function () { area.style.display = 'none'; }, 600);
+          }
+        }, 2000);
+        obs.disconnect();
+      }
+    });
+    obs.observe(statusEl, { childList: true, characterData: true, subtree: true });
+  }
+  document.addEventListener('DOMContentLoaded', watchPyodideStatus);
+})();
+</script>
+
+
+<link rel="stylesheet" href="../stylesheets/mermaid-dark.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Corso di Informatica</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Ricerca"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Attiva/disattiva la navigazione" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-le-basi" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Le basi</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-le-basi">    
+        <li class="dropdown-header">Introduzione</li>
+        <li>
+    <a class="dropdown-item" href="../fundamentals/00_basics.html">
+ <span class="dropdown-text">Concetti fondamentali</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../fundamentals/01_map.html">
+ <span class="dropdown-text">Mappa concettuale</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Hardware</li>
+        <li>
+    <a class="dropdown-item" href="../hwsw/10_hw.html">
+ <span class="dropdown-text">Architettura di un elaboratore</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../hwsw/11_bios.html">
+ <span class="dropdown-text">BIOS</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Software</li>
+        <li>
+    <a class="dropdown-item" href="../hwsw/20_sw.html">
+ <span class="dropdown-text">Classificazione</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../hwsw/21_os_intro.html">
+ <span class="dropdown-text">Sistemi Operativi</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">La codifica delle informazioni</li>
+        <li>
+    <a class="dropdown-item" href="../infoCoding/00_intro.html">
+ <span class="dropdown-text">Codifiche numeriche</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/01_digit_text.html">
+ <span class="dropdown-text">Testo</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/02_digit_img.html">
+ <span class="dropdown-text">Immagini</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/03_digit_audio.html">
+ <span class="dropdown-text">Suoni</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/04_digit_video.html">
+ <span class="dropdown-text">Video</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/05_file.html">
+ <span class="dropdown-text">File</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-extra" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Extra</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-extra">    
+        <li>
+    <a class="dropdown-item" href="../extra/emailMurderGame.html">
+ <span class="dropdown-text">Gioco dell’assassino</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-abc" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">A,B,C</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-abc">    
+        <li>
+    <a class="dropdown-item" href="../dictionary/00_dict.html">
+ <span class="dropdown-text">Parole</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../dictionary/01_map.html">
+ <span class="dropdown-text">Mappa</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-algoritmi" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Algoritmi</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-algoritmi">    
+        <li>
+    <a class="dropdown-item" href="../algocoding/01_flowgorithm.html">
+ <span class="dropdown-text">Flowgorithm</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algocoding/02_python_from_flowgorithm.html">
+ <span class="dropdown-text">Da Flowgorithm a Python</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python">    
+        <li>
+    <a class="dropdown-item" href="../pycoding/00_intro.html">
+ <span class="dropdown-text">Introduzione</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/01_variabili.html">
+ <span class="dropdown-text">Variabili e tipi</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/02_stringhe.html">
+ <span class="dropdown-text">Stringhe</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/03_condizioni.html">
+ <span class="dropdown-text">Condizioni</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/04_cicli.html">
+ <span class="dropdown-text">Cicli</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/05_liste.html">
+ <span class="dropdown-text">Liste e tuple</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/06_dizionari.html">
+ <span class="dropdown-text">Dizionari e set</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/07_funzioni.html">
+ <span class="dropdown-text">Funzioni</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/08_matrici.html">
+ <span class="dropdown-text">Array e matrici</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/09_oggetti.html">
+ <span class="dropdown-text">Classi e oggetti</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/10_networking.html">
+ <span class="dropdown-text">Python e networking</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-intelligenza-artificiale" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Intelligenza Artificiale</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-intelligenza-artificiale">    
+        <li>
+    <a class="dropdown-item" href="../ai/00_intro.html">
+ <span class="dropdown-text">Cos’è l’IA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/01_ml_intro.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/02_dati.html">
+ <span class="dropdown-text">Preparare i dati</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/03_regressione.html">
+ <span class="dropdown-text">Regressione lineare</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/04_classificazione.html">
+ <span class="dropdown-text">Classificazione</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/05_valutazione.html">
+ <span class="dropdown-text">Valutare un modello</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/06_clustering.html">
+ <span class="dropdown-text">Clustering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/07_reti_neurali.html">
+ <span class="dropdown-text">Reti neurali</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/08_progetto.html">
+ <span class="dropdown-text">Progetto finale</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/09_etica.html">
+ <span class="dropdown-text">IA ed etica</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Attiva/disattiva la modalità oscura"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../dictionary/00_dict.html">Parole</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dictionary/00_dict.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Parole</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dictionary/01_map.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mappa</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">In questa pagina</h2>
+   
+  <ul>
+  <li><a href="#dizionario-di-informatica" id="toc-dizionario-di-informatica" class="nav-link active" data-scroll-target="#dizionario-di-informatica">📘 Dizionario di Informatica</a>
+  <ul class="collapse">
+  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">🔤 A</a>
+  <ul class="collapse">
+  <li><a href="#algoritmo" id="toc-algoritmo" class="nav-link" data-scroll-target="#algoritmo"><strong>Algoritmo</strong></a></li>
+  <li><a href="#analisi" id="toc-analisi" class="nav-link" data-scroll-target="#analisi"><strong>Analisi</strong></a></li>
+  <li><a href="#applicazione-app" id="toc-applicazione-app" class="nav-link" data-scroll-target="#applicazione-app"><strong>Applicazione (App)</strong></a></li>
+  <li><a href="#ascii" id="toc-ascii" class="nav-link" data-scroll-target="#ascii"><strong>ASCII</strong></a></li>
+  </ul></li>
+  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">🔤 B</a>
+  <ul class="collapse">
+  <li><a href="#backup" id="toc-backup" class="nav-link" data-scroll-target="#backup"><strong>Backup</strong></a></li>
+  <li><a href="#bit" id="toc-bit" class="nav-link" data-scroll-target="#bit"><strong>Bit</strong></a></li>
+  <li><a href="#byte" id="toc-byte" class="nav-link" data-scroll-target="#byte"><strong>Byte</strong></a></li>
+  <li><a href="#browser" id="toc-browser" class="nav-link" data-scroll-target="#browser"><strong>Browser</strong></a></li>
+  </ul></li>
+  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">🔤 C</a>
+  <ul class="collapse">
+  <li><a href="#calcolatore" id="toc-calcolatore" class="nav-link" data-scroll-target="#calcolatore"><strong>Calcolatore</strong></a></li>
+  <li><a href="#cpu-central-processing-unit" id="toc-cpu-central-processing-unit" class="nav-link" data-scroll-target="#cpu-central-processing-unit"><strong>CPU (Central Processing Unit)</strong></a></li>
+  <li><a href="#cartella" id="toc-cartella" class="nav-link" data-scroll-target="#cartella"><strong>Cartella</strong></a></li>
+  <li><a href="#codifica" id="toc-codifica" class="nav-link" data-scroll-target="#codifica"><strong>Codifica</strong></a></li>
+  <li><a href="#computer" id="toc-computer" class="nav-link" data-scroll-target="#computer"><strong>Computer</strong></a></li>
+  </ul></li>
+  <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d">🔤 D</a>
+  <ul class="collapse">
+  <li><a href="#database" id="toc-database" class="nav-link" data-scroll-target="#database"><strong>Database</strong></a></li>
+  <li><a href="#dato" id="toc-dato" class="nav-link" data-scroll-target="#dato"><strong>Dato</strong></a></li>
+  <li><a href="#debug" id="toc-debug" class="nav-link" data-scroll-target="#debug"><strong>Debug</strong></a></li>
+  <li><a href="#desktop" id="toc-desktop" class="nav-link" data-scroll-target="#desktop"><strong>Desktop</strong></a></li>
+  </ul></li>
+  <li><a href="#e" id="toc-e" class="nav-link" data-scroll-target="#e">🔤 E</a>
+  <ul class="collapse">
+  <li><a href="#elaborazione" id="toc-elaborazione" class="nav-link" data-scroll-target="#elaborazione"><strong>Elaborazione</strong></a></li>
+  <li><a href="#esecutore" id="toc-esecutore" class="nav-link" data-scroll-target="#esecutore"><strong>Esecutore</strong></a></li>
+  </ul></li>
+  <li><a href="#f" id="toc-f" class="nav-link" data-scroll-target="#f">🔤 F</a>
+  <ul class="collapse">
+  <li><a href="#file" id="toc-file" class="nav-link" data-scroll-target="#file"><strong>File</strong></a></li>
+  <li><a href="#firmware" id="toc-firmware" class="nav-link" data-scroll-target="#firmware"><strong>Firmware</strong></a></li>
+  <li><a href="#flowchart-diagramma-di-flusso" id="toc-flowchart-diagramma-di-flusso" class="nav-link" data-scroll-target="#flowchart-diagramma-di-flusso"><strong>Flowchart (Diagramma di flusso)</strong></a></li>
+  </ul></li>
+  <li><a href="#h" id="toc-h" class="nav-link" data-scroll-target="#h">🔤 H</a>
+  <ul class="collapse">
+  <li><a href="#hardware" id="toc-hardware" class="nav-link" data-scroll-target="#hardware"><strong>Hardware</strong></a></li>
+  <li><a href="#hertz-hz" id="toc-hertz-hz" class="nav-link" data-scroll-target="#hertz-hz"><strong>Hertz (Hz)</strong></a></li>
+  </ul></li>
+  <li><a href="#i" id="toc-i" class="nav-link" data-scroll-target="#i">🔤 I</a>
+  <ul class="collapse">
+  <li><a href="#informatica" id="toc-informatica" class="nav-link" data-scroll-target="#informatica"><strong>Informatica</strong></a></li>
+  <li><a href="#informazione" id="toc-informazione" class="nav-link" data-scroll-target="#informazione"><strong>Informazione</strong></a></li>
+  <li><a href="#input" id="toc-input" class="nav-link" data-scroll-target="#input"><strong>Input</strong></a></li>
+  <li><a href="#interfaccia" id="toc-interfaccia" class="nav-link" data-scroll-target="#interfaccia"><strong>Interfaccia</strong></a></li>
+  <li><a href="#internet" id="toc-internet" class="nav-link" data-scroll-target="#internet"><strong>Internet</strong></a></li>
+  </ul></li>
+  <li><a href="#l" id="toc-l" class="nav-link" data-scroll-target="#l">🔤 L</a>
+  <ul class="collapse">
+  <li><a href="#linguaggio-di-programmazione" id="toc-linguaggio-di-programmazione" class="nav-link" data-scroll-target="#linguaggio-di-programmazione"><strong>Linguaggio di programmazione</strong></a></li>
+  <li><a href="#logica" id="toc-logica" class="nav-link" data-scroll-target="#logica"><strong>Logica</strong></a></li>
+  </ul></li>
+  <li><a href="#m" id="toc-m" class="nav-link" data-scroll-target="#m">🔤 M</a>
+  <ul class="collapse">
+  <li><a href="#memoria" id="toc-memoria" class="nav-link" data-scroll-target="#memoria"><strong>Memoria</strong></a></li>
+  <li><a href="#monitor" id="toc-monitor" class="nav-link" data-scroll-target="#monitor"><strong>Monitor</strong></a></li>
+  <li><a href="#mouse" id="toc-mouse" class="nav-link" data-scroll-target="#mouse"><strong>Mouse</strong></a></li>
+  </ul></li>
+  <li><a href="#o" id="toc-o" class="nav-link" data-scroll-target="#o">🔤 O</a>
+  <ul class="collapse">
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output"><strong>Output</strong></a></li>
+  <li><a href="#operatore-logico" id="toc-operatore-logico" class="nav-link" data-scroll-target="#operatore-logico"><strong>Operatore logico</strong></a></li>
+  <li><a href="#overflow" id="toc-overflow" class="nav-link" data-scroll-target="#overflow"><strong>Overflow</strong></a></li>
+  </ul></li>
+  <li><a href="#p" id="toc-p" class="nav-link" data-scroll-target="#p">🔤 P</a>
+  <ul class="collapse">
+  <li><a href="#programma" id="toc-programma" class="nav-link" data-scroll-target="#programma"><strong>Programma</strong></a></li>
+  <li><a href="#processo" id="toc-processo" class="nav-link" data-scroll-target="#processo"><strong>Processo</strong></a></li>
+  <li><a href="#periferica" id="toc-periferica" class="nav-link" data-scroll-target="#periferica"><strong>Periferica</strong></a></li>
+  </ul></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">🔤 R</a>
+  <ul class="collapse">
+  <li><a href="#ram-random-access-memory" id="toc-ram-random-access-memory" class="nav-link" data-scroll-target="#ram-random-access-memory"><strong>RAM (Random Access Memory)</strong></a></li>
+  <li><a href="#rom-read-only-memory" id="toc-rom-read-only-memory" class="nav-link" data-scroll-target="#rom-read-only-memory"><strong>ROM (Read Only Memory)</strong></a></li>
+  <li><a href="#rete" id="toc-rete" class="nav-link" data-scroll-target="#rete"><strong>Rete</strong></a></li>
+  </ul></li>
+  <li><a href="#s" id="toc-s" class="nav-link" data-scroll-target="#s">🔤 S</a>
+  <ul class="collapse">
+  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software"><strong>Software</strong></a></li>
+  <li><a href="#sistema-operativo" id="toc-sistema-operativo" class="nav-link" data-scroll-target="#sistema-operativo"><strong>Sistema operativo</strong></a></li>
+  <li><a href="#server" id="toc-server" class="nav-link" data-scroll-target="#server"><strong>Server</strong></a></li>
+  </ul></li>
+  <li><a href="#t" id="toc-t" class="nav-link" data-scroll-target="#t">🔤 T</a>
+  <ul class="collapse">
+  <li><a href="#tastiera" id="toc-tastiera" class="nav-link" data-scroll-target="#tastiera"><strong>Tastiera</strong></a></li>
+  <li><a href="#transistor" id="toc-transistor" class="nav-link" data-scroll-target="#transistor"><strong>Transistor</strong></a></li>
+  <li><a href="#tabella" id="toc-tabella" class="nav-link" data-scroll-target="#tabella"><strong>Tabella</strong></a></li>
+  </ul></li>
+  <li><a href="#u" id="toc-u" class="nav-link" data-scroll-target="#u">🔤 U</a>
+  <ul class="collapse">
+  <li><a href="#unità-centrale-cpu-memoria" id="toc-unità-centrale-cpu-memoria" class="nav-link" data-scroll-target="#unità-centrale-cpu-memoria"><strong>Unità centrale (CPU + memoria)</strong></a></li>
+  <li><a href="#url-uniform-resource-locator" id="toc-url-uniform-resource-locator" class="nav-link" data-scroll-target="#url-uniform-resource-locator"><strong>URL (Uniform Resource Locator)</strong></a></li>
+  <li><a href="#usb-universal-serial-bus" id="toc-usb-universal-serial-bus" class="nav-link" data-scroll-target="#usb-universal-serial-bus"><strong>USB (Universal Serial Bus)</strong></a></li>
+  </ul></li>
+  <li><a href="#v" id="toc-v" class="nav-link" data-scroll-target="#v">🔤 V</a>
+  <ul class="collapse">
+  <li><a href="#variabile" id="toc-variabile" class="nav-link" data-scroll-target="#variabile"><strong>Variabile</strong></a></li>
+  <li><a href="#videocamera" id="toc-videocamera" class="nav-link" data-scroll-target="#videocamera"><strong>Videocamera</strong></a></li>
+  </ul></li>
+  <li><a href="#w" id="toc-w" class="nav-link" data-scroll-target="#w">🔤 W</a>
+  <ul class="collapse">
+  <li><a href="#wi-fi" id="toc-wi-fi" class="nav-link" data-scroll-target="#wi-fi"><strong>Wi-Fi</strong></a></li>
+  <li><a href="#word-processor" id="toc-word-processor" class="nav-link" data-scroll-target="#word-processor"><strong>Word Processor</strong></a></li>
+  </ul></li>
+  <li><a href="#z" id="toc-z" class="nav-link" data-scroll-target="#z">🔤 Z</a>
+  <ul class="collapse">
+  <li><a href="#zip" id="toc-zip" class="nav-link" data-scroll-target="#zip"><strong>Zip</strong></a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Altri Formati</h2><ul><li><a href="00_dict.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">02/03/2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="dizionario-di-informatica" class="level1">
+<h1>📘 Dizionario di Informatica</h1>
+<p>Benvenuti nel <strong>dizionario dell’informatica</strong>! Qui troverete tutti quei termini strani che il prof usa durante le lezioni, spiegati in modo che abbiano senso.</p>
+<p>Tipo quando dice “RAM” e voi pensate a un gruppo musicale, oppure quando parla di “bug” e voi pensate a insetti veri.</p>
+<p>Questo dizionario sarà ampliato durante l’anno con nuovi concetti. Salvatelo nei preferiti!</p>
+<hr>
+<section id="a" class="level2">
+<h2 class="anchored" data-anchor-id="a">🔤 A</h2>
+<section id="algoritmo" class="level3">
+<h3 class="anchored" data-anchor-id="algoritmo"><strong>Algoritmo</strong></h3>
+<p>Una <strong>sequenza ordinata di istruzioni</strong> che portano alla soluzione di un problema. Tipo una ricetta di cucina: se seguite i passaggi nell’ordine giusto, alla fine avrete una torta. Se li fate a caso, avrete un disastro.</p>
+<p>Stesso concetto in informatica: segui l’algoritmo = risultato corretto. Sbagli l’ordine = crash del programma.</p>
+</section>
+<section id="analisi" class="level3">
+<h3 class="anchored" data-anchor-id="analisi"><strong>Analisi</strong></h3>
+<p>Fase iniziale nella realizzazione di un progetto informatico: consiste nello <strong>studiare il problema</strong>, raccogliere informazioni e <strong>definire gli obiettivi</strong> che il programma o il sistema dovrà raggiungere.</p>
+</section>
+<section id="applicazione-app" class="level3">
+<h3 class="anchored" data-anchor-id="applicazione-app"><strong>Applicazione (App)</strong></h3>
+<p>Programma progettato per svolgere una funzione specifica per l’utente, come scrivere testi, modificare foto o inviare messaggi. Può essere installata su computer o dispositivi mobili.</p>
+</section>
+<section id="ascii" class="level3">
+<h3 class="anchored" data-anchor-id="ascii"><strong>ASCII</strong></h3>
+<p>(American Standard Code for Information Interchange)<br>
+Sistema che assegna un numero a ogni carattere (lettera, cifra o simbolo) per permettere al computer di rappresentarlo e memorizzarlo in forma binaria.</p>
+<hr>
+</section>
+</section>
+<section id="b" class="level2">
+<h2 class="anchored" data-anchor-id="b">🔤 B</h2>
+<section id="backup" class="level3">
+<h3 class="anchored" data-anchor-id="backup"><strong>Backup</strong></h3>
+<p><strong>Copia di sicurezza</strong> dei vostri dati, fondamentale per non piangere quando il computer si rompe o cancellate per sbaglio la tesina di 50 pagine.</p>
+<p>Salvate i file importanti su chiavetta USB, hard disk esterno o servizi cloud (Google Drive, OneDrive, Dropbox). E fatelo SPESSO. “Non ho fatto il backup” non è una scusa che funziona con i prof!</p>
+</section>
+<section id="bit" class="level3">
+<h3 class="anchored" data-anchor-id="bit"><strong>Bit</strong></h3>
+<p>La <strong>più piccola unità di informazione</strong> digitale. Può essere solo <strong>0 o 1</strong>. Tipo un interruttore: acceso o spento, non esiste “un po’ acceso”.</p>
+<p>Tutti i dati (foto, video, musica, documenti) sono fatti di miliardi di bit. Pensatelo come l’atomo del mondo digitale.</p>
+</section>
+<section id="byte" class="level3">
+<h3 class="anchored" data-anchor-id="byte"><strong>Byte</strong></h3>
+<p>Gruppo di 8 bit. È l’unità base con cui si misura la quantità di dati.<br>
+Esempio: una foto può pesare 2 MB (megabyte), cioè circa due milioni di byte.</p>
+</section>
+<section id="browser" class="level3">
+<h3 class="anchored" data-anchor-id="browser"><strong>Browser</strong></h3>
+<p>Il programma che usate per <strong>navigare su Internet</strong>. Tipo la vostra macchina per viaggiare nel web.</p>
+<p>Esempi: <strong>Google Chrome</strong> (quello che usano tutti), <strong>Mozilla Firefox</strong> (per chi ama l’open source), <strong>Microsoft Edge</strong> (quello che Windows cerca disperatamente di farvi usare), <strong>Safari</strong> (per i possessori di Mac/iPhone).</p>
+<hr>
+</section>
+</section>
+<section id="c" class="level2">
+<h2 class="anchored" data-anchor-id="c">🔤 C</h2>
+<section id="calcolatore" class="level3">
+<h3 class="anchored" data-anchor-id="calcolatore"><strong>Calcolatore</strong></h3>
+<p>Sinonimo di “computer”. È una macchina elettronica in grado di <strong>elaborare dati</strong> e di <strong>eseguire operazioni logiche e matematiche</strong> in modo automatico.</p>
+</section>
+<section id="cpu-central-processing-unit" class="level3">
+<h3 class="anchored" data-anchor-id="cpu-central-processing-unit"><strong>CPU (Central Processing Unit)</strong></h3>
+<p>Il processore del computer, considerato il suo “cervello”.<br>
+Esegue le istruzioni dei programmi e coordina tutte le operazioni interne del sistema.</p>
+</section>
+<section id="cartella" class="level3">
+<h3 class="anchored" data-anchor-id="cartella"><strong>Cartella</strong></h3>
+<p>Contenitore virtuale usato per organizzare i file all’interno della memoria del computer, come se fosse una cartella fisica in un archivio.</p>
+</section>
+<section id="codifica" class="level3">
+<h3 class="anchored" data-anchor-id="codifica"><strong>Codifica</strong></h3>
+<p>Processo di trasformazione delle informazioni in una forma che il computer possa comprendere, cioè in sequenze di bit (0 e 1).<br>
+Esempio: la lettera “A” viene codificata nel codice ASCII come 01000001.</p>
+</section>
+<section id="computer" class="level3">
+<h3 class="anchored" data-anchor-id="computer"><strong>Computer</strong></h3>
+<p>Dispositivo elettronico capace di ricevere dati (input), elaborarli e restituire risultati (output) secondo istruzioni memorizzate.</p>
+<hr>
+</section>
+</section>
+<section id="d" class="level2">
+<h2 class="anchored" data-anchor-id="d">🔤 D</h2>
+<section id="database" class="level3">
+<h3 class="anchored" data-anchor-id="database"><strong>Database</strong></h3>
+<p>Insieme organizzato di dati, memorizzato in modo da poter essere cercato, aggiornato e utilizzato in modo efficiente.<br>
+Esempio: un archivio elettronico di studenti con nome, cognome e voti.</p>
+</section>
+<section id="dato" class="level3">
+<h3 class="anchored" data-anchor-id="dato"><strong>Dato</strong></h3>
+<p>Un’informazione elementare, grezza, che da sola non ha significato completo.<br>
+Esempio: “36” è un dato; “36°C temperatura corporea” diventa un’informazione.</p>
+</section>
+<section id="debug" class="level3">
+<h3 class="anchored" data-anchor-id="debug"><strong>Debug</strong></h3>
+<p>Attività di individuazione e correzione degli errori (bug) presenti in un programma.</p>
+</section>
+<section id="desktop" class="level3">
+<h3 class="anchored" data-anchor-id="desktop"><strong>Desktop</strong></h3>
+<p>L’area principale del sistema operativo che appare sullo schermo quando si accende il computer.<br>
+Contiene icone, file, cartelle e la barra delle applicazioni.</p>
+<hr>
+</section>
+</section>
+<section id="e" class="level2">
+<h2 class="anchored" data-anchor-id="e">🔤 E</h2>
+<section id="elaborazione" class="level3">
+<h3 class="anchored" data-anchor-id="elaborazione"><strong>Elaborazione</strong></h3>
+<p>Insieme di operazioni che trasformano i dati in informazioni utili.<br>
+Esempio: un foglio elettronico che calcola la media dei voti.</p>
+</section>
+<section id="esecutore" class="level3">
+<h3 class="anchored" data-anchor-id="esecutore"><strong>Esecutore</strong></h3>
+<p>Chi (o cosa) mette in pratica le istruzioni di un algoritmo.<br>
+Nel caso dell’informatica, l’esecutore è di solito il computer.</p>
+<hr>
+</section>
+</section>
+<section id="f" class="level2">
+<h2 class="anchored" data-anchor-id="f">🔤 F</h2>
+<section id="file" class="level3">
+<h3 class="anchored" data-anchor-id="file"><strong>File</strong></h3>
+<p>Insieme di dati memorizzati come un’unica entità con un nome e un’estensione.<br>
+Esempio: <code>tema.docx</code> è un file di testo, <code>foto.jpg</code> è un’immagine.</p>
+</section>
+<section id="firmware" class="level3">
+<h3 class="anchored" data-anchor-id="firmware"><strong>Firmware</strong></h3>
+<p>Software che controlla le funzioni di base di un dispositivo hardware (come stampanti, telefoni, router).<br>
+Si trova “inciso” nella memoria interna del dispositivo.</p>
+</section>
+<section id="flowchart-diagramma-di-flusso" class="level3">
+<h3 class="anchored" data-anchor-id="flowchart-diagramma-di-flusso"><strong>Flowchart (Diagramma di flusso)</strong></h3>
+<p>Rappresentazione grafica di un algoritmo, con simboli che indicano le operazioni da svolgere e frecce che mostrano il percorso logico.</p>
+<hr>
+</section>
+</section>
+<section id="h" class="level2">
+<h2 class="anchored" data-anchor-id="h">🔤 H</h2>
+<section id="hardware" class="level3">
+<h3 class="anchored" data-anchor-id="hardware"><strong>Hardware</strong></h3>
+<p>L’insieme delle parti fisiche e tangibili di un computer: monitor, tastiera, scheda madre, memoria, cavi, ecc.</p>
+</section>
+<section id="hertz-hz" class="level3">
+<h3 class="anchored" data-anchor-id="hertz-hz"><strong>Hertz (Hz)</strong></h3>
+<p>Unità di misura della frequenza.<br>
+Nel contesto della CPU, indica il numero di operazioni che il processore può eseguire in un secondo.<br>
+Esempio: 3 GHz = 3 miliardi di operazioni al secondo.</p>
+<hr>
+</section>
+</section>
+<section id="i" class="level2">
+<h2 class="anchored" data-anchor-id="i">🔤 I</h2>
+<section id="informatica" class="level3">
+<h3 class="anchored" data-anchor-id="informatica"><strong>Informatica</strong></h3>
+<p>Scienza che studia <strong>i metodi, le tecniche e gli strumenti per trattare automaticamente le informazioni</strong> mediante dispositivi elettronici come il computer.<br>
+Si occupa sia di aspetti teorici (logica, algoritmi, linguaggi di programmazione) sia pratici (hardware, software, reti, sicurezza dei dati).</p>
+</section>
+<section id="informazione" class="level3">
+<h3 class="anchored" data-anchor-id="informazione"><strong>Informazione</strong></h3>
+<p>Dato che acquista significato in un contesto.<br>
+Esempio: il numero “15” è un dato, ma “15 anni di età” è un’informazione.</p>
+</section>
+<section id="input" class="level3">
+<h3 class="anchored" data-anchor-id="input"><strong>Input</strong></h3>
+<p>Qualsiasi dato o comando fornito al computer per l’elaborazione (da tastiera, mouse, microfono, sensore, ecc.).</p>
+</section>
+<section id="interfaccia" class="level3">
+<h3 class="anchored" data-anchor-id="interfaccia"><strong>Interfaccia</strong></h3>
+<p>Informatica: il modo in cui l’utente comunica con un programma o un dispositivo.<br>
+Esempio: l’interfaccia grafica di Windows con icone e finestre.</p>
+</section>
+<section id="internet" class="level3">
+<h3 class="anchored" data-anchor-id="internet"><strong>Internet</strong></h3>
+<p>Rete mondiale di computer connessi tra loro che permette di scambiare dati e informazioni, accedere a siti web e comunicare.</p>
+<hr>
+</section>
+</section>
+<section id="l" class="level2">
+<h2 class="anchored" data-anchor-id="l">🔤 L</h2>
+<section id="linguaggio-di-programmazione" class="level3">
+<h3 class="anchored" data-anchor-id="linguaggio-di-programmazione"><strong>Linguaggio di programmazione</strong></h3>
+<p>Insieme di regole e simboli che consentono di scrivere istruzioni comprensibili dal computer.<br>
+Esempi: Python, C++, Java, Scratch.</p>
+</section>
+<section id="logica" class="level3">
+<h3 class="anchored" data-anchor-id="logica"><strong>Logica</strong></h3>
+<p>In informatica, insieme di regole che consentono di ragionare in modo corretto e di costruire condizioni vere o false (booleane).<br>
+Esempio: “Se piove allora prendo l’ombrello”.</p>
+<hr>
+</section>
+</section>
+<section id="m" class="level2">
+<h2 class="anchored" data-anchor-id="m">🔤 M</h2>
+<section id="memoria" class="level3">
+<h3 class="anchored" data-anchor-id="memoria"><strong>Memoria</strong></h3>
+<p>Dispositivo o componente che serve a conservare dati e programmi.<br>
+Può essere <strong>volatile</strong> (RAM) o <strong>non volatile</strong> (disco fisso, SSD, chiavetta USB).</p>
+</section>
+<section id="monitor" class="level3">
+<h3 class="anchored" data-anchor-id="monitor"><strong>Monitor</strong></h3>
+<p>Schermo che mostra all’utente le informazioni elaborate dal computer.</p>
+</section>
+<section id="mouse" class="level3">
+<h3 class="anchored" data-anchor-id="mouse"><strong>Mouse</strong></h3>
+<p>Dispositivo di input che permette di spostare un puntatore sullo schermo e selezionare oggetti o comandi.</p>
+<hr>
+</section>
+</section>
+<section id="o" class="level2">
+<h2 class="anchored" data-anchor-id="o">🔤 O</h2>
+<section id="output" class="level3">
+<h3 class="anchored" data-anchor-id="output"><strong>Output</strong></h3>
+<p>Risultato prodotto dal computer dopo l’elaborazione dei dati.<br>
+Esempio: la stampa di un documento o il risultato di un calcolo.</p>
+</section>
+<section id="operatore-logico" class="level3">
+<h3 class="anchored" data-anchor-id="operatore-logico"><strong>Operatore logico</strong></h3>
+<p>Simbolo o parola chiave usata per confrontare valori logici o numerici.<br>
+Esempi: AND (e), OR (o), NOT (non).</p>
+</section>
+<section id="overflow" class="level3">
+<h3 class="anchored" data-anchor-id="overflow"><strong>Overflow</strong></h3>
+<p>Errore che si verifica quando un calcolo produce un risultato troppo grande per essere rappresentato nella memoria disponibile.</p>
+<hr>
+</section>
+</section>
+<section id="p" class="level2">
+<h2 class="anchored" data-anchor-id="p">🔤 P</h2>
+<section id="programma" class="level3">
+<h3 class="anchored" data-anchor-id="programma"><strong>Programma</strong></h3>
+<p>Insieme ordinato di istruzioni che indicano al computer come svolgere un compito specifico.</p>
+</section>
+<section id="processo" class="level3">
+<h3 class="anchored" data-anchor-id="processo"><strong>Processo</strong></h3>
+<p>Esecuzione effettiva di un programma da parte della CPU.</p>
+</section>
+<section id="periferica" class="level3">
+<h3 class="anchored" data-anchor-id="periferica"><strong>Periferica</strong></h3>
+<p>Dispositivo esterno collegato al computer per inserire o ricevere dati.<br>
+Esempi: stampante, tastiera, webcam, chiavetta USB.</p>
+<hr>
+</section>
+</section>
+<section id="r" class="level2">
+<h2 class="anchored" data-anchor-id="r">🔤 R</h2>
+<section id="ram-random-access-memory" class="level3">
+<h3 class="anchored" data-anchor-id="ram-random-access-memory"><strong>RAM (Random Access Memory)</strong></h3>
+<p>Memoria principale del computer.<br>
+È veloce ma <strong>volatile</strong>: i dati si cancellano quando si spegne il sistema.</p>
+</section>
+<section id="rom-read-only-memory" class="level3">
+<h3 class="anchored" data-anchor-id="rom-read-only-memory"><strong>ROM (Read Only Memory)</strong></h3>
+<p>Memoria di sola lettura: contiene informazioni permanenti necessarie al funzionamento del computer (come l’avvio).</p>
+</section>
+<section id="rete" class="level3">
+<h3 class="anchored" data-anchor-id="rete"><strong>Rete</strong></h3>
+<p>Insieme di dispositivi collegati per condividere dati, risorse o servizi.<br>
+Esempio: una rete scolastica che collega i computer dei laboratori.</p>
+<hr>
+</section>
+</section>
+<section id="s" class="level2">
+<h2 class="anchored" data-anchor-id="s">🔤 S</h2>
+<section id="software" class="level3">
+<h3 class="anchored" data-anchor-id="software"><strong>Software</strong></h3>
+<p>L’insieme dei programmi e delle istruzioni che fanno funzionare il computer e l’hardware.</p>
+</section>
+<section id="sistema-operativo" class="level3">
+<h3 class="anchored" data-anchor-id="sistema-operativo"><strong>Sistema operativo</strong></h3>
+<p>Programma fondamentale che gestisce tutte le risorse del computer e permette all’utente di interagire con esso.<br>
+Esempi: Windows, macOS, Linux.</p>
+</section>
+<section id="server" class="level3">
+<h3 class="anchored" data-anchor-id="server"><strong>Server</strong></h3>
+<p>Computer che fornisce servizi o risorse (come file o pagine web) ad altri computer detti <strong>client</strong> collegati in rete.</p>
+<hr>
+</section>
+</section>
+<section id="t" class="level2">
+<h2 class="anchored" data-anchor-id="t">🔤 T</h2>
+<section id="tastiera" class="level3">
+<h3 class="anchored" data-anchor-id="tastiera"><strong>Tastiera</strong></h3>
+<p>Periferica di input che consente di inserire testo, numeri e comandi nel computer.</p>
+</section>
+<section id="transistor" class="level3">
+<h3 class="anchored" data-anchor-id="transistor"><strong>Transistor</strong></h3>
+<p>Componente elettronico microscopico che può “accendere” o “spegnere” un segnale elettrico.<br>
+Milioni di transistor formano i circuiti del processore e permettono di rappresentare 0 e 1.</p>
+</section>
+<section id="tabella" class="level3">
+<h3 class="anchored" data-anchor-id="tabella"><strong>Tabella</strong></h3>
+<p>Struttura che organizza dati in righe e colonne, utile per confrontarli o elaborarli.</p>
+<hr>
+</section>
+</section>
+<section id="u" class="level2">
+<h2 class="anchored" data-anchor-id="u">🔤 U</h2>
+<section id="unità-centrale-cpu-memoria" class="level3">
+<h3 class="anchored" data-anchor-id="unità-centrale-cpu-memoria"><strong>Unità centrale (CPU + memoria)</strong></h3>
+<p>Parte principale del computer che esegue programmi e coordina le altre componenti.<br>
+Contiene la CPU, la memoria principale e le schede di controllo.</p>
+</section>
+<section id="url-uniform-resource-locator" class="level3">
+<h3 class="anchored" data-anchor-id="url-uniform-resource-locator"><strong>URL (Uniform Resource Locator)</strong></h3>
+<p>Indirizzo che identifica una risorsa su Internet.<br>
+Esempio: <code>https://www.wikipedia.org</code></p>
+</section>
+<section id="usb-universal-serial-bus" class="level3">
+<h3 class="anchored" data-anchor-id="usb-universal-serial-bus"><strong>USB (Universal Serial Bus)</strong></h3>
+<p>Standard che consente di collegare e alimentare dispositivi esterni come mouse, tastiere, stampanti e chiavette.</p>
+<hr>
+</section>
+</section>
+<section id="v" class="level2">
+<h2 class="anchored" data-anchor-id="v">🔤 V</h2>
+<section id="variabile" class="level3">
+<h3 class="anchored" data-anchor-id="variabile"><strong>Variabile</strong></h3>
+<p>Spazio di memoria in cui viene memorizzato un valore che può cambiare durante l’esecuzione di un programma.<br>
+Esempio: una variabile <code>eta</code> che memorizza il numero 15.</p>
+</section>
+<section id="videocamera" class="level3">
+<h3 class="anchored" data-anchor-id="videocamera"><strong>Videocamera</strong></h3>
+<p>Periferica di input che cattura immagini o video, spesso integrata nei portatili o nei telefoni.</p>
+<hr>
+</section>
+</section>
+<section id="w" class="level2">
+<h2 class="anchored" data-anchor-id="w">🔤 W</h2>
+<section id="wi-fi" class="level3">
+<h3 class="anchored" data-anchor-id="wi-fi"><strong>Wi-Fi</strong></h3>
+<p>Tecnologia che permette la connessione a Internet o ad altre reti <strong>senza fili</strong>, tramite onde radio.</p>
+</section>
+<section id="word-processor" class="level3">
+<h3 class="anchored" data-anchor-id="word-processor"><strong>Word Processor</strong></h3>
+<p>Programma che consente di creare, modificare e formattare testi.<br>
+Esempi: Microsoft Word, LibreOffice Writer, Google Documenti.</p>
+<hr>
+</section>
+</section>
+<section id="z" class="level2">
+<h2 class="anchored" data-anchor-id="z">🔤 Z</h2>
+<section id="zip" class="level3">
+<h3 class="anchored" data-anchor-id="zip"><strong>Zip</strong></h3>
+<p>Formato di compressione che riduce le dimensioni dei file per facilitarne l’invio o l’archiviazione.<br>
+Un file compresso può contenere più documenti insieme, come in un archivio.</p>
+<hr>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiato!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiato!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/federob\.github\.io\/infohandouts\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../dictionary/01_map.html" class="pagination-link" aria-label="Mappa">
+        <span class="nav-page-text">Mappa</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Prof.&nbsp;Federico Robuffo © 2026</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Made with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>Ultimo aggiornamento: 02/03/2026</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

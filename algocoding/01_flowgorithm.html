@@ -1,0 +1,2048 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-02-03">
+
+<title>flowgorithm – Corso di Informatica</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../algocoding/02_python_from_flowgorithm.html" rel="next">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-71957ac9ccc9d0fc18656807f2d8b8ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-a5b2293a6d69cf4cfe8b9bfeee78cd61.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-71957ac9ccc9d0fc18656807f2d8b8ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare",
+    "search-label": "Ricerca"
+  }
+}</script>
+<script>
+(function () {
+  // Applica tema e font-size a tutti gli editor Monaco nella pagina
+  function applyMonacoSettings(isDark) {
+    if (typeof monaco === 'undefined') return;
+    monaco.editor.setTheme(isDark ? 'vs-dark' : 'vs-light');
+    // Riduce il font-size da 17.5pt a ~13px (coerente col sito)
+    monaco.editor.getEditors().forEach(function (ed) {
+      ed.updateOptions({ fontSize: 13 });
+    });
+  }
+
+  // Riapplica il font-size agli editor creati successivamente
+  function applyMonacoTheme(isDark) {
+    applyMonacoSettings(isDark);
+  }
+
+  // Legge se il body ha la classe quarto-dark
+  function isQuartoDark() {
+    return document.body.classList.contains('quarto-dark');
+  }
+
+  // Osserva i cambiamenti di classe su body (toggle light/dark di Quarto)
+  const bodyObserver = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      if (mutation.attributeName === 'class') {
+        applyMonacoTheme(isQuartoDark());
+      }
+    });
+  });
+
+  // Attendi che Monaco sia disponibile, poi applica e installa l'observer
+  function waitForMonaco() {
+    if (typeof monaco !== 'undefined') {
+      applyMonacoSettings(isQuartoDark());
+      bodyObserver.observe(document.body, { attributes: true });
+      // Applica font-size anche agli editor creati successivamente
+      monaco.editor.onDidCreateEditor(function (ed) {
+        ed.updateOptions({ fontSize: 13 });
+      });
+    } else {
+      setTimeout(waitForMonaco, 200);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', waitForMonaco);
+
+  // Auto-nascondi la notifica pyodide dopo il caricamento
+  function watchPyodideStatus() {
+    var statusEl = document.getElementById('qpyodide-status-message-text');
+    if (!statusEl) {
+      setTimeout(watchPyodideStatus, 500);
+      return;
+    }
+    var obs = new MutationObserver(function () {
+      var text = statusEl.textContent || '';
+      if (text.indexOf('Ready') !== -1 || text.indexOf('ready') !== -1 || text.indexOf('🟢') !== -1) {
+        setTimeout(function () {
+          var area = document.getElementById('qpyodide-status-message-area');
+          if (area) {
+            area.style.opacity = '0';
+            setTimeout(function () { area.style.display = 'none'; }, 600);
+          }
+        }, 2000);
+        obs.disconnect();
+      }
+    });
+    obs.observe(statusEl, { childList: true, characterData: true, subtree: true });
+  }
+  document.addEventListener('DOMContentLoaded', watchPyodideStatus);
+})();
+</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../stylesheets/mermaid-dark.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Corso di Informatica</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Ricerca"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Attiva/disattiva la navigazione" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-le-basi" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Le basi</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-le-basi">    
+        <li class="dropdown-header">Introduzione</li>
+        <li>
+    <a class="dropdown-item" href="../fundamentals/00_basics.html">
+ <span class="dropdown-text">Concetti fondamentali</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../fundamentals/01_map.html">
+ <span class="dropdown-text">Mappa concettuale</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Hardware</li>
+        <li>
+    <a class="dropdown-item" href="../hwsw/10_hw.html">
+ <span class="dropdown-text">Architettura di un elaboratore</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../hwsw/11_bios.html">
+ <span class="dropdown-text">BIOS</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Software</li>
+        <li>
+    <a class="dropdown-item" href="../hwsw/20_sw.html">
+ <span class="dropdown-text">Classificazione</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../hwsw/21_os_intro.html">
+ <span class="dropdown-text">Sistemi Operativi</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">La codifica delle informazioni</li>
+        <li>
+    <a class="dropdown-item" href="../infoCoding/00_intro.html">
+ <span class="dropdown-text">Codifiche numeriche</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/01_digit_text.html">
+ <span class="dropdown-text">Testo</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/02_digit_img.html">
+ <span class="dropdown-text">Immagini</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/03_digit_audio.html">
+ <span class="dropdown-text">Suoni</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/04_digit_video.html">
+ <span class="dropdown-text">Video</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/05_file.html">
+ <span class="dropdown-text">File</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-extra" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Extra</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-extra">    
+        <li>
+    <a class="dropdown-item" href="../extra/emailMurderGame.html">
+ <span class="dropdown-text">Gioco dell’assassino</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-abc" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">A,B,C</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-abc">    
+        <li>
+    <a class="dropdown-item" href="../dictionary/00_dict.html">
+ <span class="dropdown-text">Parole</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../dictionary/01_map.html">
+ <span class="dropdown-text">Mappa</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-algoritmi" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Algoritmi</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-algoritmi">    
+        <li>
+    <a class="dropdown-item" href="../algocoding/01_flowgorithm.html">
+ <span class="dropdown-text">Flowgorithm</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algocoding/02_python_from_flowgorithm.html">
+ <span class="dropdown-text">Da Flowgorithm a Python</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python">    
+        <li>
+    <a class="dropdown-item" href="../pycoding/00_intro.html">
+ <span class="dropdown-text">Introduzione</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/01_variabili.html">
+ <span class="dropdown-text">Variabili e tipi</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/02_stringhe.html">
+ <span class="dropdown-text">Stringhe</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/03_condizioni.html">
+ <span class="dropdown-text">Condizioni</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/04_cicli.html">
+ <span class="dropdown-text">Cicli</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/05_liste.html">
+ <span class="dropdown-text">Liste e tuple</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/06_dizionari.html">
+ <span class="dropdown-text">Dizionari e set</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/07_funzioni.html">
+ <span class="dropdown-text">Funzioni</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/08_matrici.html">
+ <span class="dropdown-text">Array e matrici</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/09_oggetti.html">
+ <span class="dropdown-text">Classi e oggetti</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/10_networking.html">
+ <span class="dropdown-text">Python e networking</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-intelligenza-artificiale" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Intelligenza Artificiale</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-intelligenza-artificiale">    
+        <li>
+    <a class="dropdown-item" href="../ai/00_intro.html">
+ <span class="dropdown-text">Cos’è l’IA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/01_ml_intro.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/02_dati.html">
+ <span class="dropdown-text">Preparare i dati</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/03_regressione.html">
+ <span class="dropdown-text">Regressione lineare</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/04_classificazione.html">
+ <span class="dropdown-text">Classificazione</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/05_valutazione.html">
+ <span class="dropdown-text">Valutare un modello</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/06_clustering.html">
+ <span class="dropdown-text">Clustering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/07_reti_neurali.html">
+ <span class="dropdown-text">Reti neurali</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/08_progetto.html">
+ <span class="dropdown-text">Progetto finale</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/09_etica.html">
+ <span class="dropdown-text">IA ed etica</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Attiva/disattiva la modalità oscura"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../algocoding/01_flowgorithm.html">Flowgorithm</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../algocoding/01_flowgorithm.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Flowgorithm</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../algocoding/02_python_from_flowgorithm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Da Flowgorithm a Python</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">In questa pagina</h2>
+   
+  <ul>
+  <li><a href="#codificare-un-algoritmo-con-flowgorithm" id="toc-codificare-un-algoritmo-con-flowgorithm" class="nav-link active" data-scroll-target="#codificare-un-algoritmo-con-flowgorithm">Codificare un algoritmo con Flowgorithm</a>
+  <ul class="collapse">
+  <li><a href="#introduzione-a-flowgorithm" id="toc-introduzione-a-flowgorithm" class="nav-link" data-scroll-target="#introduzione-a-flowgorithm">1. Introduzione a Flowgorithm</a></li>
+  <li><a href="#download-e-installazione" id="toc-download-e-installazione" class="nav-link" data-scroll-target="#download-e-installazione">2. Download e installazione</a>
+  <ul class="collapse">
+  <li><a href="#versione-executable-only-consigliata" id="toc-versione-executable-only-consigliata" class="nav-link" data-scroll-target="#versione-executable-only-consigliata">Versione “Executable Only” (consigliata)</a></li>
+  </ul></li>
+  <li><a href="#mappa-concettuale-algoritmi-e-flowgorithm" id="toc-mappa-concettuale-algoritmi-e-flowgorithm" class="nav-link" data-scroll-target="#mappa-concettuale-algoritmi-e-flowgorithm">3. Mappa concettuale: Algoritmi e Flowgorithm 🗺️</a>
+  <ul class="collapse">
+  <li><a href="#come-usare-questa-mappa" id="toc-come-usare-questa-mappa" class="nav-link" data-scroll-target="#come-usare-questa-mappa">📖 Come usare questa mappa</a></li>
+  </ul></li>
+  <li><a href="#blocchi-principali-di-flowgorithm" id="toc-blocchi-principali-di-flowgorithm" class="nav-link" data-scroll-target="#blocchi-principali-di-flowgorithm">4. Blocchi principali di Flowgorithm</a>
+  <ul class="collapse">
+  <li><a href="#declare-dichiarazione-variabili" id="toc-declare-dichiarazione-variabili" class="nav-link" data-scroll-target="#declare-dichiarazione-variabili">3.1 <strong>Declare – Dichiarazione variabili</strong></a></li>
+  <li><a href="#input-acquisizione-dati" id="toc-input-acquisizione-dati" class="nav-link" data-scroll-target="#input-acquisizione-dati">3.2 <strong>Input – Acquisizione dati</strong></a></li>
+  <li><a href="#assign-assegnazione" id="toc-assign-assegnazione" class="nav-link" data-scroll-target="#assign-assegnazione">3.3 <strong>Assign – Assegnazione</strong></a></li>
+  <li><a href="#output-stampa-risultati" id="toc-output-stampa-risultati" class="nav-link" data-scroll-target="#output-stampa-risultati">3.4 <strong>Output – Stampa risultati</strong></a></li>
+  <li><a href="#if-struttura-condizionale" id="toc-if-struttura-condizionale" class="nav-link" data-scroll-target="#if-struttura-condizionale">3.5 <strong>If – Struttura condizionale</strong></a></li>
+  </ul></li>
+  <li><a href="#come-analizzare-un-problema-metodologia-passo-passo" id="toc-come-analizzare-un-problema-metodologia-passo-passo" class="nav-link" data-scroll-target="#come-analizzare-un-problema-metodologia-passo-passo">4. Come analizzare un problema: metodologia passo-passo</a>
+  <ul class="collapse">
+  <li><a href="#la-metodologia-in-5-passi" id="toc-la-metodologia-in-5-passi" class="nav-link" data-scroll-target="#la-metodologia-in-5-passi">📋 La metodologia in 5 passi</a></li>
+  <li><a href="#schema-visivo-della-metodologia" id="toc-schema-visivo-della-metodologia" class="nav-link" data-scroll-target="#schema-visivo-della-metodologia">🎯 Schema visivo della metodologia</a></li>
+  <li><a href="#checklist-per-lanalisi-salvala-stampala-tatuatela" id="toc-checklist-per-lanalisi-salvala-stampala-tatuatela" class="nav-link" data-scroll-target="#checklist-per-lanalisi-salvala-stampala-tatuatela">📝 Checklist per l’analisi (salvala, stampala, tatuatela!)</a></li>
+  </ul></li>
+  <li><a href="#esempio-pratico-primo-problema-semplice" id="toc-esempio-pratico-primo-problema-semplice" class="nav-link" data-scroll-target="#esempio-pratico-primo-problema-semplice">5. Esempio pratico: primo problema semplice</a>
+  <ul class="collapse">
+  <li><a href="#problema-base" id="toc-problema-base" class="nav-link" data-scroll-target="#problema-base">Problema base</a></li>
+  <li><a href="#analisi-seguendo-i-5-passi" id="toc-analisi-seguendo-i-5-passi" class="nav-link" data-scroll-target="#analisi-seguendo-i-5-passi">Analisi seguendo i 5 passi</a></li>
+  <li><a href="#diagramma-di-flusso-semplificato" id="toc-diagramma-di-flusso-semplificato" class="nav-link" data-scroll-target="#diagramma-di-flusso-semplificato">Diagramma di flusso semplificato</a></li>
+  </ul></li>
+  <li><a href="#esempio-complesso-trapezio-e-cerchio" id="toc-esempio-complesso-trapezio-e-cerchio" class="nav-link" data-scroll-target="#esempio-complesso-trapezio-e-cerchio">6. Esempio complesso: trapezio e cerchio</a>
+  <ul class="collapse">
+  <li><a href="#testo-del-problema" id="toc-testo-del-problema" class="nav-link" data-scroll-target="#testo-del-problema">📜 Testo del problema</a></li>
+  <li><a href="#analisi-seguendo-i-5-passi-1" id="toc-analisi-seguendo-i-5-passi-1" class="nav-link" data-scroll-target="#analisi-seguendo-i-5-passi-1">🔍 Analisi seguendo i 5 passi</a></li>
+  <li><a href="#tabella-riassuntiva-dellanalisi" id="toc-tabella-riassuntiva-dellanalisi" class="nav-link" data-scroll-target="#tabella-riassuntiva-dellanalisi">📊 Tabella riassuntiva dell’analisi</a></li>
+  <li><a href="#ordine-logico-delle-operazioni" id="toc-ordine-logico-delle-operazioni" class="nav-link" data-scroll-target="#ordine-logico-delle-operazioni">🎯 Ordine logico delle operazioni</a></li>
+  </ul></li>
+  <li><a href="#diagramma-degli-stati" id="toc-diagramma-degli-stati" class="nav-link" data-scroll-target="#diagramma-degli-stati">6.1 Diagramma degli stati</a></li>
+  <li><a href="#flowchart-dettagliato-con-spiegazioni" id="toc-flowchart-dettagliato-con-spiegazioni" class="nav-link" data-scroll-target="#flowchart-dettagliato-con-spiegazioni">6.2 Flowchart dettagliato con spiegazioni</a></li>
+  <li><a href="#schema-delle-variabili-individuate" id="toc-schema-delle-variabili-individuate" class="nav-link" data-scroll-target="#schema-delle-variabili-individuate">7. Schema delle variabili individuate</a></li>
+  <li><a href="#errori-comuni-da-evitare" id="toc-errori-comuni-da-evitare" class="nav-link" data-scroll-target="#errori-comuni-da-evitare">8. Errori comuni da evitare ⚠️</a>
+  <ul class="collapse">
+  <li><a href="#errore-1-non-leggere-bene-il-testo" id="toc-errore-1-non-leggere-bene-il-testo" class="nav-link" data-scroll-target="#errore-1-non-leggere-bene-il-testo">❌ Errore 1: Non leggere bene il testo</a></li>
+  <li><a href="#errore-2-confondere-input-ed-elaborazioni" id="toc-errore-2-confondere-input-ed-elaborazioni" class="nav-link" data-scroll-target="#errore-2-confondere-input-ed-elaborazioni">❌ Errore 2: Confondere input ed elaborazioni</a></li>
+  <li><a href="#errore-3-dimenticare-di-creare-variabili-per-i-risultati" id="toc-errore-3-dimenticare-di-creare-variabili-per-i-risultati" class="nav-link" data-scroll-target="#errore-3-dimenticare-di-creare-variabili-per-i-risultati">❌ Errore 3: Dimenticare di creare variabili per i risultati</a></li>
+  <li><a href="#errore-4-non-dare-nomi-chiari-alle-variabili" id="toc-errore-4-non-dare-nomi-chiari-alle-variabili" class="nav-link" data-scroll-target="#errore-4-non-dare-nomi-chiari-alle-variabili">❌ Errore 4: Non dare nomi chiari alle variabili</a></li>
+  <li><a href="#errore-5-dimenticare-i-messaggi-di-output" id="toc-errore-5-dimenticare-i-messaggi-di-output" class="nav-link" data-scroll-target="#errore-5-dimenticare-i-messaggi-di-output">❌ Errore 5: Dimenticare i messaggi di output</a></li>
+  <li><a href="#errore-6-non-mettere-le-istruzioni-prima-degli-input" id="toc-errore-6-non-mettere-le-istruzioni-prima-degli-input" class="nav-link" data-scroll-target="#errore-6-non-mettere-le-istruzioni-prima-degli-input">❌ Errore 6: Non mettere le istruzioni prima degli input</a></li>
+  </ul></li>
+  <li><a href="#consigli-pratici-per-il-successo" id="toc-consigli-pratici-per-il-successo" class="nav-link" data-scroll-target="#consigli-pratici-per-il-successo">9. Consigli pratici per il successo 💡</a>
+  <ul class="collapse">
+  <li><a href="#consiglio-1-usa-carta-e-penna-sì-roba-old-school" id="toc-consiglio-1-usa-carta-e-penna-sì-roba-old-school" class="nav-link" data-scroll-target="#consiglio-1-usa-carta-e-penna-sì-roba-old-school">✅ Consiglio 1: Usa carta e penna (sì, roba old school)</a></li>
+  <li><a href="#consiglio-2-procedi-passo-passo-no-multitasking-da-eroe" id="toc-consiglio-2-procedi-passo-passo-no-multitasking-da-eroe" class="nav-link" data-scroll-target="#consiglio-2-procedi-passo-passo-no-multitasking-da-eroe">✅ Consiglio 2: Procedi passo-passo (no multitasking da eroe)</a></li>
+  <li><a href="#consiglio-3-testa-con-esempi-concreti-debug-precoce-successo" id="toc-consiglio-3-testa-con-esempi-concreti-debug-precoce-successo" class="nav-link" data-scroll-target="#consiglio-3-testa-con-esempi-concreti-debug-precoce-successo">✅ Consiglio 3: Testa con esempi concreti (debug precoce = successo)</a></li>
+  <li><a href="#consiglio-4-usa-la-checklist-non-fregarti-da-solo" id="toc-consiglio-4-usa-la-checklist-non-fregarti-da-solo" class="nav-link" data-scroll-target="#consiglio-4-usa-la-checklist-non-fregarti-da-solo">✅ Consiglio 4: Usa la checklist (non fregarti da solo)</a></li>
+  <li><a href="#consiglio-5-chiedi-aiuto-se-sei-bloccato-nessuna-vergogna" id="toc-consiglio-5-chiedi-aiuto-se-sei-bloccato-nessuna-vergogna" class="nav-link" data-scroll-target="#consiglio-5-chiedi-aiuto-se-sei-bloccato-nessuna-vergogna">✅ Consiglio 5: Chiedi aiuto se sei bloccato (nessuna vergogna)</a></li>
+  </ul></li>
+  <li><a href="#esercizi-guidati-per-fare-pratica" id="toc-esercizi-guidati-per-fare-pratica" class="nav-link" data-scroll-target="#esercizi-guidati-per-fare-pratica">10. Esercizi guidati per fare pratica 📝</a>
+  <ul class="collapse">
+  <li><a href="#esercizio-1-facile" id="toc-esercizio-1-facile" class="nav-link" data-scroll-target="#esercizio-1-facile">Esercizio 1 (facile)</a></li>
+  <li><a href="#esercizio-2-medio" id="toc-esercizio-2-medio" class="nav-link" data-scroll-target="#esercizio-2-medio">Esercizio 2 (medio)</a></li>
+  <li><a href="#esercizio-3-difficile" id="toc-esercizio-3-difficile" class="nav-link" data-scroll-target="#esercizio-3-difficile">Esercizio 3 (difficile)</a></li>
+  </ul></li>
+  <li><a href="#riepilogo-finale-la-strada-verso-il-successo" id="toc-riepilogo-finale-la-strada-verso-il-successo" class="nav-link" data-scroll-target="#riepilogo-finale-la-strada-verso-il-successo">11. Riepilogo finale: la strada verso il successo 🎯</a></li>
+  <li><a href="#risorse-aggiuntive" id="toc-risorse-aggiuntive" class="nav-link" data-scroll-target="#risorse-aggiuntive">12. Risorse aggiuntive</a>
+  <ul class="collapse">
+  <li><a href="#link-utili" id="toc-link-utili" class="nav-link" data-scroll-target="#link-utili">Link utili</a></li>
+  <li><a href="#file-da-scaricare-per-questo-corso" id="toc-file-da-scaricare-per-questo-corso" class="nav-link" data-scroll-target="#file-da-scaricare-per-questo-corso">File da scaricare per questo corso</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Altri Formati</h2><ul><li><a href="01_flowgorithm.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">02/03/2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="codificare-un-algoritmo-con-flowgorithm" class="level1">
+<h1>Codificare un algoritmo con Flowgorithm</h1>
+<section id="introduzione-a-flowgorithm" class="level2">
+<h2 class="anchored" data-anchor-id="introduzione-a-flowgorithm">1. Introduzione a Flowgorithm</h2>
+<p><strong>Flowgorithm</strong> è un ambiente visuale che permette di creare algoritmi con <strong>diagrammi di flusso</strong> (tipo flowchart).</p>
+<p>Odiate scrivere codice? Niente panico: qui <strong>disegnate</strong> invece di digitare. È tipo giocare con i blocchetti LEGO invece di scrivere un tema: decisamente più intuitivo e zero “SyntaxError” che ti fanno impazzire!</p>
+<p>Praticamente è la modalità “tutorial facile” della programmazione. Una volta che hai capito la logica qui dentro, passare a Python, Java o C++ sarà come passare dalla bici con le rotelle alla mountain bike: un upgrade naturale, non un salto nel vuoto.</p>
+<hr>
+</section>
+<section id="download-e-installazione" class="level2">
+<h2 class="anchored" data-anchor-id="download-e-installazione">2. Download e installazione</h2>
+<section id="versione-executable-only-consigliata" class="level3">
+<h3 class="anchored" data-anchor-id="versione-executable-only-consigliata">Versione “Executable Only” (consigliata)</h3>
+<p>La versione più comoda: <strong>non richiede installazione</strong>! Scarichi lo ZIP, lo estrai, clicchi sull’eseguibile e boom: sei operativo. Zero sbattimenti, zero configurazioni assurde, zero “ma sul mio PC non funziona”.</p>
+<p>📥 <strong>Download</strong>: <a href="https://flowgorithm.org/download/index.html">Clicca qui per scaricare Flowgorithm</a></p>
+<p>Dopo aver estratto, eseguite:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Flowgorithm.exe</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+<p>E siete pronti a programmare!</p>
+<hr>
+</section>
+</section>
+<section id="mappa-concettuale-algoritmi-e-flowgorithm" class="level2">
+<h2 class="anchored" data-anchor-id="mappa-concettuale-algoritmi-e-flowgorithm">3. Mappa concettuale: Algoritmi e Flowgorithm 🗺️</h2>
+<p>Prima di entrare nei dettagli, ecco una <strong>mappa concettuale completa</strong> che mostra tutti i concetti principali e come sono collegati tra loro. Usala come guida di riferimento mentre studi!</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">mindmap
+  root((ALGORITMI e FLOWGORITHM))
+    COSE
+      Ambiente visuale
+      Diagrammi di flusso
+      Imparare senza codice
+      Base per linguaggi veri
+    METODOLOGIA 5 PASSI
+      1 Leggere il testo
+        Sottolinea parole chiave
+        Rileggi 2 volte
+      2 INPUT
+        Dati da chiedere
+        Non calcolabili
+        Blocco Input
+      3 ELABORAZIONI
+        Formule matematiche
+        Calcoli
+        Blocco Assign
+      4 OUTPUT
+        Risultati da mostrare
+        Messaggi
+        Blocco Output
+      5 CONDIZIONI
+        Confronti
+        Decisioni
+        Blocco If
+    BLOCCHI PRINCIPALI
+      Declare
+        Crea variabili
+        Specifica tipo
+      Input
+        Riceve dati utente
+        Con istruzioni
+      Assign
+        Esegue calcoli
+        Aggiorna variabili
+      Output
+        Mostra risultati
+        Messaggi chiari
+      If
+        Verifica condizioni
+        Vero o Falso
+    PROCESSO RISOLUZIONE
+      Analisi su carta
+      Checklist verifica
+      Bozza flowchart
+      Creazione in Flowgorithm
+      Test con esempi
+    CONSIGLI PRATICI
+      Usa carta e penna
+      Nomi chiari variabili
+      Messaggi prima input
+      Testa con esempi
+      Chiedi aiuto se bloccato
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<section id="come-usare-questa-mappa" class="level3">
+<h3 class="anchored" data-anchor-id="come-usare-questa-mappa">📖 Come usare questa mappa</h3>
+<p><strong>Per studiare:</strong></p>
+<ul>
+<li>Segui i rami principali per capire i concetti chiave</li>
+<li>Ogni ramo è collegato agli altri: tutto ha senso insieme!</li>
+<li>Usa i colori per distinguere le diverse aree</li>
+</ul>
+<p><strong>Per risolvere problemi:</strong></p>
+<ul>
+<li>Parti dal ramo <strong>METODOLOGIA 5 PASSI</strong></li>
+<li>Segui l’ordine: INPUT → ELABORAZIONI → OUTPUT → CONDIZIONI</li>
+<li>Usa il ramo <strong>BLOCCHI PRINCIPALI</strong> per sapere quale forma usare nel diagramma</li>
+</ul>
+<p><strong>Per ripassare:</strong></p>
+<ul>
+<li>Guarda prima la mappa per avere la visione d’insieme</li>
+<li>Poi approfondisci ogni sezione del materiale</li>
+<li>Torna alla mappa per collegare i concetti</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="blocchi-principali-di-flowgorithm" class="level2">
+<h2 class="anchored" data-anchor-id="blocchi-principali-di-flowgorithm">4. Blocchi principali di Flowgorithm</h2>
+<p>I diagrammi di flusso sono fatti di <strong>blocchi</strong> (forme geometriche) collegati tra loro. Ogni forma ha un superpotere specifico. Tipo gli Avengers, ma versione nerd.</p>
+<hr>
+<section id="declare-dichiarazione-variabili" class="level3">
+<h3 class="anchored" data-anchor-id="declare-dichiarazione-variabili">3.1 <strong>Declare – Dichiarazione variabili</strong></h3>
+<p>Serve a <strong>creare variabili</strong> e specificare il tipo di dato (numero intero, decimale, testo, vero/falso).</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["Blocco DECLARE:&lt;br/&gt;crea variabili e specifica il tipo (Integer, Real, String, Boolean)"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="input-acquisizione-dati" class="level3">
+<h3 class="anchored" data-anchor-id="input-acquisizione-dati">3.2 <strong>Input – Acquisizione dati</strong></h3>
+<p>Chiede all’utente di inserire un valore (tipo “Inserisci la tua età”).</p>
+<p><strong>Pro tip da esperti</strong>: prima dell’Input mettete SEMPRE un blocco Output che spiega COSA deve inserire l’utente. Altrimenti compare una finestra vuota e il povero utente pensa “Devo scrivere il mio nome? Un numero? La risposta alla vita, l’universo e tutto quanto?” Evitate questa tortura psicologica.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["Output: istruzione per l'utente"] --&gt; B[/"Input: legge il valore inserito"/]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="assign-assegnazione" class="level3">
+<h3 class="anchored" data-anchor-id="assign-assegnazione">3.3 <strong>Assign – Assegnazione</strong></h3>
+<p>Fa <strong>calcoli</strong> e assegna il risultato a una variabile. Tipo: <code>area = base * altezza</code>. Questo è il blocco dove avviene la “magia matematica”.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["Valori disponibili"] --&gt; B["Blocco ASSIGN:&lt;br/&gt;esegue calcoli o aggiorna variabili"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="output-stampa-risultati" class="level3">
+<h3 class="anchored" data-anchor-id="output-stampa-risultati">3.4 <strong>Output – Stampa risultati</strong></h3>
+<p>Mostra un testo o un valore a schermo.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["Valore o messaggio"] --&gt; B[/"Blocco OUTPUT:&lt;br/&gt;visualizza il contenuto"/]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="if-struttura-condizionale" class="level3">
+<h3 class="anchored" data-anchor-id="if-struttura-condizionale">3.5 <strong>If – Struttura condizionale</strong></h3>
+<p>Permette di scegliere diversi percorsi in base a una condizione.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    B{"Verifica della condizione"} --&gt;|Sì| C["Ramo VERO"]
+    B --&gt;|No| D["Ramo FALSO"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="come-analizzare-un-problema-metodologia-passo-passo" class="level2">
+<h2 class="anchored" data-anchor-id="come-analizzare-un-problema-metodologia-passo-passo">4. Come analizzare un problema: metodologia passo-passo</h2>
+<p>Prima di iniziare a programmare (o creare il diagramma di flusso), dobbiamo <strong>analizzare il problema</strong>. Questa è LA parte più importante! È come leggere le istruzioni IKEA PRIMA di montare l’armadio: sì, lo so che nessuno lo fa, ma fidatevi, vi salverà ore di frustrazione. Se capisci bene il problema, risolverlo diventa un gioco da ragazzi.</p>
+<section id="la-metodologia-in-5-passi" class="level3">
+<h3 class="anchored" data-anchor-id="la-metodologia-in-5-passi">📋 La metodologia in 5 passi</h3>
+<p>Quando ti danno un problema da risolvere, segui SEMPRE questi 5 passi in ordine. Tipo ricetta di cucina: se salti un ingrediente, poi il piatto fa schifo.</p>
+<section id="passo-1-leggere-attentamente-il-testo" class="level4">
+<h4 class="anchored" data-anchor-id="passo-1-leggere-attentamente-il-testo"><strong>PASSO 1: Leggere attentamente il testo</strong> 📖</h4>
+<ul>
+<li>Leggi il problema <strong>almeno 2 volte</strong> (sì, anche se pensi di aver capito al volo)</li>
+<li>Sottolinea o evidenzia le <strong>parole chiave</strong> (diventa un evidenziatore umano)</li>
+<li>Se non capisci qualcosa, rileggila o chiedi chiarimenti (non fare finta di aver capito, poi piangi dopo)</li>
+</ul>
+<p><strong>Domande esistenziali da farti:</strong></p>
+<ul>
+<li>Cosa diavolo mi chiede di fare questo problema?</li>
+<li>Quali informazioni utili mi dà il testo (e quali sono solo fuffa)?</li>
+<li>Cosa devo calcolare o scoprire alla fine di tutto?</li>
+</ul>
+<hr>
+</section>
+<section id="passo-2-identificare-gli-input-dati-in-ingresso" class="level4">
+<h4 class="anchored" data-anchor-id="passo-2-identificare-gli-input-dati-in-ingresso"><strong>PASSO 2: Identificare gli INPUT (dati in ingresso)</strong> ⬇️</h4>
+<p>Gli <strong>input</strong> sono i dati che:</p>
+<ul>
+<li>Ti vengono <strong>forniti</strong> o che l’utente deve <strong>inserire</strong> (tipo ingredienti di una ricetta)</li>
+<li>Servono per far partire il problema (senza questi, sei fermo al palo)</li>
+<li>NON puoi calcolarli (se potessi calcolarli, non sarebbero input, genio!)</li>
+</ul>
+<p><strong>Come riconoscerli nel testo (diventa un detective):</strong></p>
+<ul>
+<li>Cerca parole magiche tipo: “inserisci”, “chiedi”, “dato”, “fornito”, “conosciuto”</li>
+<li>Sono quasi sempre i valori che ti servono per le formule (tipo X e Y nell’equazione)</li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<ul>
+<li>“Inserisci il raggio del cerchio” → INPUT: <code>raggio</code></li>
+<li>“Date le misure base e altezza” → INPUT: <code>base</code>, <code>altezza</code></li>
+<li>“Chiedi all’utente l’età” → INPUT: <code>età</code></li>
+</ul>
+<p><strong>✏️ Fai una lista:</strong> Scrivi tutti gli input con nomi chiari e comprensibili.</p>
+<hr>
+</section>
+<section id="passo-3-identificare-le-elaborazioni-calcoli" class="level4">
+<h4 class="anchored" data-anchor-id="passo-3-identificare-le-elaborazioni-calcoli"><strong>PASSO 3: Identificare le ELABORAZIONI (calcoli)</strong> 🧮</h4>
+<p>Le <strong>elaborazioni</strong> sono la parte dove fai effettivamente qualcosa:</p>
+<ul>
+<li>I <strong>calcoli</strong> che devi fare (la matematica vera e propria)</li>
+<li>Le <strong>formule</strong> da applicare (tipo quelle che hai studiato a geometria)</li>
+<li>Le <strong>trasformazioni</strong> dei dati (prendi una cosa e la converti in un’altra)</li>
+</ul>
+<p><strong>Come riconoscerle nel testo:</strong></p>
+<ul>
+<li>Cerca verbi d’azione tipo: “calcola”, “trova”, “somma”, “moltiplica”, “converti”, “determina”</li>
+<li>Guarda se ci sono formule matematiche (tipo “area del cerchio = π × r²”)</li>
+<li>Ogni formula richiede una variabile per il risultato (altrimenti calcoli a vuoto come un criceto nella ruota!)</li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<ul>
+<li>“Calcola l’area del cerchio” → ELABORAZIONE: <code>area = 3.14 * raggio * raggio</code></li>
+<li>“Trova la somma di due numeri” → ELABORAZIONE: <code>somma = numero1 + numero2</code></li>
+<li>“Converti euro in dollari” → ELABORAZIONE: <code>dollari = euro * 1.10</code></li>
+</ul>
+<p><strong>✏️ Fai una lista:</strong> Scrivi ogni formula e crea una variabile per ogni risultato.</p>
+<hr>
+</section>
+<section id="passo-4-identificare-gli-output-risultati" class="level4">
+<h4 class="anchored" data-anchor-id="passo-4-identificare-gli-output-risultati"><strong>PASSO 4: Identificare gli OUTPUT (risultati)</strong> ⬆️</h4>
+<p>Gli <strong>output</strong> sono il momento della gloria, quando mostri cosa hai fatto:</p>
+<ul>
+<li>I <strong>risultati</strong> che devi mostrare all’utente (tipo “TA-DA, ecco il risultato!”)</li>
+<li>Le <strong>risposte</strong> al problema (quello per cui hai fatto tutto questo lavoro)</li>
+<li>I <strong>messaggi</strong> da visualizzare (comunicazione chiara = utente felice)</li>
+</ul>
+<p><strong>Come riconoscerli nel testo:</strong></p>
+<ul>
+<li>Cerca parole tipo: “mostra”, “stampa”, “visualizza”, “comunica”, “indica”, “restituisci”</li>
+<li>È la risposta finale che l’utente si aspetta di vedere (non lasciarlo a bocca asciutta!)</li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<ul>
+<li>“Mostra l’area calcolata” → OUTPUT: <code>area</code></li>
+<li>“Indica quale numero è maggiore” → OUTPUT: messaggio con il confronto</li>
+<li>“Stampa il risultato finale” → OUTPUT: <code>risultato</code></li>
+</ul>
+<p><strong>✏️ Fai una lista:</strong> Scrivi cosa devi mostrare all’utente.</p>
+<hr>
+</section>
+<section id="passo-5-identificare-le-condizioni-scelte" class="level4">
+<h4 class="anchored" data-anchor-id="passo-5-identificare-le-condizioni-scelte"><strong>PASSO 5: Identificare le CONDIZIONI (scelte)</strong> 🔀</h4>
+<p>Le <strong>condizioni</strong> sono i bivi del programma (tipo “scegli la tua avventura”):</p>
+<ul>
+<li>I <strong>confronti</strong> tra valori (chi è più grande? Chi è uguale?)</li>
+<li>Le <strong>decisioni</strong> da prendere (se succede X fai A, altrimenti fai B)</li>
+<li>I percorsi <strong>alternativi</strong> del programma (il programma “decide” cosa fare)</li>
+</ul>
+<p><strong>Come riconoscerle nel testo:</strong></p>
+<ul>
+<li>Cerca parole tipo: “se”, “maggiore”, “minore”, “uguale”, “confronta”, “verifica”, “altrimenti”</li>
+<li>Indicano situazioni in cui il programma deve fare una scelta (tipo Sliding Doors, ma in versione codice)</li>
+</ul>
+<p><strong>Esempi:</strong></p>
+<ul>
+<li>“Se il numero è positivo…” → CONDIZIONE: <code>numero &gt; 0</code></li>
+<li>“Confronta le due aree” → CONDIZIONE: <code>area1 &gt; area2</code></li>
+<li>“Verifica se l’età è maggiorenne” → CONDIZIONE: <code>età &gt;= 18</code></li>
+</ul>
+<p><strong>✏️ Fai una lista:</strong> Scrivi tutte le condizioni che devi verificare.</p>
+<hr>
+</section>
+</section>
+<section id="schema-visivo-della-metodologia" class="level3">
+<h3 class="anchored" data-anchor-id="schema-visivo-della-metodologia">🎯 Schema visivo della metodologia</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A["📖 Leggi il problema"] --&gt; B["⬇️ Trova gli INPUT"]
+    B --&gt; C["🧮 Trova le ELABORAZIONI"]
+    C --&gt; D["⬆️ Trova gli OUTPUT"]
+    D --&gt; E["🔀 Trova le CONDIZIONI"]
+    E --&gt; F["✅ Crea il diagramma di flusso"]
+
+    style A fill:#FFE4B5
+    style B fill:#B0E0E6
+    style C fill:#98FB98
+    style D fill:#FFB6C1
+    style E fill:#DDA0DD
+    style F fill:#90EE90
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="checklist-per-lanalisi-salvala-stampala-tatuatela" class="level3">
+<h3 class="anchored" data-anchor-id="checklist-per-lanalisi-salvala-stampala-tatuatela">📝 Checklist per l’analisi (salvala, stampala, tatuatela!)</h3>
+<p>Prima di iniziare a programmare, verifica di aver fatto tutto (seriamente, TUTTO):</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Ho letto il problema almeno 2 volte?</label></li>
+<li><label><input type="checkbox">Ho individuato TUTTI gli input necessari?</label></li>
+<li><label><input type="checkbox">Ho scritto TUTTE le formule e creato variabili per i risultati?</label></li>
+<li><label><input type="checkbox">So quali risultati devo mostrare all’utente?</label></li>
+<li><label><input type="checkbox">Ho identificato tutte le condizioni/confronti?</label></li>
+<li><label><input type="checkbox">Ho dato nomi chiari e comprensibili a tutte le variabili?</label></li>
+</ul>
+<p>Se hai risposto SÌ a tutte le domande, complimenti: sei pronto per creare il diagramma! 🎉 Se anche solo UNA risposta è “no”, torna indietro e sistema prima di procedere (fidati, ti ringrazierai dopo).</p>
+<hr>
+</section>
+</section>
+<section id="esempio-pratico-primo-problema-semplice" class="level2">
+<h2 class="anchored" data-anchor-id="esempio-pratico-primo-problema-semplice">5. Esempio pratico: primo problema semplice</h2>
+<section id="problema-base" class="level3">
+<h3 class="anchored" data-anchor-id="problema-base">Problema base</h3>
+<p><strong>Testo:</strong> Scrivi un programma che chieda all’utente di inserire due numeri e mostri la loro somma.</p>
+</section>
+<section id="analisi-seguendo-i-5-passi" class="level3">
+<h3 class="anchored" data-anchor-id="analisi-seguendo-i-5-passi">Analisi seguendo i 5 passi</h3>
+<section id="passo-1-lettura" class="level4">
+<h4 class="anchored" data-anchor-id="passo-1-lettura">PASSO 1: Lettura</h4>
+<ul>
+<li>Il programma deve sommare due numeri</li>
+<li>Devo chiedere i numeri all’utente</li>
+<li>Devo mostrare il risultato</li>
+</ul>
+</section>
+<section id="passo-2-input" class="level4">
+<h4 class="anchored" data-anchor-id="passo-2-input">PASSO 2: INPUT</h4>
+<ul>
+<li><code>numero1</code> (primo numero inserito dall’utente)</li>
+<li><code>numero2</code> (secondo numero inserito dall’utente)</li>
+</ul>
+</section>
+<section id="passo-3-elaborazioni" class="level4">
+<h4 class="anchored" data-anchor-id="passo-3-elaborazioni">PASSO 3: ELABORAZIONI</h4>
+<ul>
+<li><code>somma = numero1 + numero2</code></li>
+</ul>
+</section>
+<section id="passo-4-output" class="level4">
+<h4 class="anchored" data-anchor-id="passo-4-output">PASSO 4: OUTPUT</h4>
+<ul>
+<li>Mostrare il valore di <code>somma</code></li>
+</ul>
+</section>
+<section id="passo-5-condizioni" class="level4">
+<h4 class="anchored" data-anchor-id="passo-5-condizioni">PASSO 5: CONDIZIONI</h4>
+<ul>
+<li>Nessuna (è un problema semplice senza confronti)</li>
+</ul>
+</section>
+</section>
+<section id="diagramma-di-flusso-semplificato" class="level3">
+<h3 class="anchored" data-anchor-id="diagramma-di-flusso-semplificato">Diagramma di flusso semplificato</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    A([Inizio]) --&gt; B[\"Output: Inserisci il primo numero"\]
+    B --&gt; C[/Input numero1/]
+    C --&gt; D[\"Output: Inserisci il secondo numero"\]
+    D --&gt; E[/Input numero2/]
+    E --&gt; F["somma = numero1 + numero2"]
+    F --&gt; G[\"Output: La somma è: somma"\]
+    G --&gt; H([Fine])
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Vedi come funziona?</strong> Seguendo i 5 passi è facilissimo! Ora che hai capito il meccanismo, alziamo il livello con un problema più tosto.</p>
+<hr>
+</section>
+</section>
+<section id="esempio-complesso-trapezio-e-cerchio" class="level2">
+<h2 class="anchored" data-anchor-id="esempio-complesso-trapezio-e-cerchio">6. Esempio complesso: trapezio e cerchio</h2>
+<section id="testo-del-problema" class="level3">
+<h3 class="anchored" data-anchor-id="testo-del-problema">📜 Testo del problema</h3>
+<p><strong>Problema:</strong> Scrivi un programma che:</p>
+<ol type="1">
+<li>Calcoli l’area di un trapezio (date base maggiore, base minore e altezza)</li>
+<li>Calcoli l’area di un cerchio (dato il raggio)</li>
+<li>Confronti le due aree e indichi quale figura ha l’area maggiore</li>
+</ol>
+</section>
+<section id="analisi-seguendo-i-5-passi-1" class="level3">
+<h3 class="anchored" data-anchor-id="analisi-seguendo-i-5-passi-1">🔍 Analisi seguendo i 5 passi</h3>
+<section id="passo-1-lettura-attenta" class="level4">
+<h4 class="anchored" data-anchor-id="passo-1-lettura-attenta">PASSO 1: Lettura attenta</h4>
+<ul>
+<li><p>Devo calcolare DUE aree: trapezio e cerchio</p></li>
+<li><p>Formule necessarie:</p>
+<ul>
+<li>Area trapezio = (base maggiore + base minore) / 2 × altezza</li>
+<li>Area cerchio = π × raggio²</li>
+</ul></li>
+<li><p>Alla fine devo confrontare le aree e dire quale è maggiore</p></li>
+</ul>
+</section>
+<section id="passo-2-input-cosa-devo-chiedere" class="level4">
+<h4 class="anchored" data-anchor-id="passo-2-input-cosa-devo-chiedere">PASSO 2: INPUT (cosa devo chiedere?)</h4>
+<ul>
+<li><code>baseMaggiore</code> → serve per il trapezio</li>
+<li><code>baseMinore</code> → serve per il trapezio</li>
+<li><code>altezza</code> → serve per il trapezio</li>
+<li><code>raggio</code> → serve per il cerchio</li>
+</ul>
+<p><strong>Perché questi sono input?</strong> Semplice: non puoi calcolarli dal nulla, devi chiederli all’utente! Se non chiedi questi valori, il programma non può partire.</p>
+</section>
+<section id="passo-3-elaborazioni-cosa-devo-calcolare" class="level4">
+<h4 class="anchored" data-anchor-id="passo-3-elaborazioni-cosa-devo-calcolare">PASSO 3: ELABORAZIONI (cosa devo calcolare?)</h4>
+<ul>
+<li><code>area_trapezio = (baseMaggiore + baseMinore) / 2 * altezza</code></li>
+<li><code>area_cerchio = 3.14 * raggio * raggio</code></li>
+</ul>
+<p><strong>Nota importante:</strong> Ho creato DUE variabili nuove per contenere i risultati dei calcoli! Ogni formula produce un risultato → ogni risultato va salvato in una variabile. Matematica base.</p>
+</section>
+<section id="passo-4-output-cosa-devo-mostrare" class="level4">
+<h4 class="anchored" data-anchor-id="passo-4-output-cosa-devo-mostrare">PASSO 4: OUTPUT (cosa devo mostrare?)</h4>
+<ul>
+<li>Il valore di <code>area_trapezio</code></li>
+<li>Il valore di <code>area_cerchio</code></li>
+<li>Un messaggio che dice quale area è maggiore</li>
+</ul>
+</section>
+<section id="passo-5-condizioni-quali-confronti-devo-fare" class="level4">
+<h4 class="anchored" data-anchor-id="passo-5-condizioni-quali-confronti-devo-fare">PASSO 5: CONDIZIONI (quali confronti devo fare?)</h4>
+<ul>
+<li>Prima verifico: <code>area_trapezio = area_cerchio</code> (sono uguali?)</li>
+<li>Se non sono uguali: <code>area_trapezio &gt; area_cerchio</code> (quale è maggiore?)</li>
+</ul>
+</section>
+</section>
+<section id="tabella-riassuntiva-dellanalisi" class="level3">
+<h3 class="anchored" data-anchor-id="tabella-riassuntiva-dellanalisi">📊 Tabella riassuntiva dell’analisi</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 46%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Categoria</th>
+<th>Variabili/Operazioni</th>
+<th>Spiegazione</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>INPUT</strong></td>
+<td><code>baseMaggiore</code>, <code>baseMinore</code>, <code>altezza</code>, <code>raggio</code></td>
+<td>Dati da chiedere all’utente</td>
+</tr>
+<tr class="even">
+<td><strong>ELABORAZIONI</strong></td>
+<td><code>area_trapezio = (baseMaggiore + baseMinore) / 2 * altezza</code><br><code>area_cerchio = 3.14 * raggio * raggio</code></td>
+<td>Formule da calcolare</td>
+</tr>
+<tr class="odd">
+<td><strong>OUTPUT</strong></td>
+<td><code>area_trapezio</code>, <code>area_cerchio</code>, messaggio finale</td>
+<td>Risultati da mostrare</td>
+</tr>
+<tr class="even">
+<td><strong>CONDIZIONI</strong></td>
+<td><code>area_trapezio = area_cerchio</code><br><code>area_trapezio &gt; area_cerchio</code></td>
+<td>Confronti da verificare</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Importante (e spesso dimenticato):</strong> Le condizioni NON creano nuove variabili, usano solo quelle che hai già calcolato prima! Riutilizzano i risultati per fare confronti.</p>
+<hr>
+</section>
+<section id="ordine-logico-delle-operazioni" class="level3">
+<h3 class="anchored" data-anchor-id="ordine-logico-delle-operazioni">🎯 Ordine logico delle operazioni</h3>
+<p>Ora che abbiamo analizzato il problema, dobbiamo decidere <strong>in che ordine</strong> fare le cose:</p>
+<ol type="1">
+<li><strong>Mostrare un messaggio iniziale</strong> (spiegare cosa fa il programma)</li>
+<li><strong>Chiedere tutti gli input</strong> (uno alla volta, con istruzioni chiare)</li>
+<li><strong>Fare i calcoli</strong> (prima area trapezio, poi area cerchio)</li>
+<li><strong>Fare i confronti</strong> (prima verifico se sono uguali, poi quale è maggiore)</li>
+<li><strong>Mostrare i risultati</strong> (le aree calcolate e il messaggio finale)</li>
+</ol>
+<p><strong>Regola d’oro (incidila nella pietra):</strong> Prima raccogli i dati, poi calcola, poi confronta, infine mostra i risultati! Questo ordine non è casuale, è LOGICO. Non puoi calcolare prima di avere i dati, né confrontare prima di aver calcolato. Easy.</p>
+<hr>
+</section>
+</section>
+<section id="diagramma-degli-stati" class="level2">
+<h2 class="anchored" data-anchor-id="diagramma-degli-stati">6.1 Diagramma degli stati</h2>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">stateDiagram-v2
+    [*] --&gt; Titolo
+    Titolo --&gt; IstruzioniInput
+    IstruzioniInput --&gt; LetturaBmag
+    LetturaBmag --&gt; LetturaBmin
+    LetturaBmin --&gt; LetturaH
+    LetturaH --&gt; LetturaR
+    LetturaR --&gt; CalcoloAreaTrapezio
+    CalcoloAreaTrapezio --&gt; CalcoloAreaCerchio
+    CalcoloAreaCerchio --&gt; VerificaUguaglianza
+
+    VerificaUguaglianza --&gt; AreeUguali: area trapezio = area cerchio
+    VerificaUguaglianza --&gt; VerificaMaggiore: area trapezio &lt;&gt; area cerchio
+
+    VerificaMaggiore --&gt; TrapezioMaggiore: area trapezio &gt; area cerchio
+    VerificaMaggiore --&gt; CerchioMaggiore: area cerchio &gt; area trapezio
+
+    AreeUguali --&gt; OutputRisultato
+    TrapezioMaggiore --&gt; OutputRisultato
+    CerchioMaggiore --&gt; OutputRisultato
+
+    OutputRisultato --&gt; [*]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="flowchart-dettagliato-con-spiegazioni" class="level2">
+<h2 class="anchored" data-anchor-id="flowchart-dettagliato-con-spiegazioni">6.2 Flowchart dettagliato con spiegazioni</h2>
+<p>Ora guardiamo il diagramma di flusso completo. Ogni blocco è spiegato:</p>
+<p><strong>Legenda forme:</strong></p>
+<ul>
+<li>🔵 Ovale = Inizio/Fine</li>
+<li>📋 Parallelogramma inclinato = Input (riceve dati)</li>
+<li>📄 Parallelogramma = Output (mostra dati)</li>
+<li>▭ Rettangolo = Elaborazione (calcoli)</li>
+<li>◇ Rombo = Decisione (condizione da verificare)</li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+    classDef startend fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1
+    classDef input fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1
+    classDef output fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1
+    classDef assign fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1
+    classDef decision fill:#F2F2F2,stroke:#4A4A4A,stroke-width:1
+
+    START(["START&lt;br/&gt;Inizio"]):::startend --&gt;
+    A[\"A&lt;br/&gt;Output: Questo programma calcola e confronta&lt;br/&gt;le aree di un trapezio e un cerchio"\]:::output --&gt;
+    B[\"B&lt;br/&gt;Output: Inserisci la base maggiore del trapezio"\]:::output --&gt;
+    C[/"C&lt;br/&gt;Input base maggiore"/]:::input
+
+    C --&gt; D[\"D&lt;br/&gt;Output: Inserisci la base minore del trapezio"\]:::output --&gt;
+    E[/"E&lt;br/&gt;Input base minore"/]:::input
+
+    E --&gt; F[\"F&lt;br/&gt;Output: Inserisci l'altezza del trapezio"\]:::output --&gt;
+    G[/"G&lt;br/&gt;Input altezza"/]:::input
+
+    G --&gt; H[\"H&lt;br/&gt;Output: Inserisci il raggio del cerchio"\]:::output --&gt;
+    I[/"I&lt;br/&gt;Input raggio"/]:::input
+
+    I --&gt; J["J&lt;br/&gt;area_trapezio = &lt;br/&gt;(baseMaggiore + baseMinore) / 2 * altezza"]:::assign
+    J --&gt; K["K&lt;br/&gt;area_cerchio = 3.14 * raggio * raggio"]:::assign
+
+    K --&gt; L{"L&lt;br/&gt;area_trapezio =&lt;br/&gt;area_cerchio"}:::decision
+
+    L --&gt;|Sì| P[\"P&lt;br/&gt;Output: Le aree delle due figure sono uguali"\]:::output
+
+    L --&gt;|No| L2{"L2&lt;br/&gt;area_trapezio &gt;&lt;br/&gt;area_cerchio"}:::decision
+
+    L2 --&gt;|Sì| M[\"M&lt;br/&gt;Output: L'area del trapezio è maggiore"\]:::output
+    L2 --&gt;|No| N[\"N&lt;br/&gt;Output: L'area del cerchio è maggiore"\]:::output
+
+    P --&gt; END(["END&lt;br/&gt;Fine"]):::startend
+    M --&gt; END
+    N --&gt; END
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p><a href="./algoritmo_trapeziocerchio.fprg">Scarica il programma in formato Flowgorithm</a></p>
+<p><a href="./algoritmo_trapeziocerchio_img.png">Scarica il programma in formato Immagine (PNG)</a></p>
+<p><strong>💡 Spiegazione del flowchart:</strong></p>
+<ol type="1">
+<li><strong>START</strong> (ovale): Blocco di inizio del programma</li>
+<li><strong>Blocco A</strong> (output): Messaggio introduttivo che spiega cosa fa il programma</li>
+<li><strong>Blocchi B, D, F, H</strong> (output): Istruzioni per l’utente su cosa inserire</li>
+<li><strong>Blocchi C, E, G, I</strong> (input): Ricevono i 4 valori necessari (baseMaggiore, baseMinore, altezza, raggio)</li>
+<li><strong>Blocchi J, K</strong> (assign): Calcolano le due aree con le formule</li>
+<li><strong>Blocco L</strong> (decision - rombo): Prima condizione - verifica se le aree sono uguali</li>
+<li><strong>Blocco L2</strong> (decision - rombo): Seconda condizione - verifica quale area è maggiore</li>
+<li><strong>Blocchi M, N, P</strong> (output): Mostrano il risultato appropriato in base alle condizioni</li>
+<li><strong>END</strong> (ovale): Blocco di fine del programma</li>
+</ol>
+<p><strong>Nota bene:</strong> Il programma segue SEMPRE un percorso dall’alto verso il basso (come l’acqua che scende), ma può prendere strade diverse in base alle condizioni verificate nei blocchi L e L2! È tipo un fiume con bivi: la direzione dipende dalla condizione.</p>
+<hr>
+</section>
+<section id="schema-delle-variabili-individuate" class="level2">
+<h2 class="anchored" data-anchor-id="schema-delle-variabili-individuate">7. Schema delle variabili individuate</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 42%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Variabili</th>
+<th>Origine</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td>baseMaggiore, baseMinore, altezza, raggio</td>
+<td>esplicitati nel testo</td>
+</tr>
+<tr class="even">
+<td><strong>Elaborazione</strong></td>
+<td>area_trapezio, area_cerchio</td>
+<td>derivano dalle formule</td>
+</tr>
+<tr class="odd">
+<td><strong>Output</strong></td>
+<td>stessi valori delle aree + messaggio finale</td>
+<td>richiesti dal problema</td>
+</tr>
+<tr class="even">
+<td><strong>Condizioni</strong></td>
+<td>usa variabili esistenti</td>
+<td>confronto tra aree</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="errori-comuni-da-evitare" class="level2">
+<h2 class="anchored" data-anchor-id="errori-comuni-da-evitare">8. Errori comuni da evitare ⚠️</h2>
+<p>Quando si analizzano i problemi, gli studenti commettono SEMPRE gli stessi errori. Tipo errori da manuale. Evitali e risparmia ore di debugging!</p>
+<section id="errore-1-non-leggere-bene-il-testo" class="level3">
+<h3 class="anchored" data-anchor-id="errore-1-non-leggere-bene-il-testo">❌ Errore 1: Non leggere bene il testo</h3>
+<p><strong>Problema:</strong> Vedere il testo, pensare “ho capito” in 3 secondi, e partire in quarta col diagramma.</p>
+<p><strong>Soluzione:</strong> Leggi SEMPRE il problema almeno 2 volte LENTAMENTE prima di iniziare. Non sei The Flash, rallenta. La fretta è la madre di tutti i bug.</p>
+</section>
+<section id="errore-2-confondere-input-ed-elaborazioni" class="level3">
+<h3 class="anchored" data-anchor-id="errore-2-confondere-input-ed-elaborazioni">❌ Errore 2: Confondere input ed elaborazioni</h3>
+<p><strong>Problema:</strong> Pensare che una formula sia un input (tipo confondere le uova con la frittata).</p>
+<p><strong>Esempio sbagliato:</strong> Considerare “area” come input. No! L’area si CALCOLA, non la chiedi all’utente!</p>
+<p><strong>Soluzione:</strong> Gli input sono SOLO i dati che devi chiedere all’utente. Le formule sono elaborazioni! Se c’è un segno “=” con un calcolo, NON è un input.</p>
+</section>
+<section id="errore-3-dimenticare-di-creare-variabili-per-i-risultati" class="level3">
+<h3 class="anchored" data-anchor-id="errore-3-dimenticare-di-creare-variabili-per-i-risultati">❌ Errore 3: Dimenticare di creare variabili per i risultati</h3>
+<p><strong>Problema:</strong> Calcolare qualcosa ma non salvarlo da nessuna parte (tipo fare la spesa e lasciare tutto al supermercato).</p>
+<p><strong>Esempio sbagliato:</strong> Scrivere <code>3.14 * raggio * raggio</code> e basta. Ok, e il risultato dove va? Nel vuoto cosmico?</p>
+<p><strong>Soluzione:</strong> OGNI calcolo deve avere una variabile per il risultato! Tipo <code>area_cerchio = 3.14 * raggio * raggio</code>. Calcola E salva.</p>
+</section>
+<section id="errore-4-non-dare-nomi-chiari-alle-variabili" class="level3">
+<h3 class="anchored" data-anchor-id="errore-4-non-dare-nomi-chiari-alle-variabili">❌ Errore 4: Non dare nomi chiari alle variabili</h3>
+<p><strong>Problema:</strong> Chiamare le variabili con nomi criptici tipo <code>x</code>, <code>y</code>, <code>a</code>, <code>b</code>, <code>temp</code>, <code>var1</code> che non spiegano un cavolo.</p>
+<p><strong>Esempio sbagliato:</strong> <code>x = y + z</code> ← Ma cosa diavolo sono x, y e z??? Mistero.</p>
+<p><strong>Esempio corretto:</strong> <code>somma = numero1 + numero2</code> ← Ahhhh, ora è tutto chiaro!</p>
+<p><strong>Soluzione:</strong> Dai SEMPRE nomi descrittivi alle variabili! Tra 2 giorni rileggi il codice e devi capire cosa fa SENZA sforzo mentale.</p>
+</section>
+<section id="errore-5-dimenticare-i-messaggi-di-output" class="level3">
+<h3 class="anchored" data-anchor-id="errore-5-dimenticare-i-messaggi-di-output">❌ Errore 5: Dimenticare i messaggi di output</h3>
+<p><strong>Problema:</strong> Mostrare un numero a caso tipo oracolo di Delfi e sperare che l’utente capisca.</p>
+<p><strong>Esempio sbagliato:</strong> Output: <code>25</code> ← 25 cosa? Anni? Euro? Gradi? L’età di mia zia?</p>
+<p><strong>Esempio corretto:</strong> Output: <code>L'area del cerchio è: 25</code> ← Perfetto, ora è chiaro!</p>
+<p><strong>Soluzione:</strong> Aggiungi SEMPRE messaggi esplicativi prima dei valori! L’utente non è un telepate.</p>
+</section>
+<section id="errore-6-non-mettere-le-istruzioni-prima-degli-input" class="level3">
+<h3 class="anchored" data-anchor-id="errore-6-non-mettere-le-istruzioni-prima-degli-input">❌ Errore 6: Non mettere le istruzioni prima degli input</h3>
+<p><strong>Problema:</strong> Aprire una finestra di input vuota e aspettare che l’utente indovini cosa scrivere (tipo gioco d’azzardo).</p>
+<p><strong>Soluzione:</strong> SEMPRE un Output con istruzioni chiare PRIMA di ogni Input! Tipo “Inserisci il raggio del cerchio”. Così l’utente sa cosa fare e non ti maledice.</p>
+<hr>
+</section>
+</section>
+<section id="consigli-pratici-per-il-successo" class="level2">
+<h2 class="anchored" data-anchor-id="consigli-pratici-per-il-successo">9. Consigli pratici per il successo 💡</h2>
+<section id="consiglio-1-usa-carta-e-penna-sì-roba-old-school" class="level3">
+<h3 class="anchored" data-anchor-id="consiglio-1-usa-carta-e-penna-sì-roba-old-school">✅ Consiglio 1: Usa carta e penna (sì, roba old school)</h3>
+<p>Prima di aprire Flowgorithm, prendi carta e penna (o tablet se sei super tech) e:</p>
+<ul>
+<li>Scrivi il testo del problema per intero</li>
+<li>Sottolinea le parole chiave come un forsennato</li>
+<li>Fai le 5 liste sacre (input, elaborazioni, output, condizioni, ordine)</li>
+</ul>
+<p>Sì, sembra un lavoro in più. Ma ti fa risparmiare TONNELLATE di tempo dopo. Provare per credere.</p>
+</section>
+<section id="consiglio-2-procedi-passo-passo-no-multitasking-da-eroe" class="level3">
+<h3 class="anchored" data-anchor-id="consiglio-2-procedi-passo-passo-no-multitasking-da-eroe">✅ Consiglio 2: Procedi passo-passo (no multitasking da eroe)</h3>
+<p>Non cercare di fare tutto insieme tipo supereroe! Il multitasking è un mito. Segui questo ordine preciso:</p>
+<ol type="1">
+<li>Analizza il problema (5 passi, vedi sopra)</li>
+<li>Disegna una bozza del flowchart su carta (brutti schizzi vanno benissimo)</li>
+<li>Apri Flowgorithm e crea il diagramma (copia dalla bozza)</li>
+<li>Testa il programma con esempi (prova vari numeri e controlla)</li>
+</ol>
+</section>
+<section id="consiglio-3-testa-con-esempi-concreti-debug-precoce-successo" class="level3">
+<h3 class="anchored" data-anchor-id="consiglio-3-testa-con-esempi-concreti-debug-precoce-successo">✅ Consiglio 3: Testa con esempi concreti (debug precoce = successo)</h3>
+<p>Dopo aver creato il diagramma, NON dire “beh, sembra giusto”. Provalo DAVVERO con valori reali:</p>
+<ul>
+<li>Scegli numeri semplici tipo 10, 5, 2 (facili da verificare a mente)</li>
+<li>Verifica che i calcoli siano corretti (usa la calcolatrice se serve)</li>
+<li>Controlla che i messaggi abbiano senso (rileggili come se fossi l’utente finale)</li>
+</ul>
+</section>
+<section id="consiglio-4-usa-la-checklist-non-fregarti-da-solo" class="level3">
+<h3 class="anchored" data-anchor-id="consiglio-4-usa-la-checklist-non-fregarti-da-solo">✅ Consiglio 4: Usa la checklist (non fregarti da solo)</h3>
+<p>Prima di dire “ho finito” e chiudere tutto, controlla la checklist della sezione 4. Se anche solo UNA risposta è “no”, indovina un po’? NON hai finito! Torna indietro e sistema.</p>
+</section>
+<section id="consiglio-5-chiedi-aiuto-se-sei-bloccato-nessuna-vergogna" class="level3">
+<h3 class="anchored" data-anchor-id="consiglio-5-chiedi-aiuto-se-sei-bloccato-nessuna-vergogna">✅ Consiglio 5: Chiedi aiuto se sei bloccato (nessuna vergogna)</h3>
+<p>Se sei bloccato e non riesci a identificare input/elaborazioni/output, NON fissare lo schermo per ore:</p>
+<ol type="1">
+<li>Rileggi il testo sottolineando TUTTE le parole chiave (magari ti è sfuggito qualcosa)</li>
+<li>Prova a spiegare il problema a voce alta (anche al tuo gatto funziona, sul serio)</li>
+<li>Chiedi al compagno o al professore (meglio 5 minuti di domande che 3 ore di blocco mentale)</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="esercizi-guidati-per-fare-pratica" class="level2">
+<h2 class="anchored" data-anchor-id="esercizi-guidati-per-fare-pratica">10. Esercizi guidati per fare pratica 📝</h2>
+<p>Prova a risolvere questi problemi seguendo i 5 passi!</p>
+<section id="esercizio-1-facile" class="level3">
+<h3 class="anchored" data-anchor-id="esercizio-1-facile">Esercizio 1 (facile)</h3>
+<p><strong>Testo:</strong> Scrivi un programma che chieda all’utente di inserire il lato di un quadrato e calcoli il perimetro e l’area.</p>
+<p><strong>Suggerimento:</strong></p>
+<ul>
+<li>INPUT: lato</li>
+<li>ELABORAZIONI: perimetro = lato × 4, area = lato × lato</li>
+<li>OUTPUT: perimetro, area</li>
+<li>CONDIZIONI: nessuna</li>
+</ul>
+<hr>
+</section>
+<section id="esercizio-2-medio" class="level3">
+<h3 class="anchored" data-anchor-id="esercizio-2-medio">Esercizio 2 (medio)</h3>
+<p><strong>Testo:</strong> Scrivi un programma che chieda due numeri e indichi quale dei due è maggiore (o se sono uguali).</p>
+<p><strong>Suggerimento:</strong></p>
+<ul>
+<li>INPUT: numero1, numero2</li>
+<li>ELABORAZIONI: nessuna (non servono calcoli!)</li>
+<li>OUTPUT: messaggio che indica quale è maggiore</li>
+<li>CONDIZIONI: numero1 = numero2, numero1 &gt; numero2</li>
+</ul>
+<hr>
+</section>
+<section id="esercizio-3-difficile" class="level3">
+<h3 class="anchored" data-anchor-id="esercizio-3-difficile">Esercizio 3 (difficile)</h3>
+<p><strong>Testo:</strong> Scrivi un programma che converta una temperatura da gradi Celsius a Fahrenheit. Se la temperatura risultante è maggiore di 100°F, mostra il messaggio “Fa molto caldo!”, altrimenti mostra “Temperatura normale”.</p>
+<p><strong>Suggerimento:</strong></p>
+<ul>
+<li>INPUT: celsius</li>
+<li>ELABORAZIONI: fahrenheit = celsius × 1.8 + 32</li>
+<li>OUTPUT: valore di fahrenheit, messaggio appropriato</li>
+<li>CONDIZIONI: fahrenheit &gt; 100</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="riepilogo-finale-la-strada-verso-il-successo" class="level2">
+<h2 class="anchored" data-anchor-id="riepilogo-finale-la-strada-verso-il-successo">11. Riepilogo finale: la strada verso il successo 🎯</h2>
+<p>Per risolvere QUALSIASI problema con Flowgorithm, segui questa strada:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["📖 Leggi 2 volte"] --&gt; B["✏️ 5 passi&lt;br/&gt;su carta"]
+    B --&gt; C["📋 Checklist&lt;br/&gt;completa?"]
+    C --&gt;|No| B
+    C --&gt;|Sì| D["🎨 Bozza flowchart&lt;br/&gt;su carta"]
+    D --&gt; E["💻 Crea in&lt;br/&gt;Flowgorithm"]
+    E --&gt; F["🧪 Testa con&lt;br/&gt;esempi"]
+    F --&gt; G{Funziona?}
+    G --&gt;|No| H["🔍 Trova errori"]
+    H --&gt; E
+    G --&gt;|Sì| I["✅ Completato!"]
+
+    style A fill:#FFE4B5
+    style B fill:#B0E0E6
+    style C fill:#FFB6C1
+    style D fill:#98FB98
+    style E fill:#DDA0DD
+    style F fill:#F0E68C
+    style I fill:#90EE90
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p><strong>Ricorda:</strong> La programmazione è come imparare a guidare - all’inizio sembra impossibile (troppe cose da fare insieme!), ma con la pratica diventa automatico! Il segreto? Pratica, metodo e pazienza. Non scoraggiarti al primo errore. Anche i pro hanno iniziato così. Segui il metodo dei 5 passi e ce la farai! 💪</p>
+<hr>
+</section>
+<section id="risorse-aggiuntive" class="level2">
+<h2 class="anchored" data-anchor-id="risorse-aggiuntive">12. Risorse aggiuntive</h2>
+<section id="link-utili" class="level3">
+<h3 class="anchored" data-anchor-id="link-utili">Link utili</h3>
+<ul>
+<li><a href="https://flowgorithm.org/">Sito ufficiale Flowgorithm</a></li>
+<li><a href="https://www.youtube.com/results?search_query=flowgorithm+tutorial">Tutorial video (in inglese)</a></li>
+</ul>
+</section>
+<section id="file-da-scaricare-per-questo-corso" class="level3">
+<h3 class="anchored" data-anchor-id="file-da-scaricare-per-questo-corso">File da scaricare per questo corso</h3>
+<ul>
+<li><a href="./algoritmo_trapeziocerchio.fprg">Algoritmo trapezio-cerchio (.fprg)</a></li>
+<li><a href="./algoritmo_trapeziocerchio_img.png">Immagine flowchart (.png)</a></li>
+</ul>
+<hr>
+<p><strong>Buono studio! Se segui il metodo dei 5 passi con costanza, diventerai un esperto di algoritmi in poco tempo. E quando passerai a Python o Java, penserai “ma è facilissimo!”. Parola di chi ci è passato.</strong> 🚀</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiato!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiato!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/federob\.github\.io\/infohandouts\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../algocoding/02_python_from_flowgorithm.html" class="pagination-link" aria-label="Da Flowgorithm a Python">
+        <span class="nav-page-text">Da Flowgorithm a Python</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Prof.&nbsp;Federico Robuffo © 2026</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Made with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>Ultimo aggiornamento: 02/03/2026</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

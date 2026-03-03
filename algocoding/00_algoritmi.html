@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-03-03">
+
+<title>algoritmi – Corso di Informatica</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../algocoding/01_flowgorithm.html" rel="next">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-71957ac9ccc9d0fc18656807f2d8b8ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-a5b2293a6d69cf4cfe8b9bfeee78cd61.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-71957ac9ccc9d0fc18656807f2d8b8ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare",
+    "search-label": "Ricerca"
+  }
+}</script>
+<script>
+(function () {
+  // Applica tema e font-size a tutti gli editor Monaco nella pagina
+  function applyMonacoSettings(isDark) {
+    if (typeof monaco === 'undefined') return;
+    monaco.editor.setTheme(isDark ? 'vs-dark' : 'vs-light');
+    // Riduce il font-size da 17.5pt a ~13px (coerente col sito)
+    monaco.editor.getEditors().forEach(function (ed) {
+      ed.updateOptions({ fontSize: 13 });
+    });
+  }
+
+  // Riapplica il font-size agli editor creati successivamente
+  function applyMonacoTheme(isDark) {
+    applyMonacoSettings(isDark);
+  }
+
+  // Legge se il body ha la classe quarto-dark
+  function isQuartoDark() {
+    return document.body.classList.contains('quarto-dark');
+  }
+
+  // Osserva i cambiamenti di classe su body (toggle light/dark di Quarto)
+  const bodyObserver = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      if (mutation.attributeName === 'class') {
+        applyMonacoTheme(isQuartoDark());
+      }
+    });
+  });
+
+  // Attendi che Monaco sia disponibile, poi applica e installa l'observer
+  function waitForMonaco() {
+    if (typeof monaco !== 'undefined') {
+      applyMonacoSettings(isQuartoDark());
+      bodyObserver.observe(document.body, { attributes: true });
+      // Applica font-size anche agli editor creati successivamente
+      monaco.editor.onDidCreateEditor(function (ed) {
+        ed.updateOptions({ fontSize: 13 });
+      });
+    } else {
+      setTimeout(waitForMonaco, 200);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', waitForMonaco);
+
+  // Auto-nascondi la notifica pyodide dopo il caricamento
+  function watchPyodideStatus() {
+    var statusEl = document.getElementById('qpyodide-status-message-text');
+    if (!statusEl) {
+      setTimeout(watchPyodideStatus, 500);
+      return;
+    }
+    var obs = new MutationObserver(function () {
+      var text = statusEl.textContent || '';
+      if (text.indexOf('Ready') !== -1 || text.indexOf('ready') !== -1 || text.indexOf('🟢') !== -1) {
+        setTimeout(function () {
+          var area = document.getElementById('qpyodide-status-message-area');
+          if (area) {
+            area.style.opacity = '0';
+            setTimeout(function () { area.style.display = 'none'; }, 600);
+          }
+        }, 2000);
+        obs.disconnect();
+      }
+    });
+    obs.observe(statusEl, { childList: true, characterData: true, subtree: true });
+  }
+  document.addEventListener('DOMContentLoaded', watchPyodideStatus);
+})();
+</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../stylesheets/mermaid-dark.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Corso di Informatica</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Ricerca"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Attiva/disattiva la navigazione" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-le-basi" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Le basi</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-le-basi">    
+        <li class="dropdown-header">Introduzione</li>
+        <li>
+    <a class="dropdown-item" href="../fundamentals/00_basics.html">
+ <span class="dropdown-text">Concetti fondamentali</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../fundamentals/01_map.html">
+ <span class="dropdown-text">Mappa concettuale</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Hardware</li>
+        <li>
+    <a class="dropdown-item" href="../hwsw/10_hw.html">
+ <span class="dropdown-text">Architettura di un elaboratore</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../hwsw/11_bios.html">
+ <span class="dropdown-text">BIOS</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">Software</li>
+        <li>
+    <a class="dropdown-item" href="../hwsw/20_sw.html">
+ <span class="dropdown-text">Classificazione</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../hwsw/21_os_intro.html">
+ <span class="dropdown-text">Sistemi Operativi</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li class="dropdown-header">La codifica delle informazioni</li>
+        <li>
+    <a class="dropdown-item" href="../infoCoding/00_intro.html">
+ <span class="dropdown-text">Codifiche numeriche</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/01_digit_text.html">
+ <span class="dropdown-text">Testo</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/02_digit_img.html">
+ <span class="dropdown-text">Immagini</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/03_digit_audio.html">
+ <span class="dropdown-text">Suoni</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/04_digit_video.html">
+ <span class="dropdown-text">Video</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../infoCoding/05_file.html">
+ <span class="dropdown-text">File</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-extra" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Extra</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-extra">    
+        <li>
+    <a class="dropdown-item" href="../extra/emailMurderGame.html">
+ <span class="dropdown-text">Gioco dell’assassino</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-abc" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">A,B,C</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-abc">    
+        <li>
+    <a class="dropdown-item" href="../dictionary/00_dict.html">
+ <span class="dropdown-text">Parole</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../dictionary/01_map.html">
+ <span class="dropdown-text">Mappa</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-algoritmi" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Algoritmi</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-algoritmi">    
+        <li>
+    <a class="dropdown-item" href="../algocoding/00_algoritmi.html">
+ <span class="dropdown-text">Che cos’e un algoritmo</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algocoding/01_flowgorithm.html">
+ <span class="dropdown-text">Flowgorithm</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../algocoding/02_python_from_flowgorithm.html">
+ <span class="dropdown-text">Da Flowgorithm a Python</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Python</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python">    
+        <li>
+    <a class="dropdown-item" href="../pycoding/00_intro.html">
+ <span class="dropdown-text">Introduzione</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/01_variabili.html">
+ <span class="dropdown-text">Variabili e tipi</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/02_stringhe.html">
+ <span class="dropdown-text">Stringhe</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/03_condizioni.html">
+ <span class="dropdown-text">Condizioni</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/04_cicli.html">
+ <span class="dropdown-text">Cicli</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/05_liste.html">
+ <span class="dropdown-text">Liste e tuple</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/06_dizionari.html">
+ <span class="dropdown-text">Dizionari e set</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/07_funzioni.html">
+ <span class="dropdown-text">Funzioni</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/08_matrici.html">
+ <span class="dropdown-text">Array e matrici</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/09_oggetti.html">
+ <span class="dropdown-text">Classi e oggetti</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pycoding/10_networking.html">
+ <span class="dropdown-text">Python e networking</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-intelligenza-artificiale" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Intelligenza Artificiale</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-intelligenza-artificiale">    
+        <li>
+    <a class="dropdown-item" href="../ai/00_intro.html">
+ <span class="dropdown-text">Cos’è l’IA</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/01_ml_intro.html">
+ <span class="dropdown-text">Machine Learning</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/02_dati.html">
+ <span class="dropdown-text">Preparare i dati</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/03_regressione.html">
+ <span class="dropdown-text">Regressione lineare</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/04_classificazione.html">
+ <span class="dropdown-text">Classificazione</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/05_valutazione.html">
+ <span class="dropdown-text">Valutare un modello</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/06_clustering.html">
+ <span class="dropdown-text">Clustering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/07_reti_neurali.html">
+ <span class="dropdown-text">Reti neurali</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/08_progetto.html">
+ <span class="dropdown-text">Progetto finale</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ai/09_etica.html">
+ <span class="dropdown-text">IA ed etica</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Attiva/disattiva la modalità oscura"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../algocoding/00_algoritmi.html">Che cos’e un algoritmo</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../algocoding/00_algoritmi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Che cos’e un algoritmo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../algocoding/01_flowgorithm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flowgorithm</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../algocoding/02_python_from_flowgorithm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Da Flowgorithm a Python</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">In questa pagina</h2>
+   
+  <ul>
+  <li><a href="#che-cose-un-algoritmo" id="toc-che-cose-un-algoritmo" class="nav-link active" data-scroll-target="#che-cose-un-algoritmo">Che cos’e un algoritmo?</a>
+  <ul class="collapse">
+  <li><a href="#algoritmi-li-usi-gia-senza-saperlo" id="toc-algoritmi-li-usi-gia-senza-saperlo" class="nav-link" data-scroll-target="#algoritmi-li-usi-gia-senza-saperlo">1. Algoritmi: li usi gia (senza saperlo)</a></li>
+  <li><a href="#le-5-proprieta-fondamentali" id="toc-le-5-proprieta-fondamentali" class="nav-link" data-scroll-target="#le-5-proprieta-fondamentali">2. Le 5 proprieta fondamentali</a></li>
+  <li><a href="#dallidea-allalgoritmo-il-pensiero-computazionale" id="toc-dallidea-allalgoritmo-il-pensiero-computazionale" class="nav-link" data-scroll-target="#dallidea-allalgoritmo-il-pensiero-computazionale">3. Dall’idea all’algoritmo: il pensiero computazionale</a>
+  <ul class="collapse">
+  <li><a href="#scomposizione" id="toc-scomposizione" class="nav-link" data-scroll-target="#scomposizione">Scomposizione</a></li>
+  <li><a href="#riconoscimento-di-pattern" id="toc-riconoscimento-di-pattern" class="nav-link" data-scroll-target="#riconoscimento-di-pattern">Riconoscimento di pattern</a></li>
+  <li><a href="#astrazione" id="toc-astrazione" class="nav-link" data-scroll-target="#astrazione">Astrazione</a></li>
+  <li><a href="#progettazione-algoritmica" id="toc-progettazione-algoritmica" class="nav-link" data-scroll-target="#progettazione-algoritmica">Progettazione algoritmica</a></li>
+  </ul></li>
+  <li><a href="#le-strutture-fondamentali" id="toc-le-strutture-fondamentali" class="nav-link" data-scroll-target="#le-strutture-fondamentali">4. Le strutture fondamentali</a>
+  <ul class="collapse">
+  <li><a href="#sequenza" id="toc-sequenza" class="nav-link" data-scroll-target="#sequenza">Sequenza</a></li>
+  <li><a href="#selezione-o-decisione" id="toc-selezione-o-decisione" class="nav-link" data-scroll-target="#selezione-o-decisione">Selezione (o decisione)</a></li>
+  <li><a href="#iterazione-o-ciclo" id="toc-iterazione-o-ciclo" class="nav-link" data-scroll-target="#iterazione-o-ciclo">Iterazione (o ciclo)</a></li>
+  </ul></li>
+  <li><a href="#rappresentare-un-algoritmo" id="toc-rappresentare-un-algoritmo" class="nav-link" data-scroll-target="#rappresentare-un-algoritmo">5. Rappresentare un algoritmo</a></li>
+  <li><a href="#i-diagrammi-di-flusso" id="toc-i-diagrammi-di-flusso" class="nav-link" data-scroll-target="#i-diagrammi-di-flusso">6. I diagrammi di flusso</a></li>
+  <li><a href="#pseudocodice-la-via-di-mezzo" id="toc-pseudocodice-la-via-di-mezzo" class="nav-link" data-scroll-target="#pseudocodice-la-via-di-mezzo">7. Pseudocodice: la via di mezzo</a></li>
+  <li><a href="#input-elaborazione-output-il-modello-ipo" id="toc-input-elaborazione-output-il-modello-ipo" class="nav-link" data-scroll-target="#input-elaborazione-output-il-modello-ipo">8. Input, Elaborazione, Output: il modello IPO</a></li>
+  <li><a href="#le-variabili-le-scatole-della-memoria" id="toc-le-variabili-le-scatole-della-memoria" class="nav-link" data-scroll-target="#le-variabili-le-scatole-della-memoria">9. Le variabili: le scatole della memoria</a></li>
+  <li><a href="#esempio-completo-dalla-vita-reale-allalgoritmo" id="toc-esempio-completo-dalla-vita-reale-allalgoritmo" class="nav-link" data-scroll-target="#esempio-completo-dalla-vita-reale-allalgoritmo">10. Esempio completo: dalla vita reale all’algoritmo</a>
+  <ul class="collapse">
+  <li><a href="#in-linguaggio-naturale" id="toc-in-linguaggio-naturale" class="nav-link" data-scroll-target="#in-linguaggio-naturale">In linguaggio naturale</a></li>
+  <li><a href="#in-pseudocodice" id="toc-in-pseudocodice" class="nav-link" data-scroll-target="#in-pseudocodice">In pseudocodice</a></li>
+  <li><a href="#in-diagramma-di-flusso" id="toc-in-diagramma-di-flusso" class="nav-link" data-scroll-target="#in-diagramma-di-flusso">In diagramma di flusso</a></li>
+  </ul></li>
+  <li><a href="#cosa-viene-dopo" id="toc-cosa-viene-dopo" class="nav-link" data-scroll-target="#cosa-viene-dopo">11. Cosa viene dopo?</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Altri Formati</h2><ul><li><a href="00_algoritmi.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">03/03/2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="che-cose-un-algoritmo" class="level1">
+<h1>Che cos’e un algoritmo?</h1>
+<section id="algoritmi-li-usi-gia-senza-saperlo" class="level2">
+<h2 class="anchored" data-anchor-id="algoritmi-li-usi-gia-senza-saperlo">1. Algoritmi: li usi gia (senza saperlo)</h2>
+<p>Ogni mattina fai piu o meno le stesse cose: ti svegli, ti alzi, ti vesti, fai colazione, esci di casa. Congratulazioni: hai appena eseguito un <strong>algoritmo</strong>. Non servono computer o formule strane: un algoritmo e semplicemente una <strong>sequenza ordinata di passi</strong> che porta a un risultato.</p>
+<blockquote class="blockquote">
+<p><strong>Definizione:</strong> Un <strong>algoritmo</strong> e una sequenza finita, ordinata e non ambigua di istruzioni che, partendo da dati iniziali (input), produce un risultato (output) in un tempo finito.</p>
+</blockquote>
+<p>Tradotto in italiano corrente: e una “ricetta” precisa per risolvere un problema. Tipo le istruzioni IKEA, ma scritte bene.</p>
+<hr>
+</section>
+<section id="le-5-proprieta-fondamentali" class="level2">
+<h2 class="anchored" data-anchor-id="le-5-proprieta-fondamentali">2. Le 5 proprieta fondamentali</h2>
+<p>Perche una sequenza di passi possa chiamarsi algoritmo, deve avere queste proprieta:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">mindmap
+  root((ALGORITMO))
+    FINITO
+      Numero limitato di passi
+      Prima o poi finisce
+    DEFINITO
+      Ogni passo e chiaro
+      Nessuna ambiguita
+    GENERALE
+      Funziona per una classe di problemi
+      Non solo per un caso
+    DETERMINISTICO
+      Stesso input stesso output
+      Nessun elemento casuale
+    ESEGUIBILE
+      Ogni istruzione e realizzabile
+      Con le risorse disponibili
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 39%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Proprieta</th>
+<th>Significato</th>
+<th>Esempio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Finito</strong></td>
+<td>Ha un numero limitato di passi e prima o poi finisce</td>
+<td>Una ricetta ha un numero preciso di passaggi</td>
+</tr>
+<tr class="even">
+<td><strong>Definito</strong></td>
+<td>Ogni passo e descritto in modo chiaro e non ambiguo</td>
+<td>“Aggiungi 200g di farina” non “aggiungi un po’ di farina”</td>
+</tr>
+<tr class="odd">
+<td><strong>Generale</strong></td>
+<td>Risolve una <strong>classe</strong> di problemi, non un singolo caso</td>
+<td>La formula dell’area del rettangolo funziona per TUTTI i rettangoli</td>
+</tr>
+<tr class="even">
+<td><strong>Deterministico</strong></td>
+<td>A parita di input produce sempre lo stesso output</td>
+<td>2 + 3 fa sempre 5, non a volte 5 e a volte 7</td>
+</tr>
+<tr class="odd">
+<td><strong>Eseguibile</strong></td>
+<td>Ogni istruzione puo essere effettivamente svolta</td>
+<td>“Calcola la radice quadrata” si puo fare, “leggi nel pensiero” no</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="dallidea-allalgoritmo-il-pensiero-computazionale" class="level2">
+<h2 class="anchored" data-anchor-id="dallidea-allalgoritmo-il-pensiero-computazionale">3. Dall’idea all’algoritmo: il pensiero computazionale</h2>
+<p>Risolvere un problema con un algoritmo richiede un modo di pensare particolare, che si chiama <strong>pensiero computazionale</strong>. Non e una roba solo da nerd: e un modo strutturato di affrontare qualsiasi problema.</p>
+<p>Il pensiero computazionale si basa su 4 pilastri:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["1. Scomposizione"] --&gt; B["2. Riconoscimento di pattern"]
+    B --&gt; C["3. Astrazione"]
+    C --&gt; D["4. Progettazione algoritmica"]
+
+    style A fill:#FFE4B5
+    style B fill:#B0E0E6
+    style C fill:#98FB98
+    style D fill:#DDA0DD
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<section id="scomposizione" class="level3">
+<h3 class="anchored" data-anchor-id="scomposizione">Scomposizione</h3>
+<p>Prendi un problema grande e spezzalo in problemi piu piccoli e gestibili.</p>
+<p><strong>Esempio:</strong> “Prepara una carbonara” diventa:</p>
+<ol type="1">
+<li>Cuoci la pasta</li>
+<li>Prepara il condimento (uova + pecorino + pepe)</li>
+<li>Cuoci il guanciale</li>
+<li>Unisci tutto</li>
+</ol>
+<p>Ogni sotto-problema e piu facile da affrontare singolarmente.</p>
+</section>
+<section id="riconoscimento-di-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="riconoscimento-di-pattern">Riconoscimento di pattern</h3>
+<p>Cerca schemi che si ripetono. Se hai gia risolto un problema simile, puoi riutilizzare la soluzione.</p>
+<p><strong>Esempio:</strong> Calcolare l’area di un rettangolo e calcolare l’area di un parallelogramma usano la stessa formula (base x altezza). Il pattern e lo stesso!</p>
+</section>
+<section id="astrazione" class="level3">
+<h3 class="anchored" data-anchor-id="astrazione">Astrazione</h3>
+<p>Concentrati su quello che conta ed elimina i dettagli inutili.</p>
+<p><strong>Esempio:</strong> Se devi calcolare il percorso piu breve per andare a scuola, non ti importa del colore delle case lungo la strada. Ti servono solo le distanze e le direzioni.</p>
+</section>
+<section id="progettazione-algoritmica" class="level3">
+<h3 class="anchored" data-anchor-id="progettazione-algoritmica">Progettazione algoritmica</h3>
+<p>Scrivi la sequenza di passi che risolve il problema.</p>
+<hr>
+</section>
+</section>
+<section id="le-strutture-fondamentali" class="level2">
+<h2 class="anchored" data-anchor-id="le-strutture-fondamentali">4. Le strutture fondamentali</h2>
+<p>Qualsiasi algoritmo, dal piu banale al piu complesso, si costruisce combinando solo <strong>tre strutture</strong> fondamentali. Tre. Non cento, non mille. Tre. Questo e il bello dell’informatica.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    subgraph SEQUENZA
+        S1["Passo 1"] --&gt; S2["Passo 2"] --&gt; S3["Passo 3"]
+    end
+
+    subgraph SELEZIONE
+        C{"Condizione?"} --&gt;|Si| A1["Azione A"]
+        C --&gt;|No| A2["Azione B"]
+    end
+
+    subgraph ITERAZIONE
+        I{"Ripeti?"} --&gt;|Si| R["Esegui azione"]
+        R --&gt; I
+        I --&gt;|No| F["Prosegui"]
+    end
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<section id="sequenza" class="level3">
+<h3 class="anchored" data-anchor-id="sequenza">Sequenza</h3>
+<p>Le istruzioni vengono eseguite <strong>una dopo l’altra</strong>, nell’ordine in cui sono scritte. Come leggere un libro: pagina 1, poi pagina 2, poi pagina 3.</p>
+<p><strong>Esempio nella vita reale:</strong></p>
+<ol type="1">
+<li>Apri il rubinetto</li>
+<li>Bagna le mani</li>
+<li>Metti il sapone</li>
+<li>Strofina</li>
+<li>Sciacqua</li>
+<li>Chiudi il rubinetto</li>
+<li>Asciuga le mani</li>
+</ol>
+</section>
+<section id="selezione-o-decisione" class="level3">
+<h3 class="anchored" data-anchor-id="selezione-o-decisione">Selezione (o decisione)</h3>
+<p>Il flusso prende strade diverse in base a una <strong>condizione</strong>. E il bivio: “Se piove prendo l’ombrello, altrimenti esco cosi”.</p>
+<p><strong>Esempio nella vita reale:</strong></p>
+<ul>
+<li><strong>SE</strong> la sveglia suona alle 7:00 <strong>ALLORA</strong> mi alzo</li>
+<li><strong>ALTRIMENTI</strong> dormo ancora 5 minuti (e poi altri 5, e poi altri 5…)</li>
+</ul>
+</section>
+<section id="iterazione-o-ciclo" class="level3">
+<h3 class="anchored" data-anchor-id="iterazione-o-ciclo">Iterazione (o ciclo)</h3>
+<p>Un blocco di istruzioni viene <strong>ripetuto</strong> piu volte, finche una condizione e vera (o diventa falsa). Tipo quando studi per un’interrogazione: rileggi gli appunti finche non li sai.</p>
+<p><strong>Esempio nella vita reale:</strong></p>
+<ul>
+<li><strong>FINCHE</strong> il piatto non e pulito, <strong>CONTINUA</strong> a lavarlo</li>
+<li><strong>RIPETI</strong> “dai un colpo di spugna” <strong>FINCHE</strong> non e tutto splendente</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="rappresentare-un-algoritmo" class="level2">
+<h2 class="anchored" data-anchor-id="rappresentare-un-algoritmo">5. Rappresentare un algoritmo</h2>
+<p>Un algoritmo puo essere rappresentato in diversi modi. Ognuno ha i suoi vantaggi:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 47%">
+<col style="width: 18%">
+<col style="width: 13%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Rappresentazione</th>
+<th>Cos’e</th>
+<th>Pro</th>
+<th>Contro</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Linguaggio naturale</strong></td>
+<td>Descrizione a parole</td>
+<td>Facile da capire</td>
+<td>Puo essere ambiguo</td>
+</tr>
+<tr class="even">
+<td><strong>Pseudocodice</strong></td>
+<td>Via di mezzo tra parole e codice</td>
+<td>Preciso ma leggibile</td>
+<td>Non eseguibile</td>
+</tr>
+<tr class="odd">
+<td><strong>Diagramma di flusso</strong></td>
+<td>Schema grafico con forme</td>
+<td>Visuale e intuitivo</td>
+<td>Ingombrante per algoritmi complessi</td>
+</tr>
+<tr class="even">
+<td><strong>Codice</strong></td>
+<td>Programma vero e proprio</td>
+<td>Eseguibile dal computer</td>
+<td>Richiede conoscenza del linguaggio</td>
+</tr>
+</tbody>
+</table>
+<p>In questo corso seguirai un percorso graduale:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["Linguaggio naturale"] --&gt; B["Diagrammi di flusso&lt;br/&gt;(Flowgorithm)"]
+    B --&gt; C["Codice Python"]
+
+    style A fill:#FFE4B5
+    style B fill:#B0E0E6
+    style C fill:#98FB98
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Prima impari a <strong>pensare</strong> l’algoritmo (in italiano), poi a <strong>disegnarlo</strong> (con Flowgorithm), infine a <strong>scriverlo</strong> (in Python).</p>
+<hr>
+</section>
+<section id="i-diagrammi-di-flusso" class="level2">
+<h2 class="anchored" data-anchor-id="i-diagrammi-di-flusso">6. I diagrammi di flusso</h2>
+<p>I diagrammi di flusso (flowchart) usano <strong>forme geometriche standard</strong> per rappresentare i diversi tipi di istruzione:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Forma</th>
+<th>Nome</th>
+<th>Significato</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ovale</td>
+<td>Terminatore</td>
+<td>Inizio / Fine del programma</td>
+</tr>
+<tr class="even">
+<td>Parallelogramma</td>
+<td>Input/Output</td>
+<td>Lettura dati o stampa risultati</td>
+</tr>
+<tr class="odd">
+<td>Rettangolo</td>
+<td>Elaborazione</td>
+<td>Calcoli e assegnazioni</td>
+</tr>
+<tr class="even">
+<td>Rombo</td>
+<td>Decisione</td>
+<td>Condizione vera/falsa</td>
+</tr>
+<tr class="odd">
+<td>Freccia</td>
+<td>Flusso</td>
+<td>Direzione dell’esecuzione</td>
+</tr>
+</tbody>
+</table>
+<p>Ecco un esempio completo: un algoritmo che decide se puoi uscire la sera.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    START(["Inizio"]) --&gt; A{"Hai finito i compiti?"}
+    A --&gt;|Si| B{"I tuoi hanno detto si?"}
+    A --&gt;|No| C["Fai i compiti!"]
+    C --&gt; A
+    B --&gt;|Si| D["Esci con gli amici"]
+    B --&gt;|No| E["Resta a casa"]
+    D --&gt; END(["Fine"])
+    E --&gt; END
+
+    style START fill:#F0F0F0,stroke:#333
+    style END fill:#F0F0F0,stroke:#333
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Noti le tre strutture fondamentali in azione?</p>
+<ul>
+<li><strong>Sequenza</strong>: il flusso va dall’alto verso il basso</li>
+<li><strong>Selezione</strong>: i rombi con le domande (bivii)</li>
+<li><strong>Iterazione</strong>: il ciclo “Fai i compiti!” che torna alla domanda</li>
+</ul>
+<hr>
+</section>
+<section id="pseudocodice-la-via-di-mezzo" class="level2">
+<h2 class="anchored" data-anchor-id="pseudocodice-la-via-di-mezzo">7. Pseudocodice: la via di mezzo</h2>
+<p>Lo pseudocodice e un modo di scrivere un algoritmo che sembra un linguaggio di programmazione, ma e scritto in modo che chiunque possa capirlo. Non ha regole rigide, l’importante e che sia <strong>chiaro e non ambiguo</strong>.</p>
+<p><strong>Esempio:</strong> L’algoritmo “posso uscire?” in pseudocodice:</p>
+<pre><code>INIZIO
+    RIPETI
+        SE compiti_finiti = NO ALLORA
+            Fai i compiti
+        FINE SE
+    FINCHE compiti_finiti = SI
+
+    CHIEDI permesso ai genitori
+
+    SE permesso = SI ALLORA
+        STAMPA "Esci con gli amici!"
+    ALTRIMENTI
+        STAMPA "Resta a casa"
+    FINE SE
+FINE</code></pre>
+<p>Le parole chiave usate nello pseudocodice sono:</p>
+<ul>
+<li><strong>INIZIO / FINE</strong> per delimitare il programma</li>
+<li><strong>SE / ALLORA / ALTRIMENTI / FINE SE</strong> per le decisioni</li>
+<li><strong>RIPETI / FINCHE</strong> per i cicli</li>
+<li><strong>LEGGI</strong> per l’input</li>
+<li><strong>STAMPA</strong> per l’output</li>
+</ul>
+<hr>
+</section>
+<section id="input-elaborazione-output-il-modello-ipo" class="level2">
+<h2 class="anchored" data-anchor-id="input-elaborazione-output-il-modello-ipo">8. Input, Elaborazione, Output: il modello IPO</h2>
+<p>Ogni algoritmo segue lo stesso schema fondamentale, chiamato modello <strong>IPO</strong>:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    I["INPUT&lt;br/&gt;Dati in ingresso"] --&gt; E["ELABORAZIONE&lt;br/&gt;Calcoli e trasformazioni"]
+    E --&gt; O["OUTPUT&lt;br/&gt;Risultati"]
+
+    style I fill:#B0E0E6
+    style E fill:#98FB98
+    style O fill:#FFB6C1
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>Input</strong>: i dati che servono per partire (li chiedi all’utente o li leggi da qualche parte)</li>
+<li><strong>Elaborazione</strong>: cosa fai con quei dati (calcoli, confronti, trasformazioni)</li>
+<li><strong>Output</strong>: il risultato finale che mostri all’utente</li>
+</ul>
+<p><strong>Esempio concreto:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Ricetta</th>
+<th>Algoritmo “area rettangolo”</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Input</strong></td>
+<td>Ingredienti</td>
+<td>Base e altezza</td>
+</tr>
+<tr class="even">
+<td><strong>Elaborazione</strong></td>
+<td>Cucinare</td>
+<td>area = base x altezza</td>
+</tr>
+<tr class="odd">
+<td><strong>Output</strong></td>
+<td>Piatto pronto</td>
+<td>Il valore dell’area</td>
+</tr>
+</tbody>
+</table>
+<p>Questo modello vale <strong>sempre</strong>: che tu stia facendo una somma o progettando un videogioco, il pattern e lo stesso.</p>
+<hr>
+</section>
+<section id="le-variabili-le-scatole-della-memoria" class="level2">
+<h2 class="anchored" data-anchor-id="le-variabili-le-scatole-della-memoria">9. Le variabili: le scatole della memoria</h2>
+<p>Quando un algoritmo lavora con dei dati, deve <strong>salvarli da qualche parte</strong>. Le variabili sono come scatole etichettate: ognuna ha un <strong>nome</strong> e contiene un <strong>valore</strong>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["nome: eta&lt;br/&gt;valore: 16"] ~~~ B["nome: altezza&lt;br/&gt;valore: 1.75"]
+    B ~~~ C["nome: nome&lt;br/&gt;valore: Mario"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Le variabili hanno un <strong>tipo</strong> che determina cosa possono contenere:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Cosa contiene</th>
+<th>Esempio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Intero</strong></td>
+<td>Numeri senza virgola</td>
+<td>42, -7, 0</td>
+</tr>
+<tr class="even">
+<td><strong>Reale</strong></td>
+<td>Numeri con virgola</td>
+<td>3.14, -2.5, 0.001</td>
+</tr>
+<tr class="odd">
+<td><strong>Stringa</strong></td>
+<td>Testo</td>
+<td>“Ciao”, “Mario Rossi”</td>
+</tr>
+<tr class="even">
+<td><strong>Booleano</strong></td>
+<td>Vero o Falso</td>
+<td>true, false</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Regole d’oro per le variabili:</strong></p>
+<ul>
+<li>Dai nomi <strong>chiari e descrittivi</strong> (<code>eta</code> e meglio di <code>x</code>)</li>
+<li>Dichiara il tipo <strong>prima</strong> di usarle</li>
+<li>Una variabile puo <strong>cambiare valore</strong> durante l’esecuzione (per questo si chiama “variabile”!)</li>
+</ul>
+<hr>
+</section>
+<section id="esempio-completo-dalla-vita-reale-allalgoritmo" class="level2">
+<h2 class="anchored" data-anchor-id="esempio-completo-dalla-vita-reale-allalgoritmo">10. Esempio completo: dalla vita reale all’algoritmo</h2>
+<p><strong>Problema:</strong> Calcola la media dei voti di un compito in classe.</p>
+<section id="in-linguaggio-naturale" class="level3">
+<h3 class="anchored" data-anchor-id="in-linguaggio-naturale">In linguaggio naturale</h3>
+<ol type="1">
+<li>Chiedi quanti studenti ci sono</li>
+<li>Per ogni studente, chiedi il voto</li>
+<li>Somma tutti i voti</li>
+<li>Dividi la somma per il numero di studenti</li>
+<li>Mostra la media</li>
+</ol>
+</section>
+<section id="in-pseudocodice" class="level3">
+<h3 class="anchored" data-anchor-id="in-pseudocodice">In pseudocodice</h3>
+<pre><code>INIZIO
+    LEGGI numero_studenti
+    somma = 0
+    contatore = 0
+
+    RIPETI
+        LEGGI voto
+        somma = somma + voto
+        contatore = contatore + 1
+    FINCHE contatore = numero_studenti
+
+    media = somma / numero_studenti
+    STAMPA "La media e: " + media
+FINE</code></pre>
+</section>
+<section id="in-diagramma-di-flusso" class="level3">
+<h3 class="anchored" data-anchor-id="in-diagramma-di-flusso">In diagramma di flusso</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    START(["Inizio"]) --&gt; A[/"Leggi numero_studenti"/]
+    A --&gt; B["somma = 0&lt;br/&gt;contatore = 0"]
+    B --&gt; C[/"Leggi voto"/]
+    C --&gt; D["somma = somma + voto&lt;br/&gt;contatore = contatore + 1"]
+    D --&gt; E{"contatore = numero_studenti?"}
+    E --&gt;|No| C
+    E --&gt;|Si| F["media = somma / numero_studenti"]
+    F --&gt; G[\"Stampa: La media e: media"\]
+    G --&gt; END(["Fine"])
+
+    style START fill:#F0F0F0,stroke:#333
+    style END fill:#F0F0F0,stroke:#333
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Nota come ritroviamo tutte le strutture: <strong>sequenza</strong> (il flusso dall’alto in basso), <strong>iterazione</strong> (il ciclo che legge i voti), e nel prossimo capitolo aggiungeremo le <strong>selezioni</strong> con Flowgorithm!</p>
+<hr>
+</section>
+</section>
+<section id="cosa-viene-dopo" class="level2">
+<h2 class="anchored" data-anchor-id="cosa-viene-dopo">11. Cosa viene dopo?</h2>
+<p>Ora che conosci le basi teoriche degli algoritmi, sei pronto per metterle in pratica:</p>
+<ol type="1">
+<li><strong>Flowgorithm</strong> - Imparerai a disegnare algoritmi con un ambiente visuale, senza scrivere codice</li>
+<li><strong>Python</strong> - Tradurrai quei diagrammi in un vero linguaggio di programmazione</li>
+<li><strong>AlgoWeb</strong> - Potrai esercitarti con problemi algoritmici direttamente nel browser</li>
+</ol>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A["Hai capito&lt;br/&gt;cos'e un algoritmo"] --&gt; B["Ora impara&lt;br/&gt;a disegnarlo"]
+    B --&gt; C["Poi impara&lt;br/&gt;a scriverlo"]
+    C --&gt; D["Esercitati&lt;br/&gt;su AlgoWeb"]
+
+    style A fill:#90EE90
+    style B fill:#B0E0E6
+    style C fill:#DDA0DD
+    style D fill:#F0E68C
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Il bello e che la logica e <strong>sempre la stessa</strong>: cambia solo lo strumento. Se capisci il concetto ora, Flowgorithm e Python saranno solo questione di sintassi.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Consiglio</span>Metti in pratica quello che impari
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Su <a href="https://federob.github.io/algoweb/">AlgoWeb</a> trovi esercizi di coding Python pensati per accompagnarti passo dopo passo: dai problemi piu semplici fino alle sfide avanzate. Puoi scrivere ed eseguire codice direttamente nel browser, senza installare nulla!</p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiato!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiato!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/federob\.github\.io\/infohandouts\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../algocoding/01_flowgorithm.html" class="pagination-link" aria-label="Flowgorithm">
+        <span class="nav-page-text">Flowgorithm</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Prof.&nbsp;Federico Robuffo © 2026</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Made with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+    <div class="nav-footer-right">
+<p>Ultimo aggiornamento: 03/03/2026</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

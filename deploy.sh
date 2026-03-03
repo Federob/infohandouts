@@ -42,7 +42,7 @@ set -e
 # -------------------------------------------
 # 1. Verifica prerequisiti
 # -------------------------------------------
-echo -e "\n${YELLOW}[1/4] Verifica prerequisiti...${NC}"
+echo -e "\n${YELLOW}[1/3] Verifica prerequisiti...${NC}"
 
 if ! command -v quarto &> /dev/null; then
     echo -e "${RED}  ✗ Quarto non trovato! Installa da: https://quarto.org/docs/get-started/${NC}"
@@ -51,18 +51,9 @@ fi
 echo -e "${GREEN}  ✓ Quarto $(quarto --version)${NC}"
 
 # -------------------------------------------
-# 2. Build del sito
+# 2. Commit e push su main
 # -------------------------------------------
-echo -e "\n${YELLOW}[2/4] Build del sito Quarto...${NC}"
-cd docs
-quarto render
-cd "$SCRIPT_DIR"
-echo -e "${GREEN}  ✓ Build completato${NC}"
-
-# -------------------------------------------
-# 3. Commit e push su main
-# -------------------------------------------
-echo -e "\n${YELLOW}[3/4] Commit e push su ${ORIGINAL_BRANCH}...${NC}"
+echo -e "\n${YELLOW}[2/3] Commit e push su ${ORIGINAL_BRANCH}...${NC}"
 
 COMMIT_MSG="${1:-deploy}"
 
@@ -79,11 +70,11 @@ git push origin "$ORIGINAL_BRANCH"
 echo -e "${GREEN}  ✓ Push su ${ORIGINAL_BRANCH} completato${NC}"
 
 # -------------------------------------------
-# 4. Deploy su GitHub Pages
+# 3. Deploy su GitHub Pages (render + publish)
 # -------------------------------------------
-echo -e "\n${YELLOW}[4/4] Deploy su GitHub Pages (gh-pages)...${NC}"
+echo -e "\n${YELLOW}[3/3] Build e deploy su GitHub Pages (gh-pages)...${NC}"
 cd docs
-quarto publish gh-pages --no-browser
+quarto publish gh-pages --no-browser --no-prompt
 cd "$SCRIPT_DIR"
 echo -e "${GREEN}  ✓ Deploy su gh-pages completato${NC}"
 

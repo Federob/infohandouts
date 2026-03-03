@@ -372,15 +372,23 @@ Ora che conosci le basi teoriche degli algoritmi, sei pronto per metterle in pra
 
 1. **Flowgorithm** - Imparerai a disegnare algoritmi con un ambiente visuale, senza scrivere codice
 2. **Python** - Tradurrai quei diagrammi in un vero linguaggio di programmazione
+3. **AlgoWeb** - Potrai esercitarti con problemi algoritmici direttamente nel browser
 
 ```{mermaid}
 flowchart LR
     A["Hai capito<br/>cos'e un algoritmo"] --> B["Ora impara<br/>a disegnarlo"]
     B --> C["Poi impara<br/>a scriverlo"]
+    C --> D["Esercitati<br/>su AlgoWeb"]
 
     style A fill:#90EE90
     style B fill:#B0E0E6
     style C fill:#DDA0DD
+    style D fill:#F0E68C
 ```
 
 Il bello e che la logica e **sempre la stessa**: cambia solo lo strumento. Se capisci il concetto ora, Flowgorithm e Python saranno solo questione di sintassi.
+
+::: {.callout-tip}
+## Metti in pratica quello che impari
+Su [AlgoWeb](https://federob.github.io/algoweb/) trovi esercizi di coding Python pensati per accompagnarti passo dopo passo: dai problemi piu semplici fino alle sfide avanzate. Puoi scrivere ed eseguire codice direttamente nel browser, senza installare nulla!
+:::

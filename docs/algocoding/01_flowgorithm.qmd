@@ -746,6 +746,7 @@ flowchart LR
 
 - [Sito ufficiale Flowgorithm](https://flowgorithm.org/)
 - [Tutorial video (in inglese)](https://www.youtube.com/results?search_query=flowgorithm+tutorial)
+- [AlgoWeb](https://federob.github.io/algoweb/) - Piattaforma di esercizi Python per mettere in pratica gli algoritmi che hai imparato con Flowgorithm
 
 ### File da scaricare per questo corso
 
@@ -753,5 +754,10 @@ flowchart LR
 - [Immagine flowchart (.png)](./algoritmo_trapeziocerchio_img.png)
 
 ---
+
+::: {.callout-tip}
+## Pronto per il passo successivo?
+Hai imparato a ragionare con i diagrammi di flusso? Su [AlgoWeb](https://federob.github.io/algoweb/) puoi tradurre quella logica in codice Python e risolvere esercizi direttamente nel browser!
+:::
 
 **Buono studio! Se segui il metodo dei 5 passi con costanza, diventerai un esperto di algoritmi in poco tempo. E quando passerai a Python o Java, penserai "ma è facilissimo!". Parola di chi ci è passato.** 🚀

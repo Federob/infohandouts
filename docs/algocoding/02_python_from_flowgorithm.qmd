@@ -469,6 +469,7 @@ python programma.py
 
 Se vuoi provare subito senza installare nulla:
 
+- [AlgoWeb](https://federob.github.io/algoweb/) - la nostra piattaforma con esercizi guidati, scrivi ed esegui Python nel browser
 - [Replit](https://replit.com/) - editor online, gratuito
 - [Google Colab](https://colab.research.google.com/) - notebook Python online
 - [Python.org Shell](https://www.python.org/shell/) - interprete online
@@ -861,6 +862,7 @@ print("Area del cerchio:", area)
 
 ### Esercizi online
 
+- [AlgoWeb](https://federob.github.io/algoweb/) - Esercizi graduali di Python, direttamente nel browser
 - [HackerRank](https://www.hackerrank.com/domains/python) - Esercizi graduali
 - [Codewars](https://www.codewars.com/) - Sfide di programmazione
 - [LeetCode](https://leetcode.com/) - Problemi algoritmici

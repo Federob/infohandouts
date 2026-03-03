@@ -169,6 +169,11 @@ mindmap
 
 ---
 
+::: {.callout-tip}
+## Esercitati con AlgoWeb
+Su [AlgoWeb](https://federob.github.io/algoweb/) trovi esercizi di coding Python pensati per accompagnarti passo dopo passo: dai problemi piu semplici fino alle sfide avanzate. Puoi scrivere ed eseguire codice direttamente nel browser, senza installare nulla!
+:::
+
 ## Come eseguire Python sul tuo computer
 
 L'editor interattivo di queste pagine è comodissimo per provare, ma prima o poi vorrai eseguire Python sul tuo PC "per davvero". Ecco come fare, senza impazzire:

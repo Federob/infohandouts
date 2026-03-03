@@ -173,9 +173,6 @@ format:
     monofont: ui-monospace, monospace
     css: stylesheets/mermaid-dark.css
     include-in-header: stylesheets/monaco-dark-theme.html
-    format-links: [typst]
-  typst:
-    lang: it
 
 filters:
   - _filters/mermaid-config.lua

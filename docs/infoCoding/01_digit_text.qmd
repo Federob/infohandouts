@@ -1,3 +1,11 @@
+---
+format:
+  html: default
+  typst:
+    lang: it
+format-links: [typst]
+---
+
 
 # La Codifica del Testo: ASCII e Unicode
 

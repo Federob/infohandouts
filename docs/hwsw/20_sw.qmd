@@ -3,6 +3,11 @@ created: 2024-09-25T16:18:09 (UTC +02:00)
 tags: []
 source: https://federob.github.io/infohandouts/hwsw/20_sw/
 author: Federico Robuffo - Andrea Diamantini
+format:
+  html: default
+  typst:
+    lang: it
+format-links: [typst]
 ---
 
 

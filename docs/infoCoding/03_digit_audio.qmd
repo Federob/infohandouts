@@ -1,3 +1,11 @@
+---
+format:
+  html: default
+  typst:
+    lang: it
+format-links: [typst]
+---
+
 
 # La Codifica dei Suoni: Campionamento e Frequenza di Campionamento
 

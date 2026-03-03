@@ -1,3 +1,11 @@
+---
+format:
+  html: default
+  typst:
+    lang: it
+format-links: [typst]
+---
+
 
 # Storia dei Sistemi Operativi
 

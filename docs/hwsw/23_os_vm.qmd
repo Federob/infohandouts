@@ -1,3 +1,11 @@
+---
+format:
+  html: default
+  typst:
+    lang: it
+format-links: [typst]
+---
+
 
 # Macchine virtuali e creazione di una VM Linux con VirtualBox
 

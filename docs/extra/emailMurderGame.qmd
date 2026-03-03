@@ -1,3 +1,11 @@
+---
+format:
+  html: default
+  typst:
+    lang: it
+format-links: [typst]
+---
+
 # Il Gioco dell'Assassino via Email
 
 ## Obiettivo del Gioco

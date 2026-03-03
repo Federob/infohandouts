@@ -101,6 +101,8 @@ website:
       title: "Algoritmi"
       style: docked
       contents:
+        - text: "Che cos'e un algoritmo"
+          href: algocoding/00_algoritmi.qmd
         - text: "Flowgorithm"
           href: algocoding/01_flowgorithm.qmd
         - text: "Da Flowgorithm a Python"

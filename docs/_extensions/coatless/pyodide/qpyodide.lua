@@ -401,6 +401,19 @@ function enablePyodideCodeCell(el)
   -- Verify the element has attributes and the document type is HTML
   -- not sure if this will work with an epub (may need html:js)
   if not (el.attr and (quarto.doc.is_format("html") or quarto.doc.is_format("markdown"))) then
+    -- For non-HTML formats (e.g. typst/PDF), handle pyodide cells gracefully
+    if el.attr and el.attr.classes:includes("{pyodide-python}") then
+      -- Parse options to check context/echo
+      local cellCode, cellOptions = extractCodeBlockOptions(el)
+      -- Remove setup cells and cells with echo: false entirely
+      if cellOptions["context"] == "setup" or cellOptions["echo"] == "false" then
+        return pandoc.Null()
+      end
+      -- Render remaining cells as plain Python code blocks
+      el.text = cellCode
+      el.attr.classes = pandoc.List({"python"})
+      return el
+    end
     return el
   end
 

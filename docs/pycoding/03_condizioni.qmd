@@ -274,15 +274,16 @@ numero = int(input("Inserisci un numero: "))
 
 ```
 
-??? success "Soluzione"
+::: {.callout-tip collapse="true" title="Soluzione"}
 
-    ```pyodide
-    numero = int(input("Inserisci un numero: "))
-    if numero % 2 == 0:
-        print(f"{numero} è pari")
-    else:
-        print(f"{numero} è dispari")
-    ```
+```python
+numero = int(input("Inserisci un numero: "))
+if numero % 2 == 0:
+    print(f"{numero} è pari")
+else:
+    print(f"{numero} è dispari")
+```
+:::
 
 ### Esercizio 2: Calcolatrice
 
@@ -297,27 +298,28 @@ n2 = float(input("Secondo numero: "))
 
 ```
 
-??? success "Soluzione"
+::: {.callout-tip collapse="true" title="Soluzione"}
 
-    ```pyodide
-    n1 = float(input("Primo numero: "))
-    op = input("Operatore (+, -, *, /): ")
-    n2 = float(input("Secondo numero: "))
+```python
+n1 = float(input("Primo numero: "))
+op = input("Operatore (+, -, *, /): ")
+n2 = float(input("Secondo numero: "))
 
-    if op == "+":
-        print(f"Risultato: {n1 + n2}")
-    elif op == "-":
-        print(f"Risultato: {n1 - n2}")
-    elif op == "*":
-        print(f"Risultato: {n1 * n2}")
-    elif op == "/":
-        if n2 == 0:
-            print("Errore: divisione per zero!")
-        else:
-            print(f"Risultato: {n1 / n2}")
+if op == "+":
+    print(f"Risultato: {n1 + n2}")
+elif op == "-":
+    print(f"Risultato: {n1 - n2}")
+elif op == "*":
+    print(f"Risultato: {n1 * n2}")
+elif op == "/":
+    if n2 == 0:
+        print("Errore: divisione per zero!")
     else:
-        print("Operatore non valido!")
-    ```
+        print(f"Risultato: {n1 / n2}")
+else:
+    print("Operatore non valido!")
+```
+:::
 
 ### Esercizio 3: Voto in lettere
 
@@ -330,19 +332,20 @@ voto = int(input("Inserisci il voto (0-100): "))
 
 ```
 
-??? success "Soluzione"
+::: {.callout-tip collapse="true" title="Soluzione"}
 
-    ```pyodide
-    voto = int(input("Inserisci il voto (0-100): "))
-    if voto >= 90:
-        lettera = "A"
-    elif voto >= 80:
-        lettera = "B"
-    elif voto >= 70:
-        lettera = "C"
-    elif voto >= 60:
-        lettera = "D"
-    else:
-        lettera = "F"
-    print(f"Voto {voto} = {lettera}")
-    ```
+```python
+voto = int(input("Inserisci il voto (0-100): "))
+if voto >= 90:
+    lettera = "A"
+elif voto >= 80:
+    lettera = "B"
+elif voto >= 70:
+    lettera = "C"
+elif voto >= 60:
+    lettera = "D"
+else:
+    lettera = "F"
+print(f"Voto {voto} = {lettera}")
+```
+:::

@@ -266,13 +266,14 @@ celsius = float(input("Temperatura in Celsius: "))
 
 ```
 
-??? success "Soluzione"
+::: {.callout-tip collapse="true" title="Soluzione"}
 
-    ```pyodide
-    celsius = float(input("Temperatura in Celsius: "))
-    fahrenheit = celsius * 1.8 + 32
-    print(f"{celsius}°C = {fahrenheit}°F")
-    ```
+```python
+celsius = float(input("Temperatura in Celsius: "))
+fahrenheit = celsius * 1.8 + 32
+print(f"{celsius}°C = {fahrenheit}°F")
+```
+:::
 
 ### Esercizio 2: Calcolo sconto
 
@@ -290,14 +291,15 @@ sconto_percentuale = 15
 
 ```
 
-??? success "Soluzione"
+::: {.callout-tip collapse="true" title="Soluzione"}
 
-    ```pyodide
-    prezzo = 80
-    sconto_percentuale = 15
-    sconto = prezzo * sconto_percentuale / 100
-    prezzo_finale = prezzo - sconto
-    print(f"Prezzo originale: {prezzo} euro")
-    print(f"Sconto: {sconto} euro")
-    print(f"Prezzo finale: {prezzo_finale} euro")
-    ```
+```python
+prezzo = 80
+sconto_percentuale = 15
+sconto = prezzo * sconto_percentuale / 100
+prezzo_finale = prezzo - sconto
+print(f"Prezzo originale: {prezzo} euro")
+print(f"Sconto: {sconto} euro")
+print(f"Prezzo finale: {prezzo_finale} euro")
+```
+:::

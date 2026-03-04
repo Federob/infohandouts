@@ -298,15 +298,16 @@ parola = input("Scrivi una parola: ")
 
 ```
 
-??? success "Soluzione"
+::: {.callout-tip collapse="true" title="Soluzione"}
 
-    ```pyodide
-    parola = input("Scrivi una parola: ")
-    print(f"Lunghezza: {len(parola)}")
-    print(f"Primo carattere: {parola[0]}")
-    print(f"Ultimo carattere: {parola[-1]}")
-    print(f"Maiuscolo: {parola.upper()}")
-    ```
+```python
+parola = input("Scrivi una parola: ")
+print(f"Lunghezza: {len(parola)}")
+print(f"Primo carattere: {parola[0]}")
+print(f"Ultimo carattere: {parola[-1]}")
+print(f"Maiuscolo: {parola.upper()}")
+```
+:::
 
 ### Esercizio 2: Inverti stringa
 
@@ -319,13 +320,14 @@ parola = input("Scrivi una parola: ")
 
 ```
 
-??? success "Soluzione"
+::: {.callout-tip collapse="true" title="Soluzione"}
 
-    ```pyodide
-    parola = input("Scrivi una parola: ")
-    invertita = parola[::-1]
-    print(f"Al contrario: {invertita}")
-    ```
+```python
+parola = input("Scrivi una parola: ")
+invertita = parola[::-1]
+print(f"Al contrario: {invertita}")
+```
+:::
 
 ### Esercizio 3: Conta vocali
 
@@ -339,13 +341,14 @@ vocali = 0
 
 ```
 
-??? success "Soluzione"
+::: {.callout-tip collapse="true" title="Soluzione"}
 
-    ```pyodide
-    frase = input("Scrivi una frase: ").lower()
-    vocali = 0
-    for carattere in frase:
-        if carattere in "aeiou":
-            vocali += 1
-    print(f"Vocali trovate: {vocali}")
-    ```
+```python
+frase = input("Scrivi una frase: ").lower()
+vocali = 0
+for carattere in frase:
+    if carattere in "aeiou":
+        vocali += 1
+print(f"Vocali trovate: {vocali}")
+```
+:::

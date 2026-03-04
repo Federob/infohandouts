@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -1307,73 +1342,109 @@ globalThis._qpyodideGetInstance = function() {
 <p>Per ognuno di questi scenari, decidi se si tratta di IA o semplice automazione e stampa il risultato:</p>
 <div id="qpyodide-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>??? success “Soluzione”</p>
-<pre><code>```pyodide
-scenari = [
-    ("Un termostato che accende il riscaldamento sotto i 18 gradi", "Automazione", "segue una regola fissa"),
-    ("Spotify che ti consiglia una playlist personalizzata", "IA", "impara dai tuoi gusti"),
-    ("Un semaforo che diventa verde ogni 60 secondi", "Automazione", "segue un timer fisso"),
-    ("Google Foto che riconosce il tuo volto nelle foto", "IA", "usa computer vision e ML"),
-    ("Una sveglia che suona alle 7:00", "Automazione", "segue un orario fisso"),
-    ("Gmail che filtra le email di spam", "IA", "impara a riconoscere lo spam"),
-]
-for scenario, tipo, motivo in scenari:
-    print(f"- {scenario}")
-    print(f"  -&gt; {tipo}: {motivo}\n")
-```</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled" title="Soluzione">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Consiglio</span>Soluzione
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>scenari <span class="op">=</span> [</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Un termostato che accende il riscaldamento sotto i 18 gradi"</span>, <span class="st">"Automazione"</span>, <span class="st">"segue una regola fissa"</span>),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Spotify che ti consiglia una playlist personalizzata"</span>, <span class="st">"IA"</span>, <span class="st">"impara dai tuoi gusti"</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Un semaforo che diventa verde ogni 60 secondi"</span>, <span class="st">"Automazione"</span>, <span class="st">"segue un timer fisso"</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Google Foto che riconosce il tuo volto nelle foto"</span>, <span class="st">"IA"</span>, <span class="st">"usa computer vision e ML"</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Una sveglia che suona alle 7:00"</span>, <span class="st">"Automazione"</span>, <span class="st">"segue un orario fisso"</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Gmail che filtra le email di spam"</span>, <span class="st">"IA"</span>, <span class="st">"impara a riconoscere lo spam"</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> scenario, tipo, motivo <span class="kw">in</span> scenari:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"- </span><span class="sc">{</span>scenario<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  -&gt; </span><span class="sc">{</span>tipo<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>motivo<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 </section>
 <section id="esercizio-2-migliora-il-chatbot" class="level3">
 <h3 class="anchored" data-anchor-id="esercizio-2-migliora-il-chatbot">Esercizio 2: Migliora il chatbot</h3>
 <p>Aggiungi almeno 5 nuove regole al chatbot per renderlo più “intelligente”. Prova ad aggiungere risposte su argomenti che ti interessano!</p>
 <div id="qpyodide-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>??? success “Soluzione”</p>
-<pre><code>```pyodide
-def chatbot_migliorato(messaggio):
-    messaggio = messaggio.lower().strip()
-
-    if "ciao" in messaggio:
-        return "Ciao! Come stai?"
-    elif "come stai" in messaggio:
-        return "Sono un bot, sto sempre bene!"
-    elif "nome" in messaggio:
-        return "Mi chiamo ChatBot 1.0!"
-    elif "tempo" in messaggio or "meteo" in messaggio:
-        return "Non posso guardare fuori, ma spero ci sia il sole!"
-    elif "musica" in messaggio:
-        return "Mi piace il rock... digitale!"
-    elif "scuola" in messaggio:
-        return "La scuola e' importante, fidati!"
-    elif "grazie" in messaggio:
-        return "Prego! Sono qui per aiutarti."
-    elif "addio" in messaggio or "bye" in messaggio:
-        return "Arrivederci! A presto!"
-    else:
-        return "Non ho capito, scusa!"
-
-frase = input("Tu: ")
-print(f"Bot: {chatbot_migliorato(frase)}")
-```</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled" title="Soluzione">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Consiglio</span>Soluzione
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> chatbot_migliorato(messaggio):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    messaggio <span class="op">=</span> messaggio.lower().strip()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">"ciao"</span> <span class="kw">in</span> messaggio:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Ciao! Come stai?"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">"come stai"</span> <span class="kw">in</span> messaggio:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Sono un bot, sto sempre bene!"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">"nome"</span> <span class="kw">in</span> messaggio:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Mi chiamo ChatBot 1.0!"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">"tempo"</span> <span class="kw">in</span> messaggio <span class="kw">or</span> <span class="st">"meteo"</span> <span class="kw">in</span> messaggio:</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Non posso guardare fuori, ma spero ci sia il sole!"</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">"musica"</span> <span class="kw">in</span> messaggio:</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Mi piace il rock... digitale!"</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">"scuola"</span> <span class="kw">in</span> messaggio:</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"La scuola e' importante, fidati!"</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">"grazie"</span> <span class="kw">in</span> messaggio:</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Prego! Sono qui per aiutarti."</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">"addio"</span> <span class="kw">in</span> messaggio <span class="kw">or</span> <span class="st">"bye"</span> <span class="kw">in</span> messaggio:</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Arrivederci! A presto!"</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"Non ho capito, scusa!"</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>frase <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Tu: "</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Bot: </span><span class="sc">{</span>chatbot_migliorato(frase)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 </section>
 <section id="esercizio-3-timeline-dellia" class="level3">
 <h3 class="anchored" data-anchor-id="esercizio-3-timeline-dellia">Esercizio 3: Timeline dell’IA</h3>
 <p>Crea un dizionario con almeno 5 eventi importanti nella storia dell’IA e stampali in ordine cronologico:</p>
 <div id="qpyodide-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>??? success “Soluzione”</p>
-<pre><code>```pyodide
-storia_ia = {
-    1950: "Alan Turing propone il Test di Turing",
-    1956: "Nasce ufficialmente il termine IA",
-    1997: "Deep Blue batte Kasparov a scacchi",
-    2012: "Il deep learning vince ImageNet",
-    2016: "AlphaGo batte il campione mondiale di Go",
-    2022: "ChatGPT viene rilasciato al pubblico",
-}
-print("Timeline dell'Intelligenza Artificiale:")
-for anno in sorted(storia_ia.keys()):
-    print(f"  {anno} - {storia_ia[anno]}")
-```</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled" title="Soluzione">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Consiglio</span>Soluzione
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>storia_ia <span class="op">=</span> {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1950</span>: <span class="st">"Alan Turing propone il Test di Turing"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1956</span>: <span class="st">"Nasce ufficialmente il termine IA"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1997</span>: <span class="st">"Deep Blue batte Kasparov a scacchi"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2012</span>: <span class="st">"Il deep learning vince ImageNet"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2016</span>: <span class="st">"AlphaGo batte il campione mondiale di Go"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2022</span>: <span class="st">"ChatGPT viene rilasciato al pubblico"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Timeline dell'Intelligenza Artificiale:"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> anno <span class="kw">in</span> <span class="bu">sorted</span>(storia_ia.keys()):</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>anno<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span>storia_ia[anno]<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 
 
 </section>

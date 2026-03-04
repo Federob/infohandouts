@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-03-03">
+<meta name="dcterms.date" content="2026-04-03">
 
 <title>ml_intro – Corso di Informatica</title>
 <style>
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -1038,7 +1073,7 @@ globalThis._qpyodideGetInstance = function() {
     <div>
     <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">03/03/2026</p>
+      <p class="date">04/03/2026</p>
     </div>
   </div>
   
@@ -1285,70 +1320,106 @@ Machine Learning:
 <p>Per ognuno di questi problemi, stampa se si tratta di apprendimento supervisionato, non supervisionato o per rinforzo:</p>
 <div id="qpyodide-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>??? success “Soluzione”</p>
-<pre><code>```pyodide
-problemi = [
-    ("Prevedere se pioverà domani basandosi sui dati meteo storici", "Supervisionato", "ha dati etichettati (pioggia si/no)"),
-    ("Raggruppare le canzoni di Spotify per genere senza etichette", "Non supervisionato", "nessuna etichetta, trova gruppi"),
-    ("Insegnare a un drone a volare evitando ostacoli", "Per rinforzo", "impara per tentativi ed errori"),
-    ("Riconoscere le cifre scritte a mano (con immagini etichettate)", "Supervisionato", "ha le etichette delle cifre"),
-    ("Trovare gruppi di clienti simili in un negozio online", "Non supervisionato", "clustering senza etichette"),
-    ("Allenare un'IA a giocare a Mario Kart", "Per rinforzo", "impara giocando e ricevendo premi"),
-]
-for problema, tipo, motivo in problemi:
-    print(f"- {problema}")
-    print(f"  -&gt; {tipo}: {motivo}\n")
-```</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled" title="Soluzione">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Consiglio</span>Soluzione
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>problemi <span class="op">=</span> [</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Prevedere se pioverà domani basandosi sui dati meteo storici"</span>, <span class="st">"Supervisionato"</span>, <span class="st">"ha dati etichettati (pioggia si/no)"</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Raggruppare le canzoni di Spotify per genere senza etichette"</span>, <span class="st">"Non supervisionato"</span>, <span class="st">"nessuna etichetta, trova gruppi"</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Insegnare a un drone a volare evitando ostacoli"</span>, <span class="st">"Per rinforzo"</span>, <span class="st">"impara per tentativi ed errori"</span>),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Riconoscere le cifre scritte a mano (con immagini etichettate)"</span>, <span class="st">"Supervisionato"</span>, <span class="st">"ha le etichette delle cifre"</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Trovare gruppi di clienti simili in un negozio online"</span>, <span class="st">"Non supervisionato"</span>, <span class="st">"clustering senza etichette"</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"Allenare un'IA a giocare a Mario Kart"</span>, <span class="st">"Per rinforzo"</span>, <span class="st">"impara giocando e ricevendo premi"</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> problema, tipo, motivo <span class="kw">in</span> problemi:</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"- </span><span class="sc">{</span>problema<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  -&gt; </span><span class="sc">{</span>tipo<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>motivo<span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 </section>
 <section id="esercizio-2-crea-un-dataset" class="level3">
 <h3 class="anchored" data-anchor-id="esercizio-2-crea-un-dataset">Esercizio 2: Crea un dataset</h3>
 <p>Crea un dataset (come lista di dizionari) con almeno 8 studenti. Ogni studente deve avere: ore di studio, partecipazione (1-10), voto. Poi dividilo in training e test set.</p>
 <div id="qpyodide-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>??? success “Soluzione”</p>
-<pre><code>```pyodide
-studenti = [
-    {"ore_studio": 5, "partecipazione": 8, "voto": 8},
-    {"ore_studio": 2, "partecipazione": 4, "voto": 5},
-    {"ore_studio": 7, "partecipazione": 9, "voto": 9},
-    {"ore_studio": 1, "partecipazione": 3, "voto": 4},
-    {"ore_studio": 4, "partecipazione": 7, "voto": 7},
-    {"ore_studio": 6, "partecipazione": 8, "voto": 8},
-    {"ore_studio": 3, "partecipazione": 5, "voto": 6},
-    {"ore_studio": 8, "partecipazione": 10, "voto": 10},
-    {"ore_studio": 2, "partecipazione": 6, "voto": 5},
-    {"ore_studio": 5, "partecipazione": 7, "voto": 7},
-]
-split = int(len(studenti) * 0.8)
-training = studenti[:split]
-test = studenti[split:]
-print(f"Training set ({len(training)} studenti):")
-for s in training:
-    print(f"  {s}")
-print(f"\nTest set ({len(test)} studenti):")
-for s in test:
-    print(f"  {s}")
-```</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled" title="Soluzione">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Consiglio</span>Soluzione
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>studenti <span class="op">=</span> [</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"ore_studio"</span>: <span class="dv">5</span>, <span class="st">"partecipazione"</span>: <span class="dv">8</span>, <span class="st">"voto"</span>: <span class="dv">8</span>},</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"ore_studio"</span>: <span class="dv">2</span>, <span class="st">"partecipazione"</span>: <span class="dv">4</span>, <span class="st">"voto"</span>: <span class="dv">5</span>},</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"ore_studio"</span>: <span class="dv">7</span>, <span class="st">"partecipazione"</span>: <span class="dv">9</span>, <span class="st">"voto"</span>: <span class="dv">9</span>},</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"ore_studio"</span>: <span class="dv">1</span>, <span class="st">"partecipazione"</span>: <span class="dv">3</span>, <span class="st">"voto"</span>: <span class="dv">4</span>},</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"ore_studio"</span>: <span class="dv">4</span>, <span class="st">"partecipazione"</span>: <span class="dv">7</span>, <span class="st">"voto"</span>: <span class="dv">7</span>},</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"ore_studio"</span>: <span class="dv">6</span>, <span class="st">"partecipazione"</span>: <span class="dv">8</span>, <span class="st">"voto"</span>: <span class="dv">8</span>},</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"ore_studio"</span>: <span class="dv">3</span>, <span class="st">"partecipazione"</span>: <span class="dv">5</span>, <span class="st">"voto"</span>: <span class="dv">6</span>},</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"ore_studio"</span>: <span class="dv">8</span>, <span class="st">"partecipazione"</span>: <span class="dv">10</span>, <span class="st">"voto"</span>: <span class="dv">10</span>},</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"ore_studio"</span>: <span class="dv">2</span>, <span class="st">"partecipazione"</span>: <span class="dv">6</span>, <span class="st">"voto"</span>: <span class="dv">5</span>},</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"ore_studio"</span>: <span class="dv">5</span>, <span class="st">"partecipazione"</span>: <span class="dv">7</span>, <span class="st">"voto"</span>: <span class="dv">7</span>},</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>split <span class="op">=</span> <span class="bu">int</span>(<span class="bu">len</span>(studenti) <span class="op">*</span> <span class="fl">0.8</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>training <span class="op">=</span> studenti[:split]</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> studenti[split:]</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Training set (</span><span class="sc">{</span><span class="bu">len</span>(training)<span class="sc">}</span><span class="ss"> studenti):"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> training:</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Test set (</span><span class="sc">{</span><span class="bu">len</span>(test)<span class="sc">}</span><span class="ss"> studenti):"</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> test:</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 </section>
 <section id="esercizio-3-trova-il-pattern" class="level3">
 <h3 class="anchored" data-anchor-id="esercizio-3-trova-il-pattern">Esercizio 3: Trova il pattern</h3>
 <p>Il computer ha analizzato questi dati e ha trovato un pattern. Riesci a scoprirlo anche tu? Scrivi la formula!</p>
 <div id="qpyodide-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>??? success “Soluzione”</p>
-<pre><code>```pyodide
-dati = [(1, 5), (2, 8), (3, 11), (4, 14), (5, 17), (6, 20)]
-print("Input -&gt; Output")
-for x, y in dati:
-    print(f"  {x}    -&gt;  {y}")
-
-def formula(x):
-    return 3 * x + 2
-
-print(f"\nLa formula e': y = 3x + 2")
-print(f"Se input = 10 -&gt; output = {formula(10)}")
-print(f"Verifica: {formula(1)} {formula(2)} {formula(3)}")
-```</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled" title="Soluzione">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Consiglio</span>Soluzione
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dati <span class="op">=</span> [(<span class="dv">1</span>, <span class="dv">5</span>), (<span class="dv">2</span>, <span class="dv">8</span>), (<span class="dv">3</span>, <span class="dv">11</span>), (<span class="dv">4</span>, <span class="dv">14</span>), (<span class="dv">5</span>, <span class="dv">17</span>), (<span class="dv">6</span>, <span class="dv">20</span>)]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Input -&gt; Output"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x, y <span class="kw">in</span> dati:</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">    -&gt;  </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> formula(x):</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">3</span> <span class="op">*</span> x <span class="op">+</span> <span class="dv">2</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">La formula e': y = 3x + 2"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Se input = 10 -&gt; output = </span><span class="sc">{</span>formula(<span class="dv">10</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Verifica: </span><span class="sc">{</span>formula(<span class="dv">1</span>)<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>formula(<span class="dv">2</span>)<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>formula(<span class="dv">3</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -1791,7 +1862,7 @@ print(f"Verifica: {formula(1)} {formula(2)} {formula(3)}")
 <p>Made with <a href="https://quarto.org/">Quarto</a></p>
 </div>
     <div class="nav-footer-right">
-<p>Ultimo aggiornamento: 03/03/2026</p>
+<p>Ultimo aggiornamento: 04/03/2026</p>
 </div>
   </div>
 </footer>

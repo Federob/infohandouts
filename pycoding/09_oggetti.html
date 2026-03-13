@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-04-03">
 
 <title>oggetti – Corso di Informatica</title>
 <style>
@@ -346,7 +345,7 @@ globalThis.qpyodideCustomizedPyodideOptions = {
 }
 
 // Store cell data
-globalThis.qpyodideCellDetails = [{"code":"class Studente:\n    def __init__(self, nome, eta, classe):\n        self.nome = nome\n        self.eta = eta\n        self.classe = classe\n\n# Creare oggetti (istanze) — usiamo lo stampo!\ns1 = Studente(\"Mario\", 16, \"3A\")\ns2 = Studente(\"Luigi\", 17, \"4B\")\n\nprint(f\"{s1.nome} ha {s1.eta} anni, classe {s1.classe}\")\nprint(f\"{s2.nome} ha {s2.eta} anni, classe {s2.classe}\")","id":1,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"class Studente:\n    def __init__(self, nome, voti):\n        self.nome = nome\n        self.voti = voti\n\n    def media(self):\n        return sum(self.voti) / len(self.voti)\n\n    def promosso(self):\n        return self.media() >= 6\n\n    def aggiungi_voto(self, voto):\n        self.voti.append(voto)\n\n    def presentati(self):\n        stato = \"promosso\" if self.promosso() else \"bocciato\"\n        print(f\"Sono {self.nome}, media {self.media():.2f} ({stato})\")\n\n# Uso\ns = Studente(\"Mario\", [7, 8, 6, 9])\ns.presentati()\n\ns.aggiungi_voto(5)\ns.presentati()","id":2,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"class Punto:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    def __str__(self):\n        return f\"({self.x}, {self.y})\"\n\n    def distanza_origine(self):\n        return (self.x**2 + self.y**2) ** 0.5\n\np = Punto(3, 4)\nprint(p)  # Chiama automaticamente __str__ → (3, 4)\nprint(f\"Distanza dall'origine: {p.distanza_origine():.2f}\")","id":3,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"class ContoBancario:\n    def __init__(self, titolare, saldo=0):\n        self.titolare = titolare\n        self.saldo = saldo\n\n    def deposita(self, importo):\n        if importo > 0:\n            self.saldo += importo\n            print(f\"Depositati {importo}€. Saldo: {self.saldo}€\")\n        else:\n            print(\"Importo non valido!\")\n\n    def preleva(self, importo):\n        if importo > self.saldo:\n            print(\"Fondi insufficienti!\")\n        elif importo <= 0:\n            print(\"Importo non valido!\")\n        else:\n            self.saldo -= importo\n            print(f\"Prelevati {importo}€. Saldo: {self.saldo}€\")\n\n    def __str__(self):\n        return f\"Conto di {self.titolare}: {self.saldo}€\"\n\n# Uso\nconto = ContoBancario(\"Mario\", 1000)\nprint(conto)\n\nconto.deposita(500)\nconto.preleva(200)\nconto.preleva(2000)  # Fondi insufficienti!\nprint(conto)","id":4,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"class Animale:\n    def __init__(self, nome, zampe):\n        self.nome = nome\n        self.zampe = zampe\n\n    def parla(self):\n        print(\"...\")\n\n    def __str__(self):\n        return f\"{self.nome} ({self.zampe} zampe)\"\n\nclass Cane(Animale):  # Cane eredita da Animale\n    def __init__(self, nome, razza):\n        super().__init__(nome, 4)  # Chiama il costruttore del genitore\n        self.razza = razza\n\n    def parla(self):  # Sovrascrive il metodo del genitore\n        print(\"Bau bau!\")\n\nclass Gatto(Animale):\n    def __init__(self, nome):\n        super().__init__(nome, 4)\n\n    def parla(self):\n        print(\"Miao!\")\n\nclass Pesce(Animale):\n    def __init__(self, nome):\n        super().__init__(nome, 0)\n\n    def parla(self):\n        print(\"Blub blub!\")\n\n# Uso — il polimorfismo in azione!\nanimali = [\n    Cane(\"Fido\", \"Labrador\"),\n    Gatto(\"Micio\"),\n    Pesce(\"Nemo\")\n]\n\nfor a in animali:\n    print(a, end=\" → \")\n    a.parla()","id":5,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"class Forma:\n    def __init__(self, nome):\n        self.nome = nome\n\n    def area(self):\n        return 0\n\n    def perimetro(self):\n        return 0\n\n    def __str__(self):\n        return f\"{self.nome}: area={self.area():.2f}, perimetro={self.perimetro():.2f}\"\n\nclass Rettangolo(Forma):\n    def __init__(self, base, altezza):\n        super().__init__(\"Rettangolo\")\n        self.base = base\n        self.altezza = altezza\n\n    def area(self):\n        return self.base * self.altezza\n\n    def perimetro(self):\n        return 2 * (self.base + self.altezza)\n\nclass Cerchio(Forma):\n    def __init__(self, raggio):\n        super().__init__(\"Cerchio\")\n        self.raggio = raggio\n\n    def area(self):\n        return 3.14159 * self.raggio ** 2\n\n    def perimetro(self):\n        return 2 * 3.14159 * self.raggio\n\nclass Triangolo(Forma):\n    def __init__(self, base, altezza, lato1, lato2, lato3):\n        super().__init__(\"Triangolo\")\n        self.base = base\n        self.altezza = altezza\n        self.lato1 = lato1\n        self.lato2 = lato2\n        self.lato3 = lato3\n\n    def area(self):\n        return self.base * self.altezza / 2\n\n    def perimetro(self):\n        return self.lato1 + self.lato2 + self.lato3\n\n# Uso — ciclo su forme diverse, stesso codice!\nforme = [\n    Rettangolo(5, 3),\n    Cerchio(4),\n    Triangolo(6, 4, 5, 5, 6)\n]\n\nfor f in forme:\n    print(f)","id":6,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"class Libro:\n    # Completa la classe\n    pass\n\n# Test\nlibro1 = Libro(\"Il Signore degli Anelli\", \"Tolkien\", 1200)\nlibro2 = Libro(\"Il Piccolo Principe\", \"Saint-Exupéry\", 96)\n\n# Stampa le info e se è lungo o corto","id":7,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"import random\n\nclass Dado:\n    # Completa la classe\n    pass\n\n# Test: lancia il dado 100 volte e mostra quante volte esce ogni numero","id":8,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+globalThis.qpyodideCellDetails = [{"code":"class Studente:\n    def __init__(self, nome, eta, classe):\n        self.nome = nome\n        self.eta = eta\n        self.classe = classe\n\n# Creare oggetti (istanze) — usiamo lo stampo!\ns1 = Studente(\"Mario\", 16, \"3A\")\ns2 = Studente(\"Luigi\", 17, \"4B\")\n\nprint(f\"{s1.nome} ha {s1.eta} anni, classe {s1.classe}\")\nprint(f\"{s2.nome} ha {s2.eta} anni, classe {s2.classe}\")","id":1,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"class Studente:\n    def __init__(self, nome, voti):\n        self.nome = nome\n        self.voti = voti\n\n    def media(self):\n        return sum(self.voti) / len(self.voti)\n\n    def promosso(self):\n        return self.media() >= 6\n\n    def aggiungi_voto(self, voto):\n        self.voti.append(voto)\n\n    def presentati(self):\n        stato = \"promosso\" if self.promosso() else \"bocciato\"\n        print(f\"Sono {self.nome}, media {self.media():.2f} ({stato})\")\n\n# Uso\ns = Studente(\"Mario\", [7, 8, 6, 9])\ns.presentati()\n\ns.aggiungi_voto(5)\ns.presentati()","id":2,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"class Punto:\n    def __init__(self, x, y):\n        self.x = x\n        self.y = y\n\n    def __str__(self):\n        return f\"({self.x}, {self.y})\"\n\n    def distanza_origine(self):\n        return (self.x**2 + self.y**2) ** 0.5\n\np = Punto(3, 4)\nprint(p)  # Chiama automaticamente __str__ → (3, 4)\nprint(f\"Distanza dall'origine: {p.distanza_origine():.2f}\")","id":3,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"class ContoBancario:\n    def __init__(self, titolare, saldo=0):\n        self.titolare = titolare\n        self.saldo = saldo\n\n    def deposita(self, importo):\n        if importo > 0:\n            self.saldo += importo\n            print(f\"Depositati {importo}€. Saldo: {self.saldo}€\")\n        else:\n            print(\"Importo non valido!\")\n\n    def preleva(self, importo):\n        if importo > self.saldo:\n            print(\"Fondi insufficienti!\")\n        elif importo <= 0:\n            print(\"Importo non valido!\")\n        else:\n            self.saldo -= importo\n            print(f\"Prelevati {importo}€. Saldo: {self.saldo}€\")\n\n    def __str__(self):\n        return f\"Conto di {self.titolare}: {self.saldo}€\"\n\n# Uso\nconto = ContoBancario(\"Mario\", 1000)\nprint(conto)\n\nconto.deposita(500)\nconto.preleva(200)\nconto.preleva(2000)  # Fondi insufficienti!\nprint(conto)","id":4,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"class Animale:\n    def __init__(self, nome, zampe):\n        self.nome = nome\n        self.zampe = zampe\n\n    def parla(self):\n        print(\"...\")\n\n    def __str__(self):\n        return f\"{self.nome} ({self.zampe} zampe)\"\n\nclass Cane(Animale):  # Cane eredita da Animale\n    def __init__(self, nome, razza):\n        super().__init__(nome, 4)  # Chiama il costruttore del genitore\n        self.razza = razza\n\n    def parla(self):  # Sovrascrive il metodo del genitore\n        print(\"Bau bau!\")\n\nclass Gatto(Animale):\n    def __init__(self, nome):\n        super().__init__(nome, 4)\n\n    def parla(self):\n        print(\"Miao!\")\n\nclass Pesce(Animale):\n    def __init__(self, nome):\n        super().__init__(nome, 0)\n\n    def parla(self):\n        print(\"Blub blub!\")\n\n# Uso — il polimorfismo in azione!\nanimali = [\n    Cane(\"Fido\", \"Labrador\"),\n    Gatto(\"Micio\"),\n    Pesce(\"Nemo\")\n]\n\nfor a in animali:\n    print(a, end=\" → \")\n    a.parla()","id":5,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"class Forma:\n    def __init__(self, nome):\n        self.nome = nome\n\n    def area(self):\n        return 0\n\n    def perimetro(self):\n        return 0\n\n    def __str__(self):\n        return f\"{self.nome}: area={self.area():.2f}, perimetro={self.perimetro():.2f}\"\n\nclass Rettangolo(Forma):\n    def __init__(self, base, altezza):\n        super().__init__(\"Rettangolo\")\n        self.base = base\n        self.altezza = altezza\n\n    def area(self):\n        return self.base * self.altezza\n\n    def perimetro(self):\n        return 2 * (self.base + self.altezza)\n\nclass Cerchio(Forma):\n    def __init__(self, raggio):\n        super().__init__(\"Cerchio\")\n        self.raggio = raggio\n\n    def area(self):\n        return 3.14159 * self.raggio ** 2\n\n    def perimetro(self):\n        return 2 * 3.14159 * self.raggio\n\nclass Triangolo(Forma):\n    def __init__(self, base, altezza, lato1, lato2, lato3):\n        super().__init__(\"Triangolo\")\n        self.base = base\n        self.altezza = altezza\n        self.lato1 = lato1\n        self.lato2 = lato2\n        self.lato3 = lato3\n\n    def area(self):\n        return self.base * self.altezza / 2\n\n    def perimetro(self):\n        return self.lato1 + self.lato2 + self.lato3\n\n# Uso — ciclo su forme diverse, stesso codice!\nforme = [\n    Rettangolo(5, 3),\n    Cerchio(4),\n    Triangolo(6, 4, 5, 5, 6)\n]\n\nfor f in forme:\n    print(f)","id":6,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"from abc import ABC, abstractmethod\n\nclass Forma(ABC):  # ABC = Abstract Base Class\n    def __init__(self, nome):\n        self.nome = nome\n\n    @abstractmethod\n    def area(self):\n        pass  # Niente implementazione!\n\n    @abstractmethod\n    def perimetro(self):\n        pass\n\n    def __str__(self):\n        return f\"{self.nome}: area={self.area():.2f}, perimetro={self.perimetro():.2f}\"\n\nclass Rettangolo(Forma):\n    def __init__(self, base, altezza):\n        super().__init__(\"Rettangolo\")\n        self.base = base\n        self.altezza = altezza\n\n    def area(self):\n        return self.base * self.altezza\n\n    def perimetro(self):\n        return 2 * (self.base + self.altezza)\n\nclass Cerchio(Forma):\n    def __init__(self, raggio):\n        super().__init__(\"Cerchio\")\n        self.raggio = raggio\n\n    def area(self):\n        return 3.14159 * self.raggio ** 2\n\n    def perimetro(self):\n        return 2 * 3.14159 * self.raggio\n\n# Funziona: le sottoclassi implementano tutti i metodi astratti\nr = Rettangolo(5, 3)\nc = Cerchio(4)\nprint(r)\nprint(c)\n\n# NON funziona: non puoi creare un oggetto da una classe astratta!\ntry:\n    f = Forma(\"Generica\")\nexcept TypeError as e:\n    print(f\"\\nErrore: {e}\")","id":7,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"class Libro:\n    # Completa la classe\n    pass\n\n# Test\nlibro1 = Libro(\"Il Signore degli Anelli\", \"Tolkien\", 1200)\nlibro2 = Libro(\"Il Piccolo Principe\", \"Saint-Exupéry\", 96)\n\n# Stampa le info e se è lungo o corto","id":8,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"import random\n\nclass Dado:\n    # Completa la classe\n    pass\n\n# Test: lancia il dado 100 volte e mostra quante volte esce ogni numero","id":9,"options":{"autorun":"","classes":"","comment":"","context":"interactive","dpi":72,"fig-cap":"","fig-height":5,"fig-width":7,"label":"","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
 
 </script>
@@ -829,6 +828,10 @@ globalThis._qpyodideGetInstance = function() {
     <a class="dropdown-item" href="../algocoding/02_python_from_flowgorithm.html">
  <span class="dropdown-text">Da Flowgorithm a Python</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../algocoding/03_cheatsheet.html">
+ <span class="dropdown-text">Scheda di riferimento Python</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -1045,6 +1048,11 @@ globalThis._qpyodideGetInstance = function() {
   <li><a href="#come-funziona" id="toc-come-funziona" class="nav-link" data-scroll-target="#come-funziona">Come funziona?</a></li>
   </ul></li>
   <li><a href="#esempio-completo-forme-geometriche" id="toc-esempio-completo-forme-geometriche" class="nav-link" data-scroll-target="#esempio-completo-forme-geometriche">Esempio completo: Forme geometriche</a></li>
+  <li><a href="#classi-astratte" id="toc-classi-astratte" class="nav-link" data-scroll-target="#classi-astratte">Classi astratte</a>
+  <ul class="collapse">
+  <li><a href="#come-funziona-1" id="toc-come-funziona-1" class="nav-link" data-scroll-target="#come-funziona-1">Come funziona?</a></li>
+  <li><a href="#quando-usare-le-classi-astratte" id="toc-quando-usare-le-classi-astratte" class="nav-link" data-scroll-target="#quando-usare-le-classi-astratte">Quando usare le classi astratte?</a></li>
+  </ul></li>
   <li><a href="#mappa-concettuale" id="toc-mappa-concettuale" class="nav-link" data-scroll-target="#mappa-concettuale">Mappa concettuale</a></li>
   <li><a href="#esercizi" id="toc-esercizi" class="nav-link" data-scroll-target="#esercizi">Esercizi</a>
   <ul class="collapse">
@@ -1081,7 +1089,7 @@ globalThis._qpyodideGetInstance = function() {
     <div>
     <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">04/03/2026</p>
+      <p class="date">13/03/2026</p>
     </div>
   </div>
   
@@ -1191,6 +1199,69 @@ globalThis._qpyodideGetInstance = function() {
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <hr>
 </section>
+<section id="classi-astratte" class="level2">
+<h2 class="anchored" data-anchor-id="classi-astratte">Classi astratte</h2>
+<p>Nell’esempio delle forme geometriche, la classe <code>Forma</code> ha i metodi <code>area()</code> e <code>perimetro()</code> che restituiscono 0. Ma ha senso creare un oggetto <code>Forma</code> generico? No! <code>Forma</code> esiste solo per essere ereditata. Il problema è che nessuno ci impedisce di scrivere <code>Forma("qualcosa")</code> — e nessuno ci obbliga a implementare <code>area()</code> e <code>perimetro()</code> nelle sottoclassi.</p>
+<p>Le <strong>classi astratte</strong> risolvono esattamente questo: definiscono uno “stampo obbligatorio” che:</p>
+<ol type="1">
+<li><strong>Non può essere istanziato</strong> direttamente</li>
+<li><strong>Obbliga</strong> le sottoclassi a implementare certi metodi</li>
+</ol>
+<div id="qpyodide-insertion-location-7"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<section id="come-funziona-1" class="level3">
+<h3 class="anchored" data-anchor-id="come-funziona-1">Come funziona?</h3>
+<ul>
+<li><code>ABC</code> — è la classe base per creare classi astratte (va importata da <code>abc</code>)</li>
+<li><code>@abstractmethod</code> — è un <strong>decoratore</strong> che segna un metodo come “obbligatorio”: se una sottoclasse non lo implementa, Python lancia un errore</li>
+<li><code>pass</code> — il metodo astratto non ha implementazione, è solo una firma</li>
+<li>Se provi a istanziare <code>Forma()</code> direttamente → <code>TypeError</code></li>
+</ul>
+</section>
+<section id="quando-usare-le-classi-astratte" class="level3">
+<h3 class="anchored" data-anchor-id="quando-usare-le-classi-astratte">Quando usare le classi astratte?</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 51%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Senza classi astratte</th>
+<th>Con classi astratte</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Forma</code> restituisce 0, ma nessuno se ne accorge</td>
+<td>Python ti <strong>obbliga</strong> a implementare i metodi</td>
+</tr>
+<tr class="even">
+<td>Puoi creare <code>Forma("boh")</code> per sbaglio</td>
+<td><code>Forma()</code> dà errore subito</td>
+</tr>
+<tr class="odd">
+<td>I bug saltano fuori a runtime, chissà quando</td>
+<td>Gli errori vengono catturati subito</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Consiglio</span>Regola pratica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se una classe esiste <strong>solo per essere ereditata</strong> e non ha senso crearla da sola → rendila astratta!</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
 <section id="mappa-concettuale" class="level2">
 <h2 class="anchored" data-anchor-id="mappa-concettuale">Mappa concettuale</h2>
 <div class="cell" data-layout-align="default">
@@ -1212,6 +1283,10 @@ globalThis._qpyodideGetInstance = function() {
     I --&gt; K["Override metodi"]
 
     L["Polimorfismo"] --&gt; M["Stesso metodo&lt;br/&gt;comportamento diverso"]
+
+    N["Classe astratta&lt;br/&gt;ABC"] --&gt; O["@abstractmethod"]
+    N --&gt; P["Non istanziabile"]
+    N --&gt; Q["Obbliga le sottoclassi&lt;br/&gt;a implementare i metodi"]
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -1225,10 +1300,10 @@ globalThis._qpyodideGetInstance = function() {
 <section id="esercizio-1-classe-libro" class="level3">
 <h3 class="anchored" data-anchor-id="esercizio-1-classe-libro">Esercizio 1: Classe Libro</h3>
 <p>Crea una classe <code>Libro</code> con attributi titolo, autore, pagine e un metodo che dice se è un libro “lungo” (oltre 300 pagine). Aggiungi anche <code>__str__</code> per stamparlo in modo carino!</p>
-<div id="qpyodide-insertion-location-7"></div>
+<div id="qpyodide-insertion-location-8"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled" title="Soluzione">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1237,7 +1312,7 @@ globalThis._qpyodideGetInstance = function() {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Libro:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, titolo, autore, pagine):</span>
@@ -1263,10 +1338,10 @@ globalThis._qpyodideGetInstance = function() {
 <section id="esercizio-2-classe-dado" class="level3">
 <h3 class="anchored" data-anchor-id="esercizio-2-classe-dado">Esercizio 2: Classe Dado</h3>
 <p>Crea una classe <code>Dado</code> con un metodo <code>lancia()</code> che restituisce un numero casuale da 1 a 6, e un metodo <code>statistiche(n)</code> che lancia N volte e mostra quante volte esce ogni faccia. Tipo fare un esperimento di probabilità!</p>
-<div id="qpyodide-insertion-location-8"></div>
+<div id="qpyodide-insertion-location-9"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled" title="Soluzione">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1275,7 +1350,7 @@ globalThis._qpyodideGetInstance = function() {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1740,7 +1815,7 @@ globalThis._qpyodideGetInstance = function() {
 <p>Made with <a href="https://quarto.org/">Quarto</a></p>
 </div>
     <div class="nav-footer-right">
-<p>Ultimo aggiornamento: 04/03/2026</p>
+<p>Ultimo aggiornamento: 13/03/2026</p>
 </div>
   </div>
 </footer>

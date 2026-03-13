@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-03-03">
 
-<title>digit_text – Corso di Informatica</title>
+<title>cheatsheet – Corso di Informatica</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -31,8 +65,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../infoCoding/02_digit_img.html" rel="next">
-<link href="../infoCoding/00_intro.html" rel="prev">
+<link href="../algocoding/02_python_from_flowgorithm.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -146,9 +179,6 @@ ul.task-list li input[type="checkbox"] {
   document.addEventListener('DOMContentLoaded', watchPyodideStatus);
 })();
 </script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../stylesheets/mermaid-dark.css">
@@ -558,7 +588,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../infoCoding/00_intro.html">La codifica delle informazioni</a></li><li class="breadcrumb-item"><a href="../infoCoding/01_digit_text.html">Testo</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../algocoding/03_cheatsheet.html">Scheda di riferimento Python</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Attiva/disattiva la barra laterale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -570,157 +600,30 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Introduzione</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Attiva/disattiva sezione">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../fundamentals/00_basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Concetti fondamentali</span></a>
+  <a href="../algocoding/00_algoritmi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Che cos’e un algoritmo</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../fundamentals/01_map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Mappa concettuale</span></a>
+  <a href="../algocoding/01_flowgorithm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flowgorithm</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Hardware</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Attiva/disattiva sezione">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hwsw/10_hw.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Architettura di un elaboratore</span></a>
+  <a href="../algocoding/02_python_from_flowgorithm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Da Flowgorithm a Python</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hwsw/11_bios.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">BIOS</span></a>
+  <a href="../algocoding/03_cheatsheet.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Scheda di riferimento Python</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Software</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Attiva/disattiva sezione">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../hwsw/20_sw.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Classificazione</span></a>
-  </div>
-</li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">Sistemi Operativi</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Attiva/disattiva sezione">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../hwsw/21_os_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Storia</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../hwsw/22_os_arch.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Architettura</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../hwsw/23_os_vm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Macchine virtuali</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../hwsw/24_os_cli.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CLI</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../hwsw/25_extra_shortcuts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Shortcuts</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">La codifica delle informazioni</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Attiva/disattiva sezione">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../infoCoding/00_intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Codifiche numeriche</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../infoCoding/01_digit_text.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Testo</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../infoCoding/02_digit_img.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Immagini</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../infoCoding/03_digit_audio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Suoni</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../infoCoding/04_digit_video.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Video</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../infoCoding/05_file.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">File</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -731,27 +634,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">In questa pagina</h2>
    
   <ul>
-  <li><a href="#la-codifica-del-testo-ascii-e-unicode" id="toc-la-codifica-del-testo-ascii-e-unicode" class="nav-link active" data-scroll-target="#la-codifica-del-testo-ascii-e-unicode">La Codifica del Testo: ASCII e Unicode</a>
+  <li><a href="#python-scheda-di-riferimento-rapido" id="toc-python-scheda-di-riferimento-rapido" class="nav-link active" data-scroll-target="#python-scheda-di-riferimento-rapido">Python: scheda di riferimento rapido</a>
   <ul class="collapse">
-  <li><a href="#ascii-american-standard-code-for-information-interchange" id="toc-ascii-american-standard-code-for-information-interchange" class="nav-link" data-scroll-target="#ascii-american-standard-code-for-information-interchange">ASCII: American Standard Code for Information Interchange</a>
+  <li><a href="#funzioni" id="toc-funzioni" class="nav-link" data-scroll-target="#funzioni">Funzioni</a></li>
+  <li><a href="#operatori-matematici" id="toc-operatori-matematici" class="nav-link" data-scroll-target="#operatori-matematici">Operatori matematici</a></li>
+  <li><a href="#operatori-di-confronto" id="toc-operatori-di-confronto" class="nav-link" data-scroll-target="#operatori-di-confronto">Operatori di confronto</a></li>
+  <li><a href="#strutture-di-controllo" id="toc-strutture-di-controllo" class="nav-link" data-scroll-target="#strutture-di-controllo">Strutture di controllo</a>
   <ul class="collapse">
-  <li><a href="#tabella-dei-caratteri-ascii" id="toc-tabella-dei-caratteri-ascii" class="nav-link" data-scroll-target="#tabella-dei-caratteri-ascii">Tabella dei Caratteri ASCII</a></li>
-  <li><a href="#limiti-di-ascii-spoiler-non-basta" id="toc-limiti-di-ascii-spoiler-non-basta" class="nav-link" data-scroll-target="#limiti-di-ascii-spoiler-non-basta">Limiti di ASCII (spoiler: non basta!)</a></li>
+  <li><a href="#condizione-if-else" id="toc-condizione-if-else" class="nav-link" data-scroll-target="#condizione-if-else">Condizione (if / else)</a></li>
+  <li><a href="#ciclo-while" id="toc-ciclo-while" class="nav-link" data-scroll-target="#ciclo-while">Ciclo while</a></li>
   </ul></li>
-  <li><a href="#unicode-il-codice-universale-finalmente" id="toc-unicode-il-codice-universale-finalmente" class="nav-link" data-scroll-target="#unicode-il-codice-universale-finalmente">Unicode: Il Codice Universale (finalmente!)</a></li>
-  <li><a href="#differenze-tra-ascii-e-unicode" id="toc-differenze-tra-ascii-e-unicode" class="nav-link" data-scroll-target="#differenze-tra-ascii-e-unicode">Differenze tra ASCII e Unicode</a></li>
-  <li><a href="#perché-è-importante-la-codifica-del-testo" id="toc-perché-è-importante-la-codifica-del-testo" class="nav-link" data-scroll-target="#perché-è-importante-la-codifica-del-testo">Perché è importante la codifica del testo?</a></li>
-  <li><a href="#esercizi-per-chi-vuole-smanettare" id="toc-esercizi-per-chi-vuole-smanettare" class="nav-link" data-scroll-target="#esercizi-per-chi-vuole-smanettare">Esercizi (per chi vuole smanettare)</a></li>
-  <li><a href="#mappa-concettuale" id="toc-mappa-concettuale" class="nav-link" data-scroll-target="#mappa-concettuale">Mappa concettuale</a></li>
+  <li><a href="#input-numerico" id="toc-input-numerico" class="nav-link" data-scroll-target="#input-numerico">Input numerico</a></li>
+  <li><a href="#output-con-print" id="toc-output-con-print" class="nav-link" data-scroll-target="#output-con-print">Output con print</a></li>
+  <li><a href="#schema-base-di-un-programma" id="toc-schema-base-di-un-programma" class="nav-link" data-scroll-target="#schema-base-di-un-programma">Schema base di un programma</a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Altri Formati</h2><ul><li><a href="01_digit_text.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Altri Formati</h2><ul><li><a href="03_cheatsheet.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../infoCoding/00_intro.html">La codifica delle informazioni</a></li><li class="breadcrumb-item"><a href="../infoCoding/01_digit_text.html">Testo</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 </div>
 
@@ -763,7 +667,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">03/03/2026</p>
+      <p class="date">13/03/2026</p>
     </div>
   </div>
   
@@ -775,174 +679,180 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="la-codifica-del-testo-ascii-e-unicode" class="level1">
-<h1>La Codifica del Testo: ASCII e Unicode</h1>
-<p>Come fa il computer a capire la differenza tra la lettera “A” e il numero 65? Semplice: usa una <strong>codifica del testo</strong>, cioè una tabella che associa ogni simbolo (lettera, numero, emoji) a un valore numerico.</p>
-<p>Senza un sistema di codifica, il computer vedrebbe solo una sequenza di bit tipo <code>01000001</code> e non saprebbe se è una lettera, un numero o che altro. Con la codifica invece sa che <code>01000001</code> = “A”!</p>
-<section id="ascii-american-standard-code-for-information-interchange" class="level2">
-<h2 class="anchored" data-anchor-id="ascii-american-standard-code-for-information-interchange">ASCII: American Standard Code for Information Interchange</h2>
-<p><strong>ASCII</strong> è il nonno di tutti i sistemi di codifica del testo, sviluppato negli <strong>anni ’60</strong> (quando i computer erano grandi come armadi).</p>
-<p>Usa <strong>7 bit</strong> per rappresentare <strong>128 simboli</strong> diversi:</p>
-<ul>
-<li><strong>Lettere maiuscole e minuscole</strong>: A-Z, a-z (sì, maiuscole e minuscole hanno codici diversi!)</li>
-<li><strong>Numeri</strong>: 0-9 (attenzione: il carattere “0” è diverso dal numero 0!)</li>
-<li><strong>Simboli speciali</strong>: <code>!</code>, <code>@</code>, <code>#</code>, <code>$</code>, <code>%</code>…</li>
-<li><strong>Caratteri di controllo</strong>: tipo <code>Enter</code> (a capo), <code>Tab</code> (tabulazione), <code>Backspace</code>…</li>
-</ul>
-<section id="tabella-dei-caratteri-ascii" class="level3">
-<h3 class="anchored" data-anchor-id="tabella-dei-caratteri-ascii">Tabella dei Caratteri ASCII</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Simbolo</th>
-<th>Codice Decimale</th>
-<th>Codice Binario</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>65</td>
-<td>01000001</td>
-</tr>
-<tr class="even">
-<td>B</td>
-<td>66</td>
-<td>01000010</td>
-</tr>
-<tr class="odd">
-<td>a</td>
-<td>97</td>
-<td>01100001</td>
-</tr>
-<tr class="even">
-<td>b</td>
-<td>98</td>
-<td>01100010</td>
-</tr>
-<tr class="odd">
-<td>0</td>
-<td>48</td>
-<td>00110000</td>
-</tr>
-<tr class="even">
-<td>1</td>
-<td>49</td>
-<td>00110001</td>
-</tr>
-<tr class="odd">
-<td>@</td>
-<td>64</td>
-<td>01000000</td>
-</tr>
-<tr class="even">
-<td>!</td>
-<td>33</td>
-<td>00100001</td>
-</tr>
-</tbody>
-</table>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="ascii_table.png" class="img-fluid figure-img"></p>
-<figcaption>ASCII</figcaption>
-</figure>
-</div>
-</section>
-<section id="limiti-di-ascii-spoiler-non-basta" class="level3">
-<h3 class="anchored" data-anchor-id="limiti-di-ascii-spoiler-non-basta">Limiti di ASCII (spoiler: non basta!)</h3>
-<p>ASCII funziona bene per l’<strong>inglese</strong>, ma ha un problemone: non ha spazio per lettere accentate (àèéìòù), simboli di altre lingue (ñ, ü, ç), caratteri cinesi, giapponesi, arabi, emoji… niente di tutto questo!</p>
-<p>Provate a scrivere “caffè” in ASCII puro: diventa “caff?” perché la “è” non esiste nella tabella ASCII. Disastro!</p>
-<p>Per questo è nato <strong>Unicode</strong>…</p>
-</section>
-</section>
-<section id="unicode-il-codice-universale-finalmente" class="level2">
-<h2 class="anchored" data-anchor-id="unicode-il-codice-universale-finalmente">Unicode: Il Codice Universale (finalmente!)</h2>
-<p><strong>Unicode</strong> è lo standard moderno che include simboli da <strong>quasi tutte le lingue del mondo</strong>: latino, greco, cirillico, arabo, cinese, giapponese, coreano, hindi… e anche le <strong>emoji</strong>! 🎉</p>
-<p>Il formato più usato è <strong>UTF-8</strong> (e il suo fratello <strong>UTF-16</strong>):</p>
-<ul>
-<li><strong>UTF-8</strong>: codifica variabile che usa da 1 a 4 byte per simbolo, a seconda di quanto è “esotico”. Lettere inglesi = 1 byte, caratteri cinesi = 3-4 byte.</li>
-<li><strong>È retrocompatibile con ASCII</strong>: tutti i simboli ASCII occupano esattamente 1 byte in UTF-8 con lo stesso valore. Geniale!</li>
-</ul>
-<p>Questa compatibilità rende UTF-8 perfetto per il web: può mostrare testi in qualsiasi lingua, emoji incluse, senza problemi. 🌍</p>
-<p><strong>Fun fact</strong>: Esistono oltre 143.000 caratteri Unicode, incluse emoji, simboli matematici, note musicali, e perfino geroglifici egizi!</p>
-</section>
-<section id="differenze-tra-ascii-e-unicode" class="level2">
-<h2 class="anchored" data-anchor-id="differenze-tra-ascii-e-unicode">Differenze tra ASCII e Unicode</h2>
+<section id="python-scheda-di-riferimento-rapido" class="level1">
+<h1>Python: scheda di riferimento rapido</h1>
+<section id="funzioni" class="level2">
+<h2 class="anchored" data-anchor-id="funzioni">Funzioni</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 24%">
-<col style="width: 40%">
 <col style="width: 35%">
+<col style="width: 32%">
+<col style="width: 32%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Caratteristica</th>
-<th>ASCII</th>
-<th>Unicode</th>
+<th>Funzione</th>
+<th>Cosa fa</th>
+<th>Esempio</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Bit utilizzati</td>
-<td>7 bit (128 simboli)</td>
-<td>Variabile (UTF-8, UTF-16, ecc.)</td>
+<td><code>print()</code></td>
+<td>Stampa a schermo</td>
+<td><code>print("Ciao", nome)</code></td>
 </tr>
 <tr class="even">
-<td>Supporto per lingue</td>
-<td>Solo inglese e simboli base</td>
-<td>Tutte le lingue e simboli</td>
+<td><code>input()</code></td>
+<td>Legge testo da tastiera (restituisce una <strong>stringa</strong>)</td>
+<td><code>nome = input("Nome: ")</code></td>
 </tr>
 <tr class="odd">
-<td>Compatibilità UTF-8</td>
-<td>Compatibile</td>
-<td>UTF-8 è una codifica di Unicode</td>
-</tr>
-<tr class="even">
-<td>Utilizzo principale</td>
-<td>Vecchi sistemi e dati semplici</td>
-<td>Pagine web, applicazioni moderne</td>
+<td><code>float()</code></td>
+<td>Converte in numero decimale</td>
+<td><code>float(input("Prezzo: "))</code></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="perché-è-importante-la-codifica-del-testo" class="level2">
-<h2 class="anchored" data-anchor-id="perché-è-importante-la-codifica-del-testo">Perché è importante la codifica del testo?</h2>
-<p>Senza codifiche standardizzate, Internet non funzionerebbe! Immaginate: - Email con caratteri strani tipo “cafÃ¨” invece di “caffè” - Siti web incomprensibili se usano lingue diverse dall’inglese - Emoji che appaiono come quadratini vuoti ▯</p>
-<p>Grazie a <strong>Unicode</strong> e <strong>UTF-8</strong> oggi possiamo scrivere in qualsiasi lingua, usare emoji 😎, e tutto funziona ovunque. Internet è veramente globale!</p>
+<section id="operatori-matematici" class="level2">
+<h2 class="anchored" data-anchor-id="operatori-matematici">Operatori matematici</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operazione</th>
+<th>Simbolo</th>
+<th>Esempio</th>
+<th>Risultato</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Addizione</td>
+<td><code>+</code></td>
+<td><code>5 + 3</code></td>
+<td><code>8</code></td>
+</tr>
+<tr class="even">
+<td>Sottrazione</td>
+<td><code>-</code></td>
+<td><code>5 - 3</code></td>
+<td><code>2</code></td>
+</tr>
+<tr class="odd">
+<td>Moltiplicazione</td>
+<td><code>*</code></td>
+<td><code>5 * 3</code></td>
+<td><code>15</code></td>
+</tr>
+<tr class="even">
+<td>Divisione</td>
+<td><code>/</code></td>
+<td><code>5 / 2</code></td>
+<td><code>2.5</code></td>
+</tr>
+<tr class="odd">
+<td>Resto (modulo)</td>
+<td><code>%</code></td>
+<td><code>5 % 2</code></td>
+<td><code>1</code></td>
+</tr>
+<tr class="even">
+<td>Potenza</td>
+<td><code>**</code></td>
+<td><code>5 ** 2</code></td>
+<td><code>25</code></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="esercizi-per-chi-vuole-smanettare" class="level2">
-<h2 class="anchored" data-anchor-id="esercizi-per-chi-vuole-smanettare">Esercizi (per chi vuole smanettare)</h2>
-<ol type="1">
-<li>Usando la tabella ASCII, scrivi il codice binario per i caratteri <code>C</code> e <code>i</code>.</li>
-<li>Converti la frase “Hello!” in binario usando ASCII (suggerimento: guardate i codici di H, e, l, l, o, !).</li>
-<li>Perché il codice ASCII di “A” (65) è diverso da quello di “a” (97)? Cosa possiamo dedurre?</li>
-</ol>
+<section id="operatori-di-confronto" class="level2">
+<h2 class="anchored" data-anchor-id="operatori-di-confronto">Operatori di confronto</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Confronto</th>
+<th>Simbolo</th>
+<th>Esempio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Uguale</td>
+<td><code>==</code></td>
+<td><code>x == 5</code></td>
+</tr>
+<tr class="even">
+<td>Diverso</td>
+<td><code>!=</code></td>
+<td><code>x != 5</code></td>
+</tr>
+<tr class="odd">
+<td>Maggiore</td>
+<td><code>&gt;</code></td>
+<td><code>x &gt; 5</code></td>
+</tr>
+<tr class="even">
+<td>Minore</td>
+<td><code>&lt;</code></td>
+<td><code>x &lt; 5</code></td>
+</tr>
+<tr class="odd">
+<td>Maggiore o uguale</td>
+<td><code>&gt;=</code></td>
+<td><code>x &gt;= 5</code></td>
+</tr>
+<tr class="even">
+<td>Minore o uguale</td>
+<td><code>&lt;=</code></td>
+<td><code>x &lt;= 5</code></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="mappa-concettuale" class="level2">
-<h2 class="anchored" data-anchor-id="mappa-concettuale">Mappa concettuale</h2>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph LR
-    A[Codifica del Testo] --&gt; B[ASCII]
-    A --&gt; C[Unicode]
-    B --&gt; D[7 bit]
-    B --&gt; E[Caratteri Inglesi]
-    C --&gt; F[Espande ASCII]
-    C --&gt; G[Multilingua]
-    C --&gt; H[UTF-8, UTF-16]
-    A --&gt; I[Utilizzo]
-    I --&gt; J[Computer e Internet]
-    I --&gt; K[Compatibilità Internazionale]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<section id="strutture-di-controllo" class="level2">
+<h2 class="anchored" data-anchor-id="strutture-di-controllo">Strutture di controllo</h2>
+<section id="condizione-if-else" class="level3">
+<h3 class="anchored" data-anchor-id="condizione-if-else">Condizione (if / else)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> condizione:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># blocco se vero</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># blocco se falso</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="ciclo-while" class="level3">
+<h3 class="anchored" data-anchor-id="ciclo-while">Ciclo while</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> condizione:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># blocco ripetuto finche' la condizione e' vera</span></span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="input-numerico" class="level2">
+<h2 class="anchored" data-anchor-id="input-numerico">Input numerico</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>numero <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Inserisci un numero: "</span>))</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="output-con-print" class="level2">
+<h2 class="anchored" data-anchor-id="output-con-print">Output con print</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Stampa testo e variabili separati dalla virgola</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Il risultato è:"</span>, risultato)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Concatenazione di stringhe</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Ciao "</span> <span class="op">+</span> nome)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="schema-base-di-un-programma" class="level2">
+<h2 class="anchored" data-anchor-id="schema-base-di-un-programma">Schema base di un programma</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># FASE INPUT</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>variabile <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Messaggio: "</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># FASE ELABORAZIONE</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>risultato <span class="op">=</span> formula</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># FASE OUTPUT</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Risultato:"</span>, risultato)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># FASE CONDIZIONI (se necessarie)</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> condizione:</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Vero"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Falso"</span>)</span></code></pre></div><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
@@ -1364,14 +1274,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../infoCoding/00_intro.html" class="pagination-link" aria-label="Codifiche numeriche">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Codifiche numeriche</span>
+      <a href="../algocoding/02_python_from_flowgorithm.html" class="pagination-link" aria-label="Da Flowgorithm a Python">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Da Flowgorithm a Python</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../infoCoding/02_digit_img.html" class="pagination-link" aria-label="Immagini">
-        <span class="nav-page-text">Immagini</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1384,7 +1291,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Made with <a href="https://quarto.org/">Quarto</a></p>
 </div>
     <div class="nav-footer-right">
-<p>Ultimo aggiornamento: 03/03/2026</p>
+<p>Ultimo aggiornamento: 13/03/2026</p>
 </div>
   </div>
 </footer>

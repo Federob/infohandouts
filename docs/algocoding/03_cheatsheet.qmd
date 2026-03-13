@@ -1,0 +1,92 @@
+---
+format:
+  html: default
+  typst:
+    lang: it
+format-links: [typst]
+---
+
+# Python: scheda di riferimento rapido
+
+## Funzioni
+
+| Funzione | Cosa fa | Esempio |
+|----------|---------|---------|
+| `print()` | Stampa a schermo | `print("Ciao", nome)` |
+| `input()` | Legge testo da tastiera (restituisce una **stringa**) | `nome = input("Nome: ")` |
+| `float()` | Converte in numero decimale | `float(input("Prezzo: "))` |
+
+## Operatori matematici
+
+| Operazione | Simbolo | Esempio | Risultato |
+|------------|---------|---------|-----------|
+| Addizione | `+` | `5 + 3` | `8` |
+| Sottrazione | `-` | `5 - 3` | `2` |
+| Moltiplicazione | `*` | `5 * 3` | `15` |
+| Divisione | `/` | `5 / 2` | `2.5` |
+| Resto (modulo) | `%` | `5 % 2` | `1` |
+| Potenza | `**` | `5 ** 2` | `25` |
+
+## Operatori di confronto
+
+| Confronto | Simbolo | Esempio |
+|-----------|---------|---------|
+| Uguale | `==` | `x == 5` |
+| Diverso | `!=` | `x != 5` |
+| Maggiore | `>` | `x > 5` |
+| Minore | `<` | `x < 5` |
+| Maggiore o uguale | `>=` | `x >= 5` |
+| Minore o uguale | `<=` | `x <= 5` |
+
+## Strutture di controllo
+
+### Condizione (if / else)
+
+```python
+if condizione:
+    # blocco se vero
+else:
+    # blocco se falso
+```
+
+### Ciclo while
+
+```python
+while condizione:
+    # blocco ripetuto finche' la condizione e' vera
+```
+
+## Input numerico
+
+```python
+numero = float(input("Inserisci un numero: "))
+```
+
+## Output con print
+
+```python
+# Stampa testo e variabili separati dalla virgola
+print("Il risultato è:", risultato)
+
+# Concatenazione di stringhe
+print("Ciao " + nome)
+```
+
+## Schema base di un programma
+
+```python
+# FASE INPUT
+variabile = float(input("Messaggio: "))
+
+# FASE ELABORAZIONE
+risultato = formula
+
+# FASE OUTPUT
+print("Risultato:", risultato)
+
+# FASE CONDIZIONI (se necessarie)
+if condizione:
+    print("Vero")
+else:
+    print("Falso")
+```

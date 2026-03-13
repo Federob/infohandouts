@@ -107,6 +107,8 @@ website:
           href: algocoding/01_flowgorithm.qmd
         - text: "Da Flowgorithm a Python"
           href: algocoding/02_python_from_flowgorithm.qmd
+        - text: "Scheda di riferimento Python"
+          href: algocoding/03_cheatsheet.qmd
 
     - id: python
       title: "Python"

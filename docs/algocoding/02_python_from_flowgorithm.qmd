@@ -6,6 +6,21 @@ format:
 format-links: [typst]
 ---
 
+```{pyodide-python}
+#| context: setup
+#| autorun: true
+#| output: false
+#| echo: false
+import js
+
+def _browser_input(prompt=""):
+    result = js.prompt(str(prompt))
+    if result is None:
+        raise EOFError("Input annullato")
+    return result
+
+__builtins__.input = _browser_input
+```
 
 # Da Flowgorithm a Python: guida pratica alla transizione
 
@@ -65,7 +80,7 @@ Declare Boolean verifica
 
 **In Python:**
 
-```python
+```{pyodide-python}
 # Python NON richiede dichiarazione esplicita!
 # Crei la variabile semplicemente assegnandole un valore:
 
@@ -90,7 +105,8 @@ Output: "Il risultato è: " & risultato
 
 **In Python:**
 
-```python
+```{pyodide-python}
+risultato = 42
 print("Ciao!")
 print("Il risultato è:", risultato)
 
@@ -102,7 +118,7 @@ print("Il risultato è: " + str(risultato))
 
 **Esempi pratici:**
 
-```python
+```{pyodide-python}
 nome = "Mario"
 eta = 20
 
@@ -191,21 +207,24 @@ somma = numero1 + numero2
 
 **Esempi pratici:**
 
-```python
+```{pyodide-python}
 # Calcolo area trapezio
 base_maggiore = 10
 base_minore = 6
 altezza = 5
 area_trapezio = (base_maggiore + base_minore) / 2 * altezza
+print("Area trapezio:", area_trapezio)
 
 # Calcolo area cerchio
 raggio = 3
 pi = 3.14159
 area_cerchio = pi * raggio ** 2  # ** significa "elevato a"
+print("Area cerchio:", area_cerchio)
 
 # Conversione temperature
 celsius = 25
 fahrenheit = celsius * 1.8 + 32
+print("Fahrenheit:", fahrenheit)
 ```
 
 ---
@@ -303,7 +322,7 @@ flowchart TD
 
 ### Codice Python equivalente
 
-```python
+```{pyodide-python}
 # Programma che somma due numeri
 
 # INPUT
@@ -327,7 +346,7 @@ Ricordi l'esercizio complesso di Flowgorithm con trapezio e cerchio? Ecco la tra
 
 ### Versione Python completa
 
-```python
+```{pyodide-python}
 # Programma che calcola e confronta le aree di un trapezio e un cerchio
 
 print("Questo programma calcola e confronta le aree di un trapezio e un cerchio")
@@ -713,7 +732,7 @@ print(risultato)  # ✅ Prima definisci, poi usi
 
 ### ✅ Consiglio 1: Usa commenti per organizzare il codice
 
-```python
+```{pyodide-python}
 # ======== INPUT ========
 numero = int(input("Inserisci un numero: "))
 
@@ -798,7 +817,7 @@ Una volta che hai padroneggiato le basi (input, output, variabili, condizioni), 
 
 ### 13.1 Cicli (Loop) - Ripetere operazioni
 
-```python
+```{pyodide-python}
 # For loop - ripete un numero fisso di volte
 for i in range(5):
     print("Ripetizione numero", i+1)
@@ -814,7 +833,7 @@ while numero <= 10:
 
 ### 13.2 Liste - Raccogliere più valori
 
-```python
+```{pyodide-python}
 # Lista di numeri
 voti = [8, 7, 9, 6, 8]
 
@@ -830,7 +849,7 @@ print(nomi[1])  # Stampa il secondo nome: Luigi
 
 ### 13.3 Funzioni - Riutilizzare codice
 
-```python
+```{pyodide-python}
 # Definizione di una funzione
 def calcola_area_cerchio(raggio):
     pi = 3.14159

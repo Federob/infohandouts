@@ -280,6 +280,91 @@ for f in forme:
 
 ---
 
+## Classi astratte
+
+Nell'esempio delle forme geometriche, la classe `Forma` ha i metodi `area()` e `perimetro()` che restituiscono 0. Ma ha senso creare un oggetto `Forma` generico? No! `Forma` esiste solo per essere ereditata. Il problema è che nessuno ci impedisce di scrivere `Forma("qualcosa")` — e nessuno ci obbliga a implementare `area()` e `perimetro()` nelle sottoclassi.
+
+Le **classi astratte** risolvono esattamente questo: definiscono uno "stampo obbligatorio" che:
+
+1. **Non può essere istanziato** direttamente
+2. **Obbliga** le sottoclassi a implementare certi metodi
+
+```{pyodide-python}
+from abc import ABC, abstractmethod
+
+class Forma(ABC):  # ABC = Abstract Base Class
+    def __init__(self, nome):
+        self.nome = nome
+
+    @abstractmethod
+    def area(self):
+        pass  # Niente implementazione!
+
+    @abstractmethod
+    def perimetro(self):
+        pass
+
+    def __str__(self):
+        return f"{self.nome}: area={self.area():.2f}, perimetro={self.perimetro():.2f}"
+
+class Rettangolo(Forma):
+    def __init__(self, base, altezza):
+        super().__init__("Rettangolo")
+        self.base = base
+        self.altezza = altezza
+
+    def area(self):
+        return self.base * self.altezza
+
+    def perimetro(self):
+        return 2 * (self.base + self.altezza)
+
+class Cerchio(Forma):
+    def __init__(self, raggio):
+        super().__init__("Cerchio")
+        self.raggio = raggio
+
+    def area(self):
+        return 3.14159 * self.raggio ** 2
+
+    def perimetro(self):
+        return 2 * 3.14159 * self.raggio
+
+# Funziona: le sottoclassi implementano tutti i metodi astratti
+r = Rettangolo(5, 3)
+c = Cerchio(4)
+print(r)
+print(c)
+
+# NON funziona: non puoi creare un oggetto da una classe astratta!
+try:
+    f = Forma("Generica")
+except TypeError as e:
+    print(f"\nErrore: {e}")
+```
+
+### Come funziona?
+
+- `ABC` — è la classe base per creare classi astratte (va importata da `abc`)
+- `@abstractmethod` — è un **decoratore** che segna un metodo come "obbligatorio": se una sottoclasse non lo implementa, Python lancia un errore
+- `pass` — il metodo astratto non ha implementazione, è solo una firma
+- Se provi a istanziare `Forma()` direttamente → `TypeError`
+
+### Quando usare le classi astratte?
+
+| Senza classi astratte | Con classi astratte |
+|----------------------|---------------------|
+| `Forma` restituisce 0, ma nessuno se ne accorge | Python ti **obbliga** a implementare i metodi |
+| Puoi creare `Forma("boh")` per sbaglio | `Forma()` dà errore subito |
+| I bug saltano fuori a runtime, chissà quando | Gli errori vengono catturati subito |
+
+::: {.callout-tip}
+## Regola pratica
+Se una classe esiste **solo per essere ereditata** e non ha senso crearla da sola → rendila astratta!
+:::
+
+---
+
 ## Mappa concettuale
 
 ```{mermaid}
@@ -297,6 +382,10 @@ flowchart TD
     I --> K["Override metodi"]
 
     L["Polimorfismo"] --> M["Stesso metodo<br/>comportamento diverso"]
+
+    N["Classe astratta<br/>ABC"] --> O["@abstractmethod"]
+    N --> P["Non istanziabile"]
+    N --> Q["Obbliga le sottoclassi<br/>a implementare i metodi"]
 ```
 
 ---

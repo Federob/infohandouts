@@ -134,8 +134,10 @@ website:
           href: pycoding/08_matrici.qmd
         - text: "Classi e oggetti"
           href: pycoding/09_oggetti.qmd
+        - text: "Threading e concorrenza"
+          href: pycoding/10_threading.qmd
         - text: "Python e networking"
-          href: pycoding/10_networking.qmd
+          href: pycoding/11_networking.qmd
 
     - id: ia
       title: "Intelligenza Artificiale"

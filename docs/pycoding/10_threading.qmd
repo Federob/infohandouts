@@ -1,0 +1,331 @@
+---
+format:
+  html: default
+  typst:
+    lang: it
+format-links: [typst]
+---
+
+
+# Threading e concorrenza
+
+## Fare più cose contemporaneamente
+
+Fino ad ora i nostri programmi hanno fatto **una cosa alla volta**: leggi input, calcola, stampa. Ma nel mondo reale spesso servono programmi che fanno **più cose in parallelo**. Pensa a un browser: mentre scarica una pagina, puoi continuare a scrollare. Oppure un server che deve gestire **tanti client contemporaneamente** senza bloccarsi su uno solo.
+
+Per capire come funziona, dobbiamo prima fare un passo indietro e parlare di come il sistema operativo gestisce i programmi.
+
+---
+
+## Processi e thread
+
+### Cos'è un processo?
+
+Un **processo** è un programma in esecuzione. Quando apri Chrome, Python, Spotify... ognuno è un processo separato. Ogni processo ha:
+
+- Il suo **spazio di memoria** (non può accedere alla memoria degli altri)
+- Le sue **risorse** (file aperti, connessioni di rete)
+- Almeno un **thread** di esecuzione
+
+Puoi vedere i processi attivi sul tuo computer con il Task Manager (Windows) o il Monitoraggio Attività (Mac).
+
+### Cos'è un thread?
+
+Un **thread** è un "filo di esecuzione" all'interno di un processo. Un processo può avere **più thread** che condividono la stessa memoria e le stesse risorse.
+
+```text
+ ┌──────────────── PROCESSO ────────────────┐
+ │                                           │
+ │   Thread 1 ─────→ (scarica un file)       │
+ │   Thread 2 ─────→ (aggiorna la grafica)   │
+ │   Thread 3 ─────→ (ascolta la tastiera)   │
+ │                                           │
+ │   ┌─────────────────────────────────┐     │
+ │   │      Memoria condivisa          │     │
+ │   └─────────────────────────────────┘     │
+ └───────────────────────────────────────────┘
+```
+
+### Processo vs Thread
+
+| Caratteristica | Processo | Thread |
+|---------------|----------|--------|
+| Memoria | Separata (ogni processo ha la sua) | Condivisa (tutti i thread del processo) |
+| Comunicazione | Complicata (IPC) | Facile (stessa memoria) |
+| Creazione | Lenta e "pesante" | Veloce e "leggera" |
+| Crash | Un processo che crasha non tocca gli altri | Un thread che crasha può far cadere tutto il processo |
+| Esempio | Chrome e Spotify sono processi separati | Le tab di Chrome sono thread dello stesso processo |
+
+---
+
+## Perché servono i thread?
+
+Immagina un server di chat (lo vedremo nella sezione networking). Senza thread:
+
+```text
+Client A si connette → il server lo gestisce
+Client B si connette → deve ASPETTARE che A finisca!
+Client C si connette → deve aspettare B che aspetta A...
+```
+
+Con i thread:
+
+```text
+Client A si connette → Thread 1 lo gestisce
+Client B si connette → Thread 2 lo gestisce (in parallelo!)
+Client C si connette → Thread 3 lo gestisce (in parallelo!)
+```
+
+Ogni client ha il suo thread dedicato. Nessuno aspetta!
+
+---
+
+## Il modulo `threading` in Python
+
+Python offre il modulo `threading` per creare e gestire thread. Ecco le basi:
+
+### Creare un thread
+
+```python
+import threading
+import time
+
+def saluta(nome):
+    for i in range(3):
+        print(f"Ciao da {nome}! (messaggio {i+1})")
+        time.sleep(1)  # Aspetta 1 secondo
+
+# Crea due thread
+thread1 = threading.Thread(target=saluta, args=("Thread A",))
+thread2 = threading.Thread(target=saluta, args=("Thread B",))
+
+# Avvia i thread
+thread1.start()
+thread2.start()
+
+# Aspetta che entrambi finiscano
+thread1.join()
+thread2.join()
+
+print("Tutti i thread hanno finito!")
+```
+
+**Output (i messaggi si alternano!):**
+
+```text
+Ciao da Thread A! (messaggio 1)
+Ciao da Thread B! (messaggio 1)
+Ciao da Thread A! (messaggio 2)
+Ciao da Thread B! (messaggio 2)
+Ciao da Thread A! (messaggio 3)
+Ciao da Thread B! (messaggio 3)
+Tutti i thread hanno finito!
+```
+
+### Spiegazione
+
+- `threading.Thread(target=funzione, args=(...))` — crea un nuovo thread che eseguirà la funzione indicata
+- `.start()` — avvia il thread (non blocca il programma, continua subito alla riga dopo!)
+- `.join()` — aspetta che il thread finisca prima di andare avanti
+- I due thread girano **contemporaneamente**: mentre Thread A dorme (`sleep`), Thread B lavora e viceversa
+
+---
+
+## Thread con dati condivisi
+
+I thread condividono la memoria del processo. Questo è comodo ma anche **pericoloso** se non si fa attenzione:
+
+```python
+import threading
+
+contatore = 0
+
+def incrementa(n):
+    global contatore
+    for _ in range(n):
+        contatore += 1
+
+# Due thread incrementano lo stesso contatore
+t1 = threading.Thread(target=incrementa, args=(100000,))
+t2 = threading.Thread(target=incrementa, args=(100000,))
+
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+
+print(f"Risultato: {contatore}")
+print(f"Atteso: 200000")
+```
+
+Se esegui questo codice più volte, il risultato **non è sempre 200000**! Perché? Perché i due thread possono leggere e scrivere `contatore` **nello stesso istante**, creando una **race condition** (condizione di gara): il valore si "perde" quando entrambi leggono lo stesso numero prima che l'altro lo aggiorni.
+
+### La soluzione: il Lock
+
+Un **Lock** (lucchetto) garantisce che solo un thread alla volta possa accedere a una risorsa condivisa:
+
+```python
+import threading
+
+contatore = 0
+lucchetto = threading.Lock()
+
+def incrementa_sicuro(n):
+    global contatore
+    for _ in range(n):
+        lucchetto.acquire()   # Chiudi il lucchetto (gli altri aspettano)
+        contatore += 1
+        lucchetto.release()   # Apri il lucchetto (il prossimo può entrare)
+
+t1 = threading.Thread(target=incrementa_sicuro, args=(100000,))
+t2 = threading.Thread(target=incrementa_sicuro, args=(100000,))
+
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+
+print(f"Risultato: {contatore}")  # Sempre 200000!
+```
+
+::: {.callout-tip}
+## Sintassi più pulita con `with`
+Puoi usare `with lucchetto:` al posto di `acquire()` e `release()`. Il lucchetto si apre automaticamente alla fine del blocco, anche in caso di errori:
+
+```python
+def incrementa_sicuro(n):
+    global contatore
+    for _ in range(n):
+        with lucchetto:
+            contatore += 1
+```
+:::
+
+---
+
+## Esempio pratico: download parallelo
+
+Un caso d'uso classico. Immagina di dover scaricare 5 file: senza thread aspetti che ognuno finisca prima di iniziare il successivo. Con i thread, li scarichi tutti insieme!
+
+```python
+import threading
+import time
+
+def scarica_file(nome, durata):
+    print(f"Inizio download di {nome}...")
+    time.sleep(durata)  # Simula il tempo di download
+    print(f"Completato {nome}!")
+
+file_da_scaricare = [
+    ("documento.pdf", 3),
+    ("immagine.jpg", 2),
+    ("video.mp4", 5),
+    ("musica.mp3", 1),
+    ("archivio.zip", 4)
+]
+
+# Versione SEQUENZIALE (lenta)
+print("=== Download sequenziale ===")
+inizio = time.time()
+for nome, durata in file_da_scaricare:
+    scarica_file(nome, durata)
+print(f"Tempo totale: {time.time() - inizio:.1f} secondi\n")
+
+# Versione con THREAD (veloce!)
+print("=== Download con thread ===")
+inizio = time.time()
+threads = []
+for nome, durata in file_da_scaricare:
+    t = threading.Thread(target=scarica_file, args=(nome, durata))
+    threads.append(t)
+    t.start()
+
+for t in threads:
+    t.join()
+print(f"Tempo totale: {time.time() - inizio:.1f} secondi")
+```
+
+**Output:**
+
+```text
+=== Download sequenziale ===
+Inizio download di documento.pdf...
+Completato documento.pdf!
+...
+Tempo totale: 15.0 secondi
+
+=== Download con thread ===
+Inizio download di documento.pdf...
+Inizio download di immagine.jpg...
+Inizio download di video.mp4...
+Inizio download di musica.mp3...
+Inizio download di archivio.zip...
+Completato musica.mp3!
+Completato immagine.jpg!
+Completato documento.pdf!
+Completato archivio.zip!
+Completato video.mp4!
+Tempo totale: 5.0 secondi
+```
+
+Da 15 secondi a 5! Il tempo totale è quello del file più lento, non la somma di tutti.
+
+---
+
+## Il GIL di Python
+
+::: {.callout-important}
+## Concetto avanzato ma importante
+Python ha un meccanismo chiamato **GIL** (Global Interpreter Lock) che fa sì che **un solo thread alla volta possa eseguire codice Python**. Questo significa che i thread in Python non velocizzano i calcoli puri (CPU-bound), ma sono utilissimi per operazioni di **attesa** (I/O-bound): rete, file, sleep, database.
+
+In pratica: il threading in Python è perfetto per server, download, chat... ma non per fare calcoli matematici più velocemente.
+:::
+
+---
+
+## Riepilogo
+
+| Concetto | Descrizione |
+|----------|-------------|
+| **Processo** | Programma in esecuzione, con memoria propria |
+| **Thread** | Filo di esecuzione dentro un processo, memoria condivisa |
+| `threading.Thread()` | Crea un nuovo thread |
+| `.start()` | Avvia il thread |
+| `.join()` | Aspetta che il thread finisca |
+| **Race condition** | Bug quando più thread accedono agli stessi dati |
+| `threading.Lock()` | Lucchetto per proteggere dati condivisi |
+| **GIL** | Limita Python a un thread attivo alla volta (per il codice Python) |
+
+---
+
+## Mappa concettuale
+
+```{mermaid}
+flowchart TD
+    A["Concorrenza"] --> B["Processo"]
+    A --> C["Thread"]
+
+    B --> B1["Memoria separata"]
+    B --> B2["Pesante da creare"]
+
+    C --> C1["Memoria condivisa"]
+    C --> C2["Leggero da creare"]
+
+    C --> D["Problemi"]
+    D --> D1["Race condition"]
+    D1 --> D2["Lock / Lucchetto"]
+
+    C --> E["Casi d'uso"]
+    E --> E1["Server multi-client"]
+    E --> E2["Download paralleli"]
+    E --> E3["Chat"]
+
+    A --> F["GIL di Python"]
+    F --> F1["Un solo thread attivo"]
+    F --> F2["Ok per I/O"]
+```
+
+::: {.callout-warning}
+## Codice non interattivo
+Il threading richiede esecuzione multi-thread reale, che non è disponibile nel browser. Per provare gli esempi di questa pagina, eseguili in locale con Python sul tuo computer!
+:::
